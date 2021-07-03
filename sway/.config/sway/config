@@ -1,0 +1,35 @@
+#
+# Input / Seat
+#
+input type:keyboard xkb_layout "br"
+input type:touchpad {
+    tap disabled
+    dwt enabled
+    tap_button_map lrm
+    scroll_method edge
+}
+seat seat0 hide_cursor when-typing enable
+seat seat0 xcursor_theme Vanilla-DMZ 24
+
+#
+# Executables
+#
+exec autotiling
+exec wlsunset -l -19.5 -L -43.6 -t 3500
+exec_always gsettings set org.gnome.desktop.privacy remember-recent-files false
+# Audio server
+exec pipewire
+exec pipewire-pulse
+# Ba(terry) notification script
+exec dunst
+exec ~/rand/scripts/checkLowBattery.sh
+# Idle configuration
+exec swayidle timeout 480 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' 
+for_window [app_id="firefox"] inhibit_idle fullscreen
+
+#
+# Misc
+#
+xwayland disable
+### Import config dir
+include ~/.config/sway/config.d/*

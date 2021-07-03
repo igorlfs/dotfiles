@@ -1,0 +1,103 @@
+#
+# Basics
+#
+set $mod Mod4
+# Exit
+bindsym $mod+Shift+e exec swaymsg '[shell=.*]' nop || swaymsg exit
+# Reload configuration
+bindsym $mod+Shift+a reload
+# Close window 
+bindsym $mod+Shift+q kill
+# Drag/Resize windows with mouse
+floating_modifier $mod normal
+
+#
+# Launch Programs
+#
+bindsym $mod+Return exec alacritty
+bindsym $mod+w exec firefox
+bindsym $mod+e exec zathura
+bindsym --release Print exec grim -g "$(slurp)" - | wl-copy --type image/png
+
+#
+# Media
+#
+# Volume control (Pulse)
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 0 +5%
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume 0 -5%
+bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle
+bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
+
+# Brightness
+bindsym XF86MonBrightnessUp exec light -A 5
+bindsym XF86MonBrightnessDown exec light -U 5
+
+#
+# Workspaces
+#
+# Switch to workspace
+bindsym $mod+1 workspace number 1
+bindsym $mod+2 workspace number 2
+bindsym $mod+3 workspace number 3
+bindsym $mod+4 workspace number 4
+bindsym $mod+5 workspace number 5
+
+# Move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace number 1
+bindsym $mod+Shift+2 move container to workspace number 2
+bindsym $mod+Shift+3 move container to workspace number 3
+bindsym $mod+Shift+4 move container to workspace number 4
+bindsym $mod+Shift+5 move container to workspace number 5
+
+#
+# Moving Around
+#
+### Change focus
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+### Move focused window
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+#
+# Scratchpad
+#
+bindsym $mod+Shift+minus move scratchpad
+bindsym $mod+minus scratchpad show
+
+#
+# Layout
+#
+# Split in horizontal or vertical orientation
+bindsym $mod+b splith
+bindsym $mod+v splitv
+# Enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+# Switch the current container between different layout styles
+bindsym $mod+t layout tabbed
+bindsym $mod+s layout stacking
+#	bindsym $mod+y layout toggle split
+# Toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+# Change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+# Focus to the parent container
+#   bindsym $mod+a focus parent
+
+#
+# Resize
+#
+mode "resize" {
+  bindsym h resize shrink width 10 px or 10 ppt
+    bindsym j resize grow height 10 px or 10 ppt
+    bindsym k resize shrink height 10 px or 10 ppt
+    bindsym l resize grow width 10 px or 10 ppt
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+    bindsym $mod+r mode "default"
+}
+bindsym $mod+r mode "resize"

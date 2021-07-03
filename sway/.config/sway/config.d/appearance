@@ -1,0 +1,32 @@
+#
+# Appearance
+#
+font pango:Iosevka bold 10
+smart_borders on
+default_border pixel 2
+default_floating_border none
+#hide_edge_borders both
+
+### Colors
+set $focused #c0c5ce 
+set $inactive #24283b 
+set $unfocused #24283b
+set $urgent #ec5f67
+set $var #000000
+
+# class                     background border     text     indicator
+client.focused              $var       $focused   $var     $focused   
+client.focused_inactive     $var       $inactive  $var     $inactive  
+client.unfocused            $var       $unfocused $var     $unfocused 
+client.urgent               $var       $urgent    $var     $urgent    
+
+### Wallpaper
+output * bg #1a1b26 solid_color
+
+### GTK
+set $wl-theme gsettings set org.gnome.desktop.interface
+exec_always {
+    $wl-theme cursor-theme Vanilla-DMZ
+    $wl-theme icon-theme Arc
+    $wl-theme gtk-theme Arc-Dark
+}

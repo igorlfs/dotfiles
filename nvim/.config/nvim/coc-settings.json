@@ -1,0 +1,9 @@
+
+{
+   "coc.preferences.extensionUpdateCheck": "daily",
+   "coc.preferences.formatOnSaveFiletypes": [
+       "cpp",
+       "hpp",
+       "javascript"
+   ]
+}
