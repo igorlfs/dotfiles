@@ -51,9 +51,12 @@ set shiftwidth=2               " indents width of 2
 set softtabstop=2              " columns for a TAB
 set expandtab                  " expand TABs to space
 """ Folding
-set foldmethod=indent          " fold based on indent
-set foldnestmax=8              " deepest fold is 8 levels
-set nofoldenable               " don't fold by default
+set foldnestmax=12             " deepest fold is 12 levels
+set foldlevel=1                " prevents treesitter from collapsing the file in a single line
+set foldenable                 " fold by default
+" Use treesitter to fold
+set foldmethod=expr
+set foldexpr=nvim_treesitter#foldexpr()
 """ Files
 set undofile				           " enables persistent undo
 set undodir=$XDG_DATA_HOME/nvim/undo// " persistent undo location
