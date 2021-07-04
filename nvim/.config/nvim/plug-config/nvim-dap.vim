@@ -41,13 +41,13 @@ dap.configurations.cpp = {
   {
           name = "Launch",
           type = "lldb",
-          --request = "launch",
-          --program = "${workspaceFolder}/main",
-          request = "attach",
-          pid = pick_process,
-          --cwd = '${workspaceFolder}',
-          --stopOnEntry = false,
-          args = {},
+          request = "launch",
+          program = "${workspaceFolder}/main",
+          --request = "attach",
+          --pid = pick_process,
+          cwd = '${workspaceFolder}',
+          stopOnEntry = false,
+          args = {"input.txt"},
           -- if you change `runInTerminal` to true, you might need to change the yama/ptrace_scope setting:
           --
           --    echo 0 | sudo tee /proc/sys/kernel/yama/ptrace_scope
@@ -58,7 +58,7 @@ dap.configurations.cpp = {
           --
           -- But you should be aware of the implications:
           -- https://www.kernel.org/doc/html/latest/admin-guide/LSM/Yama.html
-          --runInTerminal = true,
+          runInTerminal = false,
   },
 }
 dap.configurations.c = dap.configurations.cpp
