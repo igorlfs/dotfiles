@@ -47,7 +47,10 @@ dap.configurations.cpp = {
           --pid = pick_process,
           cwd = '${workspaceFolder}',
           stopOnEntry = false,
-          args = {"input.txt"},
+          --args = {"input.txt"},
+          args = function()
+          return vim.fn.input('Input file: ', vim.fn.getcwd() .. '/', 'file')
+        end,
           -- if you change `runInTerminal` to true, you might need to change the yama/ptrace_scope setting:
           --
           --    echo 0 | sudo tee /proc/sys/kernel/yama/ptrace_scope
@@ -70,12 +73,7 @@ let g:dap_virtual_text = v:true
 sign define DapBreakpoint  text=● texthl=WarningMsg
 " UI
 lua << EOF
-require("dapui").setup({
-  icons = {
-    expanded = "▼ ",
-    collapsed = "▶ "
-  }
-})
+require("dapui").setup()
 EOF
 " Mappings
 nnoremap <silent> <F12> <Cmd>lua require'dap'.step_out()<CR>
