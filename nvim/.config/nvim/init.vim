@@ -38,6 +38,7 @@ set clipboard+=unnamedplus	   " use system clipboard
 set wildmode=longest,list,full " funky wildmenu
 set linebreak                  " wrap long lines
 set splitbelow splitright      " fix splits
+set hidden                     " allows the editing of multiple files 
 """ Unclutter (default) status bar
 set noshowcmd
 set noshowmode
