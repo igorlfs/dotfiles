@@ -32,7 +32,7 @@ set ignorecase
 set smartcase
 set cindent
 set relativenumber number      " numberlines for motion
-set scrolloff=6				         " context lines when scrolling
+set scrolloff=5				         " context lines when scrolling
 set mouse=a				             " mousescroll, fix number lines
 set clipboard+=unnamedplus	   " use system clipboard
 set wildmode=longest,list,full " funky wildmenu
