@@ -11,14 +11,13 @@ Plug 'mfussenegger/nvim-dap'
 Plug 'theHamsta/nvim-dap-virtual-text'
 Plug 'rcarriga/nvim-dap-ui'
 """ Miscellaneous
+Plug 'nvim-lua/plenary.nvim'
+Plug 'lewis6991/gitsigns.nvim'
 Plug 'voldikss/vim-floaterm'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'hoob3rt/lualine.nvim'
 Plug 'lukas-reineke/indent-blankline.nvim', {'for': 'cpp'}
-Plug 'airblade/vim-gitgutter'
-" Switch between header and implementation
-Plug 'derekwyatt/vim-fswitch', {'for': ['c', 'cpp']}
 call plug#end()
 
 """"""""""""""" Default
@@ -105,6 +104,15 @@ require'treesitter-context.config'.setup{
     enable = true, 
 }
 EOF
+
+""" Indent Line
+"let g:indentLine_char = '▏'
+let g:indentLine_char = '┊'
+let g:indent_blankline_use_treesitter = v:true
+" TODO: improve context indent highlighted by treesitter
+let g:indent_blankline_show_current_context = v:true
+let g:indent_blankline_context_patterns = ['class', 'function', 'method','^if','^for','^do','^while','^case']
+
 """ Lualine
 lua<<EOF
 require'lualine'.setup {
