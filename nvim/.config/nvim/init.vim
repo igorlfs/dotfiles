@@ -68,24 +68,11 @@ autocmd FileType cpp nmap <leader>c :w <CR> :!g++ -std=c++17 -g *.cpp -Wall -o m
 "autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 """"""""""""""" Plugins
-""" COC
-source ~/.config/nvim/plug-config/coc.vim
-
-""" Nvim-DAP
-source ~/.config/nvim/plug-config/nvim-dap.vim
-
-""" Indent Line
-let g:indentLine_char = '▏'
-
 """ Floaterm
 let g:floaterm_keymap_toggle = '<A-p>'
 
-""" Switch between source and header
-autocmd FileType c,cpp nnoremap <silent> <A-o> :FSHere<cr> 
-
 """ Colorscheme
 let g:tokyonight_style = "night"
-let g:tokyonight_lualine_bold = "true"
 colorscheme tokyonight
 
 """ Treesitter
