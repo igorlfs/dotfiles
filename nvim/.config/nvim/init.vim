@@ -54,7 +54,7 @@ set expandtab                  " expand TABs to space
 """ Folding
 set foldnestmax=12             " deepest fold is 12 levels
 set foldlevel=1                " prevents treesitter from collapsing the file in a single line
-set foldenable                 " fold by default
+set nofoldenable               " don't fold by default
 " Use treesitter to fold
 set foldmethod=expr
 set foldexpr=nvim_treesitter#foldexpr()
