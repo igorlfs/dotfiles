@@ -18,7 +18,6 @@ Plug 'voldikss/vim-floaterm'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'hoob3rt/lualine.nvim'
-Plug 'lukas-reineke/indent-blankline.nvim', {'for': 'cpp'}
 call plug#end()
 
 """"""""""""""" Default
@@ -257,6 +256,14 @@ require'lualine'.setup {
 }
 EOF
 """""""""""""""""""""""""LEGACY""""""""""""""""""""""""""""""
+""" Indent Line
+"Plug 'lukas-reineke/indent-blankline.nvim', {'for': 'cpp'}
+" TODO: improve context indent highlighted by treesitter
+"let g:indentLine_char = '▏'
+"let g:indentLine_char = '┊'
+"let g:indent_blankline_use_treesitter = v:true
+"let g:indent_blankline_show_current_context = v:true
+"let g:indent_blankline_context_patterns = ['class', 'function', 'method','^if','^else','^for','^do','^while','^case']
 """ COC
 "Plug 'neoclide/coc.nvim', {'branch': 'release'}
 "source ~/.config/nvim/plug-config/coc.vim
