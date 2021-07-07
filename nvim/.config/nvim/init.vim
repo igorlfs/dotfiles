@@ -76,14 +76,10 @@ luafile ~/.config/nvim/plug-config/treesitter.lua
 luafile ~/.config/nvim/plug-config/lsp.lua
 luafile ~/.config/nvim/plug-config/nvim-dap.lua
 luafile ~/.config/nvim/plug-config/nvim-compe.lua
+luafile ~/.config/nvim/plug-config/gitsigns.lua
 
 """ Floaterm
 let g:floaterm_keymap_toggle = '<A-p>'
-
-""" Git signs
-lua << EOF
-require('gitsigns').setup()
-EOF
 
 """ nvim-autopairs
 lua << EOF

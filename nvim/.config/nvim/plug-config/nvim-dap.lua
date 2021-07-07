@@ -16,6 +16,9 @@ dap.configurations.cpp = {
     program = "${workspaceFolder}/main",
     cwd = '${workspaceFolder}',
     stopOnEntry = false,
+    -- use 2 args: 
+    -- -i flag to indicate input file
+    -- actual filename
     args = {"-i", function()
       return vim.fn.input('Input file: ')
     end},
