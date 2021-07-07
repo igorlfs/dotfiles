@@ -4,8 +4,9 @@ Plug 'folke/tokyonight.nvim'
 """ Treesitter
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'romgrk/nvim-treesitter-context'
-""" Vscode features
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+""" LSP
+Plug 'neovim/nvim-lspconfig'
+Plug 'hrsh7th/nvim-compe'
 """ Debugger
 Plug 'mfussenegger/nvim-dap'
 Plug 'theHamsta/nvim-dap-virtual-text'
@@ -250,6 +251,9 @@ require'lualine'.setup {
 }
 EOF
 """""""""""""""""""""""""LEGACY""""""""""""""""""""""""""""""
+""" COC
+"Plug 'neoclide/coc.nvim', {'branch': 'release'}
+"source ~/.config/nvim/plug-config/coc.vim
 """ FZF
 "nmap <silent> <C-p> :Files<cr>
 """"" Vimspector
