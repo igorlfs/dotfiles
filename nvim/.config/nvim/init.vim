@@ -224,9 +224,9 @@ require'nvim-treesitter.configs'.setup {
     enable = true
   }
 }
-require'treesitter-context.config'.setup{
-    enable = true, 
-}
+--require'treesitter-context.config'.setup{
+--    enable = true, 
+--}
 EOF
 
 """ Indent Line
