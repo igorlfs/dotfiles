@@ -76,6 +76,11 @@ let g:floaterm_keymap_toggle = '<A-p>'
 let g:tokyonight_style = "night"
 colorscheme tokyonight
 
+""" Lua
+luafile ~/.config/nvim/plug-config/treesitter.lua
+luafile ~/.config/nvim/plug-config/nvim-dap.lua
+luafile ~/.config/nvim/plug-config/nvim-compe.lua
+
 """ Git signs
 lua << EOF
 require('gitsigns').setup()
