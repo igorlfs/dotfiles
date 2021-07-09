@@ -24,13 +24,12 @@ call plug#end()
 """"""""""""""" Default
 filetype plugin indent on
 if (has("termguicolors"))
- set termguicolors
+  set termguicolors
 endif
 syntax enable
 set nohlsearch
 set ignorecase
 set smartcase
-set cindent
 set relativenumber number      " numberlines for motion
 set scrolloff=5				         " context lines when scrolling
 set mouse=a				             " mousescroll, fix number lines
@@ -63,13 +62,12 @@ set undofile				           " enables persistent undo
 set undodir=$XDG_DATA_HOME/nvim/undo// " persistent undo location
 set shadafile=NONE		         " don't save history
 set nobackup                   " use swap instead of backups
-""" Compile C++
-autocmd FileType cpp nmap <leader>c :w <CR> :!g++ -std=c++17 -g *.cpp -Wall -o main <CR>
 """ Disable comment on new lines
 "autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 """"""""""""""" Plugins
 let g:tokyonight_style = "night"
+let g:tokyonight_italic_comments = 0
 colorscheme tokyonight
 
 luafile ~/.config/nvim/plug-config/treesitter.lua
@@ -90,51 +88,25 @@ require("nvim-autopairs.completion.compe").setup({
 })
 EOF
 
-tnoremap <Esc> <C-\><C-n>
+""" nvim-dap
 " Virtual Text
 let g:dap_virtual_text = v:true
 " Change Breakpoint character " Open PR nvim-dap
 sign define DapBreakpoint  text=● texthl=WarningMsg
-
-"""""""""""""""""""""""""LEGACY""""""""""""""""""""""""""""""
-""" Lualine
-"Plug 'hoob3rt/lualine.nvim'
-lua<<EOF
---require'lualine'.setup {
---  options = {
---    icons_enabled = false,
---    theme = 'tokyonight',
---  },
---  sections = {
---    lualine_x = {}
---  },
---  tabline = {},
---}
-EOF
-""" Indent Line
-"Plug 'lukas-reineke/indent-blankline.nvim', {'for': 'cpp'}
-" TODO: improve context indent highlighted by treesitter
-"let g:indentLine_char = '▏'
-"let g:indentLine_char = '┊'
-"let g:indent_blankline_use_treesitter = v:true
-"let g:indent_blankline_show_current_context = v:true
-"let g:indent_blankline_context_patterns = ['class', 'function', 'method','^if','^else','^for','^do','^while','^case']
-""" COC
-"Plug 'neoclide/coc.nvim', {'branch': 'release'}
-"source ~/.config/nvim/plug-config/coc.vim
-""" FZF
-"nmap <silent> <C-p> :Files<cr>
-""""" Vimspector
-"let g:vimspector_enable_mappings = 'HUMAN'
-"nmap <silent> <F2> :VimspectorReset <CR>
-"F3         <Plug>VimspectorStop
-"F4         <Plug>VimspectorRestart !!!
-"F5         <Plug>VimspectorContinue
-"F6         <Plug>VimspectorPause
-"F8         <Plug>VimspectorAddFunctionBreakpoint !!!
-"F9         <Plug>VimspectorToggleBreakpoint
-"<leader>F9 <Plug>VimspectorToggleConditionalBreakpoint
-"<leader>F8 <Plug>VimspectorRunToCursor
-"F10        <Plug>VimspectorStepOver
-"F11        <Plug>VimspectorStepInto
-"F12        <Plug>VimspectorStepOut
+" simplify exiting terminal mode
+tnoremap <Esc> <C-\><C-n>
+"  Mappings
+nnoremap <silent> <F12> <Cmd>lua require'dap'.step_out()<CR>
+nnoremap <silent> <F11> <Cmd>lua require'dap'.step_into()<CR>
+nnoremap <silent> <F10> <Cmd>lua require'dap'.step_over()<CR>
+nnoremap <silent> <F9> <Cmd>lua require'dap'.toggle_breakpoint()<CR>
+nnoremap <silent> <F8> <Cmd>lua require'dap'.run_to_cursor()<CR>
+nnoremap <silent> <F7> <Cmd>lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>
+nnoremap <silent> <F6> <Cmd>lua require'dap'.pause()<CR>
+nnoremap <silent> <F5> <Cmd>lua require'dap'.continue()<CR>
+nnoremap <silent> <F4> <Cmd>lua require'dap'.disconnect()<CR> :lua require'dap'.stop()<CR>
+" UI specific
+nnoremap <silent> <F3> <Cmd>lua require'dapui'.toggle()<CR>
+nnoremap <silent> <F2> <Cmd>lua require'dapui'.eval()<CR>
+" Alternative to UI
+"nnoremap <silent> <F3> <Cmd>lua require'dap'.repl.open({}, 'split')<CR><C-w>j

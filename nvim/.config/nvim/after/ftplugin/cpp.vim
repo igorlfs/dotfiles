@@ -1,3 +1,5 @@
+""" Compile
+nnoremap <leader>c :w <CR> :!g++ -std=c++17 -g *.cpp -Wall -Wextra -o main <CR>
 """ [lsp] Switch between source and header
 nnoremap <silent> <A-o> :ClangdSwitchSourceHeader<CR> 
 """ [lsp] Autoformat
@@ -16,4 +18,4 @@ nnoremap <silent> <F4> <Cmd>lua require'dap'.disconnect()<CR> :lua require'dap'.
 nnoremap <silent> <F3> <Cmd>lua require'dapui'.toggle()<CR>
 nnoremap <silent> <F2> <Cmd>lua require'dapui'.eval()<CR>
 " Alternative to UI
-"nnoremap <silent> <F3> <Cmd>lua require'dap'.repl.open({}, 'vsplit')<CR><C-w>l
+"nnoremap <silent> <F3> <Cmd>lua require'dap'.repl.open({}, 'split')<CR><C-w>j
