@@ -14,6 +14,7 @@ Plug 'mfussenegger/nvim-dap'
 Plug 'theHamsta/nvim-dap-virtual-text'
 Plug 'rcarriga/nvim-dap-ui'
 """ Miscellaneous
+Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'windwp/nvim-autopairs'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'lewis6991/gitsigns.nvim'
@@ -77,6 +78,11 @@ luafile ~/.config/nvim/plug-config/gitsigns.lua
 
 """ Floaterm
 let g:floaterm_keymap_toggle = '<A-p>'
+
+""" indentLine
+let g:indentLine_char = '▏'
+let g:indent_blankline_show_current_context = v:true
+let g:indent_blankline_context_patterns = ['%a']
 
 """ nvim-autopairs
 lua << EOF
