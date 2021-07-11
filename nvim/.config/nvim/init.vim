@@ -4,6 +4,7 @@ Plug 'folke/tokyonight.nvim'
 """ Treesitter
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'romgrk/nvim-treesitter-context'
+Plug 'nvim-treesitter/nvim-treesitter-refactor'
 """ LSP
 Plug 'neovim/nvim-lspconfig'
 """ AutoComplete
@@ -38,6 +39,7 @@ set wildmode=longest,list,full " funky wildmenu
 set linebreak                  " wrap long lines
 set splitbelow splitright      " fix splits
 set hidden                     " allows the editing of multiple files 
+let mapleader = " "
 """ Unclutter (default) status bar
 set noshowcmd
 set noshowmode
@@ -51,12 +53,9 @@ set shiftwidth=2               " indents width of 2
 set softtabstop=2              " columns for a TAB
 set expandtab                  " expand TABs to space
 """ Folding
+set foldmethod=indent
 set foldnestmax=12             " deepest fold is 12 levels
-set foldlevel=1                " prevents treesitter from collapsing the file in a single line
 set nofoldenable               " don't fold by default
-" Use treesitter to fold
-set foldmethod=expr
-set foldexpr=nvim_treesitter#foldexpr()
 """ Files
 set undofile				           " enables persistent undo
 set undodir=$XDG_DATA_HOME/nvim/undo// " persistent undo location
