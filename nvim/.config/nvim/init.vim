@@ -13,6 +13,8 @@ Plug 'hrsh7th/nvim-compe'
 Plug 'mfussenegger/nvim-dap'
 Plug 'theHamsta/nvim-dap-virtual-text'
 Plug 'rcarriga/nvim-dap-ui'
+""" LaTeX
+Plug 'lervag/vimtex'
 """ Miscellaneous
 Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'windwp/nvim-autopairs'
@@ -40,6 +42,7 @@ set wildmode=longest,list,full " funky wildmenu
 set linebreak                  " wrap long lines
 set splitbelow splitright      " fix splits
 set hidden                     " allows the editing of multiple files 
+set updatetime=300
 let mapleader = " "
 """ Unclutter (default) status bar
 set noshowcmd
@@ -75,6 +78,13 @@ luafile ~/.config/nvim/plug-config/lsp.lua
 luafile ~/.config/nvim/plug-config/nvim-dap.lua
 luafile ~/.config/nvim/plug-config/nvim-compe.lua
 luafile ~/.config/nvim/plug-config/gitsigns.lua
+
+""" Vimtex
+let g:tex_flavor='latex'
+let g:vimtex_view_method='zathura'
+let g:vimtex_quickfix_mode=0
+set conceallevel=1
+let g:tex_conceal='abdmg'
 
 """ Floaterm
 let g:floaterm_keymap_toggle = '<A-p>'
