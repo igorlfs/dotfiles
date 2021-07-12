@@ -88,8 +88,6 @@ dap.configurations.cpp = {
     -- input file. However, doing so, requires implementation changes, 
     -- therefore it may have an use case.
     --
-    -- See https://github.com/mfussenegger/nvim-dap/wiki/Cookbook#pick-a-process
-    -- for the actual function that allows to choose a process
     --request = "attach",
     --pid = pick_process,
   },
@@ -100,3 +98,7 @@ dap.configurations.c = dap.configurations.cpp
 ---- UI
 -- The UI does NOT work well with runInTerminal = true
 require("dapui").setup()
+
+---- Virtual Text
+-- Prevents SIGWINCH from cluttering the view
+require "nvim-dap-virtual-text/virtual_text".set_error = function() end
