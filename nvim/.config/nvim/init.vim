@@ -79,7 +79,10 @@ luafile ~/.config/nvim/plug-config/treesitter.lua
 luafile ~/.config/nvim/plug-config/lsp.lua
 luafile ~/.config/nvim/plug-config/nvim-dap.lua
 luafile ~/.config/nvim/plug-config/nvim-compe.lua
-luafile ~/.config/nvim/plug-config/gitsigns.lua
+
+lua << EOF
+require('gitsigns').setup {}
+EOF
 
 """ Vimtex
 let g:tex_flavor='latex'
