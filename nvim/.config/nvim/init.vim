@@ -15,6 +15,8 @@ Plug 'theHamsta/nvim-dap-virtual-text'
 Plug 'rcarriga/nvim-dap-ui'
 """ LaTeX
 Plug 'lervag/vimtex'
+""" Linting
+Plug 'dense-analysis/ale'
 """ Miscellaneous
 Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'windwp/nvim-autopairs'
@@ -52,9 +54,9 @@ set noruler
 nmap k gk
 nmap j gj
 """ Tabs
-set tabstop=2                  " width of a TAB is set to 2
-set shiftwidth=2               " indents width of 2
-set softtabstop=2              " columns for a TAB
+set tabstop=4                  " width of a TAB is set to 4
+set shiftwidth=4               " indents width of 4
+set softtabstop=4              " columns for a TAB
 set expandtab                  " expand TABs to space
 """ Folding
 set foldmethod=indent
