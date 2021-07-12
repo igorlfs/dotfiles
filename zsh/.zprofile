@@ -11,8 +11,9 @@ if test -z "${XDG_RUNTIME_DIR}"; then
     fi
 fi
 ### MISC
-export ZDOTDIR="${XDG_CONFIG_HOME}/zsh"
+export ZDOTDIR="$XDG_CONFIG_HOME"/zsh
 export XINITRC="$XDG_CONFIG_HOME"/X11/xinitrc
+export UNCRUSTIFY_CONFIG="$XDG_CONFIG_HOME"/uncrustify/uncrustify.cfg
 export LESSHISTFILE="-"
 export EDITOR='nvim'
 export MANPAGER='nvim +Man!'
