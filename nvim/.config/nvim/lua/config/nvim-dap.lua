@@ -59,14 +59,16 @@ dap.configurations.cpp = {
     name = "Launch",
     type = "lldb",
     request = "launch",
-    program = "${workspaceFolder}/main",
+    program = function()
+      return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+    end,
     cwd = '${workspaceFolder}',
     stopOnEntry = false,
     -- use 2 args: 
     -- -i flag to indicate input file
     -- actual filename
     args = {"-i", function()
-      return vim.fn.input('Input file: ')
+     return vim.fn.input('Input file: ')
     end},
     -- if you change `runInTerminal` to true, you might need to change the yama/ptrace_scope setting:
     --

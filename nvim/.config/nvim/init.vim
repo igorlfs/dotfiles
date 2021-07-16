@@ -1,30 +1,30 @@
+let g:ale_disable_lsp = 1
 call plug#begin('~/.local/share/nvim/site/autoload/plugged')
 """ Colorscheme
 Plug 'folke/tokyonight.nvim' 
 """ Treesitter
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'romgrk/nvim-treesitter-context'
-Plug 'nvim-treesitter/nvim-treesitter-refactor'
 """ LSP
-Plug 'neovim/nvim-lspconfig'
-""" AutoComplete
-Plug 'hrsh7th/nvim-compe'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+""" Linting
+" ALE's Linter is better
+Plug 'dense-analysis/ale'
 """ Debugger
 Plug 'mfussenegger/nvim-dap'
 Plug 'theHamsta/nvim-dap-virtual-text'
 Plug 'rcarriga/nvim-dap-ui'
 """ LaTeX
 Plug 'lervag/vimtex'
-""" Linting
-Plug 'dense-analysis/ale'
-""" Miscellaneous
-Plug 'lukas-reineke/indent-blankline.nvim'
-Plug 'windwp/nvim-autopairs'
-Plug 'nvim-lua/plenary.nvim'
-Plug 'lewis6991/gitsigns.nvim'
-Plug 'voldikss/vim-floaterm'
-Plug 'tpope/vim-commentary'
+""" Git
+Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
+""" Miscellaneous
+Plug 'derekwyatt/vim-fswitch'
+Plug 'tpope/vim-commentary'
+Plug 'voldikss/vim-floaterm'
+"TODO: test terminal plugin
+"Plug 'akinsho/nvim-toggleterm.lua'
 call plug#end()
 
 """"""""""""""" Default
@@ -46,6 +46,7 @@ set splitbelow splitright      " fix splits
 set hidden                     " allows the editing of multiple files 
 set updatetime=300
 let mapleader = " "
+set signcolumn=yes
 """ Unclutter (default) status bar
 set noshowcmd
 set noshowmode
@@ -54,9 +55,9 @@ set noruler
 nmap k gk
 nmap j gj
 """ Tabs
-set tabstop=4                  " width of a TAB is set to 4
-set shiftwidth=4               " indents width of 4
-set softtabstop=4              " columns for a TAB
+set tabstop=2                  " width of a TAB is set to 2
+set shiftwidth=2               " indents width of 2
+set softtabstop=2              " columns for a TAB
 set expandtab                  " expand TABs to space
 """ Folding
 set foldmethod=indent
@@ -75,13 +76,11 @@ let g:tokyonight_style = "night"
 let g:tokyonight_italic_comments = 0
 colorscheme tokyonight
 
-luafile ~/.config/nvim/plug-config/treesitter.lua
-luafile ~/.config/nvim/plug-config/lsp.lua
-luafile ~/.config/nvim/plug-config/nvim-dap.lua
-luafile ~/.config/nvim/plug-config/nvim-compe.lua
+source ~/.config/nvim/plug-config/coc.vim
 
 lua << EOF
-require('gitsigns').setup {}
+require("config.treesitter")
+require("config.nvim-dap")
 EOF
 
 """ Vimtex
@@ -93,20 +92,6 @@ let g:tex_conceal='abdmg'
 
 """ Floaterm
 let g:floaterm_keymap_toggle = '<A-p>'
-
-""" indentLine
-let g:indentLine_char = '▏'
-let g:indent_blankline_show_current_context = v:true
-let g:indent_blankline_context_patterns = ['%a']
-
-""" nvim-autopairs
-lua << EOF
-require('nvim-autopairs').setup()
-require("nvim-autopairs.completion.compe").setup({
-  map_cr = true, --  map <CR> on insert mode
-  map_complete = true -- it will auto insert `(` after select function or method item
-})
-EOF
 
 """ nvim-dap
 " Virtual Text
