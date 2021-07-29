@@ -11,8 +11,9 @@ set recolor-lightcolor "#1a1b26"
 #set completion-highlight-fg "#272822"
 #set statusbar-bg "#272822"
 #set statusbar-fg "#f8f8f2"
+set adjust-open "window-width"
 set page-padding 1
 set statusbar-v-padding 0
 set statusbar-home-tilde true
-set database null
 set selection-clipboard clipboard
+set show-recent 0

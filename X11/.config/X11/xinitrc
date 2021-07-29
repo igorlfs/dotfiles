@@ -39,6 +39,4 @@ exec xsetroot -solid "#1a1b26" &
 exec redshift -l -19.5:-43.6 -t 6500K:3500K &
 exec dunst &
 exec ~/rand/scripts/checkLowBattery.sh &
-exec pipewire &
-exec pipewire-pulse &
 exec i3

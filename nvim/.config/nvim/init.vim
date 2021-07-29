@@ -4,27 +4,27 @@ call plug#begin('~/.local/share/nvim/site/autoload/plugged')
 Plug 'folke/tokyonight.nvim' 
 """ Treesitter
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-Plug 'romgrk/nvim-treesitter-context'
+"Plug 'romgrk/nvim-treesitter-context'
 """ LSP
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 """ Linting
-" ALE's Linter is better
-Plug 'dense-analysis/ale'
+Plug 'dense-analysis/ale' "ALE's Linter is better
 """ Debugger
-Plug 'mfussenegger/nvim-dap'
-Plug 'theHamsta/nvim-dap-virtual-text'
-Plug 'rcarriga/nvim-dap-ui'
+Plug 'puremourning/vimspector'
 """ LaTeX
-Plug 'lervag/vimtex'
+Plug 'lervag/vimtex', {'for': 'tex'}
+Plug 'vim-pandoc/vim-pandoc'
+Plug 'vim-pandoc/vim-pandoc-syntax' 
 """ Git
-Plug 'airblade/vim-gitgutter'
+Plug 'lewis6991/gitsigns.nvim'
 Plug 'tpope/vim-fugitive'
+""" IndentLine
+Plug 'lukas-reineke/indent-blankline.nvim'
 """ Miscellaneous
+Plug 'nvim-lua/plenary.nvim'
 Plug 'derekwyatt/vim-fswitch'
 Plug 'tpope/vim-commentary'
 Plug 'voldikss/vim-floaterm'
-"TODO: test terminal plugin
-"Plug 'akinsho/nvim-toggleterm.lua'
 call plug#end()
 
 """"""""""""""" Default
@@ -79,10 +79,12 @@ colorscheme tokyonight
 source ~/.config/nvim/plug-config/coc.vim
 
 lua << EOF
-require("config.treesitter")
-require("config.nvim-dap")
+require("treesitter")
+require("indent-blankline")
+require('gitsigns').setup {}
 EOF
 
+nnoremap <leader>cc :!pandoc % -t beamer -o pres.pdf<CR>
 """ Vimtex
 let g:tex_flavor='latex'
 let g:vimtex_view_method='zathura'
@@ -93,25 +95,20 @@ let g:tex_conceal='abdmg'
 """ Floaterm
 let g:floaterm_keymap_toggle = '<A-p>'
 
-""" nvim-dap
-" Virtual Text
-let g:dap_virtual_text = v:true
-" Change Breakpoint character " Open PR nvim-dap
-sign define DapBreakpoint  text=● texthl=WarningMsg
+""" Vimspector
+let g:vimspector_enable_mappings = 'HUMAN'
+nmap <silent> <F2> :VimspectorReset <CR>
+nmap ç <Plug>VimspectorBalloonEval
+"F3         <Plug>VimspectorStop
+"F4         <Plug>VimspectorRestart !!!
+"F5         <Plug>VimspectorContinue
+"F6         <Plug>VimspectorPause
+"F8         <Plug>VimspectorAddFunctionBreakpoint !!!
+"<leader>F8 <Plug>VimspectorRunToCursor
+"F9         <Plug>VimspectorToggleBreakpoint
+"<leader>F9 <Plug>VimspectorToggleConditionalBreakpoint
+"F10        <Plug>VimspectorStepOver
+"F11        <Plug>VimspectorStepInto
+"F12        <Plug>VimspectorStepOut
 " simplify exiting terminal mode
 tnoremap <Esc> <C-\><C-n>
-"  Mappings
-nnoremap <silent> <F12> <Cmd>lua require'dap'.step_out()<CR>
-nnoremap <silent> <F11> <Cmd>lua require'dap'.step_into()<CR>
-nnoremap <silent> <F10> <Cmd>lua require'dap'.step_over()<CR>
-nnoremap <silent> <F9> <Cmd>lua require'dap'.toggle_breakpoint()<CR>
-nnoremap <silent> <F8> <Cmd>lua require'dap'.run_to_cursor()<CR>
-nnoremap <silent> <F7> <Cmd>lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>
-nnoremap <silent> <F6> <Cmd>lua require'dap'.pause()<CR>
-nnoremap <silent> <F5> <Cmd>lua require'dap'.continue()<CR>
-nnoremap <silent> <F4> <Cmd>lua require'dap'.disconnect()<CR> :lua require'dap'.stop()<CR>
-" UI specific
-nnoremap <silent> <F3> <Cmd>lua require'dapui'.toggle()<CR>
-nnoremap <silent> <F2> <Cmd>lua require'dapui'.eval()<CR>
-" Alternative to UI
-"nnoremap <silent> <F3> <Cmd>lua require'dap'.repl.open({}, 'split')<CR><C-w>j
