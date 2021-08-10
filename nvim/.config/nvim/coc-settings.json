@@ -5,6 +5,7 @@
    "coc.preferences.formatOnSaveFiletypes": [
        "cpp",
        "hpp",
-       "javascript"
+       "javascript",
+       "tex"
    ]
 }
