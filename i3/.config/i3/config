@@ -1,7 +1,7 @@
 #
 # Basics
 #
-font pango:Iosevka bold 10
+font pango:FiraCode bold 10
 default_border pixel 2
 default_floating_border none
 hide_edge_borders smart
