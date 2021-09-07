@@ -32,7 +32,7 @@ dap.configurations.cpp = {
 dap.configurations.c = dap.configurations.cpp
 
 ---- Virtual Text -- Fixes throwing SIGWINCH constantly
-require "nvim-dap-virtual-text/virtual_text".set_error = function() end
+--require "nvim-dap-virtual-text/virtual_text".set_error = function() end
 
 ---- UI -- Not working properly with runInTerminal
 --require("dapui").setup()
