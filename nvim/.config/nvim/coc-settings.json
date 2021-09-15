@@ -1,11 +1,14 @@
 
 {
-   "coc.preferences.extensionUpdateCheck": "daily",
-   "diagnostic.displayByAle": true,
-   "coc.preferences.formatOnSaveFiletypes": [
-       "cpp",
-       "hpp",
-       "javascript",
-       "tex"
-   ]
+  "coc.preferences.extensionUpdateCheck": "daily",
+  "coc.preferences.formatOnSaveFiletypes": [ "cpp", "hpp", "tex" ],
+
+  "clangd.fallbackFlags": [ "-Wall", "-Wextra", "-Werror", "-std=c++17" ],
+
+  "explorer.width": 25,
+  "explorer.file.showHiddenFiles" : true,
+  "explorer.keyMappings.global": {
+    "<cr>": ["expandable?", ["expanded?", "collapse", "expand"], "open"],
+    "v": "open:vsplit"
+  }
 }
