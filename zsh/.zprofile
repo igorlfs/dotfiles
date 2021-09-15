@@ -13,8 +13,7 @@ fi
 ### MISC
 export ZDOTDIR="$XDG_CONFIG_HOME"/zsh
 export XINITRC="$XDG_CONFIG_HOME"/X11/xinitrc
-export UNCRUSTIFY_CONFIG="$XDG_CONFIG_HOME"/uncrustify/uncrustify.cfg
 export LESSHISTFILE="-"
 export EDITOR='nvim'
 export MANPAGER='nvim +Man!'
-export _JAVA_AWT_WM_NONREPARENTING=1
+#export UNCRUSTIFY_CONFIG="$XDG_CONFIG_HOME"/uncrustify/uncrustify.cfg
