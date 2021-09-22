@@ -30,11 +30,19 @@ tnoremap <Esc> <C-\><C-n>
 let mapleader = " "
 nmap k gk
 nmap j gj
-" tabs *
-nnoremap <A-S-tab> :tabprevious<CR>
-nnoremap <silent> <A-tab> :tabnext<CR>
-nnoremap <silent> <C-t> :tabnew<CR>
-nnoremap <silent> <A-1> 1gt
+" tabs
+nnoremap <A-tab> :tabnext<cr>
+nnoremap <S-tab> :tabprevious<cr>
+noremap <A-1> 1gt
+noremap <A-2> 2gt
+noremap <A-3> 3gt
+noremap <A-4> 4gt
+noremap <A-5> 5gt
+noremap <A-6> 6gt
+noremap <A-7> 7gt
+noremap <A-8> 8gt
+noremap <A-9> 9gt
+noremap <A-0> :tablast<cr>
 
 """"""""""""""" Plugins
 call plug#begin('~/.local/share/nvim/site/autoload/plugged')
