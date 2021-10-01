@@ -1,27 +1,24 @@
-"""""""""""""""" Alternative to COC
-"""""""" Alternative to coc-snippets
+"""""""""""""""""""""""" Alternative to COC
+"""""""""""""""" Alternative to coc-snippets
 "Plug 'SirVer/ultisnips'
-"""""""" Alternative to coc-pairs
-" Plug 'windwp/nvim-autopairs'
-"--require('nvim-autopairs').setup()
-"""""""" LSP
+"""""""""""""""" LSP
 "Plug 'neovim/nvim-lspconfig'
 "Plug 'ray-x/lsp_signature.nvim'
 "Plug 'honza/vim-snippets' " Snippets collection
 "--require("config.lsp")
 "--require("config.nvim-compe")
-"""" C++ specific config
+"""""" C++ specific config
 """ [lsp] Switch between source and header
 "nnoremap <silent> <A-o> :ClangdSwitchSourceHeader<CR> 
 """ [lsp] Autoformat
 "autocmd BufWritePre * lua vim.lsp.buf.formatting_sync(nil,100)
-"""""""" AutoComplete
+""""""""""""""" AutoComplete
 "Plug 'hrsh7th/nvim-compe'
 
 
 
-"""""""""""""""""""""""" Debugger
-"""""""""""""""" nvim-dap
+"""""""""""""""""""""""" Debuggers
+"""""""""""""""" #1: nvim-dap
 "Plug 'mfussenegger/nvim-dap'
 "Plug 'rcarriga/nvim-dap-ui'
 "Plug 'theHamsta/nvim-dap-virtual-text'
@@ -46,7 +43,7 @@
 """ Alternative to UI
 "nnoremap <silent> <F3> <Cmd>lua require'dap'.repl.open({}, 'vsplit')<CR><C-w>j
 
-"""""""""""""""" vimspector
+"""""""""""""""" #2: Vimspector
 "Plug 'puremourning/vimspector', {'for': 'cpp'} " Debugger *
 """ Vimspector
 "let g:vimspector_sidebar_width = 40
@@ -66,7 +63,7 @@
 "F11        <Plug>VimspectorStepInto
 "F12        <Plug>VimspectorStepOut
 
-"""""""""""""""" Builtin debugger 
+"""""""""""""""" #3: Builtin
 "packadd termdebug
 ""https://stackoverflow.com/a/61647406
 "let g:termdebug_wide=1
@@ -82,7 +79,7 @@
 
 
 
-"""""""""""""""" Alternative status bar
+"""""""""""""""""""""""" Status bar
 "Plug 'hoob3rt/lualine.nvim'
 lua<<EOF
 --require'lualine'.setup {
@@ -98,40 +95,61 @@ lua<<EOF
 EOF
 
 
-
-"""""""""""""""" Treesitter
-"""""""" Context
+"""""""""""""""""""""""" Treesitter
+"""""""""""""""" Context
 "Plug 'romgrk/nvim-treesitter-context'
+"""""""""""""""" Spellchecker
+"Plug 'lewis6991/spellsitter.nvim' 
+" require('spellsitter').setup()
 
 
+"""""""""""""""""""""""" Miscellaneous
+"""""""""""""""" Themes 
+"Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
+"let g:tokyonight_style = "night"
+"Plug 'Pocco81/Catppuccino.nvim'
 
-"""""""""""""""" Miscellaneous
-"""""""" Linting
+"""""""""""""""" Autopairs 
+"""""""" #1: coc-pairs
+"""""""" #2 
+"Plug 'windwp/nvim-autopairs'
+"--require('nvim-autopairs').setup()
+
+"""""""""""""""" Linting
 "let g:ale_disable_lsp = 1
 "Plug 'dense-analysis/ale' " Linting
 
-"""""""" Embed -> firenvim
+"""""""""""""""" Embed -> firenvim
 
-"""""""" Alternative to floaterm
-"Plug 'akinsho/nvim-toggleterm.lua' " needs config
+"""""""""""""""" Autosession (persistence)
+"""""""" #1
+"Plug 'Shatur/neovim-session-manager'
+" Syntax highlighting not working (bug in neovim)
+"-> By default, sessions do not restore :syntax on
+"-> Other than that, it's pretty nice, working fully automated and not even
+" needing bindings
+""" #2: No plug:
+"autocmd! VimLeave * mksession
+"autocmd! VimEnter * source ./Session.vim
+"-> Also having problems with syntax highlighting 
+"-> Kind of clutters project's directory
 
-"""""""" Alternative treesitter + spell
-"Plug 'lewis6991/spellsitter.nvim' " Make spell checker work with treesitter
-" require('spellsitter').setup()
+"""""""""""""""" Github integration (Neogit)
+"Plug 'tpope/vim-fugitive' 
 
-"""""""" CMake integration
-"""" #1
+"""""""""""""""" CMake integration
+"""""""" #1
 "Plug 'cdelledonne/vim-cmake' 
 "let g:cmake_link_compile_commands = 1
 "let g:cmake_default_config = 'build'
 "nnoremap <leader>cg :CMakeGenerate<cr>
 "nnoremap <leader>cb :CMakeBuild<cr>
-"""" #2
+"""""""" #2
 "Plug 'ilyachur/cmake4vim' " UNTESTED
 
-"""""""" gtest integration
+"""""""""""""""" GoogleTest integration
 "Plug 'alepez/vim-gtest' " UNTESTED
 
-"""""""" Default
+"""""""""""""""""""""""" Default
 """ Disable comment on new lines
 "autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
