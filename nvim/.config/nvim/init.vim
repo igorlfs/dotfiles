@@ -23,7 +23,6 @@ set shadafile=NONE		       " don't save history
 set noshowcmd noshowmode       " unclutter last line
 set noruler
 set foldmethod=indent
-set nofoldenable
 """ Mappings
 " simplify exiting terminal mode
 tnoremap <Esc> <C-\><C-n>
@@ -49,33 +48,56 @@ call plug#begin('~/.local/share/nvim/site/autoload/plugged')
 Plug 'lewis6991/gitsigns.nvim' " Git Symbols
 Plug 'nvim-lua/plenary.nvim' 
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} " Syntax Highlighting
-Plug 'folke/tokyonight.nvim', { 'branch': 'main' } " Colorscheme
-Plug 'neoclide/coc.nvim', {'branch': 'release'} " LSP + Snippets + Pairs + Explorer
+Plug 'tmsvg/pear-tree' " Autopairs
+Plug 'folke/persistence.nvim' " Autosession
+Plug 'navarasu/onedark.nvim' " Theme
+Plug 'neoclide/coc.nvim', {'branch': 'release'} " LSP + Snippets + Explorer
 Plug 'lervag/vimtex', {'for': 'tex'} " LaTeX
 """ Misc
-Plug 'voldikss/vim-floaterm' 
+Plug 'TimUntersberger/neogit'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
+Plug 'numtostr/FTerm.nvim'
 Plug 'beauwilliams/focus.nvim'
-Plug 'tpope/vim-fugitive' 
-Plug 'folke/persistence.nvim'
 call plug#end()
 
-let g:tokyonight_style = "night"
-colorscheme tokyonight
+let g:onedark_style = 'deep'
+colorscheme onedark
 
 lua << EOF
 require('gitsigns').setup() 
-require("persistence").setup()
+require('persistence').setup()
 require('focus').setup() 
+require('neogit').setup()
 EOF
 
 """ Source
 source ~/.config/nvim/plug-config/coc.vim
 luafile ~/.config/nvim/lua/treesitter.lua
 
+""" Peartree
+let g:pear_tree_smart_openers = 1
+let g:pear_tree_smart_closers = 1
+let g:pear_tree_smart_backspace = 1
+let g:pear_tree_timeout = 60 
+" Disable automapping so we can fix Coc mapping.
+let g:pear_tree_map_special_keys = 0
+" Default mappings:
+imap <BS> <Plug>(PearTreeBackspace)
+imap <Esc> <Plug>(PearTreeFinishExpansion)
+" Get PearTreeExpand working with coc.nvim
+imap <expr> <CR> pumvisible() ? coc#_select_confirm() : "\<Plug>(PearTreeExpand)"
+
+""" FTerm
+nnoremap <A-p> <CMD>lua require("FTerm").toggle()<CR>
+tnoremap <A-p> <C-\><C-n><CMD>lua require("FTerm").toggle()<CR>
+
 """ Persistence
+set sessionoptions+=options,resize,winpos,terminal
+" restore the session for the current directory
 nnoremap <leader>qs <cmd>lua require("persistence").load()<cr>
+" restore the last session
+nnoremap <leader>ql <cmd>lua require("persistence").load({ last = true })<cr>
 
 """ Vimtex
 let g:tex_flavor='latex'
@@ -83,9 +105,3 @@ let g:vimtex_view_method='zathura'
 let g:vimtex_quickfix_mode=0
 set conceallevel=1
 let g:tex_conceal='abdmg'
-
-""" Floaterm *
-let g:floaterm_keymap_toggle = '<A-p>'
-"let g:floaterm_wintype = 'vsplit'
-let g:floaterm_width = 0.8
-let g:floaterm_height = 0.8
