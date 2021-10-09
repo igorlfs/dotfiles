@@ -1,19 +1,24 @@
-"""""""""""""""""""""""" Alternative to COC
-"""""""""""""""" Alternative to coc-snippets
-"Plug 'SirVer/ultisnips'
-"""""""""""""""" LSP
+"""""""""""""""""""""""" Alternative IDE features
+"""""""""""""""" builtin
 "Plug 'neovim/nvim-lspconfig'
-"Plug 'ray-x/lsp_signature.nvim'
-"Plug 'honza/vim-snippets' " Snippets collection
-"--require("config.lsp")
-"--require("config.nvim-compe")
-"""""" C++ specific config
-""" [lsp] Switch between source and header
-"nnoremap <silent> <A-o> :ClangdSwitchSourceHeader<CR> 
-""" [lsp] Autoformat
-"autocmd BufWritePre * lua vim.lsp.buf.formatting_sync(nil,100)
-""""""""""""""" AutoComplete
-"Plug 'hrsh7th/nvim-compe'
+"Plug 'hrsh7th/nvim-cmp' " Autocompletion plugin
+"Plug 'hrsh7th/cmp-nvim-lsp' " LSP source for nvim-cmp
+"Plug 'saadparwaiz1/cmp_luasnip' " Snippets source for nvim-cmp
+"Plug 'L3MON4D3/LuaSnip' " Snippets plugin
+"--require('lsp')
+"""""""""""""""" coc
+"Plug 'neoclide/coc.nvim', {'branch': 'release'} " IDE Features
+"source ~/.config/nvim/plug-config/coc.vim
+
+
+
+"""""""""""""""""""""""" Alternative Snippets
+"""""""""""""""" Engine
+"""""""" #1: see IDE features (coc)
+"""""""" #2
+"Plug 'SirVer/ultisnips'
+"""""""""""""""" Source
+"Plug 'honza/vim-snippets'
 
 
 
@@ -22,7 +27,7 @@
 "Plug 'mfussenegger/nvim-dap'
 "Plug 'rcarriga/nvim-dap-ui'
 "Plug 'theHamsta/nvim-dap-virtual-text'
-"--require("nvim-dap")
+"--require("debug")
 """ Virtual Text
 "let g:dap_virtual_text = v:true
 """ Change Breakpoint character
