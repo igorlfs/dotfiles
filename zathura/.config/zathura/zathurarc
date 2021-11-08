@@ -2,7 +2,7 @@ map i recolor
 set recolor
 set recolor-keephue
 #set default-bg "#1b2b34"
-set recolor-lightcolor "#1a1b26"
+set recolor-lightcolor "#101010"
 #set inputbar-bg "#272822"
 #set inputbar-fg "#f8f8f2"
 #set tabbar-bg "#272822"
