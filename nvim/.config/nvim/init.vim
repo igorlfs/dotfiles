@@ -62,6 +62,8 @@ Plug 'ray-x/lsp_signature.nvim' " Signature helper
 """ Misc
 Plug 'nvim-lua/plenary.nvim' " Library
 Plug 'lervag/vimtex', {'for': 'tex'} " LaTeX
+Plug 'brennier/quicktex' " LaTeX Snippets
+Plug 'kyazdani42/nvim-web-devicons' " Icons
 Plug 'TimUntersberger/neogit'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
@@ -109,6 +111,3 @@ nnoremap <leader>ql <cmd>lua require("persistence").load({ last = true })<cr>
 """ Vimtex
 let g:tex_flavor='latex'
 let g:vimtex_view_method='zathura'
-let g:vimtex_quickfix_mode=0
-set conceallevel=1
-let g:tex_conceal='abdmg'
