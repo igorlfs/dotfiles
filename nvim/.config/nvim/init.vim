@@ -51,7 +51,7 @@ Plug 'windwp/nvim-autopairs' " Autopairs
 Plug 'folke/persistence.nvim' " Autosession
 Plug 'kyazdani42/nvim-tree.lua' " Explorer
 Plug 'numtostr/FTerm.nvim' " Terminal
-Plug 'navarasu/onedark.nvim' " Theme
+Plug 'bluz71/vim-moonfly-colors' " Theme
 """ IDE features
 Plug 'neovim/nvim-lspconfig' " Config for builtin LSP
 Plug 'hrsh7th/nvim-cmp' " Autocompletion plugin
@@ -68,8 +68,17 @@ Plug 'tpope/vim-commentary'
 Plug 'beauwilliams/focus.nvim'
 call plug#end()
 
-let g:onedark_style = 'deep'
-colorscheme onedark
+colorscheme moonfly
+
+""" Explorer
+nnoremap <leader>v <cmd>NvimTreeRefresh<cr><cmd>NvimTreeToggle<cr>
+let g:nvim_tree_git_hl = 1
+let g:nvim_tree_show_icons = {
+            \ 'git': 0,
+            \ 'folders': 1,
+            \ 'files': 1,
+            \ 'folder_arrows': 1,
+            \ }
 
 lua << EOF
 require('lsp')
@@ -81,20 +90,12 @@ require('focus').setup()
 require('lsp_signature').setup()
 require('neogit').setup()
 require('nvim-autopairs').setup()
-require("nvim-autopairs.completion.cmp").setup({
-map_cr = true, --  map <CR> on insert mode
-map_complete = true, -- it will auto insert `(` (map_char) after select function or method item
-auto_select = true, -- automatically select the first item
-insert = false, -- use insert confirm behavior instead of replace
-map_char = { -- modifies the function or method delimiter by filetypes
-all = '(',
-tex = '{'
-}
-})
+local cmp_autopairs = require('nvim-autopairs.completion.cmp')
+local cmp = require('cmp')
+cmp.event:on( 'confirm_done', cmp_autopairs.on_confirm_done())
 EOF
 
-""" Terminal & Explorer
-nnoremap <leader>v <cmd>NvimTreeToggle<cr>
+""" Terminal
 nnoremap <A-p> <CMD>lua require("FTerm").toggle()<CR>
 tnoremap <A-p> <C-\><C-n><CMD>lua require("FTerm").toggle()<CR>
 
