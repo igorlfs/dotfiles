@@ -9,6 +9,9 @@
 """""""""""""""" coc
 "Plug 'neoclide/coc.nvim', {'branch': 'release'} " IDE Features
 "source ~/.config/nvim/plug-config/coc.vim
+""" [coc] Switch between source and header
+"nnoremap <silent> <A-o> <cmd>CocCommand clangd.switchSourceHeader <cr>
+
 
 
 
@@ -112,7 +115,10 @@ EOF
 """""""""""""""" Themes 
 "Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 "let g:tokyonight_style = "night"
-"Plug 'Pocco81/Catppuccino.nvim'
+"Plug 'marko-cerovac/material.nvim'
+"let g:material_style = "deep ocean"
+"Plug 'navarasu/onedark.nvim' " Theme
+"let g:onedark_style = 'deep'
 
 """""""""""""""" Autopairs 
 """""""" #1: coc-pairs
@@ -139,7 +145,7 @@ EOF
 "-> Also having problems with syntax highlighting 
 "-> Kind of clutters project's directory
 
-"""""""""""""""" Github integration (Neogit)
+"""""""""""""""" Git integration (Neogit)
 "Plug 'tpope/vim-fugitive' 
 
 """""""""""""""" CMake integration

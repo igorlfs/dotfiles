@@ -12,12 +12,9 @@ nnoremap <silent> <F10> :Over<CR>
 nnoremap <silent> <F11> :Step<CR>
 nnoremap <silent> <F12> :Finish<CR>
 
-""" Standalone compilation:
-nnoremap <leader>cc :w <CR> :!clang++ -std=c++17 -Wall -g -fstandalone-debug -o main *.cpp <cr>
-" -fstandalone-debug        additional info for debugging, see https://stackoverflow.com/a/58759358
-
-""" [coc] Switch between source and header
-"nnoremap <silent> <A-o> <cmd>CocCommand clangd.switchSourceHeader <cr>
+""" Standalone compilation
+nnoremap <leader>bm :w <cr> :!bear -- make<cr>
+nnoremap <leader>m :w <cr> :make<cr>
 
 """ [builtin-lsp] Switch between source and header
 nnoremap <silent> <A-o> :ClangdSwitchSourceHeader<CR> 
