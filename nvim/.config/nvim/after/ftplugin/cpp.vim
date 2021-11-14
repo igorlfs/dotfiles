@@ -21,5 +21,3 @@ nnoremap <leader>cc :w <CR> :!clang++ -std=c++17 -Wall -g -fstandalone-debug -o 
 
 """ [builtin-lsp] Switch between source and header
 nnoremap <silent> <A-o> :ClangdSwitchSourceHeader<CR> 
-""" [builtin-lsp] Autoformat
-autocmd BufWritePre * lua vim.lsp.buf.formatting_sync(nil,100)
