@@ -51,7 +51,7 @@ Plug 'windwp/nvim-autopairs' " Autopairs
 Plug 'folke/persistence.nvim' " Autosession
 Plug 'kyazdani42/nvim-tree.lua' " Explorer
 Plug 'numtostr/FTerm.nvim' " Terminal
-Plug 'bluz71/vim-moonfly-colors' " Theme
+Plug 'catppuccin/nvim' " Theme
 """ IDE features
 Plug 'neovim/nvim-lspconfig' " Config for builtin LSP
 Plug 'hrsh7th/nvim-cmp' " Autocompletion plugin
@@ -70,7 +70,7 @@ Plug 'tpope/vim-commentary'
 Plug 'beauwilliams/focus.nvim'
 call plug#end()
 
-colorscheme moonfly
+colorscheme catppuccin
 
 """ Explorer
 nnoremap <leader>v <cmd>NvimTreeRefresh<cr><cmd>NvimTreeToggle<cr>
