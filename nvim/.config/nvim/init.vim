@@ -44,26 +44,29 @@ noremap <A-9> 9gt
 noremap <A-0> :tablast<cr>
 
 """"""""""""""" Plugins
-call plug#begin('~/.local/share/nvim/site/autoload/plugged')
+call plug#begin(stdpath('data') . '/plugged')
+""" Basic
 Plug 'lewis6991/gitsigns.nvim' " Git Symbols
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} " Syntax Highlighting
-Plug 'windwp/nvim-autopairs' " Autopairs
-Plug 'folke/persistence.nvim' " Autosession
 Plug 'kyazdani42/nvim-tree.lua' " Explorer
 Plug 'numtostr/FTerm.nvim' " Terminal
+Plug 'kyazdani42/nvim-web-devicons' " Icons
 Plug 'catppuccin/nvim' " Theme
-""" IDE features
-Plug 'neovim/nvim-lspconfig' " Config for builtin LSP
-Plug 'hrsh7th/nvim-cmp' " Autocompletion plugin
-Plug 'hrsh7th/cmp-nvim-lsp' " LSP source for nvim-cmp
-Plug 'saadparwaiz1/cmp_luasnip' " Snippets source for nvim-cmp
-Plug 'L3MON4D3/LuaSnip' " Snippets plugin
-Plug 'ray-x/lsp_signature.nvim' " Signature helper
+Plug 'L3MON4D3/LuaSnip' " Snippets
+Plug 'neovim/nvim-lspconfig' " LSP
+""" Automatic
+Plug 'windwp/nvim-autopairs' " Pairs
+Plug 'folke/persistence.nvim' " Session
+Plug 'hrsh7th/nvim-cmp' " Completion
+" Sources
+Plug 'hrsh7th/cmp-path'
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'saadparwaiz1/cmp_luasnip'
 """ Misc
 Plug 'nvim-lua/plenary.nvim' " Library
+Plug 'ray-x/lsp_signature.nvim' " Signature helper
 Plug 'lervag/vimtex', {'for': 'tex'} " LaTeX
 Plug 'brennier/quicktex' " LaTeX Snippets
-Plug 'kyazdani42/nvim-web-devicons' " Icons
 Plug 'TimUntersberger/neogit'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
