@@ -67,7 +67,6 @@ Plug 'kyazdani42/nvim-web-devicons' " Icons
 Plug 'TimUntersberger/neogit'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
-Plug 'beauwilliams/focus.nvim'
 call plug#end()
 
 colorscheme catppuccin
@@ -88,7 +87,6 @@ require('treesitter')
 require('nvim-tree').setup()
 require('gitsigns').setup() 
 require('persistence').setup()
-require('focus').setup() 
 require('lsp_signature').setup()
 require('neogit').setup()
 require('nvim-autopairs').setup()
