@@ -22,7 +22,10 @@ set undofile				   " enables persistent undo
 set shadafile=NONE		       " don't save history
 set noshowcmd noshowmode       " unclutter last line
 set noruler
-set foldmethod=indent
+set sessionoptions+=options,winpos,terminal
+set foldmethod=expr
+set foldexpr=nvim_treesitter#foldexpr()
+set nofoldenable
 """ Mappings
 let mapleader = " "
 nmap k gk
@@ -56,7 +59,7 @@ Plug 'L3MON4D3/LuaSnip' " Snippets
 Plug 'neovim/nvim-lspconfig' " LSP
 """ Automatic
 Plug 'windwp/nvim-autopairs' " Pairs
-Plug 'folke/persistence.nvim' " Session
+Plug 'rmagatti/auto-session'
 Plug 'hrsh7th/nvim-cmp' " Completion
 " Sources
 Plug 'hrsh7th/cmp-path'
@@ -89,7 +92,6 @@ require('lsp')
 require('treesitter')
 require('nvim-tree').setup()
 require('gitsigns').setup() 
-require('persistence').setup()
 require('lsp_signature').setup()
 require('neogit').setup()
 require('nvim-autopairs').setup()
@@ -101,13 +103,6 @@ EOF
 """ Terminal
 nnoremap <A-p> <CMD>lua require("FTerm").toggle()<CR>
 tnoremap <A-p> <C-\><C-n><CMD>lua require("FTerm").toggle()<CR>
-
-""" Persistence
-set sessionoptions+=options,resize,winpos,terminal
-" restore the session for the current directory
-nnoremap <leader>qs <cmd>lua require("persistence").load()<cr>
-" restore the last session
-nnoremap <leader>ql <cmd>lua require("persistence").load({ last = true })<cr>
 
 """ Vimtex
 let g:tex_flavor='latex'
