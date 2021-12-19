@@ -16,4 +16,5 @@ export XINITRC="$XDG_CONFIG_HOME"/X11/xinitrc
 export LESSHISTFILE="-"
 export EDITOR='nvim'
 export MANPAGER='nvim +Man!'
-#export UNCRUSTIFY_CONFIG="$XDG_CONFIG_HOME"/uncrustify/uncrustify.cfg
+### Start SSH
+eval $(ssh-agent)
