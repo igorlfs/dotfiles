@@ -22,7 +22,7 @@ set undofile				   " enables persistent undo
 set shadafile=NONE		       " don't save history
 set noshowcmd noshowmode       " unclutter last line
 set noruler
-set sessionoptions+=options,winpos,terminal
+set sessionoptions+=winpos,terminal
 set foldmethod=expr
 set foldexpr=nvim_treesitter#foldexpr()
 set nofoldenable
@@ -30,9 +30,11 @@ set nofoldenable
 let mapleader = " "
 nmap k gk
 nmap j gj
+nnoremap <C-s> :w<cr>
 " simplify exiting terminal mode
 tnoremap <Esc> <C-\><C-n>
 " tabs
+nnoremap <C-t> :tabe %<cr>
 nnoremap <A-tab> :tabnext<cr>
 nnoremap <S-tab> :tabprevious<cr>
 noremap <A-1> 1gt
@@ -59,7 +61,7 @@ Plug 'L3MON4D3/LuaSnip' " Snippets
 Plug 'neovim/nvim-lspconfig' " LSP
 """ Automatic
 Plug 'windwp/nvim-autopairs' " Pairs
-Plug 'rmagatti/auto-session'
+Plug 'rmagatti/auto-session' " Session
 Plug 'hrsh7th/nvim-cmp' " Completion
 " Sources
 Plug 'hrsh7th/cmp-path'
