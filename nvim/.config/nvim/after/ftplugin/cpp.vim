@@ -5,7 +5,7 @@ let g:termdebug_wide=1
 nnoremap <silent> <F2> :Evaluate<CR>
 nnoremap <silent> <F3> :Stop<CR>
 nnoremap <silent> <F4> :Continue<CR>
-nnoremap <silent> <F5> :Termdebug binary<CR>
+nnoremap <silent> <F5> :Termdebug bin/binary<CR>
 nnoremap <silent> <F8> :Clear<CR>
 nnoremap <silent> <F9> :Break<CR>
 nnoremap <silent> <F10> :Over<CR>
