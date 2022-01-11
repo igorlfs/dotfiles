@@ -71,7 +71,7 @@ Plug 'saadparwaiz1/cmp_luasnip'
 Plug 'nvim-lua/plenary.nvim' " Library
 Plug 'ray-x/lsp_signature.nvim' " Signature helper
 Plug 'lervag/vimtex', {'for': 'tex'} " LaTeX
-Plug 'brennier/quicktex' " LaTeX Snippets
+Plug 'brennier/quicktex', {'for': 'tex'} " LaTeX Snippets
 Plug 'TimUntersberger/neogit'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
@@ -80,7 +80,7 @@ call plug#end()
 colorscheme catppuccin
 
 """ Explorer
-nnoremap <leader>v <cmd>NvimTreeRefresh<cr><cmd>NvimTreeToggle<cr>
+nnoremap <leader>v <cmd>NvimTreeToggle<cr>
 let g:nvim_tree_git_hl = 1
 let g:nvim_tree_show_icons = {
             \ 'git': 0,
