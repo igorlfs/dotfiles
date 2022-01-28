@@ -92,6 +92,7 @@ let g:nvim_tree_show_icons = {
 lua << EOF
 require('lsp')
 require('treesitter')
+require('git')
 require('nvim-tree').setup()
 require('gitsigns').setup() 
 require('lsp_signature').setup()
