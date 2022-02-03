@@ -28,12 +28,8 @@ set foldexpr=nvim_treesitter#foldexpr()
 set nofoldenable
 """ Mappings
 let mapleader = " "
-nmap k gk
-nmap j gj
-nnoremap <C-s> :w<cr>
-" simplify exiting terminal mode
+noremap <C-s> :w<cr>
 tnoremap <Esc> <C-\><C-n>
-" tabs
 nnoremap <C-t> :tabe %<cr>
 nnoremap <A-tab> :tabnext<cr>
 nnoremap <S-tab> :tabprevious<cr>
@@ -69,7 +65,6 @@ Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'saadparwaiz1/cmp_luasnip'
 """ Misc
 Plug 'nvim-lua/plenary.nvim' " Library
-Plug 'ray-x/lsp_signature.nvim' " Signature helper
 Plug 'lervag/vimtex', {'for': 'tex'} " LaTeX
 Plug 'brennier/quicktex', {'for': 'tex'} " LaTeX Snippets
 Plug 'TimUntersberger/neogit'
@@ -94,8 +89,6 @@ require('lsp')
 require('treesitter')
 require('git')
 require('nvim-tree').setup()
-require('gitsigns').setup() 
-require('lsp_signature').setup()
 require('neogit').setup()
 require('nvim-autopairs').setup()
 local cmp_autopairs = require('nvim-autopairs.completion.cmp')
