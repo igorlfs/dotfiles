@@ -1,4 +1,5 @@
 #!/bin/zsh
+##### Environment Variables
 ### XDG DIRECTORIES
 export XDG_CONFIG_HOME="${HOME}/.config"
 export XDG_CACHE_HOME="${HOME}/.cache"
@@ -10,11 +11,12 @@ if test -z "${XDG_RUNTIME_DIR}"; then
         chmod 0700 "${XDG_RUNTIME_DIR}"
     fi
 fi
+### HOME CLEANUP
+export ZDOTDIR="${XDG_CONFIG_HOME}"/zsh
+export XAUTHORITY="${XDG_RUNTIME_DIR}"/Xauthority
+export NPM_CONFIG_USERCONFIG="${XDG_CONFIG_HOME}"/npm/npmrc
 ### MISC
-export ZDOTDIR="$XDG_CONFIG_HOME"/zsh
-export XINITRC="$XDG_CONFIG_HOME"/X11/xinitrc
+export PATH=${XDG_DATA_HOME}/npm/bin:$PATH
 export LESSHISTFILE="-"
 export EDITOR='nvim'
 export MANPAGER='nvim +Man!'
-### Start SSH
-eval $(ssh-agent)
