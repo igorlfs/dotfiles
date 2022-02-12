@@ -50,6 +50,7 @@ noremap <A-0> :tablast<cr>
 call plug#begin(stdpath('data') . '/plugged')
 """ Basic
 Plug 'lewis6991/gitsigns.nvim' " Git Symbols
+Plug 'TimUntersberger/neogit' " Git integration
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} " Syntax Highlighting
 Plug 'kyazdani42/nvim-tree.lua' " Explorer
 Plug 'numtostr/FTerm.nvim' " Terminal
@@ -67,9 +68,8 @@ Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'saadparwaiz1/cmp_luasnip'
 """ Misc
 Plug 'nvim-lua/plenary.nvim' " Library
-Plug 'lervag/vimtex', {'for': 'tex'} " LaTeX
-Plug 'brennier/quicktex', {'for': 'tex'} " LaTeX Snippets
-Plug 'TimUntersberger/neogit'
+Plug 'lervag/vimtex' " LaTeX
+Plug 'brennier/quicktex'  " LaTeX Snippets
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 call plug#end()
