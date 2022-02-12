@@ -1,7 +1,7 @@
 #
 # Basics
 #
-font pango:FiraCode bold 10
+font pango:CascadiaCode 10
 default_border pixel 2
 default_floating_border none
 hide_edge_borders smart
@@ -67,9 +67,9 @@ bindsym $mod+Shift+q kill
 #
 bindsym $mod+Return exec --no-startup-id  i3-sensible-terminal
 bindsym $mod+w exec --no-startup-id firefox
-bindsym $mod+t exec --no-startup-id telegram-desktop
+bindsym $mod+t exec --no-startup-id teams
 bindsym $mod+e exec --no-startup-id zathura
-bindsym --release Print exec --no-startup-id maim -u -s | xclip -selection clipboard -t image/png
+bindsym --release Print exec --no-startup-id maim -s --format png /dev/stdout | xclip -selection clipboard -t image/png -i
 
 #
 # Media
@@ -111,7 +111,7 @@ bindsym $mod+v split toggle
 bindsym $mod+f fullscreen toggle
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
-bindsym $mod+d layout tabbed
+bindsym $mod+z layout tabbed
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
 # change focus between tiling / floating windows
@@ -119,7 +119,7 @@ bindsym $mod+space focus mode_toggle
 # focus the parent container
 bindsym $mod+a focus parent
 # focus the child container
-#bindsym $mod+d focus child
+bindsym $mod+d focus child
 
 #
 # Scratchpad
@@ -158,10 +158,10 @@ bindsym $mod+Shift+5 move container to workspace number $ws5
 #
 # resize window (you can also use the mouse for that)
 mode "resize" {
-        bindsym $left       resize shrink width 10 px or 10 ppt
-        bindsym $down       resize grow height 10 px or 10 ppt
-        bindsym $up         resize shrink height 10 px or 10 ppt
-        bindsym $right      resize grow width 10 px or 10 ppt
+        bindsym $left  resize shrink width 10 px or 10 ppt
+        bindsym $down  resize grow height 10 px or 10 ppt
+        bindsym $up    resize shrink height 10 px or 10 ppt
+        bindsym $right resize grow width 10 px or 10 ppt
 
         # back to normal: Enter or Escape or $mod+r
         bindsym Return mode "default"
