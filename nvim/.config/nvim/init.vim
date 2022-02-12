@@ -28,6 +28,8 @@ set foldexpr=nvim_treesitter#foldexpr()
 set nofoldenable
 """ Mappings
 let mapleader = " "
+nnoremap k gk
+nnoremap j gj
 noremap <C-s> :w<cr>
 tnoremap <Esc> <C-\><C-n>
 nnoremap <C-t> :tabe %<cr>
