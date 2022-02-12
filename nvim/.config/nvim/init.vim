@@ -102,6 +102,8 @@ EOF
 nnoremap <A-p> <CMD>lua require("FTerm").toggle()<CR>
 tnoremap <A-p> <C-\><C-n><CMD>lua require("FTerm").toggle()<CR>
 
+autocmd FileType javascript setlocal shiftwidth=2 softtabstop=2 
+
 """ Vimtex
 let g:tex_flavor='latex'
 let g:vimtex_view_method='zathura'
