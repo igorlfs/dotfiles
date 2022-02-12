@@ -1,19 +1,48 @@
 map i recolor
 set recolor
 set recolor-keephue
-#set default-bg "#1b2b34"
-set recolor-lightcolor "#1E1E29"
-#set inputbar-bg "#272822"
-#set inputbar-fg "#f8f8f2"
-#set tabbar-bg "#272822"
-#set tabbar-fg "#f8f8f2"
-#set completion-highlight-bg "#f8f8f2"
-#set completion-highlight-fg "#272822"
-#set statusbar-bg "#272822"
-#set statusbar-fg "#f8f8f2"
 set adjust-open "window-width"
 set page-padding 1
 set statusbar-v-padding 0
 set statusbar-home-tilde true
 set selection-clipboard clipboard
 set show-recent 0
+
+# Catppuccin (Darker)
+set default-fg 			    "#d9e0ee"
+set default-bg 			    "#0e0d1f"
+
+set completion-bg		    "#302d41"
+set completion-fg		    "#d9e0ee"
+set completion-highlight-bg	"#575268"
+set completion-highlight-fg	"#d9e0ee"
+set completion-group-bg		"#302d41"
+set completion-group-fg		"#96cdfb"
+
+set statusbar-fg		    "#d9e0ee"
+set statusbar-bg		    "#302d41"
+
+set notification-bg		    "#302d41"
+set notification-fg		    "#d9e0ee"
+set notification-error-bg	"#302d41"
+set notification-error-fg	"#f28fad"
+set notification-warning-bg	"#302d41"
+set notification-warning-fg	"#fae3b0"
+
+set inputbar-fg			    "#d9e0ee"
+set inputbar-bg 		    "#302d41"
+
+set recolor-lightcolor		"#0e0d1f"
+set recolor-darkcolor		"#d9e0ee"
+
+set index-fg			    "#d9e0ee"
+set index-bg			    "#0e0d1f"
+set index-active-fg		    "#d9e0ee"
+set index-active-bg		    "#302d41"
+
+set render-loading-bg		"#0e0d1f"
+set render-loading-fg		"#d9e0ee"
+
+set highlight-color		    "#575268"
+set highlight-fg            "#f5c2e7"
+set highlight-active-color	"#f5c2e7"
