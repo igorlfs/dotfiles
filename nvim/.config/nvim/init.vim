@@ -56,16 +56,13 @@ Plug 'kyazdani42/nvim-tree.lua' " Explorer
 Plug 'numtostr/FTerm.nvim' " Terminal
 Plug 'kyazdani42/nvim-web-devicons' " Icons
 Plug 'catppuccin/nvim' " Theme
-Plug 'L3MON4D3/LuaSnip' " Snippets
 Plug 'neovim/nvim-lspconfig' " LSP
 """ Automatic
 Plug 'windwp/nvim-autopairs' " Pairs
 Plug 'rmagatti/auto-session' " Session
-Plug 'hrsh7th/nvim-cmp' " Completion
-" Sources
-Plug 'hrsh7th/cmp-path'
-Plug 'hrsh7th/cmp-nvim-lsp'
-Plug 'saadparwaiz1/cmp_luasnip'
+Plug 'ms-jpq/coq_nvim' " Complete
+Plug 'ms-jpq/coq.artifacts'
+Plug 'ms-jpq/coq.thirdparty'
 """ Misc
 Plug 'nvim-lua/plenary.nvim' " Library
 Plug 'lervag/vimtex' " LaTeX
@@ -87,15 +84,13 @@ let g:nvim_tree_show_icons = {
             \ }
 
 lua << EOF
+require('nvim-autopairs').setup()
 require('lsp')
 require('treesitter')
 require('git')
 require('nvim-tree').setup()
 require('neogit').setup()
-require('nvim-autopairs').setup()
-local cmp_autopairs = require('nvim-autopairs.completion.cmp')
-local cmp = require('cmp')
-cmp.event:on( 'confirm_done', cmp_autopairs.on_confirm_done())
+vim.opt.diffopt:append { 'algorithm:patience' }
 EOF
 
 """ Terminal
