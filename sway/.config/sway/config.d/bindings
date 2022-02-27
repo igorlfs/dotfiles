@@ -2,7 +2,7 @@
 # Basics
 #
 set $mod Mod4
-# Exit
+# Exit (only when no windows are open)
 bindsym $mod+Shift+e exec swaymsg '[shell=.*]' nop || swaymsg exit
 # Reload configuration
 bindsym $mod+Shift+a reload
