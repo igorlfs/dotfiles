@@ -14,7 +14,7 @@ floating_modifier $mod normal
 #
 # Launch Programs
 #
-bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec kitty
 bindsym $mod+w exec firefox
 bindsym $mod+e exec zathura
 bindsym --release Print exec grim -g "$(slurp)" - | wl-copy --type image/png

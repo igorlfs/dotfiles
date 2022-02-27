@@ -1,7 +1,7 @@
 #
 # Appearance
 #
-font pango:Iosevka bold 10
+font pango:CascadiaCode bold 10
 smart_borders on
 default_border pixel 2
 default_floating_border none
@@ -21,12 +21,11 @@ client.unfocused            $var       $unfocused $var     $unfocused
 client.urgent               $var       $urgent    $var     $urgent    
 
 ### Wallpaper
-output * bg #1a1b26 solid_color
+output * bg #1e1e2e solid_color
 
 ### GTK
 set $wl-theme gsettings set org.gnome.desktop.interface
 exec_always {
-    $wl-theme cursor-theme Vanilla-DMZ
     $wl-theme icon-theme Arc
     $wl-theme gtk-theme Arc-Dark
 }
