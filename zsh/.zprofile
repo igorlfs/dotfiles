@@ -20,3 +20,5 @@ export PATH=${XDG_DATA_HOME}/npm/bin:$PATH
 export LESSHISTFILE="-"
 export EDITOR='nvim'
 export MANPAGER='nvim +Man!'
+##### SSH
+eval $(keychain --absolute --dir "${XDG_RUNTIME_DIR}"/keychain --noask --clear --eval id_ed25519)
