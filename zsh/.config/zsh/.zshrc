@@ -13,12 +13,12 @@ autoload -U colors && colors
 PS1="%{$fg[magenta]%}%~ %{$reset_color%}$ "
 ### Aliases
 alias ls='ls --color=auto -v'
-alias x='dbus-run-session startx "$XDG_CONFIG_HOME/X11/xinitrc"'
+alias s='XDG_CURRENT_DESKTOP=sway pgrep -x sway || exec dbus-run-session sway'
 alias cp='cp -r'
 alias mv='mv -i'
 alias v='nvim'
 # config files
-alias cwm='nvim -p ~/.config/i3/config'
+alias cwm='nvim -p ~/.config/sway/{config,config.d/*}'
 alias cv='nvim -p ~/.config/nvim/{init.vim,lua/*}'
 ### Load zsh-syntax-highlighting; should be last.
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
