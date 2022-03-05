@@ -23,6 +23,7 @@ set shadafile=NONE		       " don't save history
 set noshowcmd noshowmode       " unclutter last line
 set noruler
 set sessionoptions+=winpos,terminal
+set diffopt+=algorithm:patience
 set foldmethod=expr
 set foldexpr=nvim_treesitter#foldexpr()
 set nofoldenable
@@ -57,12 +58,15 @@ Plug 'numtostr/FTerm.nvim' " Terminal
 Plug 'kyazdani42/nvim-web-devicons' " Icons
 Plug 'catppuccin/nvim' " Theme
 Plug 'neovim/nvim-lspconfig' " LSP
+Plug 'L3MON4D3/LuaSnip' " Snippets
 """ Automatic
 Plug 'windwp/nvim-autopairs' " Pairs
 Plug 'rmagatti/auto-session' " Session
-Plug 'ms-jpq/coq_nvim' " Complete
-Plug 'ms-jpq/coq.artifacts'
-Plug 'ms-jpq/coq.thirdparty'
+Plug 'saadparwaiz1/cmp_luasnip'
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-path'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/nvim-cmp'
 """ Misc
 Plug 'nvim-lua/plenary.nvim' " Library
 Plug 'lervag/vimtex' " LaTeX
@@ -90,7 +94,6 @@ require('treesitter')
 require('git')
 require('nvim-tree').setup()
 require('neogit').setup()
-vim.opt.diffopt:append { 'algorithm:patience' }
 EOF
 
 """ Terminal
