@@ -54,7 +54,6 @@ Plug 'lewis6991/gitsigns.nvim' " Git Symbols
 Plug 'TimUntersberger/neogit' " Git integration
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} " Syntax Highlighting
 Plug 'kyazdani42/nvim-tree.lua' " Explorer
-Plug 'numtostr/FTerm.nvim' " Terminal
 Plug 'kyazdani42/nvim-web-devicons' " Icons
 Plug 'catppuccin/nvim' " Theme
 Plug 'neovim/nvim-lspconfig' " LSP
@@ -97,8 +96,18 @@ require('neogit').setup()
 EOF
 
 """ Terminal
-nnoremap <A-p> <CMD>lua require("FTerm").toggle()<CR>
-tnoremap <A-p> <C-\><C-n><CMD>lua require("FTerm").toggle()<CR>
+augroup neovim_terminal
+    autocmd!
+    " Disables number lines on terminal buffers
+    autocmd TermOpen * :set nonu nornu
+    " allows you to use Ctrl-c on terminal window
+    autocmd TermOpen * nnoremap <buffer> <C-c> i<C-c>
+    " Close terminal using Alt-p
+    autocmd TermOpen * nnoremap <buffer> <A-p> <C-\><C-n><C-w>q
+augroup END
+
+nnoremap <silent> <A-p> :20sp +te<cr>
+tnoremap <silent> <A-p> <C-\><C-n><C-w>q
 
 autocmd FileType javascript setlocal shiftwidth=2 softtabstop=2 
 
