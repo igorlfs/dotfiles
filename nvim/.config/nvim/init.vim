@@ -28,11 +28,12 @@ set foldmethod=expr
 set foldexpr=nvim_treesitter#foldexpr()
 set nofoldenable
 """ Mappings
+" Convenience
 let mapleader = " "
 nnoremap k gk
 nnoremap j gj
 noremap <C-s> :w<cr>
-tnoremap <Esc> <C-\><C-n>
+" Tabs
 nnoremap <C-t> :tabe %<cr>
 nnoremap <A-tab> :tabnext<cr>
 nnoremap <S-tab> :tabprevious<cr>
@@ -46,6 +47,10 @@ noremap <A-7> 7gt
 noremap <A-8> 8gt
 noremap <A-9> 9gt
 noremap <A-0> :tablast<cr>
+" Terminal
+tnoremap <Esc> <C-\><C-n>
+nnoremap <silent> <A-p> :20sp +te<cr>
+tnoremap <silent> <A-p> <C-\><C-n><C-w>q
 
 """"""""""""""" Plugins
 call plug#begin(stdpath('data') . '/plugged')
@@ -79,12 +84,10 @@ colorscheme catppuccin
 """ Explorer
 nnoremap <leader>v <cmd>NvimTreeToggle<cr>
 let g:nvim_tree_git_hl = 1
-let g:nvim_tree_show_icons = {
-            \ 'git': 0,
-            \ 'folders': 1,
-            \ 'files': 1,
-            \ 'folder_arrows': 1,
-            \ }
+
+""" Vimtex
+let g:tex_flavor='latex'
+let g:vimtex_view_method='zathura'
 
 lua << EOF
 require('nvim-autopairs').setup()
@@ -95,6 +98,7 @@ require('nvim-tree').setup()
 require('neogit').setup()
 EOF
 
+""""""""""""""" Autocommands and Autogruoups
 """ Terminal
 augroup neovim_terminal
     autocmd!
@@ -106,11 +110,6 @@ augroup neovim_terminal
     autocmd TermOpen * nnoremap <buffer> <A-p> <C-\><C-n><C-w>q
 augroup END
 
-nnoremap <silent> <A-p> :20sp +te<cr>
-tnoremap <silent> <A-p> <C-\><C-n><C-w>q
-
 autocmd FileType javascript setlocal shiftwidth=2 softtabstop=2 
 
-""" Vimtex
-let g:tex_flavor='latex'
-let g:vimtex_view_method='zathura'
+autocmd FileType dap-repl lua require('dap.ext.autocompl').attach()
