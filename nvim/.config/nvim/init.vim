@@ -94,7 +94,7 @@ require('nvim-autopairs').setup()
 require('lsp')
 require('treesitter')
 require('git')
-require('nvim-tree').setup()
+require("highlight")
 require('neogit').setup()
 EOF
 
