@@ -74,7 +74,7 @@ Plug 'hrsh7th/nvim-cmp'
 """ Misc
 Plug 'nvim-lua/plenary.nvim' " Library
 Plug 'lervag/vimtex' " LaTeX
-Plug 'brennier/quicktex'  " LaTeX Snippets
+Plug 'brennier/quicktex' " LaTeX Snippets
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 call plug#end()
@@ -84,14 +84,16 @@ let g:tex_flavor='latex'
 let g:vimtex_view_method='zathura'
 
 lua << EOF
-require('nvim-autopairs').setup()
-require('lsp')
-require('treesitter')
-require('git')
+require("nvim-autopairs").setup()
+require("neogit").setup()
+require("lsp")
+require("git")
 require("highlight")
 require('neogit').setup()
 require("explorer")
 EOF
+
+colorscheme catppuccin
 
 """"""""""""""" Autocommands and Autogruoups
 """ Terminal
