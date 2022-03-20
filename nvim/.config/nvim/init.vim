@@ -79,12 +79,6 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
 call plug#end()
 
-colorscheme catppuccin
-
-""" Explorer
-nnoremap <leader>v <cmd>NvimTreeToggle<cr>
-let g:nvim_tree_git_hl = 1
-
 """ Vimtex
 let g:tex_flavor='latex'
 let g:vimtex_view_method='zathura'
@@ -96,6 +90,7 @@ require('treesitter')
 require('git')
 require("highlight")
 require('neogit').setup()
+require("explorer")
 EOF
 
 """"""""""""""" Autocommands and Autogruoups
