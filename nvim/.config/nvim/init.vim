@@ -62,6 +62,8 @@ Plug 'akinsho/toggleterm.nvim' " Terminal
 Plug 'catppuccin/nvim' " Theme
 Plug 'neovim/nvim-lspconfig' " LSP
 Plug 'L3MON4D3/LuaSnip' " Snippets
+Plug 'mfussenegger/nvim-dap' " Debugger
+Plug 'rcarriga/nvim-dap-ui'
 """ Automatic
 Plug 'windwp/nvim-autopairs' " Pairs
 Plug 'rmagatti/auto-session' " Session
@@ -89,6 +91,7 @@ require("lsp")
 require("git")
 require("highlight")
 require("terminal")
+require("debugger")
 require("explorer")
 EOF
 
@@ -98,3 +101,7 @@ colorscheme catppuccin
 autocmd FileType javascript setlocal shiftwidth=2 softtabstop=2 
 
 autocmd FileType dap-repl lua require('dap.ext.autocompl').attach()
+
+autocmd FileType cpp,c nnoremap <buffer> <silent> <A-o> :ClangdSwitchSourceHeader<CR> 
+autocmd FileType cpp,c nnoremap <buffer> <leader>m :w <cr> :make<cr>
+autocmd FileType cpp,c nnoremap <buffer> <leader>bm :w <cr> :!bear -- make<cr>
