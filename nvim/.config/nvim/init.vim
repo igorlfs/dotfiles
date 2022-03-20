@@ -49,8 +49,6 @@ noremap <A-9> 9gt
 noremap <A-0> :tablast<cr>
 " Terminal
 tnoremap <Esc> <C-\><C-n>
-nnoremap <silent> <A-p> :20sp +te<cr>
-tnoremap <silent> <A-p> <C-\><C-n><C-w>q
 
 """"""""""""""" Plugins
 call plug#begin(stdpath('data') . '/plugged')
@@ -60,6 +58,7 @@ Plug 'TimUntersberger/neogit' " Git integration
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} " Syntax Highlighting
 Plug 'kyazdani42/nvim-tree.lua' " Explorer
 Plug 'kyazdani42/nvim-web-devicons' " Icons
+Plug 'akinsho/toggleterm.nvim' " Terminal
 Plug 'catppuccin/nvim' " Theme
 Plug 'neovim/nvim-lspconfig' " LSP
 Plug 'L3MON4D3/LuaSnip' " Snippets
@@ -89,24 +88,13 @@ require("neogit").setup()
 require("lsp")
 require("git")
 require("highlight")
-require('neogit').setup()
+require("terminal")
 require("explorer")
 EOF
 
 colorscheme catppuccin
 
 """"""""""""""" Autocommands and Autogruoups
-""" Terminal
-augroup neovim_terminal
-    autocmd!
-    " Disables number lines on terminal buffers
-    autocmd TermOpen * :set nonu nornu
-    " allows you to use Ctrl-c on terminal window
-    autocmd TermOpen * nnoremap <buffer> <C-c> i<C-c>
-    " Close terminal using Alt-p
-    autocmd TermOpen * nnoremap <buffer> <A-p> <C-\><C-n><C-w>q
-augroup END
-
 autocmd FileType javascript setlocal shiftwidth=2 softtabstop=2 
 
 autocmd FileType dap-repl lua require('dap.ext.autocompl').attach()
