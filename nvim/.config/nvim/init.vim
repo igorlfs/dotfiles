@@ -3,30 +3,27 @@ filetype plugin indent on
 if (has("termguicolors")) 
     set termguicolors 
 endif
-syntax enable
-set nohlsearch
 set updatetime=200
 set signcolumn=yes             
+set nohlsearch                 " don't highlight search
 set relativenumber number      " number lines for motion
-set scrolloff=4			       " context lines when scrolling
-set mouse=a				       " mouse scroll, fix number lines
-set clipboard+=unnamedplus	   " use system clipboard
+set scrolloff=4                " context lines when scrolling
+set mouse=a                    " mouse scroll, fix number lines
+set clipboard+=unnamedplus     " use system clipboard
 set wildmode=longest,list,full " funky wildmenu
 set linebreak                  " wrap long lines
 set splitbelow splitright      " fix splits
 set tabstop=4                  " width of a TAB
 set shiftwidth=4               " indents width
 set softtabstop=4              " columns for a TAB
-set expandtab                  " expand TABs to space
-set undofile				   " enables persistent undo
-set shadafile=NONE		       " don't save history
+set expandtab                  " expand TABs to spaces
+set undofile                   " enables persistent undo
+set shadafile=NONE             " don't save history
 set noshowcmd noshowmode       " unclutter last line
-set noruler
-set sessionoptions+=winpos,terminal
-set diffopt+=algorithm:patience
+set laststatus=3               " global status line
+set noruler                    " unclutter status line
 set foldmethod=expr
 set foldexpr=nvim_treesitter#foldexpr()
-set nofoldenable
 """ Mappings
 " Convenience
 let mapleader = " "
