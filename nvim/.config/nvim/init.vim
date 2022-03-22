@@ -1,10 +1,7 @@
-""""""""""""""" Default
-filetype plugin indent on
-if (has("termguicolors")) 
-    set termguicolors 
-endif
-set updatetime=200
-set signcolumn=yes             
+""""""""""""""" Settings
+set updatetime=200             " faster LSP and alike
+set signcolumn=yes             " eable git or diagnostics column
+set termguicolors              " enable full color support
 set nohlsearch                 " don't highlight search
 set relativenumber number      " number lines for motion
 set scrolloff=4                " context lines when scrolling
@@ -22,16 +19,18 @@ set shadafile=NONE             " don't save history
 set noshowcmd noshowmode       " unclutter last line
 set laststatus=3               " global status line
 set noruler                    " unclutter status line
-set foldmethod=expr
+set spelllang=en_us,pt_br      " languages to use with spellcheck
+set foldmethod=expr            " use treesitter folds
 set foldexpr=nvim_treesitter#foldexpr()
-""" Mappings
-" Convenience
+
+""""""""""""""" Mappings
+""" Convenience
 let mapleader = " "
 nnoremap k gk
 nnoremap j gj
 noremap <C-s> :w<cr>
-" Tabs
-nnoremap <C-t> :tabe %<cr>
+tnoremap <Esc> <C-\><C-n>
+""" Tabs
 nnoremap <A-tab> :tabnext<cr>
 nnoremap <S-tab> :tabprevious<cr>
 noremap <A-1> 1gt
@@ -44,8 +43,6 @@ noremap <A-7> 7gt
 noremap <A-8> 8gt
 noremap <A-9> 9gt
 noremap <A-0> :tablast<cr>
-" Terminal
-tnoremap <Esc> <C-\><C-n>
 
 """"""""""""""" Plugins
 call plug#begin(stdpath('data') . '/plugged')
