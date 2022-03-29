@@ -1,6 +1,6 @@
 """"""""""""""" Settings
 set updatetime=200             " faster LSP and alike
-set signcolumn=yes             " eable git or diagnostics column
+set signcolumn=yes             " enable git or diagnostics column
 set termguicolors              " enable full color support
 set nohlsearch                 " don't highlight search
 set relativenumber number      " number lines for motion
@@ -31,8 +31,8 @@ nnoremap j gj
 noremap <C-s> :w<cr>
 tnoremap <Esc> <C-\><C-n>
 """ Tabs
-nnoremap <A-tab> :tabnext<cr>
-nnoremap <S-tab> :tabprevious<cr>
+nnoremap <silent> <A-tab> :tabnext<cr>
+nnoremap <silent> <S-tab> :tabprevious<cr>
 noremap <A-1> 1gt
 noremap <A-2> 2gt
 noremap <A-3> 3gt

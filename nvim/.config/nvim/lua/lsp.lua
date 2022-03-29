@@ -9,14 +9,10 @@ vim.api.nvim_set_keymap("n", "<space>e", "<cmd>lua vim.diagnostic.open_float()<C
 vim.api.nvim_set_keymap("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>", opts)
 vim.api.nvim_set_keymap("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<CR>", opts)
 vim.api.nvim_set_keymap("n", "<space>q", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
-vim.api.nvim_set_keymap("n", "<space>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
-    -- Enable completion triggered by <c-x><c-o>
-    vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
-
     -- Mappings.
     -- See `:help vim.lsp.*` for documentation on any of the below functions
     local map = vim.api.nvim_buf_set_keymap
@@ -33,6 +29,9 @@ local on_attach = function(client, bufnr)
     map(bufnr, "n", "<space>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
     map(bufnr, "n", "<space>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
     map(bufnr, "n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
+
+    -- Manual formatting
+    vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]]
 
     if client.resolved_capabilities.document_formatting then
         vim.cmd([[
@@ -75,7 +74,7 @@ local cmp = require("cmp")
 cmp.setup({
     snippet = {
         expand = function(args)
-            require("luasnip").lsp_expand(args.body)
+            luasnip.lsp_expand(args.body)
         end,
     },
     mapping = {
@@ -120,5 +119,4 @@ cmp.setup({
 
 -- nvim-autopairs setup
 local cmp_autopairs = require("nvim-autopairs.completion.cmp")
-local cmp = require("cmp")
 cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done({ map_char = { tex = "" } }))
