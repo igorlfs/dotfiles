@@ -47,9 +47,8 @@ noremap <A-0> :tablast<cr>
 """"""""""""""" Plugins
 call plug#begin(stdpath('data') . '/plugged')
 """ Basic
-Plug 'lewis6991/gitsigns.nvim' " Git Symbols
-Plug 'TimUntersberger/neogit' " Git integration
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} " Syntax Highlighting
+Plug 'lewis6991/gitsigns.nvim' " Git
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} " Highlight
 Plug 'kyazdani42/nvim-tree.lua' " Explorer
 Plug 'kyazdani42/nvim-web-devicons' " Icons
 Plug 'akinsho/toggleterm.nvim' " Terminal
@@ -72,6 +71,7 @@ Plug 'lervag/vimtex' " LaTeX
 Plug 'brennier/quicktex' " LaTeX Snippets
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-fugitive'
 call plug#end()
 
 """ Vimtex
@@ -80,7 +80,6 @@ let g:vimtex_view_method='zathura'
 
 lua << EOF
 require("nvim-autopairs").setup()
-require("neogit").setup()
 require("lsp")
 require("git")
 require("highlight")
