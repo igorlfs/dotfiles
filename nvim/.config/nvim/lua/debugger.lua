@@ -3,14 +3,16 @@ local dapui = require("dapui")
 
 dapui.setup()
 
+-- C++ adapter
 dap.adapters.lldb = {
     type = "executable",
     command = "/usr/bin/lldb-vscode",
     name = "lldb",
 }
 
+-- C++ config
 dap.configurations.cpp = {
-    {
+{
         name = "Launch",
         type = "lldb",
         request = "launch",
@@ -45,8 +47,37 @@ dap.configurations.cpp = {
     },
 }
 
--- clone c config from cpp
+-- clone C++ config to C
 dap.configurations.c = dap.configurations.cpp
+
+-- Python adapter
+dap.adapters.python = {
+    type = "executable";
+    command = "/usr/bin/python3";
+    args = { "-m", "debugpy.adapter" };
+}
+
+-- Python config
+dap.configurations.python = {
+{
+        -- The first three options are required by nvim-dap
+        type = "python"; -- the type here established the link to the adapter definition: `dap.adapters.python`
+        request = "launch";
+        name = "Launch file";
+
+        -- Options below are for debugpy, see https://github.com/microsoft/debugpy/wiki/Debug-configuration-settings for supported options
+
+        program = "${file}"; -- This configuration will launch the current file if used.
+        pythonPath = "/usr/bin/python"
+    },
+}
+
+-- signs
+local sign = vim.fn.sign_define
+sign("DapBreakpoint", { text = "●", texthl = "WarningMsg", linehl = "", numhl = ""})
+sign("DapBreakpointCondition", { text = "◆", texthl = "WarningMsg", linehl = "", numhl = ""})
+sign("DapLogPoint", { text = "◆", texthl = "", linehl = "", numhl = ""})
+
 
 -- keymaps
 local opts = { noremap = true, silent = true }
@@ -55,9 +86,11 @@ local map = vim.api.nvim_set_keymap
 map("n", "<F2>", ":lua require'dapui'.eval()<CR>", opts)
 map("n", "<F4>", ":lua require'dap'.terminate()<CR>", opts)
 map("n", "<F5>", ":lua require'dap'.continue()<CR>", opts)
+map("n", "<F7>", ":lua require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<CR>", opts)
+map("n", "<F8>", ":lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>", opts)
 map("n", "<F9>", ":lua require'dap'.toggle_breakpoint()<CR>", opts)
-map("n", "<F10>", ":lua require'dap'.step_into()<CR>", opts)
-map("n", "<F11>", ":lua require'dap'.step_over()<CR>", opts)
+map("n", "<F10>", ":lua require'dap'.step_over()<CR>", opts)
+map("n", "<F11>", ":lua require'dap'.step_into()<CR>", opts)
 map("n", "<F12>", ":lua require'dap'.step_out()<CR>", opts)
 
 -- use nvim-dap events to open and close the windows automatically

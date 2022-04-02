@@ -3,6 +3,7 @@ set updatetime=200             " faster LSP and alike
 set signcolumn=yes             " enable git or diagnostics column
 set termguicolors              " enable full color support
 set nohlsearch                 " don't highlight search
+set breakindent                " keep wrapped lines visually indented
 set relativenumber number      " number lines for motion
 set scrolloff=4                " context lines when scrolling
 set mouse=a                    " mouse scroll, fix number lines
@@ -45,31 +46,31 @@ noremap <A-9> 9gt
 noremap <A-0> :tablast<cr>
 
 """"""""""""""" Plugins
-call plug#begin(stdpath('data') . '/plugged')
-""" Basic
-Plug 'lewis6991/gitsigns.nvim' " Git
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} " Highlight
-Plug 'kyazdani42/nvim-tree.lua' " Explorer
+call plug#begin()
+Plug 'kyazdani42/nvim-tree.lua'     " Explorer
+Plug 'akinsho/toggleterm.nvim'      " Terminal
+Plug 'igorlfs/nvim'                 " Theme
+Plug 'rmagatti/auto-session'        " Session
+Plug 'chaoren/vim-wordmotion'       " Word motion
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'lewis6991/gitsigns.nvim'      " Git
 Plug 'kyazdani42/nvim-web-devicons' " Icons
-Plug 'akinsho/toggleterm.nvim' " Terminal
-Plug 'catppuccin/nvim' " Theme
-Plug 'neovim/nvim-lspconfig' " LSP
-Plug 'L3MON4D3/LuaSnip' " Snippets
-Plug 'mfussenegger/nvim-dap' " Debugger
+Plug 'windwp/nvim-autopairs'        " Pairs
+Plug 'neovim/nvim-lspconfig'        " LSP
+Plug 'mfussenegger/nvim-dap'        " Debugger
 Plug 'rcarriga/nvim-dap-ui'
-""" Automatic
-Plug 'windwp/nvim-autopairs' " Pairs
-Plug 'rmagatti/auto-session' " Session
-Plug 'saadparwaiz1/cmp_luasnip'
+"""  Autocomplete + Snippets
+Plug 'hrsh7th/vim-vsnip'
+Plug 'hrsh7th/cmp-vsnip'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/nvim-cmp'
 """ Misc
-Plug 'nvim-lua/plenary.nvim' " Library
 Plug 'lervag/vimtex' " LaTeX
 Plug 'brennier/quicktex' " LaTeX Snippets
 Plug 'tpope/vim-surround'
+Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 call plug#end()
@@ -90,11 +91,25 @@ EOF
 
 colorscheme catppuccin
 
+""" Vsnip
+" Expand
+imap <expr> <C-j>   vsnip#expandable()  ? '<Plug>(vsnip-expand)'         : '<C-j>'
+smap <expr> <C-j>   vsnip#expandable()  ? '<Plug>(vsnip-expand)'         : '<C-j>'
+
+" Expand or jump
+imap <expr> <C-l>   vsnip#available(1)  ? '<Plug>(vsnip-expand-or-jump)' : '<C-l>'
+smap <expr> <C-l>   vsnip#available(1)  ? '<Plug>(vsnip-expand-or-jump)' : '<C-l>'
+
+" Jump forward or backward
+imap <expr> <Tab>   vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)'      : '<Tab>'
+smap <expr> <Tab>   vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)'      : '<Tab>'
+imap <expr> <S-Tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<S-Tab>'
+smap <expr> <S-Tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<S-Tab>'
+
 """"""""""""""" Autocommands and Autogruoups
 autocmd FileType javascript setlocal shiftwidth=2 softtabstop=2 
-
-autocmd FileType dap-repl lua require('dap.ext.autocompl').attach()
+autocmd BufWritePre *.js EslintFixAll
 
 autocmd FileType cpp,c nnoremap <buffer> <silent> <A-o> :ClangdSwitchSourceHeader<CR> 
-autocmd FileType cpp,c nnoremap <buffer> <leader>m :w <cr> :make<cr>
+autocmd FileType cpp,c nnoremap <buffer> <leader>m :w <cr> :Make<cr>
 autocmd FileType cpp,c nnoremap <buffer> <leader>bm :w <cr> :!bear -- make<cr>
