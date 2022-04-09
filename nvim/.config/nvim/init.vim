@@ -8,7 +8,6 @@ set relativenumber number      " number lines for motion
 set scrolloff=4                " context lines when scrolling
 set mouse=a                    " mouse scroll, fix number lines
 set clipboard+=unnamedplus     " use system clipboard
-set wildmode=longest,list,full " funky wildmenu
 set linebreak                  " wrap long lines
 set splitbelow splitright      " fix splits
 set tabstop=4                  " width of a TAB
@@ -65,6 +64,7 @@ Plug 'hrsh7th/cmp-vsnip'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-path'
 Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/cmp-cmdline'
 Plug 'hrsh7th/nvim-cmp'
 """ Misc
 Plug 'lervag/vimtex' " LaTeX
@@ -107,7 +107,6 @@ imap <expr> <S-Tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<S-T
 smap <expr> <S-Tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<S-Tab>'
 
 """"""""""""""" Autocommands and Autogruoups
-autocmd FileType javascript setlocal shiftwidth=2 softtabstop=2 
 autocmd BufWritePre *.js EslintFixAll
 
 autocmd FileType cpp,c nnoremap <buffer> <silent> <A-o> :ClangdSwitchSourceHeader<CR> 
