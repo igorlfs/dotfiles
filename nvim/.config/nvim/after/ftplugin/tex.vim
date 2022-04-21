@@ -12,10 +12,12 @@ let g:quicktex_tex = {
             \'eh'  : '\emph{<+++>} <++>',
             \'tc'  : '\textit{<+++>} <++>',
             \'cd'  : '\code{<+++>} <++>',
+            \'ik'  : '\item <+++>',
             \'bf'  : '\textbf{<+++>} <++>',
             \}
 let g:quicktex_math = {
             \' '    : "\<ESC>:call search('<+.*+>')\<CR>\"_c/+>/e\<CR>",
+            \'mm'   : "\\begin{bmatrix}\<CR><+++>\<CR>\\end{bmatrix} <++>",
             \'R'    : '\mathbb{R} ',
             \'Q'    : '\mathbb{Q} ',
             \'N'    : '\mathbb{N} ',
@@ -49,6 +51,7 @@ let g:quicktex_math = {
             \'in'   : '\in ',
             \'..'   : '\mathellipsis ',
             \'ra'   : '\Rightarrow ',
+            \'rk'   : '\rank(<+++>) <++>',
             \'qed'  : '\blacksquare ',
             \'ov'   : '\overline{<+++>} <++>',
             \'ve'   : '\vec{<+++>} <++>',

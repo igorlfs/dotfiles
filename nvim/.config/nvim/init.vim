@@ -109,6 +109,11 @@ smap <expr> <S-Tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<S-T
 """"""""""""""" Autocommands and Autogruoups
 autocmd BufWritePre *.js EslintFixAll
 
+autocmd TermOpen * setlocal nonumber norelativenumber scrolloff=0
+autocmd TermOpen * startinsert
+autocmd TermClose * if !v:event.status | exe 'bdelete! '..expand('<abuf>') | endif
+
 autocmd FileType cpp,c nnoremap <buffer> <silent> <A-o> :ClangdSwitchSourceHeader<CR> 
-autocmd FileType cpp,c nnoremap <buffer> <leader>m :w <cr> :Make<cr>
-autocmd FileType cpp,c nnoremap <buffer> <leader>bm :w <cr> :!bear -- make<cr>
+
+autocmd FileType cpp,c,make nnoremap <buffer> <leader>m :w <cr> :Make<cr>
+autocmd FileType cpp,c,make nnoremap <buffer> <leader>bm :w <cr> :!bear -- make<cr>

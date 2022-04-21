@@ -1,7 +1,10 @@
 local dap = require("dap")
 local dapui = require("dapui")
 
-dapui.setup()
+dapui.setup({
+    -- Hide variable types as C++'s are verbose
+    render = { max_type_length = 0 } 
+})
 
 -- C++ adapter
 dap.adapters.lldb = {
@@ -12,14 +15,12 @@ dap.adapters.lldb = {
 
 -- C++ config
 dap.configurations.cpp = {
-{
+    {
         name = "Launch",
         type = "lldb",
         request = "launch",
-        program = function()
-            return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
-        end,
-        cwd = "${workspaceFolder}",
+        program = vim.fn.getcwd() .. "/binary",
+        cwd = vim.fn.getcwd(),
         stopOnEntry = false,
 
         args = function()
@@ -59,7 +60,7 @@ dap.adapters.python = {
 
 -- Python config
 dap.configurations.python = {
-{
+    {
         -- The first three options are required by nvim-dap
         type = "python"; -- the type here established the link to the adapter definition: `dap.adapters.python`
         request = "launch";
@@ -74,9 +75,9 @@ dap.configurations.python = {
 
 -- signs
 local sign = vim.fn.sign_define
-sign("DapBreakpoint", { text = "●", texthl = "WarningMsg", linehl = "", numhl = ""})
-sign("DapBreakpointCondition", { text = "◆", texthl = "WarningMsg", linehl = "", numhl = ""})
-sign("DapLogPoint", { text = "◆", texthl = "", linehl = "", numhl = ""})
+sign("DapBreakpoint", { text = "●", texthl = "DapBreakpoint", linehl = "", numhl = ""})
+sign("DapBreakpointCondition", { text = "◆", texthl = "DapBreakpointCondition", linehl = "", numhl = ""})
+sign("DapLogPoint", { text = "◆", texthl = "DapLogPoint", linehl = "", numhl = ""})
 
 
 -- keymaps
