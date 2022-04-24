@@ -81,18 +81,21 @@ sign("DapLogPoint", { text = "◆", texthl = "DapLogPoint", linehl = "", numhl =
 
 
 -- keymaps
-local opts = { noremap = true, silent = true }
-local map = vim.api.nvim_set_keymap
+require("utils")
 
-map("n", "<F2>", ":lua require'dapui'.eval()<CR>", opts)
-map("n", "<F4>", ":lua require'dap'.terminate()<CR>", opts)
-map("n", "<F5>", ":lua require'dap'.continue()<CR>", opts)
-map("n", "<F7>", ":lua require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<CR>", opts)
-map("n", "<F8>", ":lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>", opts)
-map("n", "<F9>", ":lua require'dap'.toggle_breakpoint()<CR>", opts)
-map("n", "<F10>", ":lua require'dap'.step_over()<CR>", opts)
-map("n", "<F11>", ":lua require'dap'.step_into()<CR>", opts)
-map("n", "<F12>", ":lua require'dap'.step_out()<CR>", opts)
+map("n", "<F2>", dapui.eval)
+map("n", "<F4>", dap.terminate)
+map("n", "<F5>", dap.continue)
+map("n", "<F7>", function() 
+    dap.set_breakpoint(nil,nil,vim.fn.input("Log point message: "))
+end)
+map("n", "<F8>", function() 
+    dap.set_breakpoint(vim.fn.input("Breakpoint condition: "))
+end)
+map("n", "<F9>", dap.toggle_breakpoint)
+map("n", "<F10>", dap.step_over)
+map("n", "<F11>", dap.step_into)
+map("n", "<F12>", dap.step_out)
 
 -- use nvim-dap events to open and close the windows automatically
 dap.listeners.after.event_initialized["dapui_config"] = function()
