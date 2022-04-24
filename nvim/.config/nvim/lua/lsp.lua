@@ -20,13 +20,15 @@ local on_attach = function(client, bufnr)
     map({"n", "i"}, "<C-k>", vim.lsp.buf.signature_help)
     map("n", "<leader>wa", vim.lsp.buf.add_workspace_folder)
     map("n", "<leader>wr", vim.lsp.buf.remove_workspace_folder)
+    map("n", "<leader>wl", function()
+        vim.inspect(vim.lsp.buf.list_workspace_folders())
+    end)
     map("n", "<leader>D", vim.lsp.buf.type_definition)
     map("n", "<leader>rn", vim.lsp.buf.rename)
     map("n", "gr", vim.lsp.buf.references)
     map("n", "<leader>ca", vim.lsp.buf.code_action)
-    vim.api.nvim_create_user_command("Format", vim.lsp.buf.formatting, {})
 
-    if client.name ~= "tsserver" and client.resolved_capabilities.document_formatting then
+    if client.resolved_capabilities.document_formatting then
         vim.cmd([[
             augroup LspFormatting
                 autocmd! * <buffer>
@@ -50,12 +52,19 @@ end
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 
+-- Enable borders
+local handlers =  {
+    ["textDocument/hover"] =  vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" }),
+    ["textDocument/signatureHelp"] =  vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" }),
+}
+
 -- Enable some language servers with the additional completion capabilities offered by nvim-cmp
 local servers = { "clangd", "pylsp", "texlab", "tsserver", "eslint" }
 for _, lsp in ipairs(servers) do
     require("lspconfig")[lsp].setup({
         on_attach = on_attach,
         capabilities = capabilities,
+        handlers = handlers,
     })
 end
 
