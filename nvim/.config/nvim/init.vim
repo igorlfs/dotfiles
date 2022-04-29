@@ -46,16 +46,17 @@ noremap <A-0> :tablast<cr>
 
 """"""""""""""" Plugins
 call plug#begin()
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+""" Improved
 Plug 'kyazdani42/nvim-tree.lua'     " Explorer
 Plug 'akinsho/toggleterm.nvim'      " Terminal
 Plug 'igorlfs/nvim'                 " Theme
 Plug 'rmagatti/auto-session'        " Session
-Plug 'chaoren/vim-wordmotion'       " Word motion
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'neovim/nvim-lspconfig'        
+""" Features
 Plug 'lewis6991/gitsigns.nvim'      " Git
 Plug 'kyazdani42/nvim-web-devicons' " Icons
 Plug 'windwp/nvim-autopairs'        " Pairs
-Plug 'neovim/nvim-lspconfig'        " LSP
 Plug 'mfussenegger/nvim-dap'        " Debugger
 Plug 'rcarriga/nvim-dap-ui'
 """  Autocomplete + Snippets
@@ -67,8 +68,8 @@ Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-cmdline'
 Plug 'hrsh7th/nvim-cmp'
 """ Misc
-Plug 'lervag/vimtex' " LaTeX
-Plug 'brennier/quicktex' " LaTeX Snippets
+Plug 'lervag/vimtex'                " LaTeX
+Plug 'brennier/quicktex'            " LaTeX Snippets
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-commentary'

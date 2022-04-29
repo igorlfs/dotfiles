@@ -34,7 +34,7 @@ local on_attach = function(client, bufnr)
                 autocmd! * <buffer>
                 autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()
             augroup END
-            ]])
+        ]])
     end
 
     if client.resolved_capabilities.document_highlight then
@@ -71,7 +71,6 @@ end
 -- nvim-cmp setup
 local cmp = require("cmp")
 local luasnip = require("luasnip")
-
 cmp.setup({
     snippet = {
         expand = function(args)
@@ -106,8 +105,10 @@ cmp.setup({
             end
         end, { "i", "s" }),
     }),
+    window = {
+        documentation = cmp.config.window.bordered(),
     },
-    sources = {
+    sources = cmp.config.sources({
         { name = "nvim_lsp" },
         { name = "luasnip" },
         { name = "path" },

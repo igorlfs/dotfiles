@@ -1,9 +1,21 @@
 local dap = require("dap")
 local dapui = require("dapui")
 
+-- UI setup
 dapui.setup({
-    -- Hide variable types as C++'s are verbose
-    render = { max_type_length = 0 } 
+    sidebar = {
+        elements = {
+            { id = "scopes", size = 0.6, },
+            { id = "watches", size = 0.4 },
+        },
+    },
+    floating = {
+        border = "rounded",
+    },
+    render = { 
+        -- Hide variable types as C++'s are verbose
+        max_type_length = 0,
+    }, 
 })
 
 -- C++ adapter
