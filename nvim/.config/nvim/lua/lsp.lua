@@ -28,7 +28,7 @@ local on_attach = function(client, bufnr)
     map("n", "gr", vim.lsp.buf.references)
     map("n", "<leader>ca", vim.lsp.buf.code_action)
 
-    if client.resolved_capabilities.document_formatting then
+    if client.server_capabilities.documentFormattingProvider then
         vim.cmd([[
             augroup LspFormatting
                 autocmd! * <buffer>
@@ -37,12 +37,13 @@ local on_attach = function(client, bufnr)
         ]])
     end
 
-    if client.resolved_capabilities.document_highlight then
+    if client.server_capabilities.documentHighlightProvider then
         vim.cmd([[
             augroup lsp_document_highlight
                 autocmd! * <buffer>
                 autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
                 autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
+                autocmd BufLeave * lua vim.lsp.buf.clear_references()
             augroup END
         ]])
     end
@@ -111,9 +112,16 @@ cmp.setup({
     sources = cmp.config.sources({
         { name = "nvim_lsp" },
         { name = "luasnip" },
-        { name = "path" },
+    }, {
         { name = "buffer", option = { keyword_pattern = [[\k\+]] } },
-    },
+        { name = "path" },
+    }),
+    formatting = {
+        format = function(entry, vim_item)
+            vim_item.abbr = string.sub(vim_item.abbr, 1, 50)
+            return vim_item
+        end
+    }
 })
 
 -- cmp-cmdline setup

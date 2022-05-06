@@ -30,9 +30,13 @@ nnoremap k gk
 nnoremap j gj
 noremap <C-s> :w<cr>
 tnoremap <Esc> <C-\><C-n>
+" Move lines
+vnoremap <A-j> :m '>+1<CR>gv=gv
+vnoremap <A-k> :m '<-2<CR>gv=gv
 """ Tabs
-nnoremap <silent> <A-tab> :tabnext<cr>
-nnoremap <silent> <S-tab> :tabprevious<cr>
+noremap <silent> <A-t> :tabnew %<cr>
+noremap <silent> <A-tab> :tabnext<cr>
+noremap <silent> <S-tab> :tabprevious<cr>
 noremap <A-1> 1gt
 noremap <A-2> 2gt
 noremap <A-3> 3gt
@@ -42,7 +46,7 @@ noremap <A-6> 6gt
 noremap <A-7> 7gt
 noremap <A-8> 8gt
 noremap <A-9> 9gt
-noremap <A-0> :tablast<cr>
+noremap <silent> <A-0> :tablast<cr>
 
 """"""""""""""" Plugins
 call plug#begin()
