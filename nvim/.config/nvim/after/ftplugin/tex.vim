@@ -35,6 +35,7 @@ let g:quicktex_math = {
             \'lg'   : '\log ',
             \'la'   : '\land ',
             \'lo'   : '\lor ',
+            \'lm'   : '\lambda',
             \'~'    : '\sim ',
             \'ep'   : '\epsilon ',
             \'>='   : '\geq ',
