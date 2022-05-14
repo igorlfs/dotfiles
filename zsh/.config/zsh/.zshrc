@@ -13,7 +13,7 @@ autoload -U colors && colors
 PS1="%{$fg[magenta]%}%~ %{$reset_color%}$ "
 ### Aliases
 alias ls='ls --color=auto -v'
-alias s='XDG_CURRENT_DESKTOP=sway pgrep -x sway || exec dbus-run-session sway'
+alias s='pgrep -x sway || XDG_CURRENT_DESKTOP=sway exec dbus-run-session sway'
 alias cp='cp -r'
 alias mv='mv -i'
 alias v='nvim'
