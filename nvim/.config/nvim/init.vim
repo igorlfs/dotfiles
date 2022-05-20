@@ -102,8 +102,6 @@ EOF
 colorscheme catppuccin
 
 """"""""""""""" Autocommands and Autogruoups
-autocmd BufWritePre *.js EslintFixAll
-
 autocmd TermOpen * setlocal nonumber norelativenumber scrolloff=0
 autocmd TermOpen * startinsert
 autocmd TermClose * if !v:event.status | exe 'bdelete! '..expand('<abuf>') | endif

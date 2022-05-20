@@ -1,6 +1,17 @@
-local lspconfig = require("lspconfig")
-
-vim.diagnostic.open_float({ width = 80 })
+vim.diagnostic.config({
+    -- Limit length
+    open_float = {
+        width = 80,
+    },
+    -- Enable border
+    float = {
+        style = "minimal",
+        border = "rounded",
+        source = "always",
+        header = "",
+        prefix = "",
+    },
+})
 
 require("utils")
 
@@ -28,7 +39,7 @@ local on_attach = function(client, bufnr)
     map("n", "gr", vim.lsp.buf.references)
     map("n", "<leader>ca", vim.lsp.buf.code_action)
 
-    if client.server_capabilities.documentFormattingProvider then
+    if client.supports_method "textDocument/formatting" then
         vim.cmd([[
             augroup LspFormatting
                 autocmd! * <buffer>
@@ -37,7 +48,7 @@ local on_attach = function(client, bufnr)
         ]])
     end
 
-    if client.server_capabilities.documentHighlightProvider then
+    if client.supports_method "textDocument/documentHighlight" then
         vim.cmd([[
             augroup lsp_document_highlight
                 autocmd! * <buffer>
@@ -59,10 +70,21 @@ local handlers =  {
     ["textDocument/signatureHelp"] =  vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" }),
 }
 
+local lspconfig = require("lspconfig")
+-- Sever specific config 
+-- C++
+lspconfig.clangd.setup{
+    cmd = {"clangd", "--completion-style=detailed", "--clang-tidy"},
+    on_attach = on_attach,
+    capabilities = capabilities,
+    handlers = handlers,
+}
+
+-- General config
 -- Enable some language servers with the additional completion capabilities offered by nvim-cmp
-local servers = { "clangd", "pylsp", "texlab", "tsserver", "eslint" }
+local servers = { "pylsp", "texlab", "tsserver" }
 for _, lsp in ipairs(servers) do
-    require("lspconfig")[lsp].setup({
+    lspconfig[lsp].setup({
         on_attach = on_attach,
         capabilities = capabilities,
         handlers = handlers,
