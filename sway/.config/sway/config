@@ -4,7 +4,7 @@
 input type:keyboard xkb_layout "br"
 input type:touchpad {
     tap enabled
-    dwt disabled
+    dwt enabled
     tap_button_map lrm
     scroll_method edge
 }
@@ -19,17 +19,17 @@ exec autotiling
 exec wlsunset -l -19.5 -L -43.6
 exec_always gsettings set org.gnome.desktop.privacy remember-recent-files false
 
-# Multimedia framework
+# Audio
 exec pipewire
-# Audio server
 exec pipewire-pulse
 exec wireplumber
-# Screenshare
-exec /usr/lib/xdg-desktop-portal -r 
-exec /usr/lib/xdg-desktop-portal-wlr
+
+# Screenshare: may need to be reloaded to work
+exec_always /usr/lib/xdg-desktop-portal -r
+exec_always /usr/lib/xdg-desktop-portal-wlr -r
 
 # Idle
-exec swayidle timeout 240 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' 
+exec swayidle timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"'
 for_window [app_id="firefox"] inhibit_idle fullscreen
 
 ### Import config dir

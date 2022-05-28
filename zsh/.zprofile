@@ -16,7 +16,7 @@ export ZDOTDIR="${XDG_CONFIG_HOME}"/zsh
 export XAUTHORITY="${XDG_RUNTIME_DIR}"/Xauthority
 export NPM_CONFIG_USERCONFIG="${XDG_CONFIG_HOME}"/npm/npmrc
 ### MISC
-export PATH=${XDG_DATA_HOME}/npm/bin:$PATH
+export PATH=${XDG_DATA_HOME}/npm/bin:~/.local/bin:$PATH
 export LESSHISTFILE="-"
 export EDITOR='nvim'
 export MANPAGER='nvim +Man!'
