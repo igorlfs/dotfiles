@@ -1,17 +1,15 @@
--- Enable git highlight
-vim.g.nvim_tree_git_hl = 1
-
--- Disable git icons
-vim.g.nvim_tree_show_icons = {
-    git = 0,
-    folders = 1,
-    files = 1,
-    folder_arrows = 1,
-}
-
 require("nvim-tree").setup({
+    renderer = {
+        highlight_git = true,
+        icons = {
+          show = {
+            git = false,
+          },
+        },
+    },
     diagnostics = {
         enable = true,
+        show_on_dirs = true,
     },
     actions = {
         open_file = {

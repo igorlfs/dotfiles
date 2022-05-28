@@ -31,8 +31,8 @@ nnoremap j gj
 noremap <C-s> :w<CR>
 tnoremap <Esc> <C-\><C-n>
 " Move lines
-vnoremap <silent> <A-j> :m '>+1<CR>gv=gv
-vnoremap <silent> <A-k> :m '<-2<CR>gv=gv
+vnoremap <silent> <A-j> :m .+1<CR>gv=gv
+vnoremap <silent> <A-k> :m .-2<CR>gv=gv
 """ Tabs
 noremap <silent> <A-t> :tabnew %<CR>
 noremap <silent> <A-tab> :tabnext<CR>
@@ -74,6 +74,7 @@ Plug 'hrsh7th/nvim-cmp'
 """ Misc
 Plug 'lervag/vimtex'                " LaTeX
 Plug 'brennier/quicktex'            " LaTeX Snippets
+Plug 'nanotee/sqls.nvim'            " SQL
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-commentary'
@@ -105,6 +106,8 @@ colorscheme catppuccin
 autocmd TermOpen * setlocal nonumber norelativenumber scrolloff=0
 autocmd TermOpen * startinsert
 autocmd TermClose * if !v:event.status | exe 'bdelete! '..expand('<abuf>') | endif
+
+autocmd FileType sql nnoremap <silent> <Leader>qe :<C-U>silent! '{,'}SqlsExecuteQuery<CR>
 
 autocmd FileType cpp,c nnoremap <buffer> <silent> <A-o> :ClangdSwitchSourceHeader<CR> 
 

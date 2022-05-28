@@ -39,7 +39,7 @@ local on_attach = function(client, bufnr)
     map("n", "gr", vim.lsp.buf.references)
     map("n", "<leader>ca", vim.lsp.buf.code_action)
 
-    if client.supports_method "textDocument/formatting" then
+    if client.supports_method "textDocument/formatting" and client.name ~= "sqls" then
         vim.cmd([[
             augroup LspFormatting
                 autocmd! * <buffer>
@@ -58,6 +58,10 @@ local on_attach = function(client, bufnr)
             augroup END
         ]])
     end
+
+    if client.name == "sqls" then
+        require('sqls').on_attach(client, bufnr)
+    end 
 end
 
 -- Add additional capabilities supported by nvim-cmp
@@ -82,7 +86,7 @@ lspconfig.clangd.setup{
 
 -- General config
 -- Enable some language servers with the additional completion capabilities offered by nvim-cmp
-local servers = { "pylsp", "texlab", "tsserver" }
+local servers = { "texlab", "tsserver", "jedi_language_server", "sqls" }
 for _, lsp in ipairs(servers) do
     lspconfig[lsp].setup({
         on_attach = on_attach,
@@ -135,9 +139,9 @@ cmp.setup({
         { name = "nvim_lsp" },
         { name = "luasnip" },
     }, {
-        { name = "buffer", option = { keyword_pattern = [[\k\+]] } },
-        { name = "path" },
-    }),
+            { name = "buffer", option = { keyword_pattern = [[\k\+]] } },
+            { name = "path" },
+        }),
     formatting = {
         format = function(entry, vim_item)
             vim_item.abbr = string.sub(vim_item.abbr, 1, 50)
