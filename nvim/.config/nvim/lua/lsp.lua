@@ -24,20 +24,21 @@ map("n", "<leader>q", vim.diagnostic.setloclist)
 -- Use an on_attach function to only map the following keys after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
 
-    map("n", "gD", vim.lsp.buf.declaration)
-    map("n", "gd", vim.lsp.buf.definition)
-    map("n", "K", vim.lsp.buf.hover)
-    map("n", "gi", vim.lsp.buf.implementation)
-    map({"n", "i"}, "<C-k>", vim.lsp.buf.signature_help)
-    map("n", "<leader>wa", vim.lsp.buf.add_workspace_folder)
-    map("n", "<leader>wr", vim.lsp.buf.remove_workspace_folder)
+    local bufopts = { noremap=true, silent=true, buffer=bufnr }
+    map("n", "gD", vim.lsp.buf.declaration, bufopts)
+    map("n", "gd", vim.lsp.buf.definition, bufopts)
+    map("n", "K", vim.lsp.buf.hover, bufopts)
+    map("n", "gi", vim.lsp.buf.implementation, bufopts)
+    map({"n", "i"}, "<C-k>", vim.lsp.buf.signature_help, bufopts)
+    map("n", "<leader>wa", vim.lsp.buf.add_workspace_folder, bufopts)
+    map("n", "<leader>wr", vim.lsp.buf.remove_workspace_folder, bufopts)
     map("n", "<leader>wl", function()
         vim.inspect(vim.lsp.buf.list_workspace_folders())
-    end)
-    map("n", "<leader>D", vim.lsp.buf.type_definition)
-    map("n", "<leader>rn", vim.lsp.buf.rename)
-    map("n", "gr", vim.lsp.buf.references)
-    map("n", "<leader>ca", vim.lsp.buf.code_action)
+    end, bufopts)
+    map("n", "<leader>D", vim.lsp.buf.type_definition, bufopts)
+    map("n", "<leader>rn", vim.lsp.buf.rename, bufopts)
+    map("n", "gr", vim.lsp.buf.references, bufopts)
+    map("n", "<leader>ca", vim.lsp.buf.code_action, bufopts)
 
     if client.supports_method "textDocument/formatting" and client.name ~= "sqls" then
         vim.cmd([[

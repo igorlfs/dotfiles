@@ -52,9 +52,9 @@ noremap <silent> <A-0> :tablast<CR>
 call plug#begin()
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 """ Improved
+Plug 'igorlfs/catppuccin-nvim', {'branch': 'dap-support'}
 Plug 'kyazdani42/nvim-tree.lua'     " Explorer
 Plug 'akinsho/toggleterm.nvim'      " Terminal
-Plug 'igorlfs/nvim'                 " Theme
 Plug 'rmagatti/auto-session'        " Session
 Plug 'neovim/nvim-lspconfig'        
 """ Features
@@ -75,6 +75,7 @@ Plug 'hrsh7th/nvim-cmp'
 Plug 'lervag/vimtex'                " LaTeX
 Plug 'brennier/quicktex'            " LaTeX Snippets
 Plug 'nanotee/sqls.nvim'            " SQL
+Plug 'nvim-neorg/neorg' | Plug 'nvim-lua/plenary.nvim'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-commentary'
@@ -91,6 +92,12 @@ require("git")
 require("treesitter")
 require("debugger")
 require("explorer")
+require("neorg").setup({
+    load = {
+        ["core.defaults"] = {},
+        ["core.norg.concealer"] = {},
+    },
+})
 require("toggleterm").setup({
     open_mapping = [[<a-p>]],
     direction = "float",
@@ -105,7 +112,6 @@ colorscheme catppuccin
 """"""""""""""" Autocommands and Autogruoups
 autocmd TermOpen * setlocal nonumber norelativenumber scrolloff=0
 autocmd TermOpen * startinsert
-autocmd TermClose * if !v:event.status | exe 'bdelete! '..expand('<abuf>') | endif
 
 autocmd FileType sql nnoremap <silent> <Leader>qe :<C-U>silent! '{,'}SqlsExecuteQuery<CR>
 

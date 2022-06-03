@@ -1,4 +1,7 @@
-require("nvim-tree").setup({
+local nt = require("nvim-tree")
+
+-- setup
+nt.setup({
     renderer = {
         highlight_git = true,
         icons = {
@@ -19,5 +22,6 @@ require("nvim-tree").setup({
 })
 
 -- keymaps
-local opts = { noremap = true, silent = true }
-vim.api.nvim_set_keymap("n", "<leader>v", "<cmd>NvimTreeToggle<CR>", opts)
+require("utils")
+
+map("n", "<leader>v", nt.toggle)
