@@ -21,7 +21,7 @@ client.unfocused            $var       $unfocused $var     $unfocused
 client.urgent               $var       $urgent    $var     $urgent    
 
 ### Wallpaper
-output * bg #1e1e2e solid_color
+output * background ~/.config/romb.png fit
 
 ### GTK
 set $wl-theme gsettings set org.gnome.desktop.interface
