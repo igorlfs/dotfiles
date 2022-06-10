@@ -87,7 +87,7 @@ lspconfig.clangd.setup{
 
 -- General config
 -- Enable some language servers with the additional completion capabilities offered by nvim-cmp
-local servers = { "texlab", "tsserver", "jedi_language_server", "sqls" }
+local servers = { "texlab", "tsserver", "jedi_language_server", "sqls", "html" }
 for _, lsp in ipairs(servers) do
     lspconfig[lsp].setup({
         on_attach = on_attach,

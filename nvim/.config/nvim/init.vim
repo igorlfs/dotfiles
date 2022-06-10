@@ -20,6 +20,7 @@ set noshowcmd noshowmode       " unclutter last line
 set laststatus=3               " global status line
 set noruler                    " unclutter status line
 set spelllang=en_us,pt_br      " languages to use with spellcheck
+set nofoldenable               " disable folds by default
 set foldmethod=expr            " use treesitter folds
 set foldexpr=nvim_treesitter#foldexpr()
 
@@ -34,6 +35,7 @@ tnoremap <Esc> <C-\><C-n>
 vnoremap <silent> <A-j> :m .+1<CR>gv=gv
 vnoremap <silent> <A-k> :m .-2<CR>gv=gv
 """ Tabs
+noremap <silent> <C-q> :tabclose<CR>
 noremap <silent> <A-t> :tabnew %<CR>
 noremap <silent> <A-tab> :tabnext<CR>
 noremap <silent> <S-tab> :tabprevious<CR>
@@ -61,6 +63,7 @@ Plug 'neovim/nvim-lspconfig'
 Plug 'lewis6991/gitsigns.nvim'      " Git
 Plug 'kyazdani42/nvim-web-devicons' " Icons
 Plug 'windwp/nvim-autopairs'        " Pairs
+Plug 'numToStr/Comment.nvim'        " Comments
 Plug 'mfussenegger/nvim-dap'        " Debugger
 Plug 'rcarriga/nvim-dap-ui'
 """  Autocomplete + Snippets
@@ -78,7 +81,6 @@ Plug 'nanotee/sqls.nvim'            " SQL
 Plug 'nvim-neorg/neorg' | Plug 'nvim-lua/plenary.nvim'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-dispatch'
-Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 call plug#end()
 
@@ -87,6 +89,7 @@ let g:vimtex_view_method='zathura'
 
 lua << EOF
 require("nvim-autopairs").setup()
+require("Comment").setup()
 require("lsp")
 require("git")
 require("treesitter")
