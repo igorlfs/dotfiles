@@ -44,7 +44,7 @@ local on_attach = function(client, bufnr)
         vim.cmd([[
             augroup LspFormatting
                 autocmd! * <buffer>
-                autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()
+                autocmd BufWritePre <buffer> lua vim.lsp.buf.format()
             augroup END
         ]])
     end
@@ -155,8 +155,8 @@ cmp.setup({
 cmp.setup.cmdline(":", {
     sources = {
         { name = "cmdline" },
-    }, 
-    mapping = cmp.mapping.preset.cmdline()
+    },
+   mapping = cmp.mapping.preset.cmdline()
 })
 cmp.setup.cmdline("/", {
     sources = {

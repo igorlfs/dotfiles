@@ -31,14 +31,17 @@ dap.configurations.cpp = {
         name = "Launch",
         type = "lldb",
         request = "launch",
-        program = vim.fn.getcwd() .. "/binary",
+        program = function()
+            return vim.fn.input("Executable: ", vim.fn.getcwd() .. "/", "file")
+        end,
         cwd = vim.fn.getcwd(),
         stopOnEntry = false,
 
-        args = function()
-            local args_string = vim.fn.input("Arguments: ")
-            return vim.split(args_string, " ")
-        end,
+        -- Set arguments
+        -- args = function()
+        --     local args_string = vim.fn.input("Arguments: ")
+        --     return vim.split(args_string, " ")
+        -- end,
 
         -- if you change `runInTerminal` to true, you might need to change the yama/ptrace_scope setting:
         --
@@ -92,6 +95,7 @@ require("utils")
 map("n", "<F2>", dapui.eval)
 map("n", "<F4>", dap.terminate)
 map("n", "<F5>", dap.continue)
+map("n", "<F6>", dap.run_to_cursor)
 map("n", "<F7>", function() 
     dap.set_breakpoint(nil,nil,vim.fn.input("Log point message: "))
 end)
