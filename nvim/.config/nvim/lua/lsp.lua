@@ -140,7 +140,7 @@ cmp.setup({
         { name = "nvim_lsp" },
         { name = "luasnip" },
     }, {
-            { name = "buffer", option = { keyword_pattern = [[\k\+]] } },
+            { name = "buffer", keyword_pattern = [[\k\+]] },
             { name = "path" },
         }),
     formatting = {
@@ -154,19 +154,19 @@ cmp.setup({
 -- cmp-cmdline setup
 cmp.setup.cmdline(":", {
     sources = {
-        { name = "cmdline" },
+        { name = "cmdline", keyword_pattern = [=[[^[:blank:]%]*]=] },
     },
    mapping = cmp.mapping.preset.cmdline()
 })
 cmp.setup.cmdline("/", {
     sources = {
-        { name = "buffer", option = { keyword_pattern = [[\k\+]] } },
+        { name = "buffer", keyword_pattern = [[\k\+]] },
     },
     mapping = cmp.mapping.preset.cmdline()
 })
 cmp.setup.cmdline("?", {
     sources = {
-        { name = "buffer", option = { keyword_pattern = [[\k\+]] } },
+        { name = "buffer", keyword_pattern = [[\k\+]] },
     },
     mapping = cmp.mapping.preset.cmdline()
 })
