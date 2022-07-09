@@ -16,7 +16,7 @@ set softtabstop=4              " columns for a TAB
 set expandtab                  " expand TABs to spaces
 set undofile                   " enables persistent undo
 set shadafile=NONE             " don't save history
-set noshowcmd noshowmode       " unclutter last line
+set noshowcmd noshowmode       " unclutter command line
 set laststatus=3               " global status line
 set noruler                    " unclutter status line
 set spelllang=en_us,pt_br      " languages to use with spellcheck
@@ -29,11 +29,11 @@ set foldexpr=nvim_treesitter#foldexpr()
 let mapleader = " "
 nnoremap k gk
 nnoremap j gj
-noremap <C-s> :w<CR>
+noremap <C-s> :write<CR>
 tnoremap <Esc> <C-\><C-n>
 " Move lines
-vnoremap <silent> <A-j> :m .+1<CR>gv=gv
-vnoremap <silent> <A-k> :m .-2<CR>gv=gv
+vnoremap <silent> <A-j> :move .+1<CR>gv=gv
+vnoremap <silent> <A-k> :move .-2<CR>gv=gv
 """ Tabs
 noremap <silent> <C-q> :tabclose<CR>
 noremap <silent> <A-t> :tabnew %<CR>
@@ -53,7 +53,7 @@ noremap <silent> <A-0> :tablast<CR>
 """"""""""""""" Plugins
 call plug#begin()
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-""" Improved
+""" Improvements
 Plug 'igorlfs/catppuccin-nvim', {'branch': 'dap-support'}
 Plug 'kyazdani42/nvim-tree.lua'     " Explorer
 Plug 'akinsho/toggleterm.nvim'      " Terminal
@@ -77,15 +77,20 @@ Plug 'hrsh7th/nvim-cmp'
 """ Misc
 Plug 'lervag/vimtex'                " LaTeX
 Plug 'brennier/quicktex'            " LaTeX Snippets
-Plug 'nanotee/sqls.nvim'            " SQL
 Plug 'nvim-neorg/neorg' | Plug 'nvim-lua/plenary.nvim'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-dadbod'             " SQL
+Plug 'kristijanhusak/vim-dadbod-ui'
+Plug 'kristijanhusak/vim-dadbod-completion'
 call plug#end()
 
 """ Vimtex
 let g:vimtex_view_method='zathura'
+
+""" Dadbod
+nnoremap <silent> <A-d> :DBUIToggle<CR>
 
 lua << EOF
 require("nvim-autopairs").setup()
@@ -97,6 +102,11 @@ require("debugger")
 require("explorer")
 require("neorg").setup({
     load = {
+        ["core.highlights"] = {
+            config = {
+                todo_items_match_color = "all",
+            },
+        },
         ["core.defaults"] = {},
         ["core.norg.concealer"] = {},
     },
@@ -116,7 +126,9 @@ colorscheme catppuccin
 autocmd TermOpen * setlocal nonumber norelativenumber scrolloff=0
 autocmd TermOpen * startinsert
 
-autocmd FileType sql nnoremap <silent> <Leader>qe :<C-U>silent! '{,'}SqlsExecuteQuery<CR>
+autocmd FileType sql,mysql,plsql lua require('cmp').setup.buffer({ sources = {{ name = 'vim-dadbod-completion' }} })
+
+autocmd BufWritePost *.dot silent !dot -Tpdf % -o %<.pdf
 
 autocmd FileType cpp,c nnoremap <buffer> <silent> <A-o> :ClangdSwitchSourceHeader<CR> 
 

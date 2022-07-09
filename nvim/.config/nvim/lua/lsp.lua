@@ -40,7 +40,7 @@ local on_attach = function(client, bufnr)
     map("n", "gr", vim.lsp.buf.references, bufopts)
     map("n", "<leader>ca", vim.lsp.buf.code_action, bufopts)
 
-    if client.supports_method "textDocument/formatting" and client.name ~= "sqls" then
+    if client.supports_method "textDocument/formatting" then
         vim.cmd([[
             augroup LspFormatting
                 autocmd! * <buffer>
@@ -60,9 +60,6 @@ local on_attach = function(client, bufnr)
         ]])
     end
 
-    if client.name == "sqls" then
-        require('sqls').on_attach(client, bufnr)
-    end 
 end
 
 -- Add additional capabilities supported by nvim-cmp
@@ -87,7 +84,7 @@ lspconfig.clangd.setup{
 
 -- General config
 -- Enable some language servers with the additional completion capabilities offered by nvim-cmp
-local servers = { "texlab", "tsserver", "jedi_language_server", "sqls", "html" }
+local servers = { "texlab", "tsserver", "pylsp", "html", "dotls" }
 for _, lsp in ipairs(servers) do
     lspconfig[lsp].setup({
         on_attach = on_attach,
@@ -140,7 +137,7 @@ cmp.setup({
         { name = "nvim_lsp" },
         { name = "luasnip" },
     }, {
-            { name = "buffer", keyword_pattern = [[\k\+]] },
+            { name = "buffer", option = { keyword_pattern = [[\k\+]] } },
             { name = "path" },
         }),
     formatting = {
@@ -160,13 +157,13 @@ cmp.setup.cmdline(":", {
 })
 cmp.setup.cmdline("/", {
     sources = {
-        { name = "buffer", keyword_pattern = [[\k\+]] },
+        { name = "buffer", option = { keyword_pattern = [[\k\+]] } },
     },
     mapping = cmp.mapping.preset.cmdline()
 })
 cmp.setup.cmdline("?", {
     sources = {
-        { name = "buffer", keyword_pattern = [[\k\+]] },
+        { name = "buffer", option = { keyword_pattern = [[\k\+]] } },
     },
     mapping = cmp.mapping.preset.cmdline()
 })
