@@ -31,9 +31,6 @@ nnoremap k gk
 nnoremap j gj
 noremap <C-s> :write<CR>
 tnoremap <Esc> <C-\><C-n>
-" Move lines
-vnoremap <silent> <A-j> :move .+1<CR>gv=gv
-vnoremap <silent> <A-k> :move .-2<CR>gv=gv
 """ Tabs
 noremap <silent> <C-q> :tabclose<CR>
 noremap <silent> <A-t> :tabnew %<CR>
