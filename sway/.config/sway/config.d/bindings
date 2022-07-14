@@ -81,8 +81,7 @@ bindsym $mod+v splitv
 bindsym $mod+f fullscreen toggle
 # Switch the current container between different layout styles
 bindsym $mod+t layout tabbed
-bindsym $mod+s layout stacking
-#	bindsym $mod+y layout toggle split
+bindsym $mod+y layout toggle split
 # Toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
 # Change focus between tiling / floating windows
