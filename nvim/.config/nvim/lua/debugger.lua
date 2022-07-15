@@ -86,7 +86,7 @@ dap.configurations.python = {
         name = "Launch file",
 
         -- Options below are for debugpy, see https://github.com/microsoft/debugpy/wiki/Debug-configuration-settings for supported options
-        console = "integratedTerminal",
+        console = "integratedTerminal", -- Redirect user input, allowing to send input using the console
         program = "${file}", -- This configuration will launch the current file if used.
         pythonPath = "/usr/bin/python",
     },
