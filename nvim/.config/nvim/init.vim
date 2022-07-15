@@ -121,7 +121,6 @@ colorscheme catppuccin
 
 """"""""""""""" Autocommands and Autogruoups
 autocmd TermOpen * setlocal nonumber norelativenumber scrolloff=0
-autocmd TermOpen * startinsert
 
 autocmd FileType sql,mysql,plsql lua require('cmp').setup.buffer({ sources = {{ name = 'vim-dadbod-completion' }} })
 
