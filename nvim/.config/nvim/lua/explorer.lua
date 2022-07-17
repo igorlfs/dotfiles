@@ -21,10 +21,9 @@ nt.setup({
         open_file = {
             quit_on_open = true,
         },
-    },   
+    },
 })
 
 -- keymaps
-require("utils")
-
-map("n", "<leader>v", nt.toggle)
+local keymap = vim.keymap.set
+keymap("n", "<leader>v", nt.toggle)

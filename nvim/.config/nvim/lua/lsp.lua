@@ -13,32 +13,31 @@ vim.diagnostic.config({
     },
 })
 
-require("utils")
-
+local keymap = vim.keymap.set
 -- Diagnostic keymaps
-map("n", "<space>e", vim.diagnostic.open_float)
-map("n", "[d", vim.diagnostic.goto_prev)
-map("n", "]d", vim.diagnostic.goto_next)
-map("n", "<leader>q", vim.diagnostic.setloclist)
+keymap("n", "<space>e", vim.diagnostic.open_float)
+keymap("n", "[d", vim.diagnostic.goto_prev)
+keymap("n", "]d", vim.diagnostic.goto_next)
+keymap("n", "<leader>q", vim.diagnostic.setloclist)
 
 -- Use an on_attach function to only map the following keys after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
 
     local bufopts = { noremap=true, silent=true, buffer=bufnr }
-    map("n", "gD", vim.lsp.buf.declaration, bufopts)
-    map("n", "gd", vim.lsp.buf.definition, bufopts)
-    map("n", "K", vim.lsp.buf.hover, bufopts)
-    map("n", "gi", vim.lsp.buf.implementation, bufopts)
-    map({"n", "i"}, "<C-k>", vim.lsp.buf.signature_help, bufopts)
-    map("n", "<leader>wa", vim.lsp.buf.add_workspace_folder, bufopts)
-    map("n", "<leader>wr", vim.lsp.buf.remove_workspace_folder, bufopts)
-    map("n", "<leader>wl", function()
+    keymap("n", "gD", vim.lsp.buf.declaration, bufopts)
+    keymap("n", "gd", vim.lsp.buf.definition, bufopts)
+    keymap("n", "K", vim.lsp.buf.hover, bufopts)
+    keymap("n", "gi", vim.lsp.buf.implementation, bufopts)
+    keymap({"n", "i"}, "<C-k>", vim.lsp.buf.signature_help, bufopts)
+    keymap("n", "<leader>wa", vim.lsp.buf.add_workspace_folder, bufopts)
+    keymap("n", "<leader>wr", vim.lsp.buf.remove_workspace_folder, bufopts)
+    keymap("n", "<leader>wl", function()
         vim.inspect(vim.lsp.buf.list_workspace_folders())
     end, bufopts)
-    map("n", "<leader>D", vim.lsp.buf.type_definition, bufopts)
-    map("n", "<leader>rn", vim.lsp.buf.rename, bufopts)
-    map("n", "gr", vim.lsp.buf.references, bufopts)
-    map("n", "<leader>ca", vim.lsp.buf.code_action, bufopts)
+    keymap("n", "<leader>D", vim.lsp.buf.type_definition, bufopts)
+    keymap("n", "<leader>rn", vim.lsp.buf.rename, bufopts)
+    keymap("n", "gr", vim.lsp.buf.references, bufopts)
+    keymap("n", "<leader>ca", vim.lsp.buf.code_action, bufopts)
 
     if client.supports_method "textDocument/formatting" then
         vim.cmd([[

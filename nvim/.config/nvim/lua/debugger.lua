@@ -22,10 +22,10 @@ dapui.setup({
     floating = {
         border = "rounded",
     },
-    render = { 
+    render = {
         -- Hide variable types as C++'s are verbose
         max_type_length = 0,
-    }, 
+    },
 })
 
 -- C++ adapter
@@ -136,30 +136,29 @@ sign("DapLogPoint", { text = "◆", texthl = "DapLogPoint", linehl = "", numhl =
 
 
 -- keymaps
-require("utils")
-
-map("n", "<F2>", dapui.eval)
-map("n", "<F4>", dap.terminate)
-map("n", "<F5>", dap.continue)
-map("n", "<F6>", dap.run_to_cursor)
-map("n", "<F7>", function() 
+local keymap = vim.keymap.set
+keymap("n", "<F2>", dapui.eval)
+keymap("n", "<F4>", dap.terminate)
+keymap("n", "<F5>", dap.continue)
+keymap("n", "<F6>", dap.run_to_cursor)
+keymap("n", "<F7>", function()
     dap.set_breakpoint(nil,nil,vim.fn.input("Log point message: "))
 end)
-map("n", "<F8>", function() 
+keymap("n", "<F8>", function()
     dap.set_breakpoint(vim.fn.input("Breakpoint condition: "))
 end)
-map("n", "<F9>", dap.toggle_breakpoint)
-map("n", "<F10>", dap.step_over)
-map("n", "<F11>", dap.step_into)
-map("n", "<F12>", dap.step_out)
+keymap("n", "<F9>", dap.toggle_breakpoint)
+keymap("n", "<F10>", dap.step_over)
+keymap("n", "<F11>", dap.step_into)
+keymap("n", "<F12>", dap.step_out)
 
 -- use nvim-dap events to open and close the windows automatically
 dap.listeners.after.event_initialized["dapui_config"] = function()
-    dapui.open()
+    dapui.open({})
 end
 dap.listeners.before.event_terminated["dapui_config"] = function()
-    dapui.close()
+    dapui.close({})
 end
 dap.listeners.before.event_exited["dapui_config"] = function()
-    dapui.close()
+    dapui.close({})
 end
