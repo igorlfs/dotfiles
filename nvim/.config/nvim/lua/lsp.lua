@@ -150,13 +150,6 @@ cmp.setup({
     }
 })
 
--- cmp-cmdline setup
-cmp.setup.cmdline(":", {
-    sources = {
-        { name = "cmdline", keyword_pattern = [=[[^[:blank:]%]*]=] },
-    },
-   mapping = cmp.mapping.preset.cmdline()
-})
 cmp.setup.cmdline("/", {
     sources = {
         { name = "buffer", option = { keyword_pattern = [[\k\+]] } },

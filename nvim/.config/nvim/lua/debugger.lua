@@ -15,7 +15,7 @@ dapui.setup({
         },
         {
             elements = { "console" },
-            size = 0.25,
+            size = 0.3,
             position = "bottom",
         },
     },
@@ -90,6 +90,7 @@ dap.configurations.cpp = {
         end,
         cwd = vim.fn.getcwd(),
         showDisassembly = "never", -- Disables assembly when source code isn't found
+        expressions = "native", -- Allows evaluating expressions such as "this"
 
         -- Set arguments
         -- args = function()

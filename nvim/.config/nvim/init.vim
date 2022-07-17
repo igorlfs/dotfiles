@@ -23,6 +23,7 @@ set spelllang=en_us,pt_br      " languages to use with spellcheck
 set nofoldenable               " disable folds by default
 set foldmethod=expr            " use treesitter folds
 set foldexpr=nvim_treesitter#foldexpr()
+set wildmode=longest,list,full " funky wildmenu
 
 """"""""""""""" Mappings
 """ Convenience
