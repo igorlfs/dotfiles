@@ -52,7 +52,7 @@ noremap <silent> <A-0> :tablast<CR>
 call plug#begin()
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 """ Improvements
-Plug 'igorlfs/catppuccin-nvim', {'branch': 'dap-support'}
+Plug 'catppuccin/nvim', {'as': 'catppuccin'}
 Plug 'kyazdani42/nvim-tree.lua'     " Explorer
 Plug 'akinsho/toggleterm.nvim'      " Terminal
 Plug 'rmagatti/auto-session'        " Session
@@ -95,7 +95,6 @@ require("nvim-autopairs").setup()
 require("Comment").setup()
 require("lsp")
 require("git")
-require("treesitter")
 require("debugger")
 require("explorer")
 require("neorg").setup({
@@ -107,6 +106,16 @@ require("neorg").setup({
         },
         ["core.defaults"] = {},
         ["core.norg.concealer"] = {},
+    },
+})
+require("nvim-treesitter.configs").setup({
+    ensure_installed = { "c", "cpp", "comment", "make", "lua", "python", "vim", "norg" },
+    highlight = {
+        enable = true,
+    },
+    indent = {
+        enable = true,
+        disable = { "python" },
     },
 })
 require("toggleterm").setup({

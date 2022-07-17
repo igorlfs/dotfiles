@@ -68,7 +68,7 @@ capabilities.textDocument.completion.completionItem.snippetSupport = true
 capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 
 -- Enable borders
-local handlers =  {
+local handlers = {
     ["textDocument/hover"] =  vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" }),
     ["textDocument/signatureHelp"] =  vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" }),
 }
@@ -137,9 +137,19 @@ cmp.setup({
     sources = cmp.config.sources({
         { name = "nvim_lsp" },
         { name = "luasnip" },
-    }, {
-            { name = "buffer", option = { keyword_pattern = [[\k\+]] } },
-            { name = "path" },
+        { name = "buffer",
+            option = {
+                keyword_pattern = [[\k\+]],
+                -- Enable completion from all visible buffers
+                get_bufnrs = function()
+                    local bufs = {}
+                    for _, win in ipairs(vim.api.nvim_list_wins()) do
+                        bufs[vim.api.nvim_win_get_buf(win)] = true
+                    end
+                    return vim.tbl_keys(bufs)
+                end }
+        },
+        { name = "path" },
         }),
     formatting = {
         format = function(entry, vim_item)
