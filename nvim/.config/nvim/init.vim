@@ -79,16 +79,10 @@ Plug 'nvim-neorg/neorg' | Plug 'nvim-lua/plenary.nvim'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-dadbod'             " SQL
-Plug 'kristijanhusak/vim-dadbod-ui'
-Plug 'kristijanhusak/vim-dadbod-completion'
 call plug#end()
 
 """ Vimtex
 let g:vimtex_view_method='zathura'
-
-""" Dadbod
-nnoremap <silent> <A-d> :DBUIToggle<CR>
 
 lua << EOF
 require("nvim-autopairs").setup()
@@ -131,10 +125,6 @@ colorscheme catppuccin
 
 """"""""""""""" Autocommands and Autogruoups
 autocmd TermOpen * setlocal nonumber norelativenumber scrolloff=0
-
-autocmd FileType sql,mysql,plsql lua require('cmp').setup.buffer({ sources = {{ name = 'vim-dadbod-completion' }} })
-
-autocmd BufWritePost *.dot silent !dot -Tpdf % -o %<.pdf
 
 autocmd FileType cpp,c nnoremap <buffer> <silent> <A-o> :ClangdSwitchSourceHeader<CR> 
 
