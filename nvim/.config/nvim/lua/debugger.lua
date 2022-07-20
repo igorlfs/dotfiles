@@ -84,9 +84,6 @@ dap.configurations.python = {
     },
 }
 
-    },
-}
-
 -- signs
 local sign = vim.fn.sign_define
 sign("DapBreakpoint", { text = "●", texthl = "DapBreakpoint", linehl = "", numhl = ""})

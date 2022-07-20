@@ -1,29 +1,48 @@
 """"""""""""""" Settings
-set updatetime=200             " faster LSP and alike
-set signcolumn=yes             " enable git or diagnostics column
-set termguicolors              " enable full color support
-set nohlsearch                 " don't highlight search
-set breakindent                " keep wrapped lines visually indented
-set relativenumber number      " number lines for motion
-set scrolloff=4                " context lines when scrolling
-set mouse=a                    " mouse scroll, fix number lines
-set clipboard+=unnamedplus     " use system clipboard
-set linebreak                  " wrap long lines
-set splitbelow splitright      " fix splits
-set tabstop=4                  " width of a TAB
-set shiftwidth=4               " indents width
-set softtabstop=4              " columns for a TAB
-set expandtab                  " expand TABs to spaces
-set undofile                   " enables persistent undo
-set shadafile=NONE             " don't save history
-set noshowcmd noshowmode       " unclutter command line
-set laststatus=3               " global status line
-set noruler                    " unclutter status line
-set spelllang=en_us,pt_br      " languages to use with spellcheck
-set nofoldenable               " disable folds by default
-set foldmethod=expr            " use treesitter folds
-set foldexpr=nvim_treesitter#foldexpr()
-set wildmode=longest,list,full " funky wildmenu
+lua << EOF
+local o = vim.opt
+
+-- Behavior
+o.termguicolors = true              -- Enable full color support
+o.updatetime = 200                  -- Time for CursorHold event (eg, LSP)
+o.hlsearch = false                  -- Don't keep searches highlighted
+o.breakindent = true                -- Keep wrapped lines visually indented
+o.scrolloff = 4                     -- Context lines when scrolling
+o.clipboard:append{"unnamedplus"}   -- Use system clipboard
+o.wildmode = "longest,list,full"    -- Funky completion for commands
+o.mouse = "a"                       -- TBR: default in 0.8
+o.spelllang:append{"pt_br"}         -- Additional language to spell check
+
+-- Folds
+-- o.foldenable = false                -- Disable folds by default
+o.foldmethod = "expr"               -- Enable treesitter folds
+o.foldexpr = "nvim_treesitter#foldexpr()"
+
+-- Splits
+o.splitbelow = true
+o.splitright = true
+
+-- Tabs
+o.expandtab = true                  -- expand tabs to spaces
+o.tabstop = 4                       -- width of a tab
+o.shiftwidth = 4                    -- indent's width
+-- o.softtabstop = 4
+
+-- Appearence
+o.number = true                     -- Print the line number in front of the current line
+o.relativenumber = true             -- Print the line numbers for motion
+o.signcolumn = "yes"                -- Always draw the extra column to indicate git or diagnostics
+-- status line
+o.ruler = false                     -- Hide the line and column number of the cursor position
+o.laststatus = 3                    -- Global status line
+-- command line
+o.showcmd = false                   -- Hide current (unfinished) command
+o.showmode = false                  -- Hide message indicating current mode
+
+-- History
+o.undofile = true                   -- Enable persistent undo
+o.shadafile = "NONE"                -- Don't save history
+EOF
 
 """"""""""""""" Mappings
 """ Convenience
@@ -52,7 +71,7 @@ noremap <silent> <A-0> :tablast<CR>
 call plug#begin()
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 """ Improvements
-Plug 'catppuccin/nvim', {'as': 'catppuccin'}
+Plug 'catppuccin/nvim', {'as': 'catppuccin', 'do': 'CatppuccinCompile'}
 Plug 'kyazdani42/nvim-tree.lua'     " Explorer
 Plug 'akinsho/toggleterm.nvim'      " Terminal
 Plug 'rmagatti/auto-session'        " Session
@@ -87,6 +106,14 @@ let g:vimtex_view_method='zathura'
 lua << EOF
 require("nvim-autopairs").setup()
 require("Comment").setup()
+require("catppuccin").setup({
+    integrations = {
+    	dap = {
+    		enabled = true,
+    		enable_ui = true,
+    	},
+    }
+})
 require("lsp")
 require("git")
 require("debugger")
