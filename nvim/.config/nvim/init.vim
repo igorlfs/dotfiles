@@ -6,15 +6,16 @@ local o = vim.opt
 o.termguicolors = true              -- Enable full color support
 o.updatetime = 200                  -- Time for CursorHold event (eg, LSP)
 o.hlsearch = false                  -- Don't keep searches highlighted
-o.breakindent = true                -- Keep wrapped lines visually indented
+o.linebreak = true                  -- Break words correctly
 o.scrolloff = 4                     -- Context lines when scrolling
 o.clipboard:append{"unnamedplus"}   -- Use system clipboard
 o.wildmode = "longest,list,full"    -- Funky completion for commands
 o.mouse = "a"                       -- TBR: default in 0.8
 o.spelllang:append{"pt_br"}         -- Additional language to spell check
+o.sessionoptions:append{"folds"}    -- Also save folds in sessions
 
 -- Folds
--- o.foldenable = false                -- Disable folds by default
+o.foldenable = false                -- Disable folds by default
 o.foldmethod = "expr"               -- Enable treesitter folds
 o.foldexpr = "nvim_treesitter#foldexpr()"
 
@@ -26,7 +27,6 @@ o.splitright = true
 o.expandtab = true                  -- expand tabs to spaces
 o.tabstop = 4                       -- width of a tab
 o.shiftwidth = 4                    -- indent's width
--- o.softtabstop = 4
 
 -- Appearence
 o.number = true                     -- Print the line number in front of the current line
@@ -71,7 +71,7 @@ noremap <silent> <A-0> :tablast<CR>
 call plug#begin()
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 """ Improvements
-Plug 'catppuccin/nvim', {'as': 'catppuccin', 'do': 'CatppuccinCompile'}
+Plug 'catppuccin/nvim', {'as': 'catppuccin'}
 Plug 'kyazdani42/nvim-tree.lua'     " Explorer
 Plug 'akinsho/toggleterm.nvim'      " Terminal
 Plug 'rmagatti/auto-session'        " Session
@@ -127,6 +127,11 @@ require("neorg").setup({
         },
         ["core.defaults"] = {},
         ["core.norg.concealer"] = {},
+        ["core.norg.completion"] = {
+            config = {
+                engine = "nvim-cmp",
+            },
+        },
     },
 })
 require("nvim-treesitter.configs").setup({
