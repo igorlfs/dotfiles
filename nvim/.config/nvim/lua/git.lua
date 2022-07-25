@@ -17,8 +17,8 @@ require("gitsigns").setup({
         end, { expr = true })
 
         -- Actions
-        keymap({ "n", "v" }, "<leader>hs", ":Gitsigns stage_hunk<CR>", { silent = true })
-        keymap({ "n", "v" }, "<leader>hr", ":Gitsigns reset_hunk<CR>", { silent = true })
+        keymap({ "n", "v" }, "<leader>hs", ":Gitsigns stage_hunk<CR>")
+        keymap({ "n", "v" }, "<leader>hr", ":Gitsigns reset_hunk<CR>")
         keymap("n", "<leader>hS", gs.stage_buffer)
         keymap("n", "<leader>hu", gs.undo_stage_hunk)
         keymap("n", "<leader>hR", gs.reset_buffer)

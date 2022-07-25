@@ -82,6 +82,13 @@ lspconfig.clangd.setup{
     capabilities = capabilities,
     handlers = handlers,
 }
+require("rust-tools").setup({
+    server = {
+        on_attach = on_attach,
+        capabilities = capabilities,
+        handlers = handlers,
+    }
+})
 
 -- General config
 -- Enable some language servers with the additional completion capabilities offered by nvim-cmp

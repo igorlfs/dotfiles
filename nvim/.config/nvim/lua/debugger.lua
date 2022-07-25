@@ -61,6 +61,7 @@ dap.configurations.cpp = {
 
 -- clone C++ config to C
 dap.configurations.c = dap.configurations.cpp
+dap.configurations.rust = dap.configurations.cpp
 
 -- Python adapter
 dap.adapters.python = {

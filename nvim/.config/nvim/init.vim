@@ -1,6 +1,7 @@
 """"""""""""""" Settings
 lua << EOF
 local o = vim.opt
+local g = vim.g
 
 -- Behavior
 o.termguicolors = true              -- Enable full color support
@@ -10,7 +11,6 @@ o.linebreak = true                  -- Break words correctly
 o.scrolloff = 4                     -- Context lines when scrolling
 o.clipboard:append{"unnamedplus"}   -- Use system clipboard
 o.wildmode = "longest,list,full"    -- Funky completion for commands
-o.mouse = "a"                       -- TBR: default in 0.8
 o.spelllang:append{"pt_br"}         -- Additional language to spell check
 o.sessionoptions:append{"folds"}    -- Also save folds in sessions
 
@@ -42,6 +42,16 @@ o.showmode = false                  -- Hide message indicating current mode
 -- History
 o.undofile = true                   -- Enable persistent undo
 o.shadafile = "NONE"                -- Don't save history
+
+-- Providers
+g.loaded_python3_provider = 0
+g.loaded_node_provider = 0
+g.loaded_perl_provider = 0
+
+-- Plugins
+g.catppuccin_flavour = "mocha"
+g.vimtex_view_method = "zathura"
+
 EOF
 
 """"""""""""""" Mappings
@@ -94,14 +104,12 @@ Plug 'hrsh7th/nvim-cmp'
 """ Misc
 Plug 'lervag/vimtex'                " LaTeX
 Plug 'brennier/quicktex'            " LaTeX Snippets
+Plug 'simrat39/rust-tools.nvim'     " Rust
 Plug 'nvim-neorg/neorg' | Plug 'nvim-lua/plenary.nvim'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-fugitive'
 call plug#end()
-
-""" Vimtex
-let g:vimtex_view_method='zathura'
 
 lua << EOF
 require("nvim-autopairs").setup()
@@ -135,7 +143,7 @@ require("neorg").setup({
     },
 })
 require("nvim-treesitter.configs").setup({
-    ensure_installed = { "c", "cpp", "comment", "make", "lua", "python", "vim", "norg" },
+    ensure_installed = { "c", "cpp", "comment", "make", "lua", "python", "vim", "norg", "rust" },
     highlight = {
         enable = true,
     },
@@ -151,9 +159,11 @@ require("toggleterm").setup({
         border = "curved",
     },
 })
+
+vim.cmd.colorscheme("catppuccin")
+
 EOF
 
-colorscheme catppuccin
 
 """"""""""""""" Autocommands and Autogruoups
 autocmd TermOpen * setlocal nonumber norelativenumber scrolloff=0
