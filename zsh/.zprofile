@@ -15,6 +15,7 @@ fi
 export ZDOTDIR="${XDG_CONFIG_HOME}"/zsh
 export XAUTHORITY="${XDG_RUNTIME_DIR}"/Xauthority
 export NPM_CONFIG_USERCONFIG="${XDG_CONFIG_HOME}"/npm/npmrc
+export CARGO_HOME="$XDG_DATA_HOME"/cargo
 ### MISC
 export PATH=${XDG_DATA_HOME}/npm/bin:~/.local/bin:$PATH
 export LESSHISTFILE="-"

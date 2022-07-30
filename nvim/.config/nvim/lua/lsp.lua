@@ -76,12 +76,13 @@ local handlers = {
 local lspconfig = require("lspconfig")
 -- Sever specific config 
 -- C++
-lspconfig.clangd.setup{
+lspconfig.clangd.setup({
     cmd = {"clangd", "--completion-style=detailed", "--clang-tidy"},
     on_attach = on_attach,
     capabilities = capabilities,
     handlers = handlers,
-}
+})
+-- Rust
 require("rust-tools").setup({
     server = {
         on_attach = on_attach,

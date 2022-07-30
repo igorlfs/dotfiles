@@ -24,9 +24,9 @@ o.splitbelow = true
 o.splitright = true
 
 -- Tabs
-o.expandtab = true                  -- expand tabs to spaces
-o.tabstop = 4                       -- width of a tab
-o.shiftwidth = 4                    -- indent's width
+o.expandtab = true                  -- Expand tabs to spaces
+o.tabstop = 4                       -- Width of a tab
+o.shiftwidth = 4                    -- Indent's width
 
 -- Appearence
 o.number = true                     -- Print the line number in front of the current line
@@ -163,7 +163,6 @@ require("toggleterm").setup({
 vim.cmd.colorscheme("catppuccin")
 
 EOF
-
 
 """"""""""""""" Autocommands and Autogruoups
 autocmd TermOpen * setlocal nonumber norelativenumber scrolloff=0
