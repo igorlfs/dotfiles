@@ -25,8 +25,8 @@ exec pipewire-pulse
 exec wireplumber
 
 # Screenshare
-exec /usr/lib/xdg-desktop-portal
 exec /usr/lib/xdg-desktop-portal-wlr
+exec_always /usr/lib/xdg-desktop-portal -r # Reload to activate screenshare
 
 # Idle
 exec swayidle timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"'
