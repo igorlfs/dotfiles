@@ -109,11 +109,14 @@ Plug 'nvim-neorg/neorg' | Plug 'nvim-lua/plenary.nvim'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-fugitive'
+""" Eye candy
+Plug 'j-hui/fidget.nvim'
 call plug#end()
 
 lua << EOF
 require("nvim-autopairs").setup()
 require("Comment").setup()
+require("fidget").setup()
 require("catppuccin").setup({
     integrations = {
     	dap = {
