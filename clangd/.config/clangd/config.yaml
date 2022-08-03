@@ -1,0 +1,18 @@
+CompileFlags:
+  # use C++20 standard, enable more warnings.
+  Add: [-std=c++20, -Wall, -Wextra, -Wno-missing-prototypes, -Wshadow, -Wpedantic ]
+  # Remove extra warnings specified in compile commands.
+  # Single value is also acceptable, same as "Remove: [-mabi]"
+  Remove: -mabi
+
+Diagnostics:
+  UnusedIncludes: Strict
+  # Tweak Clang-Tidy checks.
+  ClangTidy:
+    Add: [performance*, modernize*, readability*]
+    Remove: [modernize-use-trailing-return-type,modernize-use-nodiscard]
+    CheckOptions:
+      readability-identifier-naming.VariableCase: camelBack
+      readability-identifier-naming.ConstantCase: UPPER_CASE
+      # disable cognitive complexity for macros as it increases gtest complexity
+      readability-function-cognitive-complexity.IgnoreMacros: true
