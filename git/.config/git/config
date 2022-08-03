@@ -1,0 +1,12 @@
+[user]
+	email = igorlfs@ufmg.br
+	name = Igor
+[init]
+	defaultBranch = main
+[core]
+	quotepath = off
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
