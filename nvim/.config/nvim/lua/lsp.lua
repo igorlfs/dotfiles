@@ -159,7 +159,7 @@ cmp.setup({
                 end }
         },
         { name = "path" },
-        }),
+    }),
     formatting = {
         format = function(entry, vim_item)
             vim_item.abbr = string.sub(vim_item.abbr, 1, 50)

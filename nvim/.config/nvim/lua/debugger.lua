@@ -59,7 +59,7 @@ dap.configurations.cpp = {
     },
 }
 
--- clone C++ config to C
+-- Clone C++ config to C and Rust
 dap.configurations.c = dap.configurations.cpp
 dap.configurations.rust = dap.configurations.cpp
 

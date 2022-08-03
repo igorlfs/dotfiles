@@ -5,12 +5,12 @@ nt.setup({
     renderer = {
         highlight_git = true,
         icons = {
-          show = {
-            git = false,
-          },
+            show = {
+                git = false,
+            },
         },
         indent_markers = {
-          enable = true,
+            enable = true,
         },
     },
     diagnostics = {
