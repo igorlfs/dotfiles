@@ -1,3 +1,6 @@
+# Export variables to use screenshare
+exec dbus-update-activation-environment DISPLAY I3SOCK SWAYSOCK WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
+
 #
 # Input / Seat
 #
@@ -23,10 +26,6 @@ exec_always gsettings set org.gnome.desktop.privacy remember-recent-files false
 exec pipewire
 exec pipewire-pulse
 exec wireplumber
-
-# Screenshare
-exec /usr/lib/xdg-desktop-portal-wlr
-exec_always /usr/lib/xdg-desktop-portal -r # Reload to activate screenshare
 
 # Idle
 exec swayidle timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"'
