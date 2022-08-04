@@ -47,6 +47,7 @@ o.shadafile = "NONE"                -- Don't save history
 g.loaded_python3_provider = 0
 g.loaded_node_provider = 0
 g.loaded_perl_provider = 0
+g.loaded_ruby_provider = 0
 
 -- Plugins
 g.catppuccin_flavour = "mocha"

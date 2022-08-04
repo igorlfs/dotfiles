@@ -77,7 +77,7 @@ local lspconfig = require("lspconfig")
 -- Sever specific config 
 -- C++
 lspconfig.clangd.setup({
-    cmd = {"clangd", "--completion-style=detailed", "--clang-tidy"},
+    cmd = { "clangd", "--completion-style=detailed", "--clang-tidy" },
     on_attach = on_attach,
     capabilities = capabilities,
     handlers = handlers,
@@ -88,6 +88,13 @@ require("rust-tools").setup({
         on_attach = on_attach,
         capabilities = capabilities,
         handlers = handlers,
+        settings = {
+            ["rust-analyzer"] = {
+                checkOnSave = {
+                    command = "clippy"
+                }
+            }
+        }
     }
 })
 
