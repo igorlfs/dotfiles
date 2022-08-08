@@ -1,6 +1,9 @@
 # Export variables to use screenshare
 exec dbus-update-activation-environment DISPLAY I3SOCK SWAYSOCK WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
 
+# Pure Wayland
+xwayland disable
+
 #
 # Input / Seat
 #
@@ -29,7 +32,6 @@ exec wireplumber
 
 # Idle
 exec swayidle timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"'
-for_window [app_id="firefox"] inhibit_idle fullscreen
 
 ### Import config dir
 include ~/.config/sway/config.d/*
