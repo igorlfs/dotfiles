@@ -185,9 +185,13 @@ vim.cmd.colorscheme("catppuccin")
 EOF
 
 """"""""""""""" Autocommands and Autogruoups
+autocmd FileType * set formatoptions-=o
+
 autocmd TermOpen * setlocal nonumber norelativenumber scrolloff=0
 
-autocmd FileType cpp,c nnoremap <buffer> <silent> <A-o> :ClangdSwitchSourceHeader<CR> 
+autocmd FileType cpp,c nnoremap <buffer> <A-o> :ClangdSwitchSourceHeader<CR> 
 
 autocmd FileType cpp,c,make nnoremap <buffer> <leader>m :w <CR> :Make<CR>
-autocmd FileType cpp,c,make nnoremap <buffer> <leader>bm :w <CR> :!bear -- make<CR>
+
+autocmd FileType rust compiler cargo
+autocmd FileType rust nnoremap <buffer> <leader>m :w <CR> :Make build<CR>
