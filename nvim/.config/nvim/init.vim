@@ -138,28 +138,6 @@ require("neorg").setup({
             },
         },
         ["core.defaults"] = {},
-        ["core.norg.concealer"] = {
-            config = {
-                icons = {
-                    todo = {
-                        pending = {
-                            icon = "~",
-                        },
-                        urgent = {
-                            icon = "#",
-                        },
-                        uncertain = {
-                            icon = "?",
-                        },
-                    },
-                },
-            },
-        },
-        ["core.norg.completion"] = {
-            config = {
-                engine = "nvim-cmp",
-            },
-        },
     },
 })
 require("nvim-treesitter.configs").setup({
