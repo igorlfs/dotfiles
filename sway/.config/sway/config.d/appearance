@@ -1,7 +1,7 @@
 #
 # Appearance
 #
-font pango: Iosevka 10
+font pango: Cascadia Code 10
 smart_borders on
 default_border pixel 2
 default_floating_border none
