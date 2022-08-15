@@ -138,6 +138,7 @@ require("neorg").setup({
             },
         },
         ["core.defaults"] = {},
+        ["core.norg.concealer"] = {},
     },
 })
 require("nvim-treesitter.configs").setup({

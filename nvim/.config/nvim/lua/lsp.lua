@@ -23,7 +23,7 @@ keymap("n", "<leader>q", vim.diagnostic.setloclist)
 -- Use an on_attach function to only map the following keys after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
 
-    local bufopts = { noremap=true, silent=true, buffer=bufnr }
+    local bufopts = { silent=true, buffer=bufnr }
     keymap("n", "gD", vim.lsp.buf.declaration, bufopts)
     keymap("n", "gd", vim.lsp.buf.definition, bufopts)
     keymap("n", "K", vim.lsp.buf.hover, bufopts)
