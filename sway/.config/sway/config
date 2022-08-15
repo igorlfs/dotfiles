@@ -22,7 +22,7 @@ seat seat0 hide_cursor when-typing enable
 
 # Miscellaneous
 exec autotiling
-exec wlsunset -l -19.5 -L -43.6
+exec gammastep -l -19.5:-43.6
 exec_always gsettings set org.gnome.desktop.privacy remember-recent-files false
 
 # Audio
