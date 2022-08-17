@@ -1,28 +1,16 @@
 lua << EOF
 require("core/options")
+require("core/keymaps")
 EOF
 
 """"""""""""""" Mappings
 """ Convenience
 let mapleader = " "
-nnoremap k gk
-nnoremap j gj
-noremap <C-s> :write<CR>
-tnoremap <Esc> <C-\><C-n>
 """ Tabs
 noremap <silent> <C-q> :tabclose<CR>
 noremap <silent> <A-t> :tabnew %<CR>
 noremap <silent> <A-tab> :tabnext<CR>
 noremap <silent> <S-tab> :tabprevious<CR>
-noremap <A-1> 1gt
-noremap <A-2> 2gt
-noremap <A-3> 3gt
-noremap <A-4> 4gt
-noremap <A-5> 5gt
-noremap <A-6> 6gt
-noremap <A-7> 7gt
-noremap <A-8> 8gt
-noremap <A-9> 9gt
 noremap <silent> <A-0> :tablast<CR>
 
 """"""""""""""" Plugins
