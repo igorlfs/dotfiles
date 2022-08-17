@@ -24,7 +24,7 @@ alias mv='mv -i'
 alias v='nvim'
 # config files
 alias cwm='nvim -p ~/.config/sway/{config,config.d/*}'
-alias cv='nvim -p ~/.config/nvim/{init.vim,lua/*}'
+alias cv='nvim -p ~/.config/nvim/{init.vim,lua/*/*}'
 
 ### Load zsh-syntax-highlighting; should be last.
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
