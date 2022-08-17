@@ -5,14 +5,8 @@ require("core/autocmds")
 EOF
 
 """"""""""""""" Mappings
-""" Convenience
-let mapleader = " "
-""" Tabs
 noremap <silent> <C-q> :tabclose<CR>
 noremap <silent> <A-t> :tabnew %<CR>
-noremap <silent> <A-tab> :tabnext<CR>
-noremap <silent> <S-tab> :tabprevious<CR>
-noremap <silent> <A-0> :tablast<CR>
 
 """"""""""""""" Plugins
 call plug#begin()

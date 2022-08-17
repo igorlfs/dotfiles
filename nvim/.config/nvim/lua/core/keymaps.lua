@@ -1,6 +1,9 @@
 local keymap = vim.keymap.set
 local str = string.format
 
+-- Use space as leader
+vim.g.mapleader = " "
+
 -- Move within visual lines
 keymap("n", "j", "gj")
 keymap("n", "k", "gk")
@@ -16,3 +19,7 @@ keymap("t", "<Esc>", "<C-\\><C-n>")
 for i = 1, 9 do
     keymap("n", str("<A-%s>", i), str("%sgt", i))
 end
+keymap("n", "<A-0>", ":tablast<CR>", { silent = true })
+-- Switch
+keymap("n", "<A-tab>", ":tabnext<CR>", { silent = true })
+keymap("n", "<S-tab>", ":tabprevious<CR>", { silent = true })
