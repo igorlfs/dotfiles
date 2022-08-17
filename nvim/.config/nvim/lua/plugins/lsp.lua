@@ -63,8 +63,6 @@ end
 
 -- Add additional capabilities supported by nvim-cmp
 local capabilities = vim.lsp.protocol.make_client_capabilities()
--- enable completion for HTML server
-capabilities.textDocument.completion.completionItem.snippetSupport = true
 capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 
 -- Enable borders
@@ -125,7 +123,7 @@ lspconfig.sumneko_lua.setup {
 
 -- General config
 -- Enable some language servers with the additional completion capabilities offered by nvim-cmp
-local servers = { "texlab", "tsserver", "pylsp", "html" }
+local servers = { "texlab", "tsserver", "pylsp" }
 for _, lsp in ipairs(servers) do
     lspconfig[lsp].setup({
         on_attach = on_attach,
