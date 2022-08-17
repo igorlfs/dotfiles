@@ -87,9 +87,9 @@ dap.configurations.python = {
 
 -- signs
 local sign = vim.fn.sign_define
-sign("DapBreakpoint", { text = "●", texthl = "DapBreakpoint", linehl = "", numhl = ""})
-sign("DapBreakpointCondition", { text = "●", texthl = "DapBreakpointCondition", linehl = "", numhl = ""})
-sign("DapLogPoint", { text = "◆", texthl = "DapLogPoint", linehl = "", numhl = ""})
+sign("DapBreakpoint", { text = "●", texthl = "DapBreakpoint", linehl = "", numhl = "" })
+sign("DapBreakpointCondition", { text = "●", texthl = "DapBreakpointCondition", linehl = "", numhl = "" })
+sign("DapLogPoint", { text = "◆", texthl = "DapLogPoint", linehl = "", numhl = "" })
 
 
 -- keymaps
@@ -99,7 +99,7 @@ keymap("n", "<F4>", dap.terminate)
 keymap("n", "<F5>", dap.continue)
 keymap("n", "<F6>", dap.run_to_cursor)
 keymap("n", "<F7>", function()
-    dap.set_breakpoint(nil,nil,vim.fn.input("Log point message: "))
+    dap.set_breakpoint(nil, nil, vim.fn.input("Log point message: "))
 end)
 keymap("n", "<F8>", function()
     dap.set_breakpoint(vim.fn.input("Breakpoint condition: "))

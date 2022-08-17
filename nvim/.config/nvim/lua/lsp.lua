@@ -23,12 +23,12 @@ keymap("n", "<leader>q", vim.diagnostic.setloclist)
 -- Use an on_attach function to only map the following keys after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
 
-    local bufopts = { silent=true, buffer=bufnr }
+    local bufopts = { silent = true, buffer = bufnr }
     keymap("n", "gD", vim.lsp.buf.declaration, bufopts)
     keymap("n", "gd", vim.lsp.buf.definition, bufopts)
     keymap("n", "K", vim.lsp.buf.hover, bufopts)
     keymap("n", "gi", vim.lsp.buf.implementation, bufopts)
-    keymap({"n", "i"}, "<C-k>", vim.lsp.buf.signature_help, bufopts)
+    keymap({ "n", "i" }, "<C-k>", vim.lsp.buf.signature_help, bufopts)
     keymap("n", "<leader>wa", vim.lsp.buf.add_workspace_folder, bufopts)
     keymap("n", "<leader>wr", vim.lsp.buf.remove_workspace_folder, bufopts)
     keymap("n", "<leader>wl", function()
@@ -69,12 +69,12 @@ capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 
 -- Enable borders
 local handlers = {
-    ["textDocument/hover"] =  vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" }),
-    ["textDocument/signatureHelp"] =  vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" }),
+    ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" }),
+    ["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" }),
 }
 
 local lspconfig = require("lspconfig")
--- Sever specific config 
+-- Language specific config
 -- C++
 lspconfig.clangd.setup({
     cmd = { "clangd", "--completion-style=detailed", "--clang-tidy" },
@@ -162,7 +162,8 @@ cmp.setup({
                         bufs[vim.api.nvim_win_get_buf(win)] = true
                     end
                     return vim.tbl_keys(bufs)
-                end }
+                end
+            }
         },
         { name = "path" },
     }),
@@ -189,4 +190,7 @@ cmp.setup.cmdline("?", {
 
 -- nvim-autopairs setup
 local cmp_autopairs = require("nvim-autopairs.completion.cmp")
-cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done({ map_char = { tex = "" } }))
+cmp.event:on(
+    "confirm_done",
+    cmp_autopairs.on_confirm_done()
+)
