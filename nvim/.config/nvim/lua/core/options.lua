@@ -5,7 +5,7 @@ local g = vim.g
 o.termguicolors = true -- Enable full color support
 o.updatetime = 200 -- Time for CursorHold event (eg, LSP)
 o.hlsearch = false -- Don't keep searches highlighted
-o.linebreak = true -- Break words correctly
+o.linebreak = true -- Break lines correctly
 o.scrolloff = 4 -- Context lines when scrolling
 o.clipboard:append { "unnamedplus" } -- Use system clipboard
 o.wildmode = "longest,list,full" -- Funky completion for commands
