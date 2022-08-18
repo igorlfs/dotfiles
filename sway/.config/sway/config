@@ -27,8 +27,6 @@ exec_always gsettings set org.gnome.desktop.privacy remember-recent-files false
 
 # Audio
 exec pipewire
-exec pipewire-pulse
-exec wireplumber
 
 # Idle
 exec swayidle timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"'
