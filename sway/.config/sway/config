@@ -20,10 +20,11 @@ seat seat0 hide_cursor when-typing enable
 # Executables
 #
 
-# Miscellaneous
+# Switch horizontal / vertical splits
 exec autotiling
+
+# Night mode
 exec gammastep -l -19.5:-43.6
-exec_always gsettings set org.gnome.desktop.privacy remember-recent-files false
 
 # Audio
 exec pipewire
