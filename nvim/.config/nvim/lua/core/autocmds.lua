@@ -1,8 +1,11 @@
-local autocmd = vim.api.nvim_create_autocmd
+local au = vim.api.nvim_create_autocmd
+local ag = vim.api.nvim_create_augroup
 local keymap = vim.keymap.set
 
 -- Disable newline comments when inserting lines with o/O
-autocmd("FileType", {
+local defaults = ag("Defaults", {})
+au("FileType", {
+    group = defaults,
     pattern = { "*" },
     callback = function()
         vim.opt.formatoptions:remove("o")
@@ -10,13 +13,15 @@ autocmd("FileType", {
 })
 
 -- Unclutter terminal
-autocmd("Termopen", {
+au("Termopen", {
+    group = defaults,
     pattern = { "*" },
     command = "setlocal nonumber norelativenumber scrolloff=0"
 })
 
 -- Switch between header / implementation for C/C++
-autocmd("FileType", {
+au("FileType", {
+    group = ag("switchHeader", {}),
     pattern = { "cpp", "c" },
     callback = function()
         keymap("n", "<A-o>", "<cmd>ClangdSwitchSourceHeader<CR>", { buffer = true })
@@ -24,7 +29,8 @@ autocmd("FileType", {
 })
 
 -- Build with C/C++
-autocmd("FileType", {
+au("FileType", {
+    group = ag("Cpp", {}),
     pattern = { "cpp", "c", "make" },
     callback = function()
         keymap("n", "<leader>m", "<cmd>Make<CR>", { buffer = true })
@@ -32,13 +38,23 @@ autocmd("FileType", {
 })
 
 -- Build with Rust
-autocmd("FileType", {
+local rust = ag("Rust", {})
+au("FileType", {
+    group = rust,
     pattern = { "rust" },
     command = "compiler cargo"
 })
-autocmd("FileType", {
+au("FileType", {
+    group = rust,
     pattern = { "rust" },
     callback = function()
         keymap("n", "<leader>m", "<cmd>Make build<CR>", { buffer = true })
     end
+})
+
+-- Web autofix
+au("BufWritePre", {
+    group = ag("Web", {}),
+    pattern = { "*.tsx", "*.ts", "*.jsx", "*.js", "*.vue" },
+    command = "EslintFixAll",
 })
