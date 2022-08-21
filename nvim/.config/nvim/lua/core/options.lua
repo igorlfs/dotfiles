@@ -14,7 +14,7 @@ o.sessionoptions:append { "folds" } -- Also save folds in sessions
 
 -- Folds
 o.foldenable = false -- Disable folds by default
-o.foldmethod = "expr"               -- Enable treesitter folds
+o.foldmethod = "expr" -- Enable treesitter folds
 o.foldexpr = "nvim_treesitter#foldexpr()"
 
 -- Splits

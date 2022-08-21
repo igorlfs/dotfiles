@@ -51,22 +51,14 @@ local on_attach = function(client, bufnr)
     end
 
     if client.supports_method "textDocument/documentHighlight" then
-        local group = ag("LspHighlight", {})
-        au({ "CursorHold", "CursorHoldI" }, {
-            group = group,
-            buffer = bufnr,
-            callback = function() vim.lsp.buf.document_highlight() end
-        })
-        au("CursorMoved", {
-            group = group,
-            buffer = bufnr,
-            callback = function() vim.lsp.buf.clear_references() end
-        })
-        au("BufLeave", {
-            pattern = { "*" },
-            group = group,
-            callback = function() vim.lsp.buf.clear_references() end
-        })
+        vim.cmd([[
+            augroup LspHighlight
+                autocmd! * <buffer>
+                autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
+                autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
+                autocmd BufLeave * lua vim.lsp.buf.clear_references()
+            augroup END 
+        ]])
     end
 
 end
