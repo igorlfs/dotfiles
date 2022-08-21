@@ -39,24 +39,34 @@ local on_attach = function(client, bufnr)
     keymap("n", "gr", vim.lsp.buf.references, bufopts)
     keymap("n", "<leader>ca", vim.lsp.buf.code_action, bufopts)
 
+    local au = vim.api.nvim_create_autocmd
+    local ag = vim.api.nvim_create_augroup
+
     if client.supports_method "textDocument/formatting" then
-        vim.cmd([[
-            augroup LspFormatting
-                autocmd! * <buffer>
-                autocmd BufWritePre <buffer> lua vim.lsp.buf.format()
-            augroup END
-        ]])
+        au("BufWritePre", {
+            group = ag("LspFormatting", {}),
+            buffer = bufnr,
+            callback = function() vim.lsp.buf.format() end
+        })
     end
 
     if client.supports_method "textDocument/documentHighlight" then
-        vim.cmd([[
-            augroup lsp_document_highlight
-                autocmd! * <buffer>
-                autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
-                autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
-                autocmd BufLeave * lua vim.lsp.buf.clear_references()
-            augroup END
-        ]])
+        local group = ag("LspHighlight", {})
+        au({ "CursorHold", "CursorHoldI" }, {
+            group = group,
+            buffer = bufnr,
+            callback = function() vim.lsp.buf.document_highlight() end
+        })
+        au("CursorMoved", {
+            group = group,
+            buffer = bufnr,
+            callback = function() vim.lsp.buf.clear_references() end
+        })
+        au("BufLeave", {
+            pattern = { "*" },
+            group = group,
+            callback = function() vim.lsp.buf.clear_references() end
+        })
     end
 
 end
@@ -95,7 +105,8 @@ require("rust-tools").setup({
         }
     }
 })
-lspconfig.sumneko_lua.setup {
+-- Lua
+lspconfig.sumneko_lua.setup({
     settings = {
         Lua = {
             runtime = {
@@ -119,7 +130,7 @@ lspconfig.sumneko_lua.setup {
     on_attach = on_attach,
     capabilities = capabilities,
     handlers = handlers,
-}
+})
 
 -- General config
 -- Enable some language servers with the additional completion capabilities offered by nvim-cmp
