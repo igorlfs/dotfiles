@@ -21,7 +21,7 @@ seat seat0 hide_cursor when-typing enable
 #
 
 # Switch horizontal / vertical splits
-exec autotiling
+exec autotiling-rs
 
 # Night mode
 exec gammastep -l -19.5:-43.6
