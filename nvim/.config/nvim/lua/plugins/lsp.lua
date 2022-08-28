@@ -1,3 +1,5 @@
+local M = {}
+
 vim.diagnostic.config({
     -- Limit length
     open_float = {
@@ -21,7 +23,7 @@ keymap("n", "]d", vim.diagnostic.goto_next)
 keymap("n", "<leader>q", vim.diagnostic.setloclist)
 
 -- Use an on_attach function to only map the following keys after the language server attaches to the current buffer
-local on_attach = function(client, bufnr)
+function M.on_attach(client, bufnr)
 
     local bufopts = { silent = true, buffer = bufnr }
     keymap("n", "gD", vim.lsp.buf.declaration, bufopts)
@@ -61,14 +63,20 @@ local on_attach = function(client, bufnr)
         ]])
     end
 
+    if client.name == "jdt.ls" then
+        require("jdtls").setup_dap { hotcodereplace = "auto" }
+        require("jdtls.dap").setup_dap_main_class_configs()
+        vim.lsp.codelens.refresh()
+    end
+
 end
 
 -- Add additional capabilities supported by nvim-cmp
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
+M.capabilities = vim.lsp.protocol.make_client_capabilities()
+M.capabilities = require("cmp_nvim_lsp").update_capabilities(M.capabilities)
 
 -- Enable borders
-local handlers = {
+M.handlers = {
     ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" }),
     ["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" }),
 }
@@ -78,16 +86,16 @@ local lspconfig = require("lspconfig")
 -- C++
 lspconfig.clangd.setup({
     cmd = { "clangd", "--completion-style=detailed", "--clang-tidy" },
-    on_attach = on_attach,
-    capabilities = capabilities,
-    handlers = handlers,
+    on_attach = M.on_attach,
+    capabilities = M.capabilities,
+    handlers = M.handlers,
 })
 -- Rust
 require("rust-tools").setup({
     server = {
-        on_attach = on_attach,
-        capabilities = capabilities,
-        handlers = handlers,
+        on_attach = M.on_attach,
+        capabilities = M.capabilities,
+        handlers = M.handlers,
         settings = {
             ["rust-analyzer"] = {
                 checkOnSave = {
@@ -119,9 +127,9 @@ lspconfig.sumneko_lua.setup({
             },
         },
     },
-    on_attach = on_attach,
-    capabilities = capabilities,
-    handlers = handlers,
+    on_attach = M.on_attach,
+    capabilities = M.capabilities,
+    handlers = M.handlers,
 })
 
 -- General config
@@ -129,9 +137,9 @@ lspconfig.sumneko_lua.setup({
 local servers = { "texlab", "tsserver", "pylsp" }
 for _, lsp in ipairs(servers) do
     lspconfig[lsp].setup({
-        on_attach = on_attach,
-        capabilities = capabilities,
-        handlers = handlers,
+        on_attach = M.on_attach,
+        capabilities = M.capabilities,
+        handlers = M.handlers,
     })
 end
 
@@ -220,3 +228,5 @@ cmp.event:on(
     "confirm_done",
     cmp_autopairs.on_confirm_done()
 )
+
+return M
