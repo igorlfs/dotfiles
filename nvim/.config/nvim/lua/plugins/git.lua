@@ -17,15 +17,15 @@ require("gitsigns").setup({
         end, { expr = true })
 
         -- Actions
-        keymap({ "n", "v" }, "<leader>hs", ":Gitsigns stage_hunk<CR>", { silent = true })
-        keymap({ "n", "v" }, "<leader>hr", ":Gitsigns reset_hunk<CR>", { silent = true })
+        keymap({ "n", "v" }, "<leader>sh", ":Gitsigns stage_hunk<CR>", { silent = true })
+        keymap({ "n", "v" }, "<leader>rh", ":Gitsigns reset_hunk<CR>", { silent = true })
         keymap("n", "<leader>hS", gs.stage_buffer)
         keymap("n", "<leader>hu", gs.undo_stage_hunk)
         keymap("n", "<leader>hR", gs.reset_buffer)
         keymap("n", "<leader>hp", gs.preview_hunk)
         keymap("n", "<leader>hb", function() gs.blame_line({ full = true }) end)
         keymap("n", "<leader>tb", gs.toggle_current_line_blame)
-        keymap("n", "<leader>hd", gs.diffthis)
+        keymap("n", "<leader>dt", gs.diffthis)
         keymap("n", "<leader>hD", function() gs.diffthis("~") end)
         keymap("n", "<leader>td", gs.toggle_deleted)
 
