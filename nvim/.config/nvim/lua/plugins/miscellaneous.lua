@@ -8,15 +8,10 @@ require("catppuccin").setup({
             enabled = true,
             enable_ui = true,
         },
-        fidget = true,
     }
 })
 
-require("fidget").setup({
-    window = {
-        blend = 0,
-    },
-})
+require("fidget").setup()
 
 require("neorg").setup({
     load = {
