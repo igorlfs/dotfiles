@@ -58,3 +58,14 @@ au("BufWritePre", {
     pattern = { "*.tsx", "*.ts", "*.jsx", "*.js", "*.vue" },
     command = "EslintFixAll",
 })
+
+-- Alternative mappings for Jukit to avoid conflicts with git-signs
+local python = ag("Python", {})
+au("FileType", {
+    group = python,
+    pattern = { "python" },
+    callback = function ()
+        keymap("n", "<leader>ho", "<cmd>call jukit#splits#history()<CR>", { buffer = true })
+        keymap("n", "<leader>hc", "<cmd>call jukit#splits#close_history()<CR>", { buffer = true })
+    end
+})
