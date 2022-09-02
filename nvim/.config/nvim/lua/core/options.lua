@@ -13,7 +13,7 @@ o.spelllang:append { "pt_br" } -- Additional language to spell check
 o.sessionoptions:append { "folds" } -- Also save folds in sessions
 
 -- Folds
-o.foldenable = false -- Disable folds by default
+o.foldlevel = 8 -- Prevents fold from autoclosing
 o.foldmethod = "expr" -- Enable treesitter folds
 o.foldexpr = "nvim_treesitter#foldexpr()"
 
@@ -42,7 +42,6 @@ o.undofile = true -- Enable persistent undo
 o.shadafile = "NONE" -- Don't save history
 
 -- Providers
--- g.loaded_python3_provider = 0
 g.loaded_node_provider = 0
 g.loaded_perl_provider = 0
 g.loaded_ruby_provider = 0
