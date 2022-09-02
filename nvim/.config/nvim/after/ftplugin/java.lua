@@ -16,7 +16,8 @@ vim.list_extend(bundles, vim.split(vim.fn.glob(DEBUGGER_LOCATION .. "/vscode-jav
 
 -- Workspace
 local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
-local workspace_dir = os.getenv("HOME") .. "/code/java" .. project_name
+-- Probably messed up as I'm not currently using a build system
+local workspace_dir = os.getenv("HOME") .. "/code/java-wsd/" .. project_name
 
 -- Additional capabilities
 local extendedClientCapabilities = jdtls.extendedClientCapabilities
@@ -124,3 +125,9 @@ local config = {
 -- This starts a new client & server,
 -- or attaches to an existing client & server depending on the `root_dir`.
 jdtls.start_or_attach(config)
+
+
+local keymap = vim.keymap.set
+
+keymap("n", "<leader>tc", jdtls.test_class)
+keymap("n", "<leader>tm", jdtls.test_nearest_method)

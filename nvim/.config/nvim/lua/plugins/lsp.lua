@@ -66,6 +66,7 @@ function M.on_attach(client, bufnr)
     if client.name == "jdt.ls" then
         require("jdtls").setup_dap { hotcodereplace = "auto" }
         require("jdtls.dap").setup_dap_main_class_configs()
+        require("jdtls.setup").add_commands()
         vim.lsp.codelens.refresh()
     end
 
