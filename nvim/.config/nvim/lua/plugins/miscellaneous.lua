@@ -1,5 +1,3 @@
-require("fidget").setup()
-
 require("Comment").setup()
 
 require("nvim-autopairs").setup()
@@ -10,7 +8,14 @@ require("catppuccin").setup({
             enabled = true,
             enable_ui = true,
         },
+        fidget = true,
     }
+})
+
+require("fidget").setup({
+    window = {
+        blend = 0,
+    },
 })
 
 require("neorg").setup({
