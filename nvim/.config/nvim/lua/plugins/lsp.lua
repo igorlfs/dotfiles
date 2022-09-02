@@ -134,7 +134,7 @@ lspconfig.sumneko_lua.setup({
 
 -- General config
 -- Enable some language servers with the additional completion capabilities offered by nvim-cmp
-local servers = { "texlab", "tsserver", "pylsp" }
+local servers = { "bashls", "pylsp", "pyright", "tsserver", "eslint", "texlab" }
 for _, lsp in ipairs(servers) do
     lspconfig[lsp].setup({
         on_attach = M.on_attach,
