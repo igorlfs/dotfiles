@@ -10,9 +10,9 @@ noremap <silent> <A-t> :tabnew %<CR>
 
 """"""""""""""" Plugins
 call plug#begin()
-Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate'}
+Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
 """ Improvements
-Plug 'catppuccin/nvim', { 'as': 'catppuccin'}
+Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
 Plug 'kyazdani42/nvim-tree.lua'     " Explorer
 Plug 'akinsho/toggleterm.nvim'      " Terminal
 Plug 'rmagatti/auto-session'        " Session
@@ -37,7 +37,7 @@ Plug 'lervag/vimtex'                " LaTeX
 Plug 'brennier/quicktex'            " LaTeX Snippets
 Plug 'simrat39/rust-tools.nvim'     " Rust
 Plug 'mfussenegger/nvim-jdtls'      " Java
-Plug 'luk400/vim-jukit', { 'for': 'python' } " Jupyter
+Plug 'luk400/vim-jukit', { 'for': [ 'python', 'json' ] } " Jupyter
 Plug 'nvim-neorg/neorg' | Plug 'nvim-lua/plenary.nvim'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-dispatch'

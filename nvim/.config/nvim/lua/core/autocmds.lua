@@ -63,8 +63,8 @@ au("BufWritePre", {
 local python = ag("Python", {})
 au("FileType", {
     group = python,
-    pattern = { "python" },
-    callback = function ()
+    pattern = { "python", "json" },
+    callback = function()
         keymap("n", "<leader>ho", "<cmd>call jukit#splits#history()<CR>", { buffer = true })
         keymap("n", "<leader>hc", "<cmd>call jukit#splits#close_history()<CR>", { buffer = true })
         keymap("n", "<leader><space>", "<cmd>call jukit#send#section(1)<CR>", { buffer = true })
