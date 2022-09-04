@@ -14,6 +14,7 @@ let g:quicktex_tex = {
             \'tc'  : '\textit{<+++>} <++>',
             \'cd'  : '\code{<+++>} <++>',
             \'ik'  : '\item <+++>',
+            \'""'  : "``<+++>'' <++>",
             \'bf'  : '\textbf{<+++>} <++>',
             \}
 let g:quicktex_math = {
@@ -26,9 +27,13 @@ let g:quicktex_math = {
             \'Z'    : '\mathbb{Z} ',
             \'tt'   : '\Theta(<+++>) <++>',
             \'U'    : '\cup ',
-            \'I'    : '\cap ',
+            \'V'    : '\cap ',
+            \'al'   : '\alpha ',
+            \'be'   : '\beta ',
+            \'ga'   : '\gamma ',
             \'emp'  : '\varnothing ',
             \'ss'   : '\subset ',
+            \'SS'   : '\supset ',
             \'iff'  : '\Leftrightarrow ',
             \'!='   : '\neq ',
             \'set'  : '\{ <+++> \} <++>',
