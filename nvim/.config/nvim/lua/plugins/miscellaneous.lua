@@ -26,7 +26,7 @@ require("neorg").setup({
 })
 
 require("nvim-treesitter.configs").setup({
-    ensure_installed = { "c", "cpp", "comment", "make", "lua", "python", "vim", "norg", "rust" },
+    ensure_installed = { "c", "cpp", "comment", "make", "lua", "python", "vim", "norg" },
     highlight = {
         enable = true,
     },

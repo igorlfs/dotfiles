@@ -37,21 +37,6 @@ au("FileType", {
     end
 })
 
--- Build with Rust
-local rust = ag("Rust", {})
-au("FileType", {
-    group = rust,
-    pattern = { "rust" },
-    command = "compiler cargo"
-})
-au("FileType", {
-    group = rust,
-    pattern = { "rust" },
-    callback = function()
-        keymap("n", "<leader>m", "<cmd>Make build<CR>", { buffer = true })
-    end
-})
-
 -- Web autofix
 au("BufWritePre", {
     group = ag("Web", {}),

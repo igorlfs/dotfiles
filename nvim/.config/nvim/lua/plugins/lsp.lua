@@ -91,21 +91,6 @@ lspconfig.clangd.setup({
     capabilities = M.capabilities,
     handlers = M.handlers,
 })
--- Rust
-require("rust-tools").setup({
-    server = {
-        on_attach = M.on_attach,
-        capabilities = M.capabilities,
-        handlers = M.handlers,
-        settings = {
-            ["rust-analyzer"] = {
-                checkOnSave = {
-                    command = "clippy"
-                }
-            }
-        }
-    }
-})
 -- Lua
 lspconfig.sumneko_lua.setup({
     settings = {

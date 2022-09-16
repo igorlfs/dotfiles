@@ -35,7 +35,6 @@ Plug 'hrsh7th/nvim-cmp'
 """ Misc
 Plug 'lervag/vimtex'                " LaTeX
 Plug 'brennier/quicktex'            " LaTeX Snippets
-Plug 'simrat39/rust-tools.nvim'     " Rust
 Plug 'mfussenegger/nvim-jdtls'      " Java
 Plug 'luk400/vim-jukit', { 'for': [ 'python', 'json' ] } " Jupyter
 Plug 'nvim-neorg/neorg' | Plug 'nvim-lua/plenary.nvim'
