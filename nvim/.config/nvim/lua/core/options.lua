@@ -42,6 +42,7 @@ o.undofile = true -- Enable persistent undo
 o.shadafile = "NONE" -- Don't save history
 
 -- Providers
+g.python3_host_prog = "/usr/bin/python3"
 g.loaded_node_provider = 0
 g.loaded_perl_provider = 0
 g.loaded_ruby_provider = 0

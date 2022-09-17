@@ -45,9 +45,9 @@ au("BufWritePre", {
 })
 
 -- Alternative mappings for Jukit to avoid conflicts with git-signs
-local python = ag("Python", {})
+local jukit = ag("Python", {})
 au("FileType", {
-    group = python,
+    group = jukit,
     pattern = { "python", "json" },
     callback = function()
         keymap("n", "<leader>ho", "<cmd>call jukit#splits#history()<CR>", { buffer = true })

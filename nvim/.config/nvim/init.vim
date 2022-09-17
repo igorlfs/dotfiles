@@ -36,7 +36,7 @@ Plug 'hrsh7th/nvim-cmp'
 Plug 'lervag/vimtex'                " LaTeX
 Plug 'brennier/quicktex'            " LaTeX Snippets
 Plug 'mfussenegger/nvim-jdtls'      " Java
-Plug 'luk400/vim-jukit', { 'for': [ 'python', 'json' ] } " Jupyter
+Plug 'luk400/vim-jukit',            " Jupyter
 Plug 'nvim-neorg/neorg' | Plug 'nvim-lua/plenary.nvim'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-dispatch'
