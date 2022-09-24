@@ -195,18 +195,14 @@ cmp.setup({
     }
 })
 
-cmp.setup.cmdline("/", {
-    sources = {
-        { name = "buffer", option = { keyword_pattern = [[\k\+]] } },
-    },
-    mapping = cmp.mapping.preset.cmdline()
-})
-cmp.setup.cmdline("?", {
-    sources = {
-        { name = "buffer", option = { keyword_pattern = [[\k\+]] } },
-    },
-    mapping = cmp.mapping.preset.cmdline()
-})
+for _, v in pairs({ '/', '?' }) do
+    cmp.setup.cmdline(v, {
+        mapping = cmp.mapping.preset.cmdline(),
+        sources = {
+            { name = "buffer", option = { keyword_pattern = [[\k\+]] } },
+        },
+    })
+end
 
 -- nvim-autopairs setup
 local cmp_autopairs = require("nvim-autopairs.completion.cmp")
