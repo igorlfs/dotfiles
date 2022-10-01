@@ -81,21 +81,7 @@ dap.configurations.python = {
         -- Options below are for debugpy, see https://github.com/microsoft/debugpy/wiki/Debug-configuration-settings for supported options
         console = "integratedTerminal", -- Redirect user input, allowing to send input using the console
         program = "${file}", -- This configuration will launch the current file if used.
-        pythonPath = function()
-            local poetry_handle = io.popen("poetry env info -p 2>/dev/null", "r")
-            if poetry_handle then
-                local poetry_venv_path = poetry_handle:read("*a"):gsub("%s+", "")
-                poetry_handle:close()
-                local poetry_venv_path_exists = os.rename(poetry_venv_path, poetry_venv_path)
-
-                if poetry_venv_path_exists then
-                    return poetry_venv_path .. "/bin/python"
-                end
-            else
-                -- not in poetry
-                return "/usr/bin/python"
-            end
-        end
+        pythonPath = "/usr/bin/python",
     },
 }
 
