@@ -55,3 +55,12 @@ au("FileType", {
         keymap("n", "<leader><space>", "<cmd>call jukit#send#section(1)<CR>", { buffer = true })
     end
 })
+
+-- Clear repl for dap
+au("FileType", {
+    group = ag("dap", {}),
+    pattern = { "dap-repl" },
+    callback = function()
+        keymap("i", "<C-l>", '<ESC>:lua require("dap.repl").clear()<CR>i', { buffer = true })
+    end
+})
