@@ -133,6 +133,10 @@ end
 local cmp = require("cmp")
 local luasnip = require("luasnip")
 cmp.setup({
+    enabled = function()
+        return vim.api.nvim_buf_get_option(0, "buftype") ~= "prompt"
+            or require("cmp_dap").is_dap_buffer()
+    end,
     snippet = {
         expand = function(args)
             luasnip.lsp_expand(args.body)
@@ -203,6 +207,11 @@ for _, v in pairs({ '/', '?' }) do
         },
     })
 end
+cmp.setup.filetype({ "dap-repl", "dapui_watches", "dapui_hover" }, {
+    sources = {
+        { name = "dap" },
+    },
+})
 
 -- nvim-autopairs setup
 local cmp_autopairs = require("nvim-autopairs.completion.cmp")
