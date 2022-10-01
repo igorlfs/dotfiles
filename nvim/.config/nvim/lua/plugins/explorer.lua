@@ -9,9 +9,6 @@ nt.setup({
                 git = false,
             },
         },
-        indent_markers = {
-            enable = true,
-        },
     },
     diagnostics = {
         enable = true,
