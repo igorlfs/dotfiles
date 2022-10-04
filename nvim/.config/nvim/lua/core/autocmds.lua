@@ -19,15 +19,6 @@ au("Termopen", {
     command = "setlocal nonumber norelativenumber scrolloff=0"
 })
 
--- Switch between header / implementation for C/C++
-au("FileType", {
-    group = ag("switchHeader", {}),
-    pattern = { "cpp", "c" },
-    callback = function()
-        keymap("n", "<A-o>", "<cmd>ClangdSwitchSourceHeader<CR>", { buffer = true })
-    end
-})
-
 -- Build with C/C++
 au("FileType", {
     group = ag("Cpp", {}),

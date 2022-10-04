@@ -44,6 +44,14 @@ function M.on_attach(client, bufnr)
     local au = vim.api.nvim_create_autocmd
     local ag = vim.api.nvim_create_augroup
 
+    -- Server specific keymaps
+    if client.name == "pyright" then
+        keymap("n", "<A-o>", "<CMD>PyrightOrganizeImports<CR>")
+    end
+    if client.name == "clangd" then
+        keymap("n", "<A-o>", "<CMD>ClangdSwitchSourceHeader<CR>")
+    end
+
     if client.supports_method "textDocument/formatting" then
         au("BufWritePre", {
             group = ag("LspFormatting", {}),
