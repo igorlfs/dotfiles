@@ -199,14 +199,13 @@ cmp.setup({
     }
 })
 
-for _, v in pairs({ '/', '?' }) do
-    cmp.setup.cmdline(v, {
-        mapping = cmp.mapping.preset.cmdline(),
-        sources = {
-            { name = "buffer", option = { keyword_pattern = [[\k\+]] } },
-        },
-    })
-end
+cmp.setup.cmdline({ '/', '?' }, {
+    mapping = cmp.mapping.preset.cmdline(),
+    sources = {
+        { name = "buffer", option = { keyword_pattern = [[\k\+]] } },
+    },
+})
+
 cmp.setup.filetype({ "dap-repl", "dapui_watches", "dapui_hover" }, {
     sources = {
         { name = "dap" },
