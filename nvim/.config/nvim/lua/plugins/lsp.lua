@@ -71,9 +71,9 @@ function M.on_attach(client, bufnr)
         ]])
     end
 
-    if client.name == "jdt.ls" then
+    if client.name == "jdtls" then
         require("jdtls").setup_dap { hotcodereplace = "auto" }
-        require("jdtls.dap").setup_dap_main_class_configs()
+        -- Use the command 'JdtRefreshDebugConfigs' to load debug config
         require("jdtls.setup").add_commands()
         vim.lsp.codelens.refresh()
     end

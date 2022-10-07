@@ -5,6 +5,7 @@ local JDTLS_LOCATION = "/usr/share/java/jdtls"
 
 -- Debugger location
 local DEBUGGER_LOCATION = os.getenv "HOME" .. "/aur/java-debug"
+local DEBUG_EXTENSION_LOCATION = os.getenv("HOME") .. "/aur/vscode-java-test"
 
 -- Debugging
 local bundles = {
@@ -12,7 +13,7 @@ local bundles = {
         DEBUGGER_LOCATION .. "/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-*.jar"
     ),
 }
-vim.list_extend(bundles, vim.split(vim.fn.glob(DEBUGGER_LOCATION .. "/vscode-java-test/server/*.jar"), "\n"))
+vim.list_extend(bundles, vim.split(vim.fn.glob(DEBUG_EXTENSION_LOCATION .. "/server/*.jar"), "\n"))
 
 -- Workspace
 local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
