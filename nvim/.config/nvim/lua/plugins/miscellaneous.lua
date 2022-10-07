@@ -3,6 +3,7 @@ require("Comment").setup()
 require("nvim-autopairs").setup()
 
 require("catppuccin").setup({
+    compile_path = vim.fn.stdpath("cache") .. "/catppuccin",
     integrations = {
         dap = {
             enabled = true,
