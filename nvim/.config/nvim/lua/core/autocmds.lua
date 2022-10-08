@@ -47,15 +47,6 @@ au("FileType", {
     end
 })
 
--- Format python
--- as of oct/22 alternatives such as python-lsp-black / null-ls hang after some time
-local python = ag("Python", {})
-au("BufWritePre", {
-    group = python,
-    pattern = { "*.py" },
-    command = "Black",
-})
-
 -- Clear repl for dap
 au("FileType", {
     group = ag("dap", {}),

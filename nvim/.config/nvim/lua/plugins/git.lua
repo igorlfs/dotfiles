@@ -1,8 +1,8 @@
 require("gitsigns").setup({
     on_attach = function()
         local gs = package.loaded.gitsigns
-
         local keymap = vim.keymap.set
+
         -- Navigation
         keymap("n", "]c", function()
             if vim.wo.diff then return "]c" end
