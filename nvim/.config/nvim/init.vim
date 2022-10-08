@@ -12,19 +12,18 @@ noremap <silent> <A-t> :tabnew %<CR>
 """"""""""""""" Plugins
 call plug#begin()
 Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
-""" Improvements
-Plug 'catppuccin/nvim', {'as': 'catppuccin', 'do': 'CatppuccinCompile'}
-Plug 'kyazdani42/nvim-tree.lua'     " Explorer
+Plug 'catppuccin/nvim', {'as': 'catppuccin', 'do': ':CatppuccinCompile'}
+Plug 'nvim-tree/nvim-tree.lua'      " Explorer
 Plug 'akinsho/toggleterm.nvim'      " Terminal
 Plug 'rmagatti/auto-session'        " Session
-Plug 'neovim/nvim-lspconfig'        
-""" Features
+Plug 'neovim/nvim-lspconfig'        " LSP
 Plug 'lewis6991/gitsigns.nvim'      " Git
-Plug 'kyazdani42/nvim-web-devicons' " Icons
+""" Debugger
+Plug 'mfussenegger/nvim-dap'
+Plug 'rcarriga/nvim-dap-ui'
+""" Editing
 Plug 'windwp/nvim-autopairs'        " Pairs
 Plug 'numToStr/Comment.nvim'        " Comments
-Plug 'mfussenegger/nvim-dap'        " Debugger
-Plug 'rcarriga/nvim-dap-ui'
 """  Autocomplete + Snippets
 Plug 'L3MON4D3/LuaSnip'
 Plug 'saadparwaiz1/cmp_luasnip'
@@ -44,6 +43,7 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-fugitive'
 """ Eye candy
+Plug 'nvim-tree/nvim-web-devicons'  " Icons
 Plug 'j-hui/fidget.nvim'
 call plug#end()
 
