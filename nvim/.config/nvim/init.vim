@@ -42,6 +42,8 @@ Plug 'nvim-neorg/neorg' | Plug 'nvim-lua/plenary.nvim'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-fugitive'
+"Format Python
+Plug 'averms/black-nvim', {'do': ':UpdateRemotePlugins'}
 """ Eye candy
 Plug 'nvim-tree/nvim-web-devicons'  " Icons
 Plug 'j-hui/fidget.nvim'

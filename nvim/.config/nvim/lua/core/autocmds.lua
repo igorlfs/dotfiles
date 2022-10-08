@@ -36,7 +36,7 @@ au("BufWritePre", {
 })
 
 -- Alternative mappings for Jukit to avoid conflicts with git-signs
-local jukit = ag("Python", {})
+local jukit = ag("Jukit", {})
 au("FileType", {
     group = jukit,
     pattern = { "python", "json" },
@@ -45,6 +45,15 @@ au("FileType", {
         keymap("n", "<leader>hc", "<cmd>call jukit#splits#close_history()<CR>", { buffer = true })
         keymap("n", "<leader><space>", "<cmd>call jukit#send#section(1)<CR>", { buffer = true })
     end
+})
+
+-- Format python
+-- as of oct/22 alternatives such as python-lsp-black / null-ls hang after some time
+local python = ag("Python", {})
+au("BufWritePre", {
+    group = python,
+    pattern = { "*.py" },
+    command = "Black",
 })
 
 -- Clear repl for dap
