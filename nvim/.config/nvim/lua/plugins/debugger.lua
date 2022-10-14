@@ -76,11 +76,24 @@ dap.configurations.python = {
         -- The first three options are required by nvim-dap
         type = "python", -- the type here established the link to the adapter definition: `dap.adapters.python`
         request = "launch",
-        name = "Launch file",
+        name = "Module",
 
         -- Options below are for debugpy, see https://github.com/microsoft/debugpy/wiki/Debug-configuration-settings for supported options
         console = "integratedTerminal", -- Redirect user input, allowing to send input using the console
-        program = "${file}", -- This configuration will launch the current file if used.
+        module = function()
+            return vim.fn.input("Module: ")
+        end,
+        cwd = "${workspaceFolder}",
+        pythonPath = "/usr/bin/python",
+    },
+    {
+        -- This configuration will launch the current file if used.
+        type = "python",
+        request = "launch",
+        name = "File",
+        console = "integratedTerminal",
+        program = "${file}",
+        cwd = "${workspaceFolder}",
         pythonPath = "/usr/bin/python",
     },
 }
