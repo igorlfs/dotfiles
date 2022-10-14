@@ -9,8 +9,10 @@ o.linebreak = true -- Break lines correctly
 o.scrolloff = 4 -- Context lines when scrolling
 o.clipboard:append { "unnamedplus" } -- Use system clipboard
 o.wildmode = "longest,list,full" -- Funky completion for commands
+
+-- Spell
 o.spelllang:append { "pt_br" } -- Additional language to spell check
-o.sessionoptions:append { "folds" } -- Also save folds in sessions
+o.spelloptions:append { "camel" } -- Consider camelCase when checking spell
 
 -- Folds
 o.foldlevel = 8 -- Prevents fold from autoclosing
@@ -20,20 +22,23 @@ o.foldexpr = "nvim_treesitter#foldexpr()"
 -- Splits
 o.splitbelow = true
 o.splitright = true
+o.splitkeep = "screen" -- Keep the same relative cursor position when splitting
 
 -- Tabs
 o.expandtab = true -- Expand tabs to spaces
 o.tabstop = 4 -- Width of a tab
 o.shiftwidth = 4 -- Indent's width
 
--- Appearence
+-- Lateral line
 o.number = true -- Print the line number in front of the current line
 o.relativenumber = true -- Print the line numbers for motion
 o.signcolumn = "yes" -- Always draw the extra column to indicate git or diagnostics
--- status line
+
+-- Status line
 o.ruler = false -- Hide the line and column number of the cursor position
 o.laststatus = 3 -- Global status line
--- command line
+
+-- Command line
 o.showcmd = false -- Hide current (unfinished) command
 o.showmode = false -- Hide message indicating current mode
 
@@ -48,5 +53,4 @@ g.loaded_perl_provider = 0
 g.loaded_ruby_provider = 0
 
 -- Plugins
-g.catppuccin_flavour = "mocha"
 g.vimtex_view_method = "zathura"
