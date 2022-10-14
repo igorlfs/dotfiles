@@ -23,6 +23,9 @@ Plug 'jose-elias-alvarez/null-ls.nvim'
 """ Debugger
 Plug 'mfussenegger/nvim-dap'
 Plug 'rcarriga/nvim-dap-ui'
+""" Tests
+Plug 'nvim-neotest/neotest'             
+Plug 'nvim-neotest/neotest-python'
 """ Editing
 Plug 'windwp/nvim-autopairs'            " Pairs
 Plug 'numToStr/Comment.nvim'            " Comments
@@ -45,13 +48,14 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-fugitive'
 """ Eye candy
-Plug 'nvim-tree/nvim-web-devicons'  " Icons
+Plug 'nvim-tree/nvim-web-devicons'      " Icons
 Plug 'j-hui/fidget.nvim'
 call plug#end()
 
 lua << EOF
 require("plugins/lsp")
 require("plugins/git")
+require("plugins/test")
 require("plugins/debugger")
 require("plugins/explorer")
 require("plugins/miscellaneous")
