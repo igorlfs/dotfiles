@@ -12,7 +12,7 @@ noremap <silent> <A-t> :tabnew %<CR>
 """"""""""""""" Plugins
 call plug#begin()
 Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
-Plug 'catppuccin/nvim', {'as': 'catppuccin', 'do': ':CatppuccinCompile'}
+Plug 'catppuccin/nvim', { 'as': 'catppuccin', 'do': ':CatppuccinCompile'}
 Plug 'nvim-tree/nvim-tree.lua'          " Explorer
 Plug 'akinsho/toggleterm.nvim'          " Terminal
 Plug 'rmagatti/auto-session'            " Session
@@ -39,15 +39,18 @@ Plug 'hrsh7th/cmp-cmdline'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'rcarriga/cmp-dap'
 """ LaTeX
-Plug 'lervag/vimtex'                    " LaTeX
-Plug 'brennier/quicktex'                " LaTeX Snippets
+Plug 'lervag/vimtex'
+Plug 'brennier/quicktex'                " Snippets
 """ Miscellaneous
 Plug 'mfussenegger/nvim-jdtls'          " Java
 Plug 'luk400/vim-jukit'                 " Jupyter
-Plug 'nvim-neorg/neorg' | Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-neorg/neorg' 
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-fugitive'
+""" Library
+" Neorg, Neotest, null-ls,
+Plug 'nvim-lua/plenary.nvim'
 """ Eye candy
 Plug 'nvim-tree/nvim-web-devicons'      " Icons
 Plug 'j-hui/fidget.nvim'
