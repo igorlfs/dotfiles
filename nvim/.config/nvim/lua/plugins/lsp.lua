@@ -78,8 +78,7 @@ function M.on_attach(client, bufnr)
 end
 
 -- Add additional capabilities supported by nvim-cmp
-M.capabilities = vim.lsp.protocol.make_client_capabilities()
-M.capabilities = require("cmp_nvim_lsp").update_capabilities(M.capabilities)
+M.capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 -- Enable borders
 M.handlers = {

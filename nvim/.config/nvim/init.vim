@@ -38,9 +38,10 @@ Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-cmdline'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'rcarriga/cmp-dap'
-""" Misc
+""" LaTeX
 Plug 'lervag/vimtex'                    " LaTeX
 Plug 'brennier/quicktex'                " LaTeX Snippets
+""" Miscellaneous
 Plug 'mfussenegger/nvim-jdtls'          " Java
 Plug 'luk400/vim-jukit'                 " Jupyter
 Plug 'nvim-neorg/neorg' | Plug 'nvim-lua/plenary.nvim'
