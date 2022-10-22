@@ -13,6 +13,7 @@ o.wildmode = "longest,list,full" -- Funky completion for commands
 -- Spell
 o.spelllang:append { "pt_br" } -- Additional language to spell check
 o.spelloptions:append { "camel" } -- Consider camelCase when checking spell
+o.spellfile = { vim.fn.expand("~/.config/nvim/spell/en.utf-8.add"), vim.fn.expand("~/.config/nvim/spell/pt.utf-8.add") } -- Custom dictionary files
 
 -- Folds
 o.foldlevel = 8 -- Prevents fold from autoclosing

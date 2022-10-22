@@ -19,6 +19,13 @@ au("Termopen", {
     command = "setlocal nonumber norelativenumber scrolloff=0"
 })
 
+-- Spell
+au("FileType", {
+    group = defaults,
+    pattern = { "markdown", "gitcommit", "tex" },
+    command = "setlocal spell"
+})
+
 -- Build with C/C++
 au("FileType", {
     group = ag("Cpp", {}),

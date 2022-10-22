@@ -14,6 +14,9 @@ keymap("n", "<C-s>", ":write<CR>")
 -- Quick exit terminal
 keymap("t", "<Esc>", "<C-\\><C-n>")
 
+-- Toggle spell checking
+keymap("n", "<leader>s", ":setlocal spell!<CR>", { silent = true })
+
 -- Tabs
 -- Firefox-like movement
 for i = 1, 9 do
