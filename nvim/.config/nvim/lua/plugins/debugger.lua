@@ -3,6 +3,9 @@ local dapui = require("dapui")
 
 -- UI setup
 dapui.setup({
+    windows = {
+        indent = 2,
+    },
     layouts = {
         {
             elements = {
@@ -19,6 +22,9 @@ dapui.setup({
             size = 0.3,
             position = "bottom",
         },
+    },
+    controls = {
+        enabled = false,
     },
     floating = {
         border = "rounded",
