@@ -53,6 +53,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'nvim-lua/plenary.nvim'
 """ Eye candy
 Plug 'nvim-tree/nvim-web-devicons'      " Icons
+Plug 'rcarriga/nvim-notify'             " Notifications
 Plug 'j-hui/fidget.nvim'
 call plug#end()
 
@@ -67,6 +68,8 @@ require("plugins/miscellaneous")
 require("Comment").setup()
 require("fidget").setup()
 require("nvim-autopairs").setup()
+
+vim.notify = require("notify")
 
 vim.cmd.colorscheme("catppuccin")
 
