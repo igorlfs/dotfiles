@@ -18,7 +18,7 @@ keymap("t", "<Esc>", "<C-\\><C-n>")
 keymap("n", "<leader>s", ":setlocal spell!<CR>", { silent = true })
 
 -- Tabs
--- Firefox-like movement
+-- Movement
 for i = 1, 9 do
     keymap("n", str("<A-%s>", i), str("%sgt", i))
 end

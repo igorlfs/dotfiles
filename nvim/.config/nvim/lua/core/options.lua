@@ -16,7 +16,7 @@ o.spelloptions:append { "camel" } -- Consider camelCase when checking spell
 o.spellfile = { vim.fn.expand("~/.config/nvim/spell/en.utf-8.add"), vim.fn.expand("~/.config/nvim/spell/pt.utf-8.add") } -- Custom dictionary files
 
 -- Folds
-o.foldlevel = 8 -- Prevents fold from autoclosing
+o.foldlevel = 8 -- Prevents fold from auto closing
 o.foldmethod = "expr" -- Enable treesitter folds
 o.foldexpr = "nvim_treesitter#foldexpr()"
 
