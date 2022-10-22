@@ -1,5 +1,3 @@
-require("Comment").setup()
-
 require("catppuccin").setup({
     compile_path = vim.fn.stdpath("cache") .. "/catppuccin",
     integrations = {
@@ -9,8 +7,6 @@ require("catppuccin").setup({
         },
     }
 })
-
-require("fidget").setup()
 
 require("neorg").setup({
     load = {
@@ -23,8 +19,6 @@ require("neorg").setup({
         ["core.norg.concealer"] = {},
     },
 })
-
-require("nvim-autopairs").setup()
 
 require("nvim-treesitter.configs").setup({
     ensure_installed = { "c", "cpp", "comment", "make", "lua", "python", "vim", "norg" },

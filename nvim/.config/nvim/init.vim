@@ -64,6 +64,9 @@ require("plugins/debugger")
 require("plugins/explorer")
 require("plugins/null-ls")
 require("plugins/miscellaneous")
+require("Comment").setup()
+require("fidget").setup()
+require("nvim-autopairs").setup()
 
 vim.cmd.colorscheme("catppuccin")
 
