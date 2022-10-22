@@ -90,7 +90,7 @@ local lspconfig = require("lspconfig")
 -- Language specific config
 -- C++
 lspconfig.clangd.setup({
-    cmd = { "clangd", "--completion-style=detailed", "--clang-tidy" },
+    cmd = { "clangd", "--completion-style=detailed", "--clang-tidy", "--offset-encoding=utf-16" },
     on_attach = M.on_attach,
     capabilities = M.capabilities,
     handlers = M.handlers,
