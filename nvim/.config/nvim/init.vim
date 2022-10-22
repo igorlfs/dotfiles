@@ -62,6 +62,7 @@ require("plugins/git")
 require("plugins/test")
 require("plugins/debugger")
 require("plugins/explorer")
+require("plugins/null-ls")
 require("plugins/miscellaneous")
 
 vim.cmd.colorscheme("catppuccin")
