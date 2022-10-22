@@ -4,7 +4,7 @@ local nt = require("neotest")
 nt.setup({
     adapters = {
         require("neotest-python"),
-    }
+    },
 })
 
 -- keymaps

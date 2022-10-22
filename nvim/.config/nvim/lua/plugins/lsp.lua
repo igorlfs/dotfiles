@@ -24,7 +24,6 @@ keymap("n", "<leader>q", vim.diagnostic.setloclist)
 
 -- Use an on_attach function to only map the following keys after the language server attaches to the current buffer
 function M.on_attach(client, bufnr)
-
     local bufopts = { silent = true, buffer = bufnr }
     keymap("n", "gD", vim.lsp.buf.declaration, bufopts)
     keymap("n", "gd", vim.lsp.buf.definition, bufopts)
@@ -49,15 +48,17 @@ function M.on_attach(client, bufnr)
         keymap("n", "<A-o>", "<CMD>ClangdSwitchSourceHeader<CR>")
     end
 
-    if client.supports_method "textDocument/formatting" then
+    if client.supports_method("textDocument/formatting") then
         au("BufWritePre", {
             group = ag("LspFormatting", {}),
             buffer = bufnr,
-            callback = function() vim.lsp.buf.format() end
+            callback = function()
+                vim.lsp.buf.format()
+            end,
         })
     end
 
-    if client.supports_method "textDocument/documentHighlight" then
+    if client.supports_method("textDocument/documentHighlight") then
         vim.cmd([[
             augroup LspHighlight
                 autocmd! * <buffer>
@@ -69,16 +70,15 @@ function M.on_attach(client, bufnr)
     end
 
     if client.name == "jdtls" then
-        require("jdtls").setup_dap { hotcodereplace = "auto" }
+        require("jdtls").setup_dap({ hotcodereplace = "auto" })
         -- Use the command 'JdtRefreshDebugConfigs' to load debug config
         require("jdtls.setup").add_commands()
         vim.lsp.codelens.refresh()
     end
-
 end
 
 -- Add additional capabilities supported by nvim-cmp
-M.capabilities = require('cmp_nvim_lsp').default_capabilities()
+M.capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 -- Enable borders
 M.handlers = {
@@ -138,8 +138,7 @@ local cmp = require("cmp")
 local luasnip = require("luasnip")
 cmp.setup({
     enabled = function()
-        return vim.api.nvim_buf_get_option(0, "buftype") ~= "prompt"
-            or require("cmp_dap").is_dap_buffer()
+        return vim.api.nvim_buf_get_option(0, "buftype") ~= "prompt" or require("cmp_dap").is_dap_buffer()
     end,
     snippet = {
         expand = function(args)
@@ -180,7 +179,8 @@ cmp.setup({
     sources = cmp.config.sources({
         { name = "nvim_lsp" },
         { name = "luasnip" },
-        { name = "buffer",
+        {
+            name = "buffer",
             option = {
                 keyword_pattern = [[\k\+]],
                 -- Enable completion from all visible buffers
@@ -190,8 +190,8 @@ cmp.setup({
                         bufs[vim.api.nvim_win_get_buf(win)] = true
                     end
                     return vim.tbl_keys(bufs)
-                end
-            }
+                end,
+            },
         },
         { name = "path" },
     }),
@@ -199,11 +199,11 @@ cmp.setup({
         format = function(entry, vim_item)
             vim_item.abbr = string.sub(vim_item.abbr, 1, 50)
             return vim_item
-        end
-    }
+        end,
+    },
 })
 
-cmp.setup.cmdline({ '/', '?' }, {
+cmp.setup.cmdline({ "/", "?" }, {
     mapping = cmp.mapping.preset.cmdline(),
     sources = {
         { name = "buffer", option = { keyword_pattern = [[\k\+]] } },
@@ -218,9 +218,6 @@ cmp.setup.filetype({ "dap-repl", "dapui_watches", "dapui_hover" }, {
 
 -- nvim-autopairs setup
 local cmp_autopairs = require("nvim-autopairs.completion.cmp")
-cmp.event:on(
-    "confirm_done",
-    cmp_autopairs.on_confirm_done()
-)
+cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
 
 return M

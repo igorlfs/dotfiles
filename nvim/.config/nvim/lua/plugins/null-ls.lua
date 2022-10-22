@@ -30,5 +30,8 @@ null_ls.setup({
         formatting.black,
         diagnostics.flake8,
         diagnostics.pylint,
+
+        -- Lua
+        formatting.stylua,
     },
 })

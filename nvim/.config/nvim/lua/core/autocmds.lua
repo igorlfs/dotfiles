@@ -9,21 +9,21 @@ au("FileType", {
     pattern = { "*" },
     callback = function()
         vim.opt.formatoptions:remove("o")
-    end
+    end,
 })
 
 -- Unclutter terminal
 au("Termopen", {
     group = defaults,
     pattern = { "*" },
-    command = "setlocal nonumber norelativenumber scrolloff=0"
+    command = "setlocal nonumber norelativenumber scrolloff=0",
 })
 
 -- Spell
 au("FileType", {
     group = defaults,
     pattern = { "markdown", "gitcommit", "tex" },
-    command = "setlocal spell"
+    command = "setlocal spell",
 })
 
 -- Build with C/C++
@@ -32,7 +32,7 @@ au("FileType", {
     pattern = { "cpp", "c", "make" },
     callback = function()
         keymap("n", "<leader>m", "<cmd>Make<CR>", { buffer = true })
-    end
+    end,
 })
 
 -- Web autofix
@@ -51,7 +51,7 @@ au("FileType", {
         keymap("n", "<leader>ho", "<cmd>call jukit#splits#history()<CR>", { buffer = true })
         keymap("n", "<leader>hc", "<cmd>call jukit#splits#close_history()<CR>", { buffer = true })
         keymap("n", "<leader><space>", "<cmd>call jukit#send#section(1)<CR>", { buffer = true })
-    end
+    end,
 })
 
 -- Clear repl for dap
@@ -60,5 +60,5 @@ au("FileType", {
     pattern = { "dap-repl" },
     callback = function()
         keymap("i", "<C-l>", '<ESC>:lua require("dap.repl").clear()<CR>i', { buffer = true })
-    end
+    end,
 })

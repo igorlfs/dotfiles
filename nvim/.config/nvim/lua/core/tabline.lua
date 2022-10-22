@@ -25,7 +25,6 @@ local function title(bufnr)
     else
         return vim.fn.pathshorten(vim.fn.fnamemodify(file, ":p:~:t"))
     end
-
 end
 
 local function modified(bufnr)
@@ -37,21 +36,19 @@ local function cell(index)
     local buflist = vim.fn.tabpagebuflist(index)
     local winnr = vim.fn.tabpagewinnr(index)
     local bufnr = buflist[winnr]
-    local hl = (isSelected and '%#TabLineSel#' or '%#TabLine#')
+    local hl = (isSelected and "%#TabLineSel#" or "%#TabLine#")
 
-    return hl .. '%' .. index .. 'T' .. ' ' ..
-        title(bufnr) .. ' ' ..
-        modified(bufnr)
+    return hl .. "%" .. index .. "T" .. " " .. title(bufnr) .. " " .. modified(bufnr)
 end
 
 function M.tabline()
-    local line = ''
-    for i = 1, vim.fn.tabpagenr('$'), 1 do
+    local line = ""
+    for i = 1, vim.fn.tabpagenr("$"), 1 do
         line = line .. cell(i)
     end
-    line = line .. '%#TabLineFill#%='
-    if vim.fn.tabpagenr('$') > 1 then
-        line = line .. '%#TabLine#%999XX'
+    line = line .. "%#TabLineFill#%="
+    if vim.fn.tabpagenr("$") > 1 then
+        line = line .. "%#TabLine#%999XX"
     end
     return line
 end

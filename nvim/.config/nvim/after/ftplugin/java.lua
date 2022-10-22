@@ -4,14 +4,12 @@ local jdtls = require("jdtls")
 local JDTLS_LOCATION = "/usr/share/java/jdtls"
 
 -- Debugger location
-local DEBUGGER_LOCATION = os.getenv "HOME" .. "/aur/java-debug"
+local DEBUGGER_LOCATION = os.getenv("HOME") .. "/aur/java-debug"
 local DEBUG_EXTENSION_LOCATION = os.getenv("HOME") .. "/aur/vscode-java-test"
 
 -- Debugging
 local bundles = {
-    vim.fn.glob(
-        DEBUGGER_LOCATION .. "/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-*.jar"
-    ),
+    vim.fn.glob(DEBUGGER_LOCATION .. "/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-*.jar"),
 }
 vim.list_extend(bundles, vim.split(vim.fn.glob(DEBUG_EXTENSION_LOCATION .. "/server/*.jar"), "\n"))
 
@@ -38,14 +36,19 @@ local config = {
         "-Dlog.level=ALL",
         "-Xms1g",
         "--add-modules=ALL-SYSTEM",
-        "--add-opens", "java.base/java.util=ALL-UNNAMED",
-        "--add-opens", "java.base/java.lang=ALL-UNNAMED",
+        "--add-opens",
+        "java.base/java.util=ALL-UNNAMED",
+        "--add-opens",
+        "java.base/java.lang=ALL-UNNAMED",
 
-        "-jar", vim.fn.glob(JDTLS_LOCATION .. "/plugins/org.eclipse.equinox.launcher_*.jar"),
+        "-jar",
+        vim.fn.glob(JDTLS_LOCATION .. "/plugins/org.eclipse.equinox.launcher_*.jar"),
 
-        "-configuration", JDTLS_LOCATION .. "/config_linux",
+        "-configuration",
+        JDTLS_LOCATION .. "/config_linux",
 
-        "-data", workspace_dir,
+        "-data",
+        workspace_dir,
     },
 
     on_attach = require("plugins.lsp").on_attach,
@@ -126,7 +129,6 @@ local config = {
 -- This starts a new client & server,
 -- or attaches to an existing client & server depending on the `root_dir`.
 jdtls.start_or_attach(config)
-
 
 local keymap = vim.keymap.set
 

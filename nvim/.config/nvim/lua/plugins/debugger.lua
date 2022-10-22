@@ -42,7 +42,7 @@ dap.adapters.codelldb = {
     executable = {
         command = "codelldb",
         args = { "--port", "${port}" },
-    }
+    },
 }
 
 -- C++ config
@@ -109,7 +109,6 @@ local sign = vim.fn.sign_define
 sign("DapBreakpoint", { text = "●", texthl = "DapBreakpoint", linehl = "", numhl = "" })
 sign("DapBreakpointCondition", { text = "●", texthl = "DapBreakpointCondition", linehl = "", numhl = "" })
 sign("DapLogPoint", { text = "◆", texthl = "DapLogPoint", linehl = "", numhl = "" })
-
 
 -- keymaps
 local keymap = vim.keymap.set
