@@ -9,9 +9,12 @@ local DEBUG_EXTENSION_LOCATION = os.getenv("HOME") .. "/aur/vscode-java-test"
 
 -- Debugging
 local bundles = {
-    vim.fn.glob(DEBUGGER_LOCATION .. "/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-*.jar"),
+    vim.fn.glob(
+        DEBUGGER_LOCATION .. "/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-*.jar",
+        1
+    ),
 }
-vim.list_extend(bundles, vim.split(vim.fn.glob(DEBUG_EXTENSION_LOCATION .. "/server/*.jar"), "\n"))
+vim.list_extend(bundles, vim.split(vim.fn.glob(DEBUG_EXTENSION_LOCATION .. "/server/*.jar", 1), "\n"))
 
 -- Workspace
 local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
@@ -42,7 +45,7 @@ local config = {
         "java.base/java.lang=ALL-UNNAMED",
 
         "-jar",
-        vim.fn.glob(JDTLS_LOCATION .. "/plugins/org.eclipse.equinox.launcher_*.jar"),
+        vim.fn.glob(JDTLS_LOCATION .. "/plugins/org.eclipse.equinox.launcher_*.jar", 1),
 
         "-configuration",
         JDTLS_LOCATION .. "/config_linux",
