@@ -44,7 +44,7 @@ Plug 'brennier/quicktex'                " Snippets
 """ Miscellaneous
 Plug 'mfussenegger/nvim-jdtls'          " Java
 Plug 'luk400/vim-jukit'                 " Jupyter
-Plug 'nvim-neorg/neorg' 
+Plug 'nvim-neorg/neorg'                 " Norg
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-fugitive'

@@ -62,8 +62,8 @@ function M.on_attach(client, bufnr)
         vim.cmd([[
             augroup LspHighlight
                 autocmd! * <buffer>
-                autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
-                autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
+                autocmd CursorHold,CursorHoldI <buffer> lua vim.lsp.buf.document_highlight()
+                autocmd CursorMoved,CursorMovedI <buffer> lua vim.lsp.buf.clear_references()
                 autocmd BufLeave * lua vim.lsp.buf.clear_references()
             augroup END 
         ]])
@@ -152,7 +152,7 @@ cmp.setup({
         ["<C-e>"] = cmp.mapping.close(),
         ["<CR>"] = cmp.mapping.confirm({
             behavior = cmp.ConfirmBehavior.Replace,
-            select = true,
+            select = false,
         }),
         ["<Tab>"] = cmp.mapping(function(fallback)
             if cmp.visible() then
