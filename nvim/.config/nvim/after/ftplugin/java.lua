@@ -2,12 +2,13 @@ local jdtls = require("jdtls")
 
 -- Language Server location
 local JDTLS_LOCATION = "/usr/share/java/jdtls"
+local JDTLS_CONFIG = os.getenv("XDG_CONFIG_HOME") .. "/jdtls"
 
 -- Debugger location
 local DEBUGGER_LOCATION = os.getenv("HOME") .. "/aur/java-debug"
 local DEBUG_EXTENSION_LOCATION = os.getenv("HOME") .. "/aur/vscode-java-test"
 
--- Debugging
+-- Enable debugger and extension
 local bundles = {
     vim.fn.glob(
         DEBUGGER_LOCATION .. "/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-*.jar",
@@ -18,8 +19,7 @@ vim.list_extend(bundles, vim.split(vim.fn.glob(DEBUG_EXTENSION_LOCATION .. "/ser
 
 -- Workspace
 local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
--- Probably messed up as I'm not currently using a build system
-local workspace_dir = os.getenv("HOME") .. "/code/java-wsd/" .. project_name
+local JDTLS_DATA = os.getenv("XDG_DATA_HOME") .. "/jdtls/" .. project_name
 
 -- Additional capabilities
 local extendedClientCapabilities = jdtls.extendedClientCapabilities
@@ -48,10 +48,10 @@ local config = {
         vim.fn.glob(JDTLS_LOCATION .. "/plugins/org.eclipse.equinox.launcher_*.jar", 1),
 
         "-configuration",
-        JDTLS_LOCATION .. "/config_linux",
+        JDTLS_CONFIG,
 
         "-data",
-        workspace_dir,
+        JDTLS_DATA,
     },
 
     on_attach = require("plugins.lsp").on_attach,
@@ -125,6 +125,7 @@ local config = {
     --
     -- If you don't plan on using the debugger or other eclipse.jdt.ls plugins you can remove this
     init_options = {
+        -- Enable debugging
         bundles = bundles,
     },
 }
