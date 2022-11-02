@@ -35,13 +35,6 @@ au("FileType", {
     end,
 })
 
--- Web autofix
-au("BufWritePre", {
-    group = ag("Web", {}),
-    pattern = { "*.tsx", "*.ts", "*.jsx", "*.js", "*.vue" },
-    command = "EslintFixAll",
-})
-
 -- Alternative mappings for Jukit to avoid conflicts with git-signs
 local jukit = ag("Jukit", {})
 au("FileType", {
