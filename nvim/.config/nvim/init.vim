@@ -59,6 +59,7 @@ call plug#end()
 
 lua << EOF
 require("plugins/lsp")
+require("plugins/cmp")
 require("plugins/git")
 require("plugins/test")
 require("plugins/debugger")
