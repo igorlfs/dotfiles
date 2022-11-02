@@ -10,6 +10,7 @@ export XDG_STATE_HOME="${HOME}/.local/state"
 export ZDOTDIR="${XDG_CONFIG_HOME}"/zsh
 export NPM_CONFIG_USERCONFIG="${XDG_CONFIG_HOME}"/npm/npmrc
 export CARGO_HOME="${XDG_DATA_HOME}"/cargo
+export GRADLE_USER_HOME="$XDG_DATA_HOME"/gradle
 ### MISC
 export PATH=${XDG_DATA_HOME}/npm/bin:${PATH}
 export LESSHISTFILE="-"
