@@ -1,9 +1,5 @@
 local jdtls = require("jdtls")
 
--- Language Server location
-local JDTLS_LOCATION = "/usr/share/java/jdtls"
-local JDTLS_CONFIG = os.getenv("XDG_CONFIG_HOME") .. "/jdtls"
-
 -- Debugger location
 local DEBUGGER_LOCATION = os.getenv("HOME") .. "/aur/java-debug"
 local DEBUG_EXTENSION_LOCATION = os.getenv("HOME") .. "/aur/vscode-java-test"
@@ -34,6 +30,8 @@ local config = {
         "java",
         "-Declipse.application=org.eclipse.jdt.ls.core.id1",
         "-Dosgi.bundles.defaultStartLevel=4",
+        "-Dosgi.sharedConfiguration.area=/usr/share/java/jdtls/config_linux",
+        "-Dosgi.sharedConfiguration.area.readOnly=true",
         "-Declipse.product=org.eclipse.jdt.ls.core.product",
         "-Dlog.protocol=true",
         "-Dlog.level=ALL",
@@ -45,10 +43,7 @@ local config = {
         "java.base/java.lang=ALL-UNNAMED",
 
         "-jar",
-        vim.fn.glob(JDTLS_LOCATION .. "/plugins/org.eclipse.equinox.launcher_*.jar", 1),
-
-        "-configuration",
-        JDTLS_CONFIG,
+        vim.fn.glob("/usr/share/java/jdtls/plugins/org.eclipse.equinox.launcher_*.jar", 1),
 
         "-data",
         JDTLS_DATA,
