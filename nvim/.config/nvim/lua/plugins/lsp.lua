@@ -132,3 +132,5 @@ for _, lsp in ipairs(servers) do
         handlers = M.handlers,
     })
 end
+
+return M
