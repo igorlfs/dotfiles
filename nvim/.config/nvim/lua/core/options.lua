@@ -4,11 +4,13 @@ local g = vim.g
 -- Behavior
 o.termguicolors = true -- Enable full color support
 o.updatetime = 200 -- Time for CursorHold event (e.g., LSP)
+o.diffopt:append({ "linematch:60" }) -- Better diffs
 o.hlsearch = false -- Don't keep searches highlighted
 o.linebreak = true -- Break lines correctly
 o.scrolloff = 4 -- Context lines when scrolling
 o.clipboard:append({ "unnamedplus" }) -- Use system clipboard
 o.wildmode = "longest,list,full" -- Funky completion for commands
+o.conceallevel = 2 -- Hide verbosity in markdown and LaTeX
 
 -- Spell
 o.spelllang:append({ "pt_br" }) -- Additional language to spell check
