@@ -5,8 +5,8 @@ local str = string.format
 vim.g.mapleader = " "
 
 -- Move within visual lines
-keymap("n", "j", "gj")
-keymap("n", "k", "gk")
+keymap("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
+keymap("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
 -- Quick save
 keymap("n", "<C-s>", ":write<CR>")
