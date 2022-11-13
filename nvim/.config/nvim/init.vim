@@ -48,10 +48,11 @@ Plug 'tpope/vim-fugitive'
 """ Library
 " Neorg, Neotest, null-ls,
 Plug 'nvim-lua/plenary.nvim'
+Plug 'MunifTanjim/nui.nvim'             " Noice
 """ Eye candy
 Plug 'nvim-tree/nvim-web-devicons'      " Icons
+Plug 'folke/noice.nvim'                 " UI
 Plug 'rcarriga/nvim-notify'             " Notifications
-Plug 'j-hui/fidget.nvim'
 call plug#end()
 
 lua << EOF
@@ -62,9 +63,9 @@ require("plugins.test")
 require("plugins.debugger")
 require("plugins.explorer")
 require("plugins.null-ls")
+require("plugins.noice")
 require("plugins.miscellaneous")
 require("Comment").setup()
-require("fidget").setup()
 require("nvim-autopairs").setup()
 
 vim.notify = require("notify")
