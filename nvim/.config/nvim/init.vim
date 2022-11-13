@@ -5,9 +5,6 @@ require("core/autocmds")
 require("core/tabline")
 EOF
 
-""""""""""""""" Mappings
-noremap <silent> <C-q> :tabclose<CR>
-noremap <silent> <A-t> :tabnew %<CR>
 
 """"""""""""""" Plugins
 call plug#begin()

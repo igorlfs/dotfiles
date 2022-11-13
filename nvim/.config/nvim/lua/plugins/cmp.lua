@@ -3,6 +3,7 @@ local cmp = require("cmp")
 local luasnip = require("luasnip")
 cmp.setup({
     enabled = function()
+        -- Enable completion in prompt buffers to use cmp-dap
         return vim.api.nvim_buf_get_option(0, "buftype") ~= "prompt" or require("cmp_dap").is_dap_buffer()
     end,
     snippet = {
@@ -62,6 +63,7 @@ cmp.setup({
     }),
     formatting = {
         format = function(entry, vim_item)
+            -- limit completion window to 50 characters
             vim_item.abbr = string.sub(vim_item.abbr, 1, 50)
             return vim_item
         end,
