@@ -3,6 +3,11 @@ local dapui = require("dapui")
 
 -- UI setup
 dapui.setup({
+    icons = {
+        expanded = "▾",
+        collapsed = "▸",
+        current_frame = "▸",
+    },
     windows = {
         indent = 2,
     },
