@@ -1,5 +1,8 @@
 local M = {}
 
+-- Enable border for LspInfo
+require("lspconfig.ui.windows").default_options.border = "rounded"
+
 vim.diagnostic.config({
     -- Limit length
     open_float = {
