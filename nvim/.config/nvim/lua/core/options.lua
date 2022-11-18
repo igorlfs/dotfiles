@@ -57,3 +57,4 @@ g.loaded_ruby_provider = 0
 
 -- Plugins
 g.vimtex_view_method = "zathura"
+g.jukit_mappings_ext_enabled = { "py", "ipynb" } -- Enable jukit mappings only for python / jupyter
