@@ -50,10 +50,14 @@ function M.on_attach(client, bufnr)
     if client.name == "clangd" then
         keymap("n", "<A-o>", "<CMD>ClangdSwitchSourceHeader<CR>")
     end
+    local clear_au = vim.api.nvim_clear_autocmds
 
+    -- Autoformat on save
+    local augroup = ag("LspFormatting", { clear = false })
     if client.supports_method("textDocument/formatting") then
         au("BufWritePre", {
-            group = ag("LspFormatting", {}),
+            clear_au({ group = augroup, buffer = bufnr }),
+            group = augroup,
             buffer = bufnr,
             callback = function()
                 vim.lsp.buf.format()

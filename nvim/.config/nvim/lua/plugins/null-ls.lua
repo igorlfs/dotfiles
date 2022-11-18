@@ -1,23 +1,23 @@
-local augroup = vim.api.nvim_create_augroup
-local autocmd = vim.api.nvim_create_autocmd
+local ag = vim.api.nvim_create_augroup
+local au = vim.api.nvim_create_autocmd
+local clear_au = vim.api.nvim_clear_autocmds
 
 local null_ls = require("null-ls")
 
 local formatting = null_ls.builtins.formatting
 local diagnostics = null_ls.builtins.diagnostics
 
-local group_format = augroup("LspFormatting", {})
-
 null_ls.setup({
     on_attach = function(client, bufnr)
+        local augroup = ag("NulllsFormatting", { clear = false })
         -- Autoformat on save
         if client.supports_method("textDocument/formatting") then
-            vim.api.nvim_clear_autocmds({ group = group_format, buffer = bufnr })
-            autocmd("BufWritePre", {
-                group = group_format,
+            au("BufWritePre", {
+                clear_au({ group = augroup, buffer = bufnr }),
+                group = augroup,
                 buffer = bufnr,
                 callback = function()
-                    vim.lsp.buf.format({ bufnr = bufnr })
+                    vim.lsp.buf.format()
                 end,
             })
         end
