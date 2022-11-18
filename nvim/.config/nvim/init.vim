@@ -50,9 +50,10 @@ Plug 'tpope/vim-fugitive'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'MunifTanjim/nui.nvim'             " Noice
 """ Eye candy
-Plug 'nvim-tree/nvim-web-devicons'      " Icons
-Plug 'folke/noice.nvim'                 " UI
-Plug 'rcarriga/nvim-notify'             " Notifications
+Plug 'nvim-tree/nvim-web-devicons'          " Icons
+Plug 'folke/noice.nvim'                     " UI
+Plug 'rcarriga/nvim-notify'                 " Notifications
+Plug 'lukas-reineke/indent-blankline.nvim'  " Indent Guides
 call plug#end()
 
 lua << EOF
