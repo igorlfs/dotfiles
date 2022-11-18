@@ -45,11 +45,6 @@ function M.on_attach(client, bufnr)
 
     local au = vim.api.nvim_create_autocmd
     local ag = vim.api.nvim_create_augroup
-
-    -- Server specific keymaps
-    if client.name == "clangd" then
-        keymap("n", "<A-o>", "<CMD>ClangdSwitchSourceHeader<CR>")
-    end
     local clear_au = vim.api.nvim_clear_autocmds
 
     -- Autoformat on save
@@ -74,6 +69,11 @@ function M.on_attach(client, bufnr)
                 autocmd BufLeave * lua vim.lsp.buf.clear_references()
             augroup END 
         ]])
+    end
+
+    -- Server specific config
+    if client.name == "clangd" then
+        keymap("n", "<A-o>", "<CMD>ClangdSwitchSourceHeader<CR>")
     end
 
     if client.name == "jdtls" then
