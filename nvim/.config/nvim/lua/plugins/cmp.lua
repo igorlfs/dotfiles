@@ -77,6 +77,22 @@ cmp.setup.cmdline({ "/", "?" }, {
     },
 })
 
+cmp.setup.cmdline(":", {
+    mapping = cmp.mapping.preset.cmdline(),
+    sources = cmp.config.sources({
+        { name = "path" },
+    }, {
+        {
+            name = "cmdline",
+            -- prevents expanding %, see cmp-cmdline#33
+            keyword_pattern = [=[[^[:blank:]%]*]=],
+            option = {
+                ignore_cmds = { "Man", "!" },
+            },
+        },
+    }),
+})
+
 -- nvim-dap integration
 cmp.setup.filetype({ "dap-repl", "dapui_watches", "dapui_hover" }, {
     sources = {
