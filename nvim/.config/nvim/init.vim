@@ -39,9 +39,10 @@ Plug 'rcarriga/cmp-dap'
 Plug 'lervag/vimtex'
 Plug 'brennier/quicktex'                " Snippets
 """ Miscellaneous
-Plug 'mfussenegger/nvim-jdtls'                           " Java
-Plug 'luk400/vim-jukit'                                  " Jupyter
-Plug 'nvim-neorg/neorg'                                  " Norg
+Plug 'mfussenegger/nvim-jdtls'              " Java
+Plug 'luk400/vim-jukit'                     " Jupyter
+Plug 'nvim-neorg/neorg'                     " Norg
+Plug 'folke/neodev.nvim'                    " Lua
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-fugitive'
@@ -57,6 +58,7 @@ Plug 'lukas-reineke/indent-blankline.nvim'  " Indent Guides
 call plug#end()
 
 lua << EOF
+require("neodev").setup()
 require("plugins.lsp")
 require("plugins.cmp")
 require("plugins.git")

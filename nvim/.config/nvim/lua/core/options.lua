@@ -1,21 +1,21 @@
-local o = vim.opt
 local g = vim.g
 
 -- Behavior
-o.termguicolors = true -- Enable full color support
-o.updatetime = 200 -- Time for CursorHold event (e.g., LSP)
-o.diffopt:append({ "linematch:60" }) -- Better diffs
-o.hlsearch = false -- Don't keep searches highlighted
-o.linebreak = true -- Break lines correctly
-o.scrolloff = 4 -- Context lines when scrolling
-o.clipboard:append({ "unnamedplus" }) -- Use system clipboard
-o.wildmode = "longest,list,full" -- Funky completion for commands
-o.conceallevel = 2 -- Hide verbosity in markdown and LaTeX
+vim.opt.termguicolors = true -- Enable full color support
+vim.opt.updatetime = 200 -- Time for CursorHold event (e.g., LSP)
+vim.opt.diffopt:append({ "linematch:60" }) -- Better diffs
+vim.opt.hlsearch = false -- Don't keep searches highlighted
+vim.opt.linebreak = true -- Break lines correctly
+vim.opt.scrolloff = 4 -- Context lines when scrolling
+vim.opt.clipboard:append({ "unnamedplus" }) -- Use system clipboard
+vim.opt.wildmode = "longest,list,full" -- Funky completion for commands
+vim.opt.conceallevel = 2 -- Hide verbosity in markdown and LaTeX
 
 -- Spell
-o.spelllang:append({ "pt_br" }) -- Additional language to spell check
-o.spelloptions:append({ "camel" }) -- Consider camelCase when checking spell
-o.spellfile = { vim.fn.expand("~/.config/nvim/spell/en.utf-8.add"), vim.fn.expand("~/.config/nvim/spell/pt.utf-8.add") } -- Custom dictionary files
+vim.opt.spelllang:append({ "pt_br" }) -- Additional language to spell check
+vim.opt.spelloptions:append({ "camel" }) -- Consider camelCase when checking spell
+vim.opt.spellfile = -- Custom dictionary files
+{ vim.fn.expand("~/.config/nvim/spell/en.utf-8.add"), vim.fn.expand("~/.config/nvim/spell/pt.utf-8.add") }
 
 -- Folds
 o.foldlevel = 8 -- Prevents fold from auto closing
@@ -23,31 +23,31 @@ o.foldmethod = "expr" -- Enable treesitter folds
 o.foldexpr = "nvim_treesitter#foldexpr()"
 
 -- Splits
-o.splitbelow = true
-o.splitright = true
-o.splitkeep = "screen" -- Keep the same relative cursor position when splitting
+vim.opt.splitbelow = true
+vim.opt.splitright = true
+vim.opt.splitkeep = "screen" -- Keep the same relative cursor position when splitting
 
 -- Tabs
-o.expandtab = true -- Expand tabs to spaces
-o.tabstop = 4 -- Width of a tab
-o.shiftwidth = 4 -- Indent's width
+vim.opt.expandtab = true -- Expand tabs to spaces
+vim.opt.tabstop = 4 -- Width of a tab
+vim.opt.shiftwidth = 4 -- Indent's width
 
 -- Lateral line
-o.number = true -- Print the line number in front of the current line
-o.relativenumber = true -- Print the line numbers for motion
-o.signcolumn = "yes" -- Always draw the extra column to indicate git or diagnostics
+vim.opt.number = true -- Print the line number in front of the current line
+vim.opt.relativenumber = true -- Print the line numbers for motion
+vim.opt.signcolumn = "yes" -- Always draw the extra column to indicate git or diagnostics
 
 -- Status line
-o.ruler = false -- Hide the line and column number of the cursor position
-o.laststatus = 3 -- Global status line
+vim.opt.ruler = false -- Hide the line and column number of the cursor position
+vim.opt.laststatus = 3 -- Global status line
 
 -- Command line
-o.showcmd = false -- Hide current (unfinished) command
-o.showmode = false -- Hide message indicating current mode
+vim.opt.showcmd = false -- Hide current (unfinished) command
+vim.opt.showmode = false -- Hide message indicating current mode
 
 -- History
-o.undofile = true -- Enable persistent undo
-o.shadafile = "NONE" -- Don't save history
+vim.opt.undofile = true -- Enable persistent undo
+vim.opt.shadafile = "NONE" -- Don't save history
 
 -- Providers
 g.python3_host_prog = "/usr/bin/python3"

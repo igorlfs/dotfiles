@@ -73,7 +73,7 @@ function M.on_attach(client, bufnr)
 
     -- Server specific config
     if client.name == "clangd" then
-        keymap("n", "<A-o>", "<CMD>ClangdSwitchSourceHeader<CR>")
+        keymap("n", "<A-o>", "<cmd>ClangdSwitchSourceHeader<CR>")
     end
 
     if client.name == "jdtls" then
@@ -102,27 +102,7 @@ lspconfig.clangd.setup({
     capabilities = M.capabilities,
     handlers = M.handlers,
 })
--- Lua
-lspconfig.sumneko_lua.setup({
     settings = {
-        Lua = {
-            runtime = {
-                -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
-                version = "LuaJIT",
-            },
-            diagnostics = {
-                -- Get the language server to recognize the `vim` global
-                globals = { "vim" },
-            },
-            workspace = {
-                -- Make the server aware of Neovim runtime files
-                library = vim.api.nvim_get_runtime_file("", true),
-                -- See nvim-lspconfig#1700
-                checkThirdParty = false,
-            },
-            -- Do not send telemetry data containing a randomized but unique identifier
-            telemetry = {
-                enable = false,
             },
         },
     },
@@ -133,7 +113,7 @@ lspconfig.sumneko_lua.setup({
 
 -- General config
 -- Enable some language servers with the additional completion capabilities offered by nvim-cmp
-local servers = { "pyright", "tsserver", "texlab" }
+local servers = { "pyright", "tsserver", "texlab", "sumneko_lua" }
 for _, lsp in ipairs(servers) do
     lspconfig[lsp].setup({
         on_attach = M.on_attach,
