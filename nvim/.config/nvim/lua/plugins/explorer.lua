@@ -24,3 +24,10 @@ nt.setup({
 -- keymaps
 local keymap = vim.keymap.set
 keymap("n", "<leader>v", nt.toggle)
+
+-- fix nvim-dapui's split sizes, see nvim-dap-ui#175
+local api = require("nvim-tree.api")
+local Event = api.events.Event
+api.events.subscribe(Event.TreeClose, function()
+    require("dapui").open({ reset = true })
+end)
