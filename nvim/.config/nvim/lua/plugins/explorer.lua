@@ -29,5 +29,7 @@ keymap("n", "<leader>v", nt.toggle)
 local api = require("nvim-tree.api")
 local Event = api.events.Event
 api.events.subscribe(Event.TreeClose, function()
-    require("dapui").open({ reset = true })
+    if require("dap").session() then
+        require("dapui").open({ reset = true })
+    end
 end)
