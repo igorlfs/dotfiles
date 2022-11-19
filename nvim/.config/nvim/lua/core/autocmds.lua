@@ -52,6 +52,6 @@ au("FileType", {
     group = ag("dap", {}),
     pattern = { "dap-repl" },
     callback = function()
-        keymap("i", "<C-l>", '<ESC>:lua require("dap.repl").clear()<CR>i', { buffer = true })
+        keymap("i", "<C-l>", '<cmd>lua require("dap.repl").clear()<CR>', { buffer = true })
     end,
 })
