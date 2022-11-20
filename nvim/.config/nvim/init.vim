@@ -12,8 +12,10 @@ Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
 Plug 'catppuccin/nvim', { 'as': 'catppuccin', 'do': ':CatppuccinCompile'}
 Plug 'nvim-tree/nvim-tree.lua'          " Explorer
 Plug 'akinsho/toggleterm.nvim'          " Terminal
-Plug 'rmagatti/auto-session'            " Session
 Plug 'lewis6991/gitsigns.nvim'          " Git
+" Sessions
+Plug 'rmagatti/auto-session'            " Automatic sessions
+Plug 'rmagatti/session-lens'            " Telescope Integration
 """ LSP
 Plug 'neovim/nvim-lspconfig'            
 Plug 'jose-elias-alvarez/null-ls.nvim'  
