@@ -23,6 +23,9 @@ Plug 'rcarriga/nvim-dap-ui'
 """ Tests
 Plug 'nvim-neotest/neotest'             
 Plug 'nvim-neotest/neotest-python'
+""" Fuzzy Finder
+Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
+Plug 'nvim-telescope/telescope-fzy-native.nvim'
 """ Editing
 Plug 'windwp/nvim-autopairs'            " Pairs
 Plug 'numToStr/Comment.nvim'            " Comments
@@ -46,9 +49,8 @@ Plug 'folke/neodev.nvim'                    " Lua
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-fugitive'
-""" Library
-" Neorg, Neotest, null-ls,
-Plug 'nvim-lua/plenary.nvim'
+""" Libraries
+Plug 'nvim-lua/plenary.nvim'            " Neorg, Neotest, null-ls, ...
 Plug 'MunifTanjim/nui.nvim'             " Noice
 """ Eye candy
 Plug 'nvim-tree/nvim-web-devicons'          " Icons
@@ -67,6 +69,7 @@ require("plugins.debugger")
 require("plugins.explorer")
 require("plugins.null-ls")
 require("plugins.noice")
+require("plugins.telescope")
 require("plugins.miscellaneous")
 require("Comment").setup()
 require("nvim-autopairs").setup()
