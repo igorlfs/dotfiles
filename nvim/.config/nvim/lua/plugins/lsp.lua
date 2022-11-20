@@ -113,7 +113,7 @@ lspconfig.clangd.setup({
 
 -- General config
 -- Enable some language servers with the additional completion capabilities offered by nvim-cmp
-local servers = { "pyright", "tsserver", "texlab", "sumneko_lua" }
+local servers = { "pyright", "tsserver", "texlab", "sumneko_lua", "taplo" }
 for _, lsp in ipairs(servers) do
     lspconfig[lsp].setup({
         on_attach = M.on_attach,
