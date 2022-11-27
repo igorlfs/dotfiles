@@ -28,17 +28,6 @@ require("neorg").setup({
     },
 })
 
-require("nvim-treesitter.configs").setup({
-    ensure_installed = { "c", "cpp", "make", "lua", "python", "vim", "norg", "toml", "java" },
-    highlight = {
-        enable = true,
-    },
-    indent = {
-        enable = true,
-        disable = { "python" },
-    },
-})
-
 require("indent_blankline").setup({
     max_indent_increase = 1,
     context_char = "│",

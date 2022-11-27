@@ -29,8 +29,8 @@ Plug 'nvim-neotest/neotest-python'
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
 Plug 'nvim-telescope/telescope-fzy-native.nvim'
 """ Editing
-Plug 'windwp/nvim-autopairs'            " Pairs
-Plug 'numToStr/Comment.nvim'            " Comments
+Plug 'windwp/nvim-autopairs'                " Pairs
+Plug 'numToStr/Comment.nvim'                " Comments
 """  Autocomplete + Snippets
 Plug 'L3MON4D3/LuaSnip'
 Plug 'saadparwaiz1/cmp_luasnip'
@@ -42,7 +42,7 @@ Plug 'hrsh7th/nvim-cmp'
 Plug 'rcarriga/cmp-dap'
 """ LaTeX
 Plug 'lervag/vimtex'
-Plug 'brennier/quicktex'                " Snippets
+Plug 'brennier/quicktex'                    " Snippets
 """ Miscellaneous
 Plug 'mfussenegger/nvim-jdtls'              " Java
 Plug 'luk400/vim-jukit'                     " Jupyter
@@ -52,8 +52,8 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-fugitive'
 """ Libraries
-Plug 'nvim-lua/plenary.nvim'            " Neorg, Neotest, null-ls, ...
-Plug 'MunifTanjim/nui.nvim'             " Noice
+Plug 'nvim-lua/plenary.nvim'                " Neorg, Neotest, null-ls, ...
+Plug 'MunifTanjim/nui.nvim'                 " Noice
 """ Eye candy
 Plug 'nvim-tree/nvim-web-devicons'          " Icons
 Plug 'folke/noice.nvim'                     " UI
@@ -72,6 +72,7 @@ require("plugins.explorer")
 require("plugins.null-ls")
 require("plugins.noice")
 require("plugins.telescope")
+require("plugins.treesitter")
 require("plugins.miscellaneous")
 require("Comment").setup()
 require("nvim-autopairs").setup()
