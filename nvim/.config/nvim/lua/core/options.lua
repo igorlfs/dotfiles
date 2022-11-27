@@ -18,9 +18,9 @@ vim.opt.spellfile = -- Custom dictionary files
 { vim.fn.expand("~/.config/nvim/spell/en.utf-8.add"), vim.fn.expand("~/.config/nvim/spell/pt.utf-8.add") }
 
 -- Folds
-o.foldlevel = 8 -- Prevents fold from auto closing
-o.foldmethod = "expr" -- Enable treesitter folds
-o.foldexpr = "nvim_treesitter#foldexpr()"
+vim.opt.foldenable = false -- Prevents folds from auto closing
+vim.opt.foldmethod = "expr" -- Enable treesitter folds
+vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 
 -- Splits
 vim.opt.splitbelow = true

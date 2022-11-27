@@ -77,8 +77,6 @@ require("plugins.miscellaneous")
 require("Comment").setup()
 require("nvim-autopairs").setup()
 
-vim.notify = require("notify")
-
 vim.cmd.colorscheme("catppuccin")
 
 EOF
