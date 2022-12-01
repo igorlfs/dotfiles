@@ -22,6 +22,7 @@ null_ls.setup({
             })
         end
     end,
+    border = "rounded",
     sources = {
         diagnostics.todo_comments,
 
