@@ -27,9 +27,10 @@ null_ls.setup({
         diagnostics.todo_comments,
 
         -- Python
+        diagnostics.ruff,
+        diagnostics.mypy,
         formatting.isort,
         formatting.black,
-        diagnostics.flake8,
         diagnostics.pylint,
 
         -- Lua
