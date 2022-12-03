@@ -84,13 +84,6 @@ lspconfig.clangd.setup({
     on_attach = M.on_attach,
     capabilities = M.capabilities,
 })
-    settings = {
-            },
-        },
-    },
-    on_attach = M.on_attach,
-    capabilities = M.capabilities,
-})
 
 -- General config
 -- Enable some language servers with the additional completion capabilities offered by nvim-cmp
