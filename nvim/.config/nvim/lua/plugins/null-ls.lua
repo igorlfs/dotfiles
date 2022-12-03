@@ -29,9 +29,10 @@ null_ls.setup({
         -- Python
         diagnostics.ruff,
         diagnostics.mypy,
+        diagnostics.pylint,
+
         formatting.isort,
         formatting.black,
-        diagnostics.pylint,
 
         -- Lua
         formatting.stylua,
