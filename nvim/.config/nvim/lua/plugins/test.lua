@@ -3,7 +3,14 @@ local nt = require("neotest")
 -- setup
 nt.setup({
     adapters = {
-        require("neotest-python"),
+        require("neotest-python")({
+            args = { "-v" }, -- get more diff
+        }),
+    },
+    output = {
+        -- disable pop-up with failing test info
+        -- prefer virtual text instead
+        open_on_run = false,
     },
 })
 
