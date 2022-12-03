@@ -51,7 +51,6 @@ local config = {
 
     on_attach = require("plugins.lsp").on_attach,
     capabilities = require("plugins.lsp").capabilities,
-    handlers = require("plugins.lsp").handlers,
 
     -- Here you can configure eclipse.jdt.ls specific settings
     -- See https://github.com/eclipse/eclipse.jdt.ls/wiki/Running-the-JAVA-LS-server-from-the-command-line#initialize-request

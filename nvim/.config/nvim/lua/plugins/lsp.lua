@@ -76,12 +76,6 @@ end
 -- Add additional capabilities supported by nvim-cmp
 M.capabilities = require("cmp_nvim_lsp").default_capabilities()
 
--- Enable borders
-M.handlers = {
-    ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" }),
-    ["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" }),
-}
-
 local lspconfig = require("lspconfig")
 -- Language specific config
 -- C++
@@ -89,7 +83,6 @@ lspconfig.clangd.setup({
     cmd = { "clangd", "--completion-style=detailed", "--clang-tidy", "--offset-encoding=utf-16" },
     on_attach = M.on_attach,
     capabilities = M.capabilities,
-    handlers = M.handlers,
 })
     settings = {
             },
@@ -97,7 +90,6 @@ lspconfig.clangd.setup({
     },
     on_attach = M.on_attach,
     capabilities = M.capabilities,
-    handlers = M.handlers,
 })
 
 -- General config
@@ -107,7 +99,6 @@ for _, lsp in ipairs(servers) do
     lspconfig[lsp].setup({
         on_attach = M.on_attach,
         capabilities = M.capabilities,
-        handlers = M.handlers,
     })
 end
 
