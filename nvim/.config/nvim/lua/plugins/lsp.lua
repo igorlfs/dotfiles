@@ -60,17 +60,6 @@ function M.on_attach(client, bufnr)
         })
     end
 
-    if client.supports_method("textDocument/documentHighlight") then
-        vim.cmd([[
-            augroup LspHighlight
-                autocmd! * <buffer>
-                autocmd CursorHold,CursorHoldI <buffer> lua vim.lsp.buf.document_highlight()
-                autocmd CursorMoved,CursorMovedI <buffer> lua vim.lsp.buf.clear_references()
-                autocmd BufLeave * lua vim.lsp.buf.clear_references()
-            augroup END 
-        ]])
-    end
-
     -- Server specific config
     if client.name == "clangd" then
         keymap("n", "<A-o>", "<cmd>ClangdSwitchSourceHeader<CR>")

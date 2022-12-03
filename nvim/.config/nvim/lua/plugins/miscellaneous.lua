@@ -13,6 +13,7 @@ require("catppuccin").setup({
             enabled = true,
             enable_ui = true,
         },
+        illuminate = true,
     },
 })
 
@@ -25,6 +26,12 @@ require("neorg").setup({
         },
         ["core.defaults"] = {},
         ["core.norg.concealer"] = {},
+    },
+})
+
+require("illuminate").configure({
+    providers = {
+        "lsp",
     },
 })
 

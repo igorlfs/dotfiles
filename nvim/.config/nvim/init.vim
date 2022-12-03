@@ -59,6 +59,7 @@ Plug 'nvim-tree/nvim-web-devicons'          " Icons
 Plug 'folke/noice.nvim'                     " UI
 Plug 'rcarriga/nvim-notify'                 " Notifications
 Plug 'lukas-reineke/indent-blankline.nvim'  " Indent Guides
+Plug 'RRethy/vim-illuminate'                " Highlight word under the cursor
 call plug#end()
 
 lua << EOF
