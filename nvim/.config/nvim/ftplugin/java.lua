@@ -34,8 +34,6 @@ local config = {
         "java",
         "-Declipse.application=org.eclipse.jdt.ls.core.id1",
         "-Dosgi.bundles.defaultStartLevel=4",
-        "-Dosgi.sharedConfiguration.area=/usr/share/java/jdtls/config_linux",
-        "-Dosgi.sharedConfiguration.area.readOnly=true",
         "-Declipse.product=org.eclipse.jdt.ls.core.product",
         "-Dlog.protocol=true",
         "-Dlog.level=ALL",
@@ -47,7 +45,10 @@ local config = {
         "java.base/java.lang=ALL-UNNAMED",
 
         "-jar",
-        vim.fn.glob("/usr/share/java/jdtls/plugins/org.eclipse.equinox.launcher_*.jar", true),
+        vim.fn.glob(MASON_PATH .. "jdtls/plugins/org.eclipse.equinox.launcher_*.jar", true),
+
+        "-configuration",
+        MASON_PATH .. "jdtls/config_linux",
 
         "-data",
         JDTLS_DATA,
@@ -78,9 +79,6 @@ local config = {
             },
             references = {
                 includeDecompiledSources = true,
-            },
-            format = {
-                enabled = true,
             },
         },
         signatureHelp = { enabled = true },
