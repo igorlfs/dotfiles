@@ -19,6 +19,9 @@ Plug 'rmagatti/session-lens'            " Telescope Integration
 """ LSP
 Plug 'neovim/nvim-lspconfig'            
 Plug 'jose-elias-alvarez/null-ls.nvim'  
+""" Automatic install DAP/LSP
+Plug 'williamboman/mason.nvim'
+Plug 'williamboman/mason-lspconfig.nvim'
 """ Debugger
 Plug 'mfussenegger/nvim-dap'
 Plug 'rcarriga/nvim-dap-ui'
@@ -64,6 +67,8 @@ call plug#end()
 
 lua << EOF
 require("neodev").setup()
+require("mason").setup()
+require("mason-lspconfig").setup()
 require("plugins.lsp")
 require("plugins.cmp")
 require("plugins.git")

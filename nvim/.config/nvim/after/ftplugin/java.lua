@@ -1,17 +1,13 @@
 local jdtls = require("jdtls")
 
 -- Debugger location
-local DEBUGGER_LOCATION = os.getenv("HOME") .. "/aur/java-debug"
-local DEBUG_EXTENSION_LOCATION = os.getenv("HOME") .. "/aur/vscode-java-test"
+local MASON_PATH = os.getenv("XDG_DATA_HOME") .. "/nvim/mason/packages/"
 
 -- Enable debugger and extension
 local bundles = {
-    vim.fn.glob(
-        DEBUGGER_LOCATION .. "/com.microsoft.java.debug.plugin/target/com.microsoft.java.debug.plugin-*.jar",
-        true
-    ),
+    vim.fn.glob(MASON_PATH .. "java-debug-adapter/extension/server/com.microsoft.java.debug.plugin-*.jar", true),
 }
-vim.list_extend(bundles, vim.split(vim.fn.glob(DEBUG_EXTENSION_LOCATION .. "/server/*.jar", true), "\n"))
+vim.list_extend(bundles, vim.split(vim.fn.glob(MASON_PATH .. "java-test/extension/server/*.jar", true), "\n"))
 
 -- Workspace
 local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
