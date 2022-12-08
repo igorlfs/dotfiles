@@ -27,5 +27,3 @@ keymap("n", "<leader>fb", builtin.buffers)
 
 local session = require("session-lens")
 keymap("n", "<leader>fs", session.search_session)
-
-keymap("n", "z=", builtin.spell_suggest)
