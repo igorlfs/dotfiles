@@ -14,6 +14,8 @@ require("catppuccin").setup({
             enable_ui = true,
         },
         illuminate = true,
+        neotest = true,
+        notify = true,
     },
 })
 
