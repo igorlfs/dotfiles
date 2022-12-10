@@ -67,7 +67,6 @@ call plug#end()
 
 lua << EOF
 require("neodev").setup()
-require("mason").setup()
 require("mason-lspconfig").setup()
 require("plugins.lsp")
 require("plugins.cmp")

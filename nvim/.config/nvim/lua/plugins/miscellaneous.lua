@@ -19,18 +19,6 @@ require("catppuccin").setup({
     },
 })
 
-require("neorg").setup({
-    load = {
-        ["core.highlights"] = {
-            config = {
-                todo_items_match_color = "all",
-            },
-        },
-        ["core.defaults"] = {},
-        ["core.norg.concealer"] = {},
-    },
-})
-
 require("illuminate").configure({
     providers = {
         "lsp",
@@ -42,6 +30,24 @@ require("indent_blankline").setup({
     context_char = "│",
     show_current_context = true,
     show_trailing_blankline_indent = false,
+})
+
+require("mason").setup({
+    ui = {
+        border = "rounded",
+    },
+})
+
+require("neorg").setup({
+    load = {
+        ["core.highlights"] = {
+            config = {
+                todo_items_match_color = "all",
+            },
+        },
+        ["core.defaults"] = {},
+        ["core.norg.concealer"] = {},
+    },
 })
 
 require("toggleterm").setup({
