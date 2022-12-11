@@ -31,7 +31,7 @@ null_ls.setup({
         diagnostics.mypy,
         diagnostics.pylint,
 
-        formatting.isort,
+        formatting.ruff,
         formatting.black,
 
         -- Lua
