@@ -75,6 +75,8 @@ end
 
 -- Add additional capabilities supported by nvim-cmp
 M.capabilities = require("cmp_nvim_lsp").default_capabilities()
+-- Enable additional completion for HTML/JSON/CSS
+M.capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 local lspconfig = require("lspconfig")
 -- Language specific config
@@ -87,7 +89,7 @@ lspconfig.clangd.setup({
 
 -- General config
 -- Enable some language servers with the additional completion capabilities offered by nvim-cmp
-local servers = { "pyright", "tsserver", "texlab", "sumneko_lua", "taplo", "gradle_ls" }
+local servers = { "pyright", "tsserver", "texlab", "sumneko_lua", "taplo", "gradle_ls", "jsonls", "yamlls" }
 for _, lsp in ipairs(servers) do
     lspconfig[lsp].setup({
         on_attach = M.on_attach,
