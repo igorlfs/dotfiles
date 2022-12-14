@@ -17,12 +17,16 @@ autoload -U colors && colors
 PS1="%{$fg[magenta]%}%~ %{$reset_color%}$ "
 
 ### Aliases
-alias ls='ls --color=auto -v'
+# lazy
 alias s='pgrep -x sway || exec dbus-run-session sway'
+alias v='nvim'
+# utils
 alias cp='cp -r'
 alias mv='mv -i'
-alias n='nvim'
-alias v='nvim -'
+# colors
+alias ls='ls --color=auto -v'
+alias pacman='pacman --color=always'
+alias nc='ncdu --color=dark --exclude-kernfs'
 # config files
 alias cwm='nvim -p ~/.config/sway/{config,config.d/*}'
 alias cv='nvim -p ~/.config/nvim/{init.vim,lua/*/*}'
