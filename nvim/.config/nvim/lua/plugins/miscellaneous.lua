@@ -19,23 +19,11 @@ require("catppuccin").setup({
     },
 })
 
-require("illuminate").configure({
-    providers = {
-        "lsp",
-    },
-})
-
 require("indent_blankline").setup({
     max_indent_increase = 1,
     context_char = "│",
     show_current_context = true,
     show_trailing_blankline_indent = false,
-})
-
-require("mason").setup({
-    ui = {
-        border = "rounded",
-    },
 })
 
 require("toggleterm").setup({
