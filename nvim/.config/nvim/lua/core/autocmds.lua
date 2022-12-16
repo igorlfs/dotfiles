@@ -35,15 +35,13 @@ au("FileType", {
     end,
 })
 
--- Alternative mappings for Jukit to avoid conflicts with git-signs
+-- Common Jukit mappings for python and ipynb
 local jukit = ag("Jukit", {})
 au("FileType", {
     group = jukit,
     pattern = { "python", "json" },
     callback = function()
-        keymap("n", "<leader>ho", "<cmd>call jukit#splits#history()<CR>", { buffer = true })
-        keymap("n", "<leader>hc", "<cmd>call jukit#splits#close_history()<CR>", { buffer = true })
-        keymap("n", "<leader><space>", "<cmd>call jukit#send#section(1)<CR>", { buffer = true })
+        keymap("n", "<leader>np", "<cmd>call jukit#convert#notebook_convert('jupyter-notebook')<cr>")
     end,
 })
 

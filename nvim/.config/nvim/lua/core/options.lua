@@ -15,7 +15,7 @@ vim.opt.conceallevel = 2 -- Hide verbosity in markdown and LaTeX
 vim.opt.spelllang:append({ "pt_br" }) -- Additional language to spell check
 vim.opt.spelloptions:append({ "camel" }) -- Consider camelCase when checking spell
 vim.opt.spellfile = -- Custom dictionary files
-{ vim.fn.expand("~/.config/nvim/spell/en.utf-8.add"), vim.fn.expand("~/.config/nvim/spell/pt.utf-8.add") }
+    { vim.fn.expand("~/.config/nvim/spell/en.utf-8.add"), vim.fn.expand("~/.config/nvim/spell/pt.utf-8.add") }
 
 -- Folds
 vim.opt.foldenable = false -- Prevents folds from auto closing
@@ -57,4 +57,4 @@ g.loaded_ruby_provider = 0
 
 -- Plugins
 g.vimtex_view_method = "zathura"
-g.jukit_mappings_ext_enabled = { "py", "ipynb" } -- Enable jukit mappings only for python / jupyter
+g.jukit_mappings_ext_enabled = {} -- disable jukit default mappings
