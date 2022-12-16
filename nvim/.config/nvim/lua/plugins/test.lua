@@ -17,8 +17,8 @@ nt.setup({
 -- keymaps
 local keymap = vim.keymap.set
 
--- TesT all
-keymap("n", "<leader>tt", function()
+-- Test All
+keymap("n", "<leader>ta", function()
     nt.run.run(vim.fn.getcwd())
 end)
 -- Test Nearest
@@ -27,11 +27,11 @@ keymap("n", "<leader>tn", nt.run.run)
 keymap("n", "<leader>tf", function()
     nt.run.run(vim.fn.expand("%"))
 end)
--- Debug Test
-keymap("n", "<leader>dt", function()
+-- Test Debug
+keymap("n", "<leader>td", function()
     nt.run.run({ strategy = "dap" })
 end)
--- test SUmmary
-keymap("n", "<leader>su", function()
+-- Test Summary
+keymap("n", "<leader>ts", function()
     nt.summary.toggle()
 end)
