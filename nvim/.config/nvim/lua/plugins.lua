@@ -62,6 +62,13 @@ return require("packer").startup(function(use)
             require("nvim-autopairs").setup()
         end,
     })
+    -- Surround
+    use({
+        "kylechui/nvim-surround",
+        config = function()
+            require("nvim-surround").setup()
+        end,
+    })
     -- Comments
     use({
         "numToStr/Comment.nvim",
@@ -103,7 +110,6 @@ return require("packer").startup(function(use)
     })
 
     ------- Vimscript
-    use("tpope/vim-surround")
     use("tpope/vim-dispatch")
     use("tpope/vim-fugitive")
     -- Jupyter
