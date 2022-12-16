@@ -1,7 +1,7 @@
 local tl = require("telescope")
 
 tl.setup({
-    tl.load_extension("fzy_native"),
+    tl.load_extension("fzf"),
     tl.load_extension("noice"),
     tl.load_extension("session-lens"),
     pickers = {

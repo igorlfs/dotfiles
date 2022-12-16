@@ -52,7 +52,7 @@ return require("packer").startup(function(use)
 
     ------ Fuzzy Finder
     use({ "nvim-telescope/telescope.nvim", tag = "0.1.0" })
-    use("nvim-telescope/telescope-fzy-native.nvim")
+    use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
 
     ------ Editing
     -- Pairs
