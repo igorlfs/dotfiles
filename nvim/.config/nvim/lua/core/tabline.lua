@@ -9,6 +9,8 @@ local function title(bufnr)
         return "help:" .. vim.fn.fnamemodify(file, ":t:r")
     elseif buftype == "quickfix" then
         return "quickfix"
+    elseif filetype == "checkhealth" then
+        return "checkhealth"
     elseif filetype == "TelescopePrompt" then
         return "Telescope"
     elseif filetype == "git" then
