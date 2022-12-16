@@ -37,12 +37,12 @@ require("noice").setup({
 
 vim.keymap.set({ "n", "i" }, "<C-d>", function()
     if not require("noice.lsp").scroll(4) then
-        return "<C-d>"
+        return "<C-d>zz"
     end
 end, { silent = true, expr = true })
 
 vim.keymap.set({ "n", "i" }, "<C-u>", function()
     if not require("noice.lsp").scroll(-4) then
-        return "<C-u>"
+        return "<C-u>zz"
     end
 end, { silent = true, expr = true })
