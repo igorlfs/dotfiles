@@ -1,6 +1,6 @@
--- nvim-cmp setup
 local cmp = require("cmp")
 local luasnip = require("luasnip")
+
 cmp.setup({
     enabled = function()
         -- Enable completion in prompt buffers to use cmp-dap
@@ -62,8 +62,8 @@ cmp.setup({
         { name = "path" },
     }),
     formatting = {
-        format = function(entry, vim_item)
-            -- limit completion window to 50 characters
+        format = function(_, vim_item)
+            -- Limit completion window to 50 characters
             vim_item.abbr = string.sub(vim_item.abbr, 1, 50)
             return vim_item
         end,
@@ -84,7 +84,7 @@ cmp.setup.cmdline(":", {
     }, {
         {
             name = "cmdline",
-            -- prevents expanding %, see cmp-cmdline#33
+            -- Prevent expanding %, see cmp-cmdline#33
             keyword_pattern = [=[[^[:blank:]%]*]=],
             option = {
                 ignore_cmds = { "Man", "!" },
