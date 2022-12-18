@@ -33,3 +33,8 @@ require("toggleterm").setup({
         border = "rounded",
     },
 })
+
+-- Keymaps
+local keymap = vim.keymap.set
+
+keymap("n", "<leader>n", require("notify").dismiss)
