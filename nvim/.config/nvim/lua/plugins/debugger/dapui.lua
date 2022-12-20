@@ -40,7 +40,7 @@ dapui.setup({
     },
 })
 local keymap = vim.keymap.set
-keymap("n", "<leader>e", dapui.eval)
+keymap("n", "<F2>", dapui.eval)
 
 -- use nvim-dap events to open and close the windows automatically
 dap.listeners.after.event_initialized["dapui_config"] = function()
