@@ -29,7 +29,6 @@ null_ls.setup({
         -- Python
         diagnostics.ruff,
         diagnostics.mypy,
-        diagnostics.pylint,
 
         formatting.ruff,
         formatting.black,
