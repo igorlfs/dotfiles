@@ -10,7 +10,7 @@ keymap("n", "<leader>sc", "<cmd>call jukit#splits#close_output_and_history(1)<cr
 
 -- Sending Code
 -- Current Cell
-keymap("n", "<leader><leader>", "<cmd>call jukit#send#section(0)<cr>", opts)
+keymap("n", "<leader><leader>", "<cmd>call jukit#send#section(1)<cr>", opts)
 -- All cells up to current one
 keymap("n", "<leader>cc", "<cmd>call jukit#send#until_current_section()<cr>", opts)
 
