@@ -27,7 +27,6 @@ null_ls.setup({
         diagnostics.todo_comments,
 
         -- Python
-        diagnostics.ruff,
         diagnostics.mypy,
 
         formatting.ruff,

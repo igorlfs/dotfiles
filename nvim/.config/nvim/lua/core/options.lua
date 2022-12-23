@@ -7,7 +7,7 @@ vim.opt.diffopt:append({ "linematch:60" }) -- Better diffs
 vim.opt.hlsearch = false -- Don't keep searches highlighted
 vim.opt.linebreak = true -- Break lines correctly
 vim.opt.scrolloff = 4 -- Context lines when scrolling
-vim.opt.clipboard:append({ "unnamedplus" }) -- Use system clipboard
+vim.opt.clipboard = "unnamedplus" -- Use system clipboard
 vim.opt.wildmode = "longest,list,full" -- Funky completion for commands
 vim.opt.conceallevel = 2 -- Hide verbosity in markdown and LaTeX
 
