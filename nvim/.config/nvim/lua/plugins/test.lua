@@ -27,8 +27,8 @@ keymap("n", "<leader>tn", nt.run.run)
 keymap("n", "<leader>tf", function()
     nt.run.run(vim.fn.expand("%"))
 end)
--- Test Debug
-keymap("n", "<leader>td", function()
+-- Debug Test
+keymap("n", "<leader>dt", function()
     nt.run.run({ strategy = "dap" })
 end)
 -- Test Summary
