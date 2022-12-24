@@ -53,3 +53,10 @@ au("FileType", {
         keymap("i", "<C-l>", '<cmd>lua require("dap.repl").clear()<CR>', { buffer = true })
     end,
 })
+
+-- Reload packer
+au("BufWritePost", {
+    group = ag("packer", {}),
+    pattern = "plugins.lua",
+    command = "source <afile> | PackerCompile",
+})
