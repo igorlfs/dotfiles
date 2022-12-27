@@ -23,8 +23,6 @@ return require("packer").startup(function(use)
     use("nvim-tree/nvim-tree.lua")
     -- Terminal
     use("akinsho/toggleterm.nvim")
-    -- Git
-    use("lewis6991/gitsigns.nvim")
 
     ------ Sessions
     -- Automatic sessions
@@ -56,6 +54,17 @@ return require("packer").startup(function(use)
         "williamboman/mason-lspconfig.nvim",
         config = function()
             require("mason-lspconfig").setup()
+        end,
+    })
+
+    ------ Git
+    use("lewis6991/gitsigns.nvim")
+    use({
+        "TimUntersberger/neogit",
+        config = function()
+            require("neogit").setup({
+                disable_commit_confirmation = true,
+            })
         end,
     })
 
@@ -127,7 +136,6 @@ return require("packer").startup(function(use)
 
     ------- Vimscript
     use("tpope/vim-dispatch")
-    use("tpope/vim-fugitive")
     -- Jupyter
     use("luk400/vim-jukit")
 
