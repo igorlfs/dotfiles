@@ -19,6 +19,9 @@ nt.setup({
             quit_on_open = true,
         },
     },
+    view = {
+        adaptive_size = true,
+    },
 })
 
 -- keymaps
