@@ -25,6 +25,7 @@ null_ls.setup({
     border = "rounded",
     sources = {
         diagnostics.todo_comments,
+        formatting.prettierd,
 
         -- Python
         diagnostics.mypy,
