@@ -79,10 +79,18 @@ sign("DapBreakpoint", { text = "●", texthl = "DapBreakpoint", linehl = "", num
 sign("DapBreakpointCondition", { text = "●", texthl = "DapBreakpointCondition", linehl = "", numhl = "" })
 sign("DapLogPoint", { text = "◆", texthl = "DapLogPoint", linehl = "", numhl = "" })
 
+local startOrContinue = function()
+    -- Reads launch.json if present
+    if vim.fn.filereadable(".vscode/launch.json") then
+        require("dap.ext.vscode").load_launchjs(nil, { cppdbg = { "c", "cpp" } })
+    end
+    require("dap").continue()
+end
+
 -- keymaps
 local keymap = vim.keymap.set
 keymap("n", "<F4>", dap.terminate)
-keymap("n", "<F5>", dap.continue)
+keymap("n", "<F5>", startOrContinue)
 keymap("n", "<F6>", dap.run_to_cursor)
 keymap("n", "<F7>", function()
     dap.set_breakpoint(nil, nil, vim.fn.input("Log point message: "))
