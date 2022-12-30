@@ -27,20 +27,23 @@ keymap("n", "<leader>q", vim.diagnostic.setloclist)
 
 -- Use an on_attach function to only map the following keys after the language server attaches to the current buffer
 function M.on_attach(client, bufnr)
+    local builtin = require("telescope.builtin")
     local bufopts = { silent = true, buffer = bufnr }
     keymap("n", "gD", vim.lsp.buf.declaration, bufopts)
-    keymap("n", "gd", vim.lsp.buf.definition, bufopts)
+    keymap("n", "gd", builtin.lsp_definitions, bufopts)
     keymap("n", "K", vim.lsp.buf.hover, bufopts)
-    keymap("n", "gi", vim.lsp.buf.implementation, bufopts)
+    keymap("n", "gi", builtin.lsp_implementations, bufopts)
     keymap({ "n", "i" }, "<C-k>", vim.lsp.buf.signature_help, bufopts)
     keymap("n", "<leader>wa", vim.lsp.buf.add_workspace_folder, bufopts)
     keymap("n", "<leader>wr", vim.lsp.buf.remove_workspace_folder, bufopts)
     keymap("n", "<leader>wl", function()
         vim.inspect(vim.lsp.buf.list_workspace_folders())
     end, bufopts)
-    keymap("n", "<leader>D", vim.lsp.buf.type_definition, bufopts)
+    keymap("n", "<leader>D", builtin.lsp_type_definitions, bufopts)
     keymap("n", "<leader>rn", vim.lsp.buf.rename, bufopts)
-    keymap("n", "gr", vim.lsp.buf.references, bufopts)
+    keymap("n", "gr", function()
+        builtin.lsp_references({ show_line = false })
+    end, bufopts)
     keymap("n", "<leader>ca", vim.lsp.buf.code_action, bufopts)
 
     local au = vim.api.nvim_create_autocmd
