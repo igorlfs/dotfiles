@@ -35,14 +35,26 @@ require("noice").setup({
     },
 })
 
-vim.keymap.set({ "n", "i" }, "<C-d>", function()
+vim.keymap.set("n", "<C-d>", function()
     if not require("noice.lsp").scroll(4) then
         return "<C-d>zz"
     end
 end, { silent = true, expr = true })
 
-vim.keymap.set({ "n", "i" }, "<C-u>", function()
+vim.keymap.set("i", "<C-d>", function()
+    if not require("noice.lsp").scroll(4) then
+        return "<C-d>"
+    end
+end, { silent = true, expr = true })
+
+vim.keymap.set("n", "<C-u>", function()
     if not require("noice.lsp").scroll(-4) then
         return "<C-u>zz"
+    end
+end, { silent = true, expr = true })
+
+vim.keymap.set("i", "<C-u>", function()
+    if not require("noice.lsp").scroll(-4) then
+        return "<C-u>"
     end
 end, { silent = true, expr = true })
