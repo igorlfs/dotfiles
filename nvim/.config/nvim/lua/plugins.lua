@@ -23,6 +23,8 @@ return require("packer").startup(function(use)
     use("nvim-tree/nvim-tree.lua")
     -- Terminal
     use("akinsho/toggleterm.nvim")
+    -- Library used by many plugins
+    use("nvim-lua/plenary.nvim")
 
     ------ Sessions
     -- Automatic sessions
@@ -139,16 +141,11 @@ return require("packer").startup(function(use)
     ------- Vimscript
     use("tpope/vim-dispatch")
 
-    ------ Libraries
-    use("nvim-lua/plenary.nvim")
-    -- Noice
-    use("MunifTanjim/nui.nvim")
-
     ------ Eye candy
     -- Icons
     use("nvim-tree/nvim-web-devicons")
     -- UI
-    use("folke/noice.nvim")
+    use({ "folke/noice.nvim", requires = "MunifTanjim/nui.nvim" })
     -- Notifications
     use("rcarriga/nvim-notify")
     -- Indent Guides
