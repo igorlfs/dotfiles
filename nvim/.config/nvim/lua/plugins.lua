@@ -107,6 +107,8 @@ return require("packer").startup(function(use)
     use("hrsh7th/cmp-cmdline")
     -- Snippets Engine
     use("L3MON4D3/LuaSnip")
+    -- Snippets Collection
+    use("rafamadriz/friendly-snippets")
     -- Integrate snippets with completion
     use("saadparwaiz1/cmp_luasnip")
     -- Integrate DAP with completion
@@ -117,8 +119,6 @@ return require("packer").startup(function(use)
     ------ Language Specific
     ------ LaTeX
     use("lervag/vimtex")
-    -- Snippets
-    use("brennier/quicktex")
     ------ Java
     use("mfussenegger/nvim-jdtls")
     ------ Norg

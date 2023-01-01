@@ -1,0 +1,9 @@
+{
+    "Inline Math": {
+        "prefix": "mm",
+        "body": [
+            "$ $1 $$0"
+        ],
+        "description": "Insert inline Math Environment."
+    }
+}
