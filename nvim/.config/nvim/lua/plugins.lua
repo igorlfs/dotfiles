@@ -117,16 +117,18 @@ return require("packer").startup(function(use)
     use("hrsh7th/nvim-cmp")
 
     ------ Language Specific
-    ------ LaTeX
+    -- LaTeX
     use("lervag/vimtex")
-    ------ Java
+    -- Jupyter
+    use("luk400/vim-jukit")
+    -- Java
     use("mfussenegger/nvim-jdtls")
-    ------ Norg
+    -- Norg
     use({
         "nvim-neorg/neorg",
         run = ":Neorg sync-parsers",
     })
-    ------ Lua
+    -- Lua
     use({
         "folke/neodev.nvim",
         config = function()
@@ -136,11 +138,8 @@ return require("packer").startup(function(use)
 
     ------- Vimscript
     use("tpope/vim-dispatch")
-    -- Jupyter
-    use("luk400/vim-jukit")
 
     ------ Libraries
-    -- Neorg, Neotest, null-ls, ...
     use("nvim-lua/plenary.nvim")
     -- Noice
     use("MunifTanjim/nui.nvim")
