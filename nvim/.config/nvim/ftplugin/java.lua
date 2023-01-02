@@ -1,17 +1,14 @@
 local jdtls = require("jdtls")
 
--- Debugger location
 local MASON_PATH = os.getenv("XDG_DATA_HOME") .. "/nvim/mason/packages/"
 
--- Enable debugger and extensions
--- Main debugger
+-- Debugging
 local bundles = {
     vim.fn.glob(MASON_PATH .. "java-debug-adapter/extension/server/com.microsoft.java.debug.plugin-*.jar", true),
 }
--- Extensions to leverage tests
 local extensions = vim.split(vim.fn.glob(MASON_PATH .. "java-test/extension/server/*.jar", true), "\n")
 for _, extension in ipairs(extensions) do
-    -- as of dec/22 this bundle throws an error (albeit harmless)
+    -- as of dec/22 this extension throws an error (albeit harmless)
     if not vim.endswith(extension, "com.microsoft.java.test.runner-jar-with-dependencies.jar") then
         table.insert(bundles, extension)
     end
