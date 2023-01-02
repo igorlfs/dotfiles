@@ -1,7 +1,6 @@
 local dapui = require("dapui")
 local dap = require("dap")
 
--- UI setup
 dapui.setup({
     icons = {
         expanded = "▾",
@@ -39,6 +38,7 @@ dapui.setup({
         max_type_length = 0,
     },
 })
+
 local keymap = vim.keymap.set
 keymap("n", "<F2>", dapui.eval)
 
