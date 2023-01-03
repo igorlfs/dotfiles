@@ -24,8 +24,6 @@ null_ls.setup({
     end,
     border = "rounded",
     sources = {
-        formatting.prettierd,
-
         -- Python
         diagnostics.mypy,
 
