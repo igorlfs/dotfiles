@@ -13,7 +13,6 @@ require("plugins.explorer")
 require("plugins.null-ls")
 require("plugins.noice")
 require("plugins.telescope")
+require("plugins.theme")
 require("plugins.treesitter")
 require("plugins.miscellaneous")
-
-vim.cmd.colorscheme("catppuccin")
