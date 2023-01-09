@@ -1,3 +1,15 @@
+require("neorg").setup({
+    load = {
+        ["core.highlights"] = {
+            config = {
+                todo_items_match_color = "all",
+            },
+        },
+        ["core.defaults"] = {},
+        ["core.norg.concealer"] = {},
+    },
+})
+
 require("indent_blankline").setup({
     max_indent_increase = 1,
     context_char = "│",
