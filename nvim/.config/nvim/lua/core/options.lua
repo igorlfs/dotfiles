@@ -3,6 +3,7 @@ local g = vim.g
 -- Behavior
 vim.opt.termguicolors = true -- Enable full color support
 vim.opt.updatetime = 200 -- Time for CursorHold event (e.g., LSP)
+vim.opt.diffopt:append({ "linematch:60" }) -- Better diffs
 vim.opt.hlsearch = false -- Don't keep searches highlighted
 vim.opt.linebreak = true -- Break lines correctly
 vim.opt.scrolloff = 4 -- Context lines when scrolling
@@ -24,6 +25,7 @@ vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 -- Splits
 vim.opt.splitbelow = true
 vim.opt.splitright = true
+vim.opt.splitkeep = "screen" -- Keep the same relative cursor position when splitting
 
 -- Tabs
 vim.opt.expandtab = true -- Expand tabs to spaces
