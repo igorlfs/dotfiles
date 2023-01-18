@@ -90,6 +90,9 @@ lspconfig.clangd.setup({
     capabilities = M.capabilities,
 })
 
+-- Lua
+require("neodev").setup()
+
 -- General config
 -- Enable some language servers with the additional completion capabilities offered by nvim-cmp
 local servers = { "pylsp", "tsserver", "texlab", "sumneko_lua", "taplo", "gradle_ls", "jsonls", "yamlls", "ruff_lsp" }

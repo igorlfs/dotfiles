@@ -131,12 +131,7 @@ return require("packer").startup(function(use)
         run = ":Neorg sync-parsers",
     })
     -- Lua
-    use({
-        "folke/neodev.nvim",
-        config = function()
-            require("neodev").setup()
-        end,
-    })
+    use("folke/neodev.nvim")
 
     ------- Vimscript
     use("tpope/vim-dispatch")
