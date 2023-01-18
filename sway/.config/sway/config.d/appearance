@@ -1,11 +1,10 @@
 #
 # Appearance
 #
-font pango: Cascadia Code 10
+font pango: FiraCode Nerd Font 10
 smart_borders on
 default_border pixel 2
 default_floating_border none
-#hide_edge_borders both
 
 ### Colors
 set $focused #c0c5ce 
