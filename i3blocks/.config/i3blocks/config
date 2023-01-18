@@ -1,0 +1,15 @@
+[battery]
+command=~/scripts/i3battery.sh
+interval=1
+
+[brightness]
+command=echo "$(brightnessctl g)%"
+interval=1
+
+[brightness]
+command=~/scripts/i3audio.sh
+interval=1
+
+[time]
+command=date +'%B %d %R'
+interval=5

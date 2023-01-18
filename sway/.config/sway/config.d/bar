@@ -9,7 +9,7 @@ set $inactive-text #6e6c7e
 set $urgent-bg     #f28fad
 
 bar {
-    status_command while ~/scripts/bar.sh; do sleep 1; done
+    status_command i3blocks
         tray_output primary
         colors {
             background $bg
