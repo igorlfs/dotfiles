@@ -26,9 +26,6 @@ exec autotiling-rs
 # Night mode
 exec gammastep -l -19.5:-43.6
 
-# Audio
-exec pipewire
-
 # Idle
 exec swayidle timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"'
 
