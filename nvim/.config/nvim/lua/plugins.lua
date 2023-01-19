@@ -75,7 +75,7 @@ return require("packer").startup(function(use)
     use("nvim-neotest/neotest-python")
 
     ------ Fuzzy Finder
-    use({ "nvim-telescope/telescope.nvim", tag = "0.1.0" })
+    use({ "nvim-telescope/telescope.nvim", tag = "0.1.x" })
     use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
 
     ------ Editing

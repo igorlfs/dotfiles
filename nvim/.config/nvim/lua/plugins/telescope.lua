@@ -1,9 +1,20 @@
 local tl = require("telescope")
+local actions = require("telescope.actions")
 
 tl.setup({
     tl.load_extension("fzf"),
     tl.load_extension("noice"),
     tl.load_extension("session-lens"),
+    defaults = {
+        mappings = {
+            i = {
+                ["<Tab>"] = actions.move_selection_next,
+                ["<S-Tab>"] = actions.move_selection_previous,
+                ["<C-n>"] = actions.toggle_selection + actions.move_selection_worse,
+                ["<C-p>"] = actions.toggle_selection + actions.move_selection_better,
+            },
+        },
+    },
     pickers = {
         find_files = {
             hidden = true,
