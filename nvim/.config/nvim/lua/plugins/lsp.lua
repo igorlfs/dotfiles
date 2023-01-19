@@ -46,6 +46,13 @@ function M.on_attach(client, bufnr)
     end, bufopts)
     keymap("n", "<leader>ca", vim.lsp.buf.code_action, bufopts)
 
+    -- Telescope Stuff
+    keymap("n", "<leader>ci", builtin.lsp_incoming_calls, bufopts)
+    keymap("n", "<leader>co", builtin.lsp_outgoing_calls, bufopts)
+    keymap("n", "<leader>sd", builtin.lsp_document_symbols, bufopts)
+    keymap("n", "<leader>sw", builtin.lsp_dynamic_workspace_symbols, bufopts)
+    keymap("n", "<leader>E", builtin.diagnostics, bufopts)
+
     local au = vim.api.nvim_create_autocmd
     local ag = vim.api.nvim_create_augroup
     local clear_au = vim.api.nvim_clear_autocmds
