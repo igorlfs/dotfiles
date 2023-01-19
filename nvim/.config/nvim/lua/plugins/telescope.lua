@@ -4,7 +4,6 @@ local actions = require("telescope.actions")
 tl.setup({
     tl.load_extension("fzf"),
     tl.load_extension("noice"),
-    tl.load_extension("session-lens"),
     defaults = {
         mappings = {
             i = {
@@ -36,5 +35,4 @@ keymap("n", "<leader>ff", builtin.find_files)
 keymap("n", "<leader>fg", builtin.live_grep)
 keymap("n", "<leader>fb", builtin.buffers)
 
-local session = require("session-lens")
-keymap("n", "<leader>fs", session.search_session)
+keymap("n", "<leader>fs", "<cmd>Telescope persisted<CR>")

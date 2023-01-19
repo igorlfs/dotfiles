@@ -23,19 +23,16 @@ return require("packer").startup(function(use)
     use("nvim-tree/nvim-tree.lua")
     -- Terminal
     use("akinsho/toggleterm.nvim")
-    -- Library used by many plugins
-    use("nvim-lua/plenary.nvim")
-
-    ------ Sessions
-    -- Automatic sessions
+    -- Sessions
     use({
-        "rmagatti/auto-session",
+        "olimorris/persisted.nvim",
         config = function()
-            require("auto-session").setup({ auto_session_suppress_dirs = { "~" } })
+            require("persisted").setup()
+            require("telescope").load_extension("persisted")
         end,
     })
-    -- Telescope Integration
-    use("rmagatti/session-lens")
+    -- Library used by many plugins
+    use("nvim-lua/plenary.nvim")
 
     ------ LSP
     use("neovim/nvim-lspconfig")
