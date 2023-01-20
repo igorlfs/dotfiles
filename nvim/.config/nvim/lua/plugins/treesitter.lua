@@ -36,4 +36,15 @@ require("nvim-treesitter.configs").setup({
         enable = true,
         disable = { "python" },
     },
+    textobjects = {
+        lsp_interop = {
+            enable = true,
+            border = "rounded",
+            floating_preview_opts = {},
+            peek_definition_code = {
+                ["<leader>pf"] = "@function.outer",
+                ["<leader>pc"] = "@class.outer",
+            },
+        },
+    },
 })

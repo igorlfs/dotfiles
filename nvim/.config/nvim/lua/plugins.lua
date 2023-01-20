@@ -15,8 +15,6 @@ return require("packer").startup(function(use)
     -- Package manager
     use("wbthomason/packer.nvim")
 
-    -- Highlighting
-    use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
     -- Colorscheme
     use({ "catppuccin/nvim", as = "catppuccin", run = ":CatppuccinCompile" })
     -- Explorer
@@ -33,6 +31,10 @@ return require("packer").startup(function(use)
     })
     -- Library used by many plugins
     use("nvim-lua/plenary.nvim")
+
+    ------ Treesitter
+    use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
+    use("nvim-treesitter/nvim-treesitter-textobjects")
 
     ------ LSP
     use("neovim/nvim-lspconfig")
@@ -61,9 +63,7 @@ return require("packer").startup(function(use)
     use({
         "TimUntersberger/neogit",
         config = function()
-            require("neogit").setup({
-                disable_commit_confirmation = true,
-            })
+            require("neogit").setup({ disable_commit_confirmation = true })
         end,
     })
 
