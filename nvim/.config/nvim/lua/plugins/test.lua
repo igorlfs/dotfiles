@@ -6,6 +6,7 @@ nt.setup({
         require("neotest-python")({
             args = { "-v" }, -- get more diff
         }),
+        require("neotest-rust"),
     },
     output = {
         -- disable pop-up with failing test info
@@ -32,6 +33,6 @@ keymap("n", "<leader>dt", function()
     nt.run.run({ strategy = "dap" })
 end)
 -- Test Summary
-keymap("n", "<leader>ts", function()
+keymap("n", "<leader>su", function()
     nt.summary.toggle()
 end)

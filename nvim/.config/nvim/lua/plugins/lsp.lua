@@ -81,6 +81,11 @@ function M.on_attach(client, bufnr)
         require("jdtls.setup").add_commands()
         vim.lsp.codelens.refresh()
     end
+
+    if client.name == "rust_analyzer" then
+        local rt = require("rust-tools")
+        vim.keymap.set("n", "<C-space>", rt.hover_actions.hover_actions, { buffer = bufnr })
+    end
 end
 
 -- Add additional capabilities supported by nvim-cmp
@@ -99,6 +104,29 @@ lspconfig.clangd.setup({
 
 -- Lua
 require("neodev").setup()
+
+-- Rust
+require("rust-tools").setup({
+    server = {
+        on_attach = M.on_attach,
+        capabilities = M.capabilities,
+        settings = {
+            ["rust-analyzer"] = {
+                checkOnSave = {
+                    command = "clippy",
+                },
+            },
+        },
+    },
+    tools = {
+        hover_actions = {
+            auto_focus = true,
+        },
+    },
+    dap = {
+        adapter = require("plugins.dap.main").codelldb,
+    },
+})
 
 -- General config
 -- Enable some language servers with the additional completion capabilities offered by nvim-cmp

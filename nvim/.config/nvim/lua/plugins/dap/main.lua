@@ -1,7 +1,8 @@
+local M = {}
 local dap = require("dap")
 
--- C++ adapter
-dap.adapters.codelldb = {
+-- C++ and Rust adapter
+M.codelldb = {
     type = "server",
     port = "${port}",
     executable = {
@@ -9,6 +10,7 @@ dap.adapters.codelldb = {
         args = { "--port", "${port}" },
     },
 }
+dap.adapters.codelldb = M.codelldb
 
 -- C++ config
 dap.configurations.cpp = {
@@ -102,3 +104,5 @@ keymap("n", "<F9>", dap.toggle_breakpoint)
 keymap("n", "<F10>", dap.step_over)
 keymap("n", "<F11>", dap.step_into)
 keymap("n", "<F12>", dap.step_out)
+
+return M

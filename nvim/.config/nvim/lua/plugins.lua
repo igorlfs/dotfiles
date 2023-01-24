@@ -70,6 +70,7 @@ return require("packer").startup(function(use)
     ------ Tests
     use("nvim-neotest/neotest")
     use("nvim-neotest/neotest-python")
+    use("rouge8/neotest-rust")
 
     ------ Fuzzy Finder
     use({ "nvim-telescope/telescope.nvim", tag = "0.1.x" })
@@ -129,6 +130,8 @@ return require("packer").startup(function(use)
     })
     -- Lua
     use("folke/neodev.nvim")
+    -- Rust
+    use("simrat39/rust-tools.nvim")
 
     ------- Vimscript
     use("tpope/vim-dispatch")

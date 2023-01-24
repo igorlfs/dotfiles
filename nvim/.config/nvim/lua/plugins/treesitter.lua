@@ -20,6 +20,7 @@ require("nvim-treesitter.configs").setup({
         "markdown",
         "markdown_inline",
         "bibtex",
+        "rust",
     },
     auto_install = true,
     highlight = {
