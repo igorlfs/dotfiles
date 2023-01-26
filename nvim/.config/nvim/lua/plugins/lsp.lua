@@ -19,6 +19,20 @@ vim.diagnostic.config({
 })
 
 local keymap = vim.keymap.set
+
+local function show_documentation()
+    local filetype = vim.bo.filetype
+    if vim.tbl_contains({ "vim", "help" }, filetype) then
+        vim.cmd("h " .. vim.fn.expand("<cword>"))
+    elseif vim.tbl_contains({ "man" }, filetype) then
+        vim.cmd("Man " .. vim.fn.expand("<cword>"))
+    elseif vim.fn.expand("%:t") == "Cargo.toml" and require("crates").popup_available() then
+        require("crates").show_popup()
+    else
+        vim.lsp.buf.hover()
+    end
+end
+
 -- Diagnostic keymaps
 keymap("n", "<space>e", vim.diagnostic.open_float)
 keymap("n", "[d", vim.diagnostic.goto_prev)
@@ -31,7 +45,7 @@ function M.on_attach(client, bufnr)
     local bufopts = { silent = true, buffer = bufnr }
     keymap("n", "gD", vim.lsp.buf.declaration, bufopts)
     keymap("n", "gd", builtin.lsp_definitions, bufopts)
-    keymap("n", "K", vim.lsp.buf.hover, bufopts)
+    keymap("n", "K", show_documentation, bufopts)
     keymap("n", "gi", builtin.lsp_implementations, bufopts)
     keymap({ "n", "i" }, "<C-k>", vim.lsp.buf.signature_help, bufopts)
     keymap("n", "<leader>wa", vim.lsp.buf.add_workspace_folder, bufopts)

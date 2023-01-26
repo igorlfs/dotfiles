@@ -59,6 +59,7 @@ cmp.setup({
                 end,
             },
         },
+        { name = "crates" },
         { name = "path" },
     }),
     formatting = {

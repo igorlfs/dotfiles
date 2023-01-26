@@ -132,6 +132,20 @@ return require("packer").startup(function(use)
     use("folke/neodev.nvim")
     -- Rust
     use("simrat39/rust-tools.nvim")
+    use({
+        "saecki/crates.nvim",
+        tag = "v0.3.0",
+        config = function()
+            require("crates").setup({
+                null_ls = {
+                    enabled = true,
+                },
+                popup = {
+                    border = "rounded",
+                },
+            })
+        end,
+    })
 
     ------- Vimscript
     use("tpope/vim-dispatch")
