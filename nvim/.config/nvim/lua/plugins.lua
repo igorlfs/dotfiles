@@ -20,7 +20,18 @@ return require("packer").startup(function(use)
     -- Explorer
     use("nvim-tree/nvim-tree.lua")
     -- Terminal
-    use("akinsho/toggleterm.nvim")
+    use({
+        "akinsho/toggleterm.nvim",
+        config = function()
+            require("toggleterm").setup({
+                open_mapping = [[<a-p>]],
+                direction = "float",
+                float_opts = {
+                    border = "rounded",
+                },
+            })
+        end,
+    })
     -- Sessions
     use({
         "olimorris/persisted.nvim",
@@ -106,7 +117,15 @@ return require("packer").startup(function(use)
     use("hrsh7th/cmp-buffer")
     use("hrsh7th/cmp-cmdline")
     -- Snippets Engine
-    use("L3MON4D3/LuaSnip")
+    use({
+        "L3MON4D3/LuaSnip",
+        config = function()
+            require("luasnip").config.set_config({
+                region_check_events = "InsertEnter",
+                delete_check_events = "InsertLeave",
+            })
+        end,
+    })
     -- Snippets Collection
     use("rafamadriz/friendly-snippets")
     -- Integrate snippets with completion
@@ -158,7 +177,17 @@ return require("packer").startup(function(use)
     -- Notifications
     use("rcarriga/nvim-notify")
     -- Indent Guides
-    use("lukas-reineke/indent-blankline.nvim")
+    use({
+        "lukas-reineke/indent-blankline.nvim",
+        config = function()
+            require("indent_blankline").setup({
+                max_indent_increase = 1,
+                context_char = "│",
+                show_current_context = true,
+                show_trailing_blankline_indent = false,
+            })
+        end,
+    })
     -- Highlight word under the cursor
     use({
         "RRethy/vim-illuminate",

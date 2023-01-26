@@ -1,5 +1,4 @@
-local dapui = require("dapui")
-local dap = require("dap")
+local dap, dapui = require("dap"), require("dapui")
 
 dapui.setup({
     icons = {
