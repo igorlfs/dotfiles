@@ -6,7 +6,6 @@ require("nvim-treesitter.configs").setup({
         "lua",
         "python",
         "vim",
-        "norg",
         "java",
         "json",
         "toml",

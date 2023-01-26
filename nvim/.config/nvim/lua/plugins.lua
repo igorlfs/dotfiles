@@ -142,11 +142,6 @@ return require("packer").startup(function(use)
     use("luk400/vim-jukit")
     -- Java
     use("mfussenegger/nvim-jdtls")
-    -- Norg
-    use({
-        "nvim-neorg/neorg",
-        run = ":Neorg sync-parsers",
-    })
     -- Lua
     use("folke/neodev.nvim")
     -- Rust
