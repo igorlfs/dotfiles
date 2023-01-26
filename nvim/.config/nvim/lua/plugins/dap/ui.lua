@@ -7,24 +7,20 @@ dapui.setup({
         collapsed = "▸",
         current_frame = "▸",
     },
-    windows = {
-        indent = 2,
-    },
     layouts = {
         {
             elements = {
                 { id = "scopes", size = 0.3 },
-                { id = "breakpoints", size = 0.2 },
-                { id = "stacks", size = 0.2 },
-                { id = "watches", size = 0.3 },
+                { id = "breakpoints", size = 0.3 },
+                { id = "watches", size = 0.4 },
             },
             size = 40,
             position = "left",
         },
         {
             elements = { "console" },
-            size = 0.3,
             position = "bottom",
+            size = 15,
         },
     },
     controls = {
@@ -34,6 +30,7 @@ dapui.setup({
         border = "rounded",
     },
     render = {
+        indent = 2,
         -- Hide variable types as C++'s are verbose
         max_type_length = 0,
     },
