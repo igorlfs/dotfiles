@@ -20,6 +20,7 @@ PS1="%{$fg[magenta]%}%~ %{$reset_color%}$ "
 # lazy
 alias s='pgrep -x sway || exec dbus-run-session sway'
 alias v='nvim'
+alias wf='~/scripts/wl-record.sh'
 # utils
 alias cp='cp -r'
 alias mv='mv -i'
