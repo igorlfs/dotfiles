@@ -4,10 +4,6 @@ local str = string.format
 -- Use space as leader
 vim.g.mapleader = " "
 
--- Move within visual lines
-keymap("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
-keymap("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
-
 -- Quick save
 -- Prefer "<cmd>" over ":" as to not trigger mode-changes and messages
 keymap("n", "<C-s>", "<cmd>write<CR>")
