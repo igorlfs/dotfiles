@@ -22,7 +22,7 @@ au("Termopen", {
 -- Spell
 au("FileType", {
     group = defaults,
-    pattern = { "markdown", "gitcommit", "tex" },
+    pattern = { "gitcommit", "tex" },
     command = "setlocal spell",
 })
 
