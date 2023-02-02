@@ -48,10 +48,7 @@ function M.tabline()
     for i = 1, vim.fn.tabpagenr("$"), 1 do
         line = line .. cell(i)
     end
-    line = line .. "%#TabLineFill#%="
-    if vim.fn.tabpagenr("$") > 1 then
-        line = line .. "%#TabLine#%999XX"
-    end
+    line = line .. "%#TabLineFill#"
     return line
 end
 
