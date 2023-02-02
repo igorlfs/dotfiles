@@ -144,6 +144,13 @@ return require("packer").startup(function(use)
     use("mfussenegger/nvim-jdtls")
     -- Lua
     use("folke/neodev.nvim")
+    -- Markdown
+    use({
+        "iamcco/markdown-preview.nvim",
+        run = function()
+            vim.fn["mkdp#util#install"]()
+        end,
+    })
     -- Rust
     use("simrat39/rust-tools.nvim")
     use({
