@@ -178,6 +178,14 @@ return require("packer").startup(function(use)
     use({ "folke/noice.nvim", requires = "MunifTanjim/nui.nvim" })
     -- Notifications
     use("rcarriga/nvim-notify")
+    -- Folds
+    use({
+        "kevinhwang91/nvim-ufo",
+        requires = "kevinhwang91/promise-async",
+        config = function()
+            require("ufo").setup()
+        end,
+    })
     -- Indent Guides
     use({
         "lukas-reineke/indent-blankline.nvim",

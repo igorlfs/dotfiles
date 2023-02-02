@@ -20,16 +20,19 @@ vim.diagnostic.config({
 
 local keymap = vim.keymap.set
 
-local function show_documentation()
-    local filetype = vim.bo.filetype
-    if vim.tbl_contains({ "vim", "help" }, filetype) then
-        vim.cmd("h " .. vim.fn.expand("<cword>"))
-    elseif vim.tbl_contains({ "man" }, filetype) then
-        vim.cmd("Man " .. vim.fn.expand("<cword>"))
-    elseif vim.fn.expand("%:t") == "Cargo.toml" and require("crates").popup_available() then
-        require("crates").show_popup()
-    else
-        vim.lsp.buf.hover()
+local function peek_or_show_documentation()
+    local winid = require("ufo").peekFoldedLinesUnderCursor()
+    if not winid then
+        local filetype = vim.bo.filetype
+        if vim.tbl_contains({ "vim", "help" }, filetype) then
+            vim.cmd("h " .. vim.fn.expand("<cword>"))
+        elseif vim.tbl_contains({ "man" }, filetype) then
+            vim.cmd("Man " .. vim.fn.expand("<cword>"))
+        elseif vim.fn.expand("%:t") == "Cargo.toml" and require("crates").popup_available() then
+            require("crates").show_popup()
+        else
+            vim.lsp.buf.hover()
+        end
     end
 end
 
@@ -45,7 +48,7 @@ function M.on_attach(client, bufnr)
     local bufopts = { silent = true, buffer = bufnr }
     keymap("n", "gD", vim.lsp.buf.declaration, bufopts)
     keymap("n", "gd", builtin.lsp_definitions, bufopts)
-    keymap("n", "K", show_documentation, bufopts)
+    keymap("n", "K", peek_or_show_documentation, bufopts)
     keymap("n", "gi", builtin.lsp_implementations, bufopts)
     keymap({ "n", "i" }, "<C-k>", vim.lsp.buf.signature_help, bufopts)
     keymap("n", "<leader>wa", vim.lsp.buf.add_workspace_folder, bufopts)
@@ -106,6 +109,11 @@ end
 M.capabilities = require("cmp_nvim_lsp").default_capabilities()
 -- Enable additional completion for HTML/JSON/CSS
 M.capabilities.textDocument.completion.completionItem.snippetSupport = true
+-- UFO's folding
+M.capabilities.textDocument.foldingRange = {
+    dynamicRegistration = false,
+    lineFoldingOnly = true,
+}
 
 local lspconfig = require("lspconfig")
 -- Language specific config
