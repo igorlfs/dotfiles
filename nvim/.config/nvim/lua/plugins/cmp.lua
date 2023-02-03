@@ -94,13 +94,9 @@ cmp.setup.cmdline(":", {
     }),
 })
 
--- nvim-dap integration
+-- DAP Completion
 cmp.setup.filetype({ "dap-repl", "dapui_watches", "dapui_hover" }, {
     sources = {
         { name = "dap" },
     },
 })
-
--- nvim-autopairs integration
-local cmp_autopairs = require("nvim-autopairs.completion.cmp")
-cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
