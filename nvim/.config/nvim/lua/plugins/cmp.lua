@@ -11,6 +11,9 @@ cmp.setup({
             luasnip.lsp_expand(args.body)
         end,
     },
+    view = {
+        entries = { name = "custom", selection_order = "near_cursor" },
+    },
     mapping = cmp.mapping.preset.insert({
         ["<C-d>"] = cmp.mapping.scroll_docs(-4),
         ["<C-u>"] = cmp.mapping.scroll_docs(4),
