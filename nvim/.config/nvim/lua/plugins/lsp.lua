@@ -86,23 +86,6 @@ function M.on_attach(client, bufnr)
             end,
         })
     end
-
-    -- Server specific config
-    if client.name == "clangd" then
-        keymap("n", "<A-o>", "<cmd>ClangdSwitchSourceHeader<CR>")
-    end
-
-    if client.name == "jdtls" then
-        require("jdtls").setup_dap({ hotcodereplace = "auto" })
-        require("jdtls.dap").setup_dap_main_class_configs()
-        require("jdtls.setup").add_commands()
-        vim.lsp.codelens.refresh()
-    end
-
-    if client.name == "rust_analyzer" then
-        local rt = require("rust-tools")
-        vim.keymap.set("n", "<C-space>", rt.hover_actions.hover_actions, { buffer = bufnr })
-    end
 end
 
 -- Add additional capabilities supported by nvim-cmp
@@ -120,7 +103,10 @@ local lspconfig = require("lspconfig")
 -- C++
 lspconfig.clangd.setup({
     cmd = { "clangd", "--completion-style=detailed", "--clang-tidy", "--offset-encoding=utf-16" },
-    on_attach = M.on_attach,
+    on_attach = function(client, bufnr)
+        M.on_attach(client, bufnr)
+        keymap("n", "<A-o>", "<cmd>ClangdSwitchSourceHeader<CR>")
+    end,
     capabilities = M.capabilities,
 })
 
@@ -132,7 +118,10 @@ require("neodev").setup({
 -- Rust
 require("rust-tools").setup({
     server = {
-        on_attach = M.on_attach,
+        on_attach = function(client, bufnr)
+            M.on_attach(client, bufnr)
+            keymap("n", "<C-space>", require("rust-tools").hover_actions.hover_actions, { buffer = bufnr })
+        end,
         capabilities = M.capabilities,
         settings = {
             ["rust-analyzer"] = {

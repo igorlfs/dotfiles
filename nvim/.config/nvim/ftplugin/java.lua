@@ -52,7 +52,14 @@ local config = {
         JDTLS_DATA,
     },
 
-    on_attach = require("plugins.lsp").on_attach,
+    on_attach = function(client, bufnr)
+        require("plugins.lsp").on_attach(client, bufnr)
+        jdtls.setup_dap({ hotcodereplace = "auto" })
+        require("jdtls.dap").setup_dap_main_class_configs()
+        require("jdtls.setup").add_commands()
+        vim.lsp.codelens.refresh()
+    end,
+
     capabilities = require("plugins.lsp").capabilities,
 
     -- Here you can configure eclipse.jdt.ls specific settings
