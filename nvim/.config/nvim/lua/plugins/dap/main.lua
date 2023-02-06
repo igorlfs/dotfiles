@@ -22,14 +22,7 @@ dap.configurations.cpp = {
             return vim.fn.input("Executable: ", vim.fn.getcwd() .. "/", "file")
         end,
         cwd = vim.fn.getcwd(),
-        showDisassembly = "never", -- Disables assembly when source code isn't found
         expressions = "native", -- Allows evaluating expressions such as "this"
-
-        -- Set arguments
-        -- args = function()
-        --     local args_string = vim.fn.input("Arguments: ")
-        --     return vim.split(args_string, " ")
-        -- end,
     },
 }
 
