@@ -70,6 +70,11 @@ function M.on_attach(client, bufnr)
     keymap("n", "<leader>sw", builtin.lsp_dynamic_workspace_symbols, bufopts)
     keymap("n", "<leader>E", builtin.diagnostics, bufopts)
 
+    -- Winbar
+    if client.server_capabilities.documentSymbolProvider then
+        require("nvim-navic").attach(client, bufnr)
+    end
+
     local au = vim.api.nvim_create_autocmd
     local ag = vim.api.nvim_create_augroup
     local clear_au = vim.api.nvim_clear_autocmds
