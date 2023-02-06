@@ -205,6 +205,7 @@ return require("packer").startup(function(use)
         requires = { "SmiteshP/nvim-navic" },
         config = function()
             require("barbecue").setup({
+                attach_navic = false,
                 symbols = { separator = "»" },
             })
         end,
