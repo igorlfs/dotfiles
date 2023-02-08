@@ -17,13 +17,13 @@ tl.setup({
     pickers = {
         find_files = {
             hidden = true,
-            file_ignore_patterns = { "^.git", "^build", ".gradle" },
+            file_ignore_patterns = { "^.git" },
         },
         live_grep = {
             additional_args = function()
                 return { "--hidden" }
             end,
-            file_ignore_patterns = { "^.git", "^build", ".gradle" },
+            file_ignore_patterns = { "^.git" },
         },
     },
 })
