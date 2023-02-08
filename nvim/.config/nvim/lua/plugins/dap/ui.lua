@@ -9,9 +9,8 @@ dapui.setup({
     layouts = {
         {
             elements = {
-                { id = "scopes", size = 0.3 },
-                { id = "breakpoints", size = 0.3 },
-                { id = "watches", size = 0.4 },
+                { id = "scopes", size = 0.5 },
+                { id = "watches", size = 0.5 },
             },
             size = 40,
             position = "left",
@@ -37,14 +36,16 @@ dapui.setup({
 
 local keymap = vim.keymap.set
 keymap("n", "<F2>", dapui.eval)
+keymap("n", "<F3>", function()
+    dapui.float_element("breakpoints")
+end)
 
 -- use nvim-dap events to open and close the windows automatically
 dap.listeners.after.event_initialized["dapui_config"] = function()
+    vim.api.nvim_command("tabnew %")
     dapui.open({})
 end
 dap.listeners.before.event_terminated["dapui_config"] = function()
     dapui.close({})
-end
-dap.listeners.before.event_exited["dapui_config"] = function()
-    dapui.close({})
+    vim.api.nvim_command("tabclose $")
 end
