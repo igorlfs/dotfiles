@@ -24,6 +24,9 @@ null_ls.setup({
     end,
     border = "rounded",
     sources = {
+        -- TS / JSON / YAML / Markdown
+        formatting.prettier,
+
         -- Python
         diagnostics.mypy,
 
