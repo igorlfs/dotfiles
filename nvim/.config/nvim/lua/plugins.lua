@@ -77,6 +77,13 @@ return require("packer").startup(function(use)
             require("neogit").setup({ disable_commit_confirmation = true })
         end,
     })
+    -- Github
+    use({
+        "pwntester/octo.nvim",
+        config = function()
+            require("octo").setup()
+        end,
+    })
 
     ------ Tests
     use("nvim-neotest/neotest")
