@@ -51,7 +51,6 @@ local config = {
         "-data",
         JDTLS_DATA,
     },
-
     on_attach = function(client, bufnr)
         require("plugins.lsp").on_attach(client, bufnr)
         jdtls.setup_dap({ hotcodereplace = "auto" })
@@ -59,9 +58,7 @@ local config = {
         require("jdtls.setup").add_commands()
         vim.lsp.codelens.refresh()
     end,
-
     capabilities = require("plugins.lsp").capabilities,
-
     -- Here you can configure eclipse.jdt.ls specific settings
     -- See https://github.com/eclipse/eclipse.jdt.ls/wiki/Running-the-JAVA-LS-server-from-the-command-line#initialize-request
     -- for a list of options
@@ -113,11 +110,9 @@ local config = {
             useBlocks = true,
         },
     },
-
     flags = {
         allow_incremental_sync = true,
     },
-
     -- Language server `initializationOptions`
     -- You need to extend the `bundles` with paths to jar files
     -- if you want to use additional eclipse.jdt.ls plugins.

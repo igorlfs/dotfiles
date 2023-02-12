@@ -33,9 +33,6 @@ null_ls.setup({
         formatting.ruff,
         formatting.black,
 
-        -- Lua
-        formatting.stylua,
-
         -- C++
         diagnostics.cppcheck,
     },

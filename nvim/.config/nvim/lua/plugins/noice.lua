@@ -48,13 +48,13 @@ vim.keymap.set("i", "<C-d>", function()
 end, { silent = true, expr = true })
 
 vim.keymap.set("n", "<C-u>", function()
-    if not require("noice.lsp").scroll(-4) then
+    if not require("noice.lsp").scroll( -4) then
         return "<C-u>zz"
     end
 end, { silent = true, expr = true })
 
 vim.keymap.set("i", "<C-u>", function()
-    if not require("noice.lsp").scroll(-4) then
+    if not require("noice.lsp").scroll( -4) then
         return "<C-u>"
     end
 end, { silent = true, expr = true })
