@@ -123,22 +123,12 @@ return require("packer").startup(function(use)
     use("hrsh7th/cmp-path")
     use("hrsh7th/cmp-buffer")
     use("hrsh7th/cmp-cmdline")
+    use("rcarriga/cmp-dap") -- DAP completion
+    use("dcampos/cmp-snippy")
     -- Snippets Engine
-    use({
-        "L3MON4D3/LuaSnip",
-        config = function()
-            require("luasnip").config.set_config({
-                region_check_events = "InsertEnter",
-                delete_check_events = "InsertLeave",
-            })
-        end,
-    })
+    use("dcampos/nvim-snippy")
     -- Snippets Collection
-    use("rafamadriz/friendly-snippets")
-    -- Integrate snippets with completion
-    use("saadparwaiz1/cmp_luasnip")
-    -- Integrate DAP with completion
-    use("rcarriga/cmp-dap")
+    use("honza/vim-snippets")
     -- Completion Engine
     use("hrsh7th/nvim-cmp")
 
