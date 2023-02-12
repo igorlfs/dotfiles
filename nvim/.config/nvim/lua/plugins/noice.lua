@@ -35,25 +35,32 @@ require("noice").setup({
     },
 })
 
-vim.keymap.set("n", "<C-d>", function()
+local keymap = vim.keymap.set
+
+-- clear notifications
+keymap("n", "<leader>n", require("notify").dismiss)
+
+-- we use separate mappings so we can centralize the screen in normal mode
+-- but we don't want to insert zz in insert mode
+keymap("n", "<C-d>", function()
     if not require("noice.lsp").scroll(4) then
         return "<C-d>zz"
     end
 end, { silent = true, expr = true })
 
-vim.keymap.set("i", "<C-d>", function()
+keymap("i", "<C-d>", function()
     if not require("noice.lsp").scroll(4) then
         return "<C-d>"
     end
 end, { silent = true, expr = true })
 
-vim.keymap.set("n", "<C-u>", function()
+keymap("n", "<C-u>", function()
     if not require("noice.lsp").scroll( -4) then
         return "<C-u>zz"
     end
 end, { silent = true, expr = true })
 
-vim.keymap.set("i", "<C-u>", function()
+keymap("i", "<C-u>", function()
     if not require("noice.lsp").scroll( -4) then
         return "<C-u>"
     end
