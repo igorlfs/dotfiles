@@ -43,7 +43,7 @@ end)
 -- use nvim-dap events to open and close the windows automatically
 dap.listeners.after.event_initialized["dapui_config"] = function()
     vim.api.nvim_command("tabnew %")
-    dapui.open({})
+    dapui.open({ reset = true })
 end
 dap.listeners.before.event_terminated["dapui_config"] = function()
     dapui.close({})

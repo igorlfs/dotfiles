@@ -18,7 +18,7 @@ vim.opt.spellfile = -- Custom dictionary files
 { vim.fn.expand("~/.config/nvim/spell/en.utf-8.add"), vim.fn.expand("~/.config/nvim/spell/pt.utf-8.add") }
 
 -- Folds
--- UFO require's a large value for these settings
+-- UFO requires a large value for these settings
 vim.o.foldlevel = 99
 vim.o.foldlevelstart = 99
 
