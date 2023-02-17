@@ -74,23 +74,6 @@ function M.on_attach(client, bufnr)
     if client.server_capabilities.documentSymbolProvider then
         require("nvim-navic").attach(client, bufnr)
     end
-
-    local au = vim.api.nvim_create_autocmd
-    local ag = vim.api.nvim_create_augroup
-    local clear_au = vim.api.nvim_clear_autocmds
-
-    -- Autoformat on save
-    local augroup = ag("LspFormatting", { clear = false })
-    if client.supports_method("textDocument/formatting") then
-        au("BufWritePre", {
-            clear_au({ group = augroup, buffer = bufnr }),
-            group = augroup,
-            buffer = bufnr,
-            callback = function()
-                vim.lsp.buf.format()
-            end,
-        })
-    end
 end
 
 -- Add additional capabilities supported by nvim-cmp

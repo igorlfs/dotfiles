@@ -1,5 +1,6 @@
 local au = vim.api.nvim_create_autocmd
 local ag = vim.api.nvim_create_augroup
+local clear = vim.api.nvim_clear_autocmds
 local keymap = vim.keymap.set
 
 -- Disable newline comments when inserting lines with o/O
@@ -50,4 +51,24 @@ au("BufWritePost", {
     group = ag("packer", {}),
     pattern = "plugins.lua",
     command = "source <afile> | PackerCompile",
+})
+
+-- Autoformat on save
+local lsp_group = ag("lsp", { clear = false })
+au("LspAttach", {
+    group = lsp_group,
+    callback = function(args)
+        local bufnr = args.buf
+        local client = vim.lsp.get_client_by_id(args.data.client_id)
+        if client.supports_method("textDocument/formatting") then
+            au("BufWritePre", {
+                clear({ group = lsp_group, buffer = bufnr }),
+                group = lsp_group,
+                buffer = bufnr,
+                callback = function()
+                    vim.lsp.buf.format({ filter = function(c) return c.name ~= "tsserver" end })
+                end,
+            })
+        end
+    end,
 })
