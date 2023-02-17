@@ -80,11 +80,15 @@ end
 M.capabilities = require("cmp_nvim_lsp").default_capabilities()
 -- Enable additional completion for HTML/JSON/CSS
 M.capabilities.textDocument.completion.completionItem.snippetSupport = true
--- UFO's folding
+-- Add additional capabilities supported by UFO
 M.capabilities.textDocument.foldingRange = {
     dynamicRegistration = false,
     lineFoldingOnly = true,
 }
+-- Don't change fold level when opening and closing all folds
+-- Otherwise UFO gets messed up
+keymap("n", "zR", require("ufo").openAllFolds)
+keymap("n", "zM", require("ufo").closeAllFolds)
 
 local lspconfig = require("lspconfig")
 -- Language specific config
