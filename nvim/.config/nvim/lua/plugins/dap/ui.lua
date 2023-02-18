@@ -9,7 +9,7 @@ dapui.setup({
     layouts = {
         {
             elements = {
-                { id = "scopes",  size = 0.5 },
+                { id = "scopes", size = 0.5 },
                 { id = "watches", size = 0.5 },
             },
             size = 40,

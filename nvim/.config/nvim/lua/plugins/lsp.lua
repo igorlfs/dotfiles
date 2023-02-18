@@ -136,7 +136,7 @@ require("rust-tools").setup({
 -- General config
 -- Enable some language servers with the additional completion capabilities offered by nvim-cmp
 local servers =
-{ "pylsp", "tsserver", "texlab", "lua_ls", "taplo", "gradle_ls", "jsonls", "yamlls", "ruff_lsp", "bashls" }
+    { "pylsp", "tsserver", "texlab", "lua_ls", "taplo", "gradle_ls", "jsonls", "yamlls", "ruff_lsp", "bashls" }
 for _, lsp in ipairs(servers) do
     lspconfig[lsp].setup({
         on_attach = M.on_attach,

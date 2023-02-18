@@ -55,13 +55,13 @@ keymap("i", "<C-d>", function()
 end, { silent = true, expr = true })
 
 keymap("n", "<C-u>", function()
-    if not require("noice.lsp").scroll( -4) then
+    if not require("noice.lsp").scroll(-4) then
         return "<C-u>zz"
     end
 end, { silent = true, expr = true })
 
 keymap("i", "<C-u>", function()
-    if not require("noice.lsp").scroll( -4) then
+    if not require("noice.lsp").scroll(-4) then
         return "<C-u>"
     end
 end, { silent = true, expr = true })

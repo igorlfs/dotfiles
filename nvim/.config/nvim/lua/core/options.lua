@@ -15,7 +15,7 @@ vim.opt.conceallevel = 2 -- Hide verbosity in markdown and LaTeX
 vim.opt.spelllang:append({ "pt_br" }) -- Additional language to spell check
 vim.opt.spelloptions:append({ "camel" }) -- Consider camelCase when checking spell
 vim.opt.spellfile = -- Custom dictionary files
-{ vim.fn.expand("~/.config/nvim/spell/en.utf-8.add"), vim.fn.expand("~/.config/nvim/spell/pt.utf-8.add") }
+    { vim.fn.expand("~/.config/nvim/spell/en.utf-8.add"), vim.fn.expand("~/.config/nvim/spell/pt.utf-8.add") }
 
 -- Folds
 -- UFO requires a large value for these settings

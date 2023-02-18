@@ -9,6 +9,9 @@ null_ls.setup({
         -- TS / JSON / YAML / Markdown
         formatting.prettier,
 
+        -- Lua
+        formatting.stylua,
+
         -- Python
         diagnostics.mypy,
 
