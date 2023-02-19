@@ -102,6 +102,13 @@ return require("packer").startup(function(use)
             require("nvim-autopairs").setup()
         end,
     })
+    -- Tags
+    use({
+        "windwp/nvim-ts-autotag",
+        config = function()
+            require("nvim-ts-autotag").setup()
+        end,
+    })
     -- Surround
     use({
         "kylechui/nvim-surround",
