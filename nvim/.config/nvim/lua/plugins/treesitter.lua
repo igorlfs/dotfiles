@@ -21,6 +21,10 @@ require("nvim-treesitter.configs").setup({
         "bibtex",
         "rust",
         "typescript",
+        "javascript",
+        "vue",
+        "html",
+        "css",
     },
     auto_install = true,
     highlight = {

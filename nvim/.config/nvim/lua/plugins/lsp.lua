@@ -133,10 +133,28 @@ require("rust-tools").setup({
     },
 })
 
+-- Volar
+-- In the future, we might wanna look into "takeover mode",
+-- which allows volar to control tsserver and attach to JS/TS files,
+-- and it's the "recommended" way of using both servers
+--
+-- However, this kind of sucks because we must disable tsserver
+-- if we are into a vue project, which is cumbersome to configure
+--
+-- Enable takeover mode
+-- filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue", "json" },
+-- init_options = {
+--     typescript = {
+--         -- That's the path to the TS installation containing tsserver,
+--         -- which is global in my setup, but could be based on current project configuration
+--         tsdk = "/usr/lib/node_modules/typescript/lib/",
+--     },
+-- },
+
 -- General config
 -- Enable some language servers with the additional completion capabilities offered by nvim-cmp
 local servers =
-    { "pylsp", "tsserver", "texlab", "lua_ls", "taplo", "gradle_ls", "jsonls", "yamlls", "ruff_lsp", "bashls" }
+    { "pylsp", "tsserver", "texlab", "lua_ls", "taplo", "gradle_ls", "jsonls", "yamlls", "ruff_lsp", "bashls", "volar" }
 for _, lsp in ipairs(servers) do
     lspconfig[lsp].setup({
         on_attach = M.on_attach,
