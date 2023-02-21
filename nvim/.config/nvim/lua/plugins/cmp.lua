@@ -15,12 +15,11 @@ cmp.setup({
         entries = { name = "custom", selection_order = "near_cursor" },
     },
     mapping = cmp.mapping.preset.insert({
-        ["<C-d>"] = cmp.mapping.scroll_docs( -4),
-        ["<C-u>"] = cmp.mapping.scroll_docs(4),
+        ["<C-d>"] = cmp.mapping.scroll_docs(4),
+        ["<C-u>"] = cmp.mapping.scroll_docs(-4),
         ["<C-Space>"] = cmp.mapping.complete(),
         ["<C-e>"] = cmp.mapping.close(),
         ["<CR>"] = cmp.mapping.confirm({
-            behavior = cmp.ConfirmBehavior.Replace,
             select = false,
         }),
         ["<Tab>"] = cmp.mapping(function(fallback)
@@ -35,7 +34,7 @@ cmp.setup({
         ["<S-Tab>"] = cmp.mapping(function(fallback)
             if cmp.visible() then
                 cmp.select_prev_item()
-            elseif snippy.can_jump( -1) then
+            elseif snippy.can_jump(-1) then
                 snippy.previous()
             else
                 fallback()

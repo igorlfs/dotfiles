@@ -68,7 +68,7 @@ au("LspAttach", {
                 callback = function()
                     vim.lsp.buf.format({
                         filter = function(c)
-                            return c.name ~= "tsserver" and c.name ~= "lua_ls"
+                            return c.name ~= "tsserver" and c.name ~= "lua_ls" and c.name ~= "volar"
                         end,
                     })
                 end,

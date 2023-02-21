@@ -10,6 +10,7 @@ vim.opt.scrolloff = 4 -- Context lines when scrolling
 vim.opt.clipboard = "unnamedplus" -- Use system clipboard
 vim.opt.wildmode = "longest,list,full" -- Funky completion for commands
 vim.opt.conceallevel = 2 -- Hide verbosity in markdown and LaTeX
+vim.opt.sessionoptions:append("localoptions") -- Extend options saved by sessions
 
 -- Spell
 vim.opt.spelllang:append({ "pt_br" }) -- Additional language to spell check
