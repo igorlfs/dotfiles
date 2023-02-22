@@ -18,6 +18,7 @@ require("nvim-treesitter.configs").setup({
         "bash",
         "markdown",
         "markdown_inline",
+        "latex",
         "bibtex",
         "rust",
         "typescript",

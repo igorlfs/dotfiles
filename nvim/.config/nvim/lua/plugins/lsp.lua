@@ -131,6 +131,26 @@ require("rust-tools").setup({
     },
 })
 
+-- LaTeX
+lspconfig.texlab.setup({
+    on_attach = M.on_attach,
+    capabilities = M.capabilities,
+    settings = {
+        texlab = {
+            build = {
+                executable = "latexmk",
+                args = { "-pdf", "-interaction=nonstopmode", "-synctex=1", "%f" },
+                forwardSearchAfter = true,
+                onSave = true,
+            },
+            forwardSearch = {
+                executable = "zathura",
+                args = { "--synctex-forward", "%l:1:%f", "%p" },
+            },
+        },
+    },
+})
+
 -- Volar
 -- In the future, we might wanna look into "takeover mode",
 -- which allows volar to control tsserver and attach to JS/TS files,
@@ -154,7 +174,6 @@ require("rust-tools").setup({
 local servers = {
     "pylsp",
     "tsserver",
-    "texlab",
     "lua_ls",
     "taplo",
     "gradle_ls",
