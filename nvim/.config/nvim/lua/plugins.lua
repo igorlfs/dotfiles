@@ -123,6 +123,8 @@ return require("packer").startup(function(use)
             require("Comment").setup()
         end,
     })
+    -- Colors
+    use("uga-rosa/ccc.nvim")
 
     ------  Autocomplete
     -- Completion sources
