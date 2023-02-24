@@ -51,6 +51,23 @@ return require("packer").startup(function(use)
     use("neovim/nvim-lspconfig")
     use("jose-elias-alvarez/null-ls.nvim")
 
+    ------ LSP Extensions
+    -- workspace/willRename
+    use({
+        "antosha417/nvim-lsp-file-operations",
+        config = function()
+            require("lsp-file-operations").setup()
+        end,
+    })
+    -- textDocument/foldingRange (lineFoldingOnly)
+    use({
+        "kevinhwang91/nvim-ufo",
+        requires = "kevinhwang91/promise-async",
+        config = function()
+            require("ufo").setup()
+        end,
+    })
+
     ------ DAP
     use("mfussenegger/nvim-dap")
     use("rcarriga/nvim-dap-ui")
@@ -182,14 +199,6 @@ return require("packer").startup(function(use)
     use({ "folke/noice.nvim", requires = "MunifTanjim/nui.nvim" })
     -- Notifications
     use("rcarriga/nvim-notify")
-    -- Folds
-    use({
-        "kevinhwang91/nvim-ufo",
-        requires = "kevinhwang91/promise-async",
-        config = function()
-            require("ufo").setup()
-        end,
-    })
     -- Indent Guides
     use({
         "lukas-reineke/indent-blankline.nvim",
