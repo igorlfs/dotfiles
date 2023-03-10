@@ -27,7 +27,7 @@ exec autotiling-rs
 exec gammastep -l -19.5:-43.6
 
 # Idle
-exec swayidle timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"'
+exec swayidle timeout 240 'swaymsg "output * power off"' resume 'swaymsg "output * power on"'
 
 ### Import config dir
 include ~/.config/sway/config.d/*
