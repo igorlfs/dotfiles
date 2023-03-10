@@ -13,8 +13,6 @@ null_ls.setup({
         formatting.stylua,
 
         -- Python
-        diagnostics.mypy,
-
         formatting.ruff,
         formatting.black,
 
