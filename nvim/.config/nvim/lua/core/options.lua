@@ -39,11 +39,9 @@ vim.opt.relativenumber = true -- Print the line numbers for motion
 vim.opt.signcolumn = "yes" -- Always draw the extra column to indicate git or diagnostics
 
 -- Status line
-vim.opt.ruler = false -- Hide the line and column number of the cursor position
 vim.opt.laststatus = 0 -- Hide status line
 
 -- Command line
-vim.opt.showcmd = false -- Hide current (unfinished) command
 vim.opt.showmode = false -- Hide message indicating current mode
 
 -- History
