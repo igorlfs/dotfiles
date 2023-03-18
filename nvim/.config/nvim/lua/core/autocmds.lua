@@ -76,3 +76,55 @@ au("LspAttach", {
         end
     end,
 })
+
+-- LSP keymaps
+au("LspAttach", {
+    group = lsp_group,
+    callback = function(ev)
+        -- Buffer local mappings.
+        local opts = { buffer = ev.buf }
+
+        keymap("n", "K", require("core.util").peek_or_show_documentation, opts)
+
+        -- Defaults
+        local lsp = vim.lsp.buf
+        keymap("n", "gD", lsp.declaration, opts)
+        keymap({ "n", "i" }, "<C-k>", lsp.signature_help, opts)
+        keymap("n", "<space>wa", lsp.add_workspace_folder, opts)
+        keymap("n", "<space>wr", lsp.remove_workspace_folder, opts)
+        keymap("n", "<space>wl", function()
+            print(vim.inspect(lsp.list_workspace_folders()))
+        end, opts)
+        keymap("n", "<space>rn", lsp.rename, opts)
+        keymap("n", "<space>ca", lsp.code_action, opts)
+        keymap("n", "gr", lsp.references, opts)
+        keymap("n", "<space>f", function()
+            lsp.format({ async = true })
+        end, opts)
+
+        -- Telescope Stuff
+        local builtin = require("telescope.builtin")
+        keymap("n", "gd", builtin.lsp_definitions, opts)
+        keymap("n", "gi", builtin.lsp_implementations, opts)
+        keymap("n", "<space>D", builtin.lsp_type_definitions, opts)
+        keymap("n", "gr", function()
+            builtin.lsp_references({ show_line = false })
+        end, opts)
+        keymap("n", "<leader>ic", builtin.lsp_incoming_calls, opts)
+        keymap("n", "<leader>oc", builtin.lsp_outgoing_calls, opts)
+        keymap("n", "<leader>ds", builtin.lsp_document_symbols, opts)
+        keymap("n", "<leader>E", builtin.diagnostics, opts)
+    end,
+})
+
+-- Winbar config
+au("LspAttach", {
+    group = lsp_group,
+    callback = function(args)
+        local bufnr = args.buf
+        local client = vim.lsp.get_client_by_id(args.data.client_id)
+        if client.server_capabilities.documentSymbolProvider then
+            require("nvim-navic").attach(client, bufnr)
+        end
+    end,
+})

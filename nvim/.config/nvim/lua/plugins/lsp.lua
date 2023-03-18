@@ -20,61 +20,11 @@ vim.diagnostic.config({
 
 local keymap = vim.keymap.set
 
-local function peek_or_show_documentation()
-    local winid = require("ufo").peekFoldedLinesUnderCursor()
-    if not winid then
-        local filetype = vim.bo.filetype
-        if vim.tbl_contains({ "vim", "help" }, filetype) then
-            vim.cmd("h " .. vim.fn.expand("<cword>"))
-        elseif vim.tbl_contains({ "man" }, filetype) then
-            vim.cmd("Man " .. vim.fn.expand("<cword>"))
-        elseif vim.fn.expand("%:t") == "Cargo.toml" and require("crates").popup_available() then
-            require("crates").show_popup()
-        else
-            vim.lsp.buf.hover()
-        end
-    end
-end
-
 -- Diagnostic keymaps
 keymap("n", "<space>e", vim.diagnostic.open_float)
 keymap("n", "[d", vim.diagnostic.goto_prev)
 keymap("n", "]d", vim.diagnostic.goto_next)
 keymap("n", "<leader>q", vim.diagnostic.setloclist)
-
--- Use an on_attach function to only map the following keys after the language server attaches to the current buffer
-function M.on_attach(client, bufnr)
-    local builtin = require("telescope.builtin")
-    local bufopts = { silent = true, buffer = bufnr }
-    keymap("n", "gD", vim.lsp.buf.declaration, bufopts)
-    keymap("n", "gd", builtin.lsp_definitions, bufopts)
-    keymap("n", "K", peek_or_show_documentation, bufopts)
-    keymap("n", "gi", builtin.lsp_implementations, bufopts)
-    keymap({ "n", "i" }, "<C-k>", vim.lsp.buf.signature_help, bufopts)
-    keymap("n", "<leader>wa", vim.lsp.buf.add_workspace_folder, bufopts)
-    keymap("n", "<leader>wr", vim.lsp.buf.remove_workspace_folder, bufopts)
-    keymap("n", "<leader>wl", function()
-        vim.inspect(vim.lsp.buf.list_workspace_folders())
-    end, bufopts)
-    keymap("n", "<leader>D", builtin.lsp_type_definitions, bufopts)
-    keymap("n", "<leader>rn", vim.lsp.buf.rename, bufopts)
-    keymap("n", "gr", function()
-        builtin.lsp_references({ show_line = false })
-    end, bufopts)
-    keymap("n", "<leader>ca", vim.lsp.buf.code_action, bufopts)
-
-    -- Telescope Stuff
-    keymap("n", "<leader>ci", builtin.lsp_incoming_calls, bufopts)
-    keymap("n", "<leader>co", builtin.lsp_outgoing_calls, bufopts)
-    keymap("n", "<leader>sd", builtin.lsp_document_symbols, bufopts)
-    keymap("n", "<leader>sw", builtin.lsp_dynamic_workspace_symbols, bufopts)
-    keymap("n", "<leader>E", builtin.diagnostics, bufopts)
-
-    -- Winbar
-    if client.server_capabilities.documentSymbolProvider then
-        require("nvim-navic").attach(client, bufnr)
-    end
-end
 
 -- Add additional capabilities supported by nvim-cmp
 M.capabilities = require("cmp_nvim_lsp").default_capabilities()
@@ -93,9 +43,8 @@ local lspconfig = require("lspconfig")
 -- C++
 lspconfig.clangd.setup({
     cmd = { "clangd", "--completion-style=detailed", "--clang-tidy", "--offset-encoding=utf-16" },
-    on_attach = function(client, bufnr)
-        M.on_attach(client, bufnr)
-        keymap("n", "<A-o>", "<cmd>ClangdSwitchSourceHeader<CR>")
+    on_attach = function(_, bufnr)
+        keymap("n", "<A-o>", "<cmd>ClangdSwitchSourceHeader<CR>", { buffer = bufnr })
     end,
     capabilities = M.capabilities,
 })
@@ -108,8 +57,7 @@ require("neodev").setup({
 -- Rust
 require("rust-tools").setup({
     server = {
-        on_attach = function(client, bufnr)
-            M.on_attach(client, bufnr)
+        on_attach = function(_, bufnr)
             keymap("n", "<C-space>", require("rust-tools").hover_actions.hover_actions, { buffer = bufnr })
         end,
         capabilities = M.capabilities,
@@ -133,7 +81,6 @@ require("rust-tools").setup({
 
 -- LaTeX
 lspconfig.texlab.setup({
-    on_attach = M.on_attach,
     capabilities = M.capabilities,
     settings = {
         texlab = {
@@ -187,7 +134,6 @@ local servers = {
 }
 for _, lsp in ipairs(servers) do
     lspconfig[lsp].setup({
-        on_attach = M.on_attach,
         capabilities = M.capabilities,
     })
 end

@@ -51,8 +51,7 @@ local config = {
         "-data",
         JDTLS_DATA,
     },
-    on_attach = function(client, bufnr)
-        require("plugins.lsp").on_attach(client, bufnr)
+    on_attach = function(_, _)
         jdtls.setup_dap({ hotcodereplace = "auto" })
         require("jdtls.dap").setup_dap_main_class_configs()
         require("jdtls.setup").add_commands()
