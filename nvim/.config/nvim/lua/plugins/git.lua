@@ -1,4 +1,7 @@
 require("gitsigns").setup({
+    preview_config = {
+        border = "rounded",
+    },
     on_attach = function()
         local gs = package.loaded.gitsigns
         local keymap = vim.keymap.set
