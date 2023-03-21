@@ -16,10 +16,10 @@ keymap("n", "<leader>cc", "<cmd>call jukit#send#until_current_section()<CR>", op
 
 -- Cells
 -- Create
-keymap("n", "<leader>cO", "<cmd>call jukit#cells#CReate_above(0)<CR>", opts)
-keymap("n", "<leader>co", "<cmd>call jukit#cells#CReate_below(0)<CR>", opts)
-keymap("n", "<leader>cT", "<cmd>call jukit#cells#CReate_above(1)<CR>", opts)
-keymap("n", "<leader>ct", "<cmd>call jukit#cells#CReate_below(1)<CR>", opts)
+keymap("n", "<leader>cO", "<cmd>call jukit#cells#create_above(0)<CR>", opts)
+keymap("n", "<leader>co", "<cmd>call jukit#cells#create_below(0)<CR>", opts)
+keymap("n", "<leader>cT", "<cmd>call jukit#cells#create_above(1)<CR>", opts)
+keymap("n", "<leader>ct", "<cmd>call jukit#cells#create_below(1)<CR>", opts)
 -- Delete
 keymap("n", "<leader>cd", "<cmd>call jukit#cells#delete()<CR>", opts)
 -- Split
