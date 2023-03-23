@@ -219,7 +219,6 @@ return require("packer").startup(function(use)
         config = function()
             require("barbecue").setup({
                 attach_navic = false,
-                symbols = { separator = "»" },
             })
         end,
     })

@@ -2,9 +2,9 @@ local dap, dapui = require("dap"), require("dapui")
 
 dapui.setup({
     icons = {
-        expanded = "↓",
-        collapsed = "→",
-        current_frame = "→",
+        expanded = "",
+        collapsed = "",
+        current_frame = "",
     },
     layouts = {
         {
