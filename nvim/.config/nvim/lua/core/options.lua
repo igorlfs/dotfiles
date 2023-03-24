@@ -12,6 +12,7 @@ o.clipboard = "unnamedplus" -- Use system clipboard
 o.wildmode = "longest,list,full" -- Funky completion for commands
 o.conceallevel = 2 -- Hide verbosity in markdown and LaTeX
 o.sessionoptions:append("localoptions") -- Extend options saved by sessions
+o.fillchars:append([[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]) -- Fancy fold symbols
 
 -- Spell
 o.spelllang:append({ "pt_br" }) -- Additional language to spell check
@@ -23,6 +24,7 @@ o.spellfile = -- Custom dictionary files
 -- UFO requires a large value for these settings
 o.foldlevel = 99
 o.foldlevelstart = 99
+o.foldcolumn = "1"
 
 -- Splits
 o.splitbelow = true

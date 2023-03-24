@@ -193,6 +193,7 @@ return require("packer").startup(function(use)
     use("luk400/vim-jukit")
 
     ------ Eye candy
+    use("luukvbaal/statuscol.nvim")
     -- Icons
     use("nvim-tree/nvim-web-devicons")
     -- UI
