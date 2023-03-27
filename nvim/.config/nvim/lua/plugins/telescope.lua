@@ -5,6 +5,11 @@ tl.setup({
     tl.load_extension("fzf"),
     tl.load_extension("noice"),
     defaults = {
+        file_ignore_patterns = {
+            "^.git/*",
+            "node_modules/*",
+            ".mypy_cache/*",
+        },
         mappings = {
             i = {
                 ["<Tab>"] = actions.move_selection_next,
@@ -17,13 +22,11 @@ tl.setup({
     pickers = {
         find_files = {
             hidden = true,
-            file_ignore_patterns = { "^.git" },
         },
         live_grep = {
             additional_args = function()
                 return { "--hidden" }
             end,
-            file_ignore_patterns = { "^.git" },
         },
     },
 })
