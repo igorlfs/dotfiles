@@ -11,6 +11,7 @@ cmp.setup({
             snippy.expand_snippet(args.body)
         end,
     },
+    preselect = cmp.PreselectMode.None,
     view = {
         entries = { name = "custom", selection_order = "near_cursor" },
     },

@@ -13,6 +13,7 @@ o.wildmode = "longest,list,full" -- Funky completion for commands
 o.conceallevel = 2 -- Hide verbosity in markdown and LaTeX
 o.sessionoptions:append("localoptions") -- Extend options saved by sessions
 o.fillchars:append([[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]) -- Fancy fold symbols
+o.jumpoptions = "view" -- prevents moving cursor when switching files
 
 -- Spell
 o.spelllang:append({ "pt_br" }) -- Additional language to spell check
