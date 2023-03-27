@@ -6,14 +6,13 @@ local diagnostics = null_ls.builtins.diagnostics
 null_ls.setup({
     border = "rounded",
     sources = {
-        -- TS / JSON / YAML / Markdown
-        formatting.prettier,
+        -- Markdown
+        formatting.markdownlint,
 
         -- Lua
         formatting.stylua,
 
         -- Python
-        formatting.ruff,
         formatting.black,
 
         -- C++
