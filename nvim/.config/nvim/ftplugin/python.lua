@@ -30,3 +30,6 @@ keymap("n", "<leader>cm", "<cmd>call jukit#cells#merge_below()<CR>", opts)
 -- Navigation
 keymap("n", "<leader>j", "<cmd>call jukit#cells#jump_to_next_cell()<CR>", opts)
 keymap("n", "<leader>k", "<cmd>call jukit#cells#jump_to_previous_cell()<CR>", opts)
+-- Move
+keymap("n", "<leader>ck", "<cmd>call jukit#cells#move_up()<CR>", opts)
+keymap("n", "<leader>cj", "<cmd>call jukit#cells#move_down()<CR>", opts)

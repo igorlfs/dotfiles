@@ -14,6 +14,10 @@ keymap("t", "<Esc>", "<C-\\><C-n>")
 -- Toggle spell checking
 keymap("n", "<leader>s", "<cmd>setlocal spell!<CR>")
 
+-- Move within visual lines
+keymap("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
+keymap("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+
 -- Tabs
 -- Movement
 for i = 1, 9 do
