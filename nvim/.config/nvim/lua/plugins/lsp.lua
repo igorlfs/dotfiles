@@ -75,7 +75,7 @@ require("rust-tools").setup({
         },
     },
     dap = {
-        adapter = require("plugins.dap.main").codelldb,
+        adapter = require("plugins.dap.adapters").codelldb,
     },
 })
 

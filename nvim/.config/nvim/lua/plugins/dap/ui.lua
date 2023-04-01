@@ -1,6 +1,18 @@
-local dap, dapui = require("dap"), require("dapui")
+local dap_status, dap = pcall(require, "dap")
 
-dapui.setup({
+if not dap_status then
+    vim.notify("dap not found")
+    return
+end
+
+local ui_status, ui = pcall(require, "dapui")
+
+if not ui_status then
+    vim.notify("dap-ui not found")
+    return
+end
+
+ui.setup({
     icons = {
         expanded = "",
         collapsed = "",
@@ -35,17 +47,15 @@ dapui.setup({
 })
 
 local keymap = vim.keymap.set
-keymap("n", "<F2>", dapui.eval)
+keymap("n", "<F2>", ui.eval)
 keymap("n", "<F3>", function()
-    dapui.float_element("breakpoints")
+    ui.float_element("breakpoints")
 end)
 
 -- use nvim-dap events to open and close the windows automatically
 dap.listeners.after.event_initialized["dapui_config"] = function()
-    vim.api.nvim_command("tabnew %")
-    dapui.open({ reset = true })
+    ui.open({ reset = true })
 end
 dap.listeners.before.event_terminated["dapui_config"] = function()
-    dapui.close({})
-    vim.api.nvim_command("tabclose $")
+    ui.close()
 end
