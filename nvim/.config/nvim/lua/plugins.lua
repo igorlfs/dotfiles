@@ -142,6 +142,13 @@ return require("packer").startup(function(use)
     })
     -- Colors
     use("uga-rosa/ccc.nvim")
+    -- Indent
+    use({
+        "nmac427/guess-indent.nvim",
+        config = function()
+            require("guess-indent").setup()
+        end,
+    })
 
     ------  Autocomplete
     -- Completion sources
