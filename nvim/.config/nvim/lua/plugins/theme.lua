@@ -17,6 +17,7 @@ require("catppuccin").setup({
         neotest = true,
         notify = true,
         neogit = true,
+        octo = true,
     },
 })
 
