@@ -20,7 +20,6 @@ require("nvim-treesitter.configs").setup({
         "bash",
         "markdown",
         "markdown_inline",
-        "latex",
         "bibtex",
         "rust",
         "typescript",
@@ -29,7 +28,6 @@ require("nvim-treesitter.configs").setup({
         "html",
         "css",
     },
-    auto_install = true,
     highlight = {
         enable = true,
         disable = function(_, buf)

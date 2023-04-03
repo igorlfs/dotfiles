@@ -79,25 +79,6 @@ require("rust-tools").setup({
     },
 })
 
--- LaTeX
-lspconfig.texlab.setup({
-    capabilities = M.capabilities,
-    settings = {
-        texlab = {
-            build = {
-                executable = "latexmk",
-                args = { "-pdf", "-interaction=nonstopmode", "-synctex=1", "%f" },
-                forwardSearchAfter = true,
-                onSave = true,
-            },
-            forwardSearch = {
-                executable = "zathura",
-                args = { "--synctex-forward", "%l:1:%f", "%p" },
-            },
-        },
-    },
-})
-
 -- Volar
 -- In the future, we might wanna look into "takeover mode",
 -- which allows volar to control tsserver and attach to JS/TS files,
@@ -120,6 +101,7 @@ lspconfig.texlab.setup({
 -- Enable some language servers with the additional completion capabilities offered by nvim-cmp
 local servers = {
     "pylsp",
+    "texlab",
     "tsserver",
     "lua_ls",
     "taplo",

@@ -166,6 +166,10 @@ return require("packer").startup(function(use)
     use("hrsh7th/nvim-cmp")
 
     ------ Language Specific
+    -- LaTeX
+    use("lervag/vimtex")
+    -- Jupyter
+    use("luk400/vim-jukit")
     -- Java
     use("mfussenegger/nvim-jdtls")
     -- Lua
@@ -196,8 +200,6 @@ return require("packer").startup(function(use)
 
     ------- Vimscript
     use("tpope/vim-dispatch")
-    -- Jupyter
-    use("luk400/vim-jukit")
 
     ------ Eye candy
     use("luukvbaal/statuscol.nvim")
