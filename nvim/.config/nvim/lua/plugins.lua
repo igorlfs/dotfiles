@@ -149,6 +149,13 @@ return require("packer").startup(function(use)
             require("guess-indent").setup()
         end,
     })
+    -- Tasks
+    use({
+        "stevearc/overseer.nvim",
+        config = function()
+            require("overseer").setup()
+        end,
+    })
 
     ------  Autocomplete
     -- Completion sources
@@ -198,8 +205,6 @@ return require("packer").startup(function(use)
         end,
     })
 
-    ------- Vimscript
-    use("tpope/vim-dispatch")
 
     ------ Eye candy
     use("luukvbaal/statuscol.nvim")
