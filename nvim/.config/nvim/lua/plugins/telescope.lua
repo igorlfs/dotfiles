@@ -20,6 +20,13 @@ tl.setup({
         },
     },
     pickers = {
+        buffers = {
+            mappings = {
+                i = {
+                    ["<c-d>"] = actions.delete_buffer,
+                },
+            },
+        },
         find_files = {
             hidden = true,
         },
