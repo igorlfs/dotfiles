@@ -213,7 +213,16 @@ return require("packer").startup(function(use)
     -- UI
     use({ "folke/noice.nvim", requires = "MunifTanjim/nui.nvim" })
     -- Notifications
-    use("rcarriga/nvim-notify")
+    use({
+        "rcarriga/nvim-notify",
+        config = function()
+            require("notify").setup({
+                on_open = function(win)
+                    vim.api.nvim_win_set_config(win, { focusable = false })
+                end,
+            })
+        end,
+    })
     -- Indent Guides
     use({
         "lukas-reineke/indent-blankline.nvim",
