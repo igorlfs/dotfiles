@@ -79,6 +79,27 @@ require("rust-tools").setup({
     },
 })
 
+-- JSON
+lspconfig.jsonls.setup({
+    capabilities = M.capabilities,
+    settings = {
+        json = {
+            schemas = require("schemastore").json.schemas(),
+            validate = { enable = true },
+        },
+    },
+})
+
+-- YAML
+lspconfig.yamlls.setup({
+    capabilities = M.capabilities,
+    settings = {
+        yaml = {
+            schemas = require("schemastore").yaml.schemas(),
+        },
+    },
+})
+
 -- Volar
 -- In the future, we might wanna look into "takeover mode",
 -- which allows volar to control tsserver and attach to JS/TS files,
@@ -106,8 +127,6 @@ local servers = {
     "lua_ls",
     "taplo",
     "gradle_ls",
-    "jsonls",
-    "yamlls",
     "ruff_lsp",
     "bashls",
     "volar",

@@ -177,6 +177,8 @@ return require("packer").startup(function(use)
     use("lervag/vimtex")
     -- Jupyter
     use("luk400/vim-jukit")
+    -- JSON / YAML
+    use("b0o/schemastore.nvim")
     -- Java
     use("mfussenegger/nvim-jdtls")
     -- Lua
