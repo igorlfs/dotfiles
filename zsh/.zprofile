@@ -12,6 +12,7 @@ export NPM_CONFIG_USERCONFIG="${XDG_CONFIG_HOME}"/npm/npmrc
 export CARGO_HOME="${XDG_DATA_HOME}"/cargo
 export GRADLE_USER_HOME="$XDG_DATA_HOME"/gradle
 export GEM_HOME="${XDG_DATA_HOME}"/gems
+export MYPY_CACHE_DIR="${XDG_CACHE_HOME}"/mypy
 ### MISC
 export PATH=${XDG_DATA_HOME}/npm/bin:${XDG_DATA_HOME}/gem/ruby/3.0.0/bin:${PATH}
 export LESSHISTFILE="-"
