@@ -13,6 +13,7 @@ null_ls.setup({
         formatting.rome,
 
         -- Lua
+        diagnostics.selene,
         formatting.stylua,
 
         -- Python
