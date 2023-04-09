@@ -12,6 +12,9 @@ null_ls.setup({
         -- TS / JS / JSON
         formatting.rome,
 
+        -- Shell
+        formatting.shfmt,
+
         -- Lua
         diagnostics.selene,
         formatting.stylua,
