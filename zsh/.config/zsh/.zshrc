@@ -19,6 +19,7 @@ PS1="%{$fg[magenta]%}%~ %{$reset_color%}$ "
 ### Aliases
 # lazy
 alias s='pgrep -x sway || exec dbus-run-session sway'
+alias h='pgrep -x Hyprland || exec dbus-run-session Hyprland'
 alias v='nvim'
 alias wf='~/scripts/wl-record.sh'
 # utils
@@ -28,9 +29,6 @@ alias mv='mv -i'
 alias ls='ls --color=auto -v'
 alias pacman='pacman --color=always'
 alias nc='ncdu --color=dark --exclude-kernfs'
-# config files
-alias cwm='nvim -p ~/.config/sway/{config,config.d/*}'
-alias cv='nvim -p ~/.config/nvim/{init.vim,lua/*/*}'
 
 ### Load zsh-syntax-highlighting; should be last.
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
