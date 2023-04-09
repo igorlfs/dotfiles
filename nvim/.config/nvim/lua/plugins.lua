@@ -106,6 +106,7 @@ return require("packer").startup(function(use)
     use("nvim-neotest/neotest")
     use("nvim-neotest/neotest-python")
     use("rouge8/neotest-rust")
+    use("haydenmeade/neotest-jest")
 
     ------ Fuzzy Finder
     use({ "nvim-telescope/telescope.nvim", tag = "0.1.x" })

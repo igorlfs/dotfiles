@@ -7,6 +7,7 @@ nt.setup({
             args = { "-v" }, -- get more diff
         }),
         require("neotest-rust"),
+        require("neotest-jest"),
     },
     output = {
         -- disable pop-up with failing test info
