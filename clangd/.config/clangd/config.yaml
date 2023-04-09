@@ -1,8 +1,8 @@
 # yaml-language-server: $schema=https://json.schemastore.org/clangd.json
 CompileFlags:
-  # use C++20 standard, enable more warnings.
+  # enable more warnings.
   Add:
-    [-std=c++20, -Wall, -Wextra, -Wno-missing-prototypes, -Wshadow, -Wpedantic]
+    [ -Wall, -Wextra, -Wno-missing-prototypes, -Wshadow, -Wpedantic]
   # Remove extra warnings specified in compile commands.
   # Single value is also acceptable, same as "Remove: [-mabi]"
   Remove: -mabi
