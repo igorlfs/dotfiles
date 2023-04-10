@@ -133,6 +133,7 @@ local servers = {
     "html",
     "cssls",
     "rome",
+    "millet",
 }
 for _, lsp in ipairs(servers) do
     lspconfig[lsp].setup({

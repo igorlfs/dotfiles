@@ -178,6 +178,8 @@ return require("packer").startup(function(use)
     use("lervag/vimtex")
     -- Jupyter
     use("luk400/vim-jukit")
+    -- SML
+    use("jez/vim-better-sml")
     -- JSON / YAML
     use("b0o/schemastore.nvim")
     -- Java

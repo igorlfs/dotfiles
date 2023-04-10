@@ -9,7 +9,8 @@ vim.g.mapleader = " "
 keymap("n", "<C-s>", "<cmd>write<CR>")
 
 -- Quick exit terminal
-keymap("t", "<Esc>", "<C-\\><C-n>")
+-- Needs to be recursive, so it can be used elsewhere (e.g., SML Send To Repl)
+keymap("t", "<Esc>", "<C-\\><C-n>", { remap = true })
 
 -- Toggle spell checking
 keymap("n", "<leader>s", "<cmd>setlocal spell!<CR>")
