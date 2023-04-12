@@ -83,36 +83,62 @@ au("LspAttach", {
     callback = function(ev)
         -- Buffer local mappings.
         local opts = { buffer = ev.buf }
+        local client = vim.lsp.get_client_by_id(ev.data.client_id)
 
-        keymap("n", "K", require("core.util").peek_or_show_documentation, opts)
+        if client.server_capabilities.hoverProvider then
+            keymap("n", "K", require("core.util").peek_or_show_documentation, opts)
+        end
 
         -- Defaults
         local lsp = vim.lsp.buf
-        keymap("n", "gD", lsp.declaration, opts)
-        keymap({ "n", "i" }, "<C-k>", lsp.signature_help, opts)
+        if client.server_capabilities.declarationProvider then
+            keymap("n", "gD", lsp.declaration, opts)
+        end
+        if client.server_capabilities.signatureHelpProvider then
+            keymap({ "n", "i" }, "<C-k>", lsp.signature_help, opts)
+        end
+        if client.server_capabilities.renameProvider then
+            keymap("n", "<space>rn", lsp.rename, opts)
+        end
+        if client.server_capabilities.codeActionProvider then
+            keymap({ "n", "v" }, "<space>ca", lsp.code_action, opts)
+        end
+        if client.server_capabilities.documentFormattingProvider then
+            keymap("n", "<space>f", function()
+                lsp.format({ async = true })
+            end, opts)
+        end
         keymap("n", "<space>wa", lsp.add_workspace_folder, opts)
         keymap("n", "<space>wr", lsp.remove_workspace_folder, opts)
         keymap("n", "<space>wl", function()
             print(vim.inspect(lsp.list_workspace_folders()))
         end, opts)
-        keymap("n", "<space>rn", lsp.rename, opts)
-        keymap("n", "<space>ca", lsp.code_action, opts)
-        keymap("n", "gr", lsp.references, opts)
-        keymap("n", "<space>f", function()
-            lsp.format({ async = true })
-        end, opts)
 
         -- Telescope Stuff
         local builtin = require("telescope.builtin")
-        keymap("n", "gd", builtin.lsp_definitions, opts)
-        keymap("n", "gi", builtin.lsp_implementations, opts)
-        keymap("n", "<space>D", builtin.lsp_type_definitions, opts)
-        keymap("n", "gr", function()
-            builtin.lsp_references({ show_line = false })
-        end, opts)
-        keymap("n", "<leader>ic", builtin.lsp_incoming_calls, opts)
-        keymap("n", "<leader>oc", builtin.lsp_outgoing_calls, opts)
-        keymap("n", "<leader>ds", builtin.lsp_document_symbols, opts)
+        if client.server_capabilities.definitionProvider then
+            keymap("n", "gd", builtin.lsp_definitions, opts)
+        end
+        if client.server_capabilities.implementationProvider then
+            keymap("n", "gi", builtin.lsp_implementations, opts)
+        end
+        if client.server_capabilities.typeDefinitionProvider then
+            keymap("n", "<space>D", builtin.lsp_type_definitions, opts)
+        end
+        if client.server_capabilities.referencesProvider then
+            keymap("n", "gr", function()
+                builtin.lsp_references({ show_line = false })
+            end, opts)
+        end
+        if client.server_capabilities.callHierarchyProvider then
+            keymap("n", "<leader>ic", builtin.lsp_incoming_calls, opts)
+            keymap("n", "<leader>oc", builtin.lsp_outgoing_calls, opts)
+        end
+        if client.server_capabilities.documentSymbolProvider then
+            keymap("n", "<leader>ds", builtin.lsp_document_symbols, opts)
+        end
+
+        -- Note: diagnostics are NOT specific to LSP
         keymap("n", "<leader>E", builtin.diagnostics, opts)
     end,
 })
