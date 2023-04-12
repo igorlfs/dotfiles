@@ -32,6 +32,11 @@ require("noice").setup({
             },
             opts = { skip = true },
         },
+        -- Hide useless LSP message
+        {
+            filter = { find = "No information available" },
+            opts = { stop = true },
+        },
     },
 })
 
