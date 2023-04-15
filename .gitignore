@@ -1,2 +1,3 @@
 nvim/.config/nvim/.luarc.json
 nvim/.config/nvim/plugin
+zsh/.secret.sh

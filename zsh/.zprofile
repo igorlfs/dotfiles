@@ -18,6 +18,8 @@ export PATH=${XDG_DATA_HOME}/npm/bin:${XDG_DATA_HOME}/gem/ruby/3.0.0/bin:${PATH}
 export LESSHISTFILE="-"
 export EDITOR='nvim'
 export MANPAGER='nvim +Man!'
+### KEYS
+source .secret.sh
 
 ##### SSH
 eval $(ssh-agent)
