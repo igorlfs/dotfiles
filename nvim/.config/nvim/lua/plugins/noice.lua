@@ -9,6 +9,9 @@ require("noice").setup({
             ["vim.lsp.util.stylize_markdown"] = true,
             ["cmp.entry.get_documentation"] = true,
         },
+        hover = {
+            silent = true,
+        },
     },
     presets = {
         lsp_doc_border = true, -- add a border to hover docs and signature help
@@ -31,11 +34,6 @@ require("noice").setup({
                 find = "written",
             },
             opts = { skip = true },
-        },
-        -- Hide useless LSP message
-        {
-            filter = { find = "No information available" },
-            opts = { stop = true },
         },
     },
 })
