@@ -210,13 +210,22 @@ return require("packer").startup(function(use)
         end,
     })
 
+    ---- UI
+    -- vim.ui.select, vim.ui.input
+    use({
+        "stevearc/dressing.nvim",
+        config = function()
+            require("dressing").setup()
+        end,
+    })
+    -- messages, cmdline
+    use({ "folke/noice.nvim", requires = "MunifTanjim/nui.nvim" })
 
     ------ Eye candy
+    -- Status Column
     use("luukvbaal/statuscol.nvim")
     -- Icons
     use("nvim-tree/nvim-web-devicons")
-    -- UI
-    use({ "folke/noice.nvim", requires = "MunifTanjim/nui.nvim" })
     -- Notifications
     use({
         "rcarriga/nvim-notify",
