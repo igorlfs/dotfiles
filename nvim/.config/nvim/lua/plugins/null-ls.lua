@@ -18,6 +18,8 @@ null_ls.setup({
         -- Shell
         formatting.shfmt,
 
+        -- YAML
+        formatting.yamlfmt,
         -- Lua
         diagnostics.selene,
         formatting.stylua,
