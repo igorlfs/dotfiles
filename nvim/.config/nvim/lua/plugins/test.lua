@@ -8,6 +8,7 @@ nt.setup({
         }),
         require("neotest-rust"),
         require("neotest-jest"),
+        require("neotest-java"),
     },
     output = {
         -- disable pop-up with failing test info

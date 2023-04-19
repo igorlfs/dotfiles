@@ -14,9 +14,9 @@ end
 
 ui.setup({
     icons = {
-        expanded = "",
-        collapsed = "",
-        current_frame = "",
+        expanded = "",
+        collapsed = "",
+        current_frame = "",
     },
     layouts = {
         {
