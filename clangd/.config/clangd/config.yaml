@@ -1,12 +1,10 @@
 # yaml-language-server: $schema=https://json.schemastore.org/clangd.json
 CompileFlags:
   # enable more warnings.
-  Add:
-    [ -Wall, -Wextra, -Wno-missing-prototypes, -Wshadow, -Wpedantic]
+  Add: [-Wall, -Wextra, -Wno-missing-prototypes, -Wshadow, -Wpedantic]
   # Remove extra warnings specified in compile commands.
   # Single value is also acceptable, same as "Remove: [-mabi]"
   Remove: -mabi
-
 Diagnostics:
   UnusedIncludes: Strict
   # Tweak Clang-Tidy checks.
