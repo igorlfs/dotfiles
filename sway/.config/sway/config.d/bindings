@@ -17,6 +17,7 @@ floating_modifier $mod normal
 bindsym $mod+Return exec kitty --listen-on=unix:@"$(date +%s%N)"
 bindsym $mod+w exec firefox
 bindsym $mod+e exec zathura
+bindsym $mod+m exec swaylock --screenshots --effect-blur 7x5
 bindsym --release Print exec grim -g "$(slurp)" - | wl-copy --type image/png
 
 #
