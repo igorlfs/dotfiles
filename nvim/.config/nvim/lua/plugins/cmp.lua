@@ -103,3 +103,10 @@ cmp.setup.filetype({ "dap-repl", "dapui_watches", "dapui_hover" }, {
         { name = "dap" },
     },
 })
+
+-- SQL
+cmp.setup.filetype({ "sql", "mysql", "plsql" }, {
+    sources = {
+        { name = "vim-dadbod-completion" },
+    },
+})

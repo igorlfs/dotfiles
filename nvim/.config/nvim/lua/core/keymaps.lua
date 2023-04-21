@@ -30,3 +30,6 @@ keymap("n", "<A-tab>", "<cmd>tabnext<CR>")
 keymap("n", "<S-tab>", "<cmd>tabprevious<CR>")
 -- New tab
 keymap("n", "<A-t>", "<cmd>tab split<CR>")
+
+-- SQL
+keymap("n", "<A-s>", "<cmd>DBUIToggle<CR>")

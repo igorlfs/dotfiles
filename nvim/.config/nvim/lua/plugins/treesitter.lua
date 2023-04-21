@@ -27,6 +27,7 @@ require("nvim-treesitter.configs").setup({
         "vue",
         "html",
         "css",
+        "sql",
     },
     highlight = {
         enable = true,

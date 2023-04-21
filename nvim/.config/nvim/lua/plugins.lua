@@ -194,6 +194,10 @@ return require("packer").startup(function(use)
             vim.fn["mkdp#util#install"]()
         end,
     })
+    -- SQL
+    use("tpope/vim-dadbod")
+    use("kristijanhusak/vim-dadbod-ui")
+    use("kristijanhusak/vim-dadbod-completion")
     -- Rust
     use("simrat39/rust-tools.nvim")
     use({
