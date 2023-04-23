@@ -98,7 +98,9 @@ au("LspAttach", {
             keymap({ "n", "i" }, "<C-k>", lsp.signature_help, opts)
         end
         keymap("n", "<space>rn", lsp.rename, opts)
-        keymap({ "n", "v" }, "<space>ca", lsp.code_action, opts)
+        if client.server_capabilities.codeActionProvider then
+            keymap({ "n", "v" }, "<space>ca", lsp.code_action, opts)
+        end
         keymap("n", "<space>F", function()
             lsp.format({ async = true })
         end, opts)

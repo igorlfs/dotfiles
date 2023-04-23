@@ -56,4 +56,4 @@ require("nvim-treesitter.configs").setup({
     },
 })
 
-require("nvim-treesitter.parsers").filetype_to_parsername.octo = "markdown"
+vim.treesitter.language.register("markdown", "octo")
