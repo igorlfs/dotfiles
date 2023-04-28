@@ -1,6 +1,13 @@
+local statuscol_status, statuscol = pcall(require, "statuscol")
+
+if not statuscol_status then
+    vim.notify("statuscol not found")
+    return
+end
+
 local builtin = require("statuscol.builtin")
 
-require("statuscol").setup({
+statuscol.setup({
     segments = {
         { text = { builtin.lnumfunc }, click = "v:lua.ScLa" },
         { text = { "%s" }, click = "v:lua.ScSa" },

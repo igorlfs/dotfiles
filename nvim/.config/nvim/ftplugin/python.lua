@@ -6,9 +6,7 @@ require("dap-python").setup("/usr/bin/python")
 ------ Jukit
 -- Splits
 -- Opening and Closing
-keymap("n", "<leader>so", function()
-    require("core.util").launch_jukit_with_venv()
-end, opts)
+keymap("n", "<leader>so", require("plugins.util").launch_jukit_with_venv, opts)
 keymap("n", "<leader>sh", "<cmd>call jukit#splits#history()<CR>", opts)
 keymap("n", "<leader>sc", "<cmd>call jukit#splits#close_output_and_history(1)<CR>", opts)
 

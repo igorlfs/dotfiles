@@ -24,4 +24,22 @@ function M.launch_jukit_with_venv()
     end
 end
 
+function M.start_or_continue_dap()
+    -- (Re-)reads launch.json if present
+    if vim.fn.filereadable(".vscode/launch.json") then
+        require("dap.ext.vscode").load_launchjs(nil, { codelldb = { "c", "cpp" } })
+    end
+    require("dap").continue()
+end
+
+-- DAP adapter for C, C++ and Rust
+M.codelldb = {
+    type = "server",
+    port = "${port}",
+    executable = {
+        command = "codelldb",
+        args = { "--port", "${port}" },
+    },
+}
+
 return M

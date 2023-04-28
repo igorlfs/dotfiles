@@ -86,7 +86,7 @@ au("LspAttach", {
         local client = vim.lsp.get_client_by_id(ev.data.client_id)
 
         if client.server_capabilities.hoverProvider then
-            keymap("n", "K", require("core.util").peek_or_show_documentation, opts)
+            keymap("n", "K", require("plugins.util").peek_or_show_documentation, opts)
         end
 
         -- Defaults

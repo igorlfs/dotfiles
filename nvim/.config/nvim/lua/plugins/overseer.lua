@@ -4,8 +4,15 @@
 -- don't open quickfix is there isn't any output to be parsed (e.g., open_on_match)
 -- I don't really understand what is params.bang, but this works
 
+local overseer_status, overseer = pcall(require, "overseer")
+
+if not overseer_status then
+    vim.notify("overseer not found")
+    return
+end
+
 vim.api.nvim_create_user_command("Make", function(params)
-    local task = require("overseer").new_task({
+    local task = overseer.new_task({
         cmd = vim.split(vim.o.makeprg, "%s+"),
         args = params.fargs,
         components = {

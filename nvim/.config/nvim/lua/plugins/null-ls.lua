@@ -1,4 +1,9 @@
-local null_ls = require("null-ls")
+local null_ls_status, null_ls = pcall(require, "null_ls")
+
+if not null_ls_status then
+    vim.notify("null_ls not found")
+    return
+end
 
 local formatting = null_ls.builtins.formatting
 local diagnostics = null_ls.builtins.diagnostics

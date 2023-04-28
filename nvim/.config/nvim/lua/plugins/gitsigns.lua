@@ -1,4 +1,11 @@
-require("gitsigns").setup({
+local gitsigns_status, gitsigns = pcall(require, "gitsigns")
+
+if not gitsigns_status then
+    vim.notify("gitsigns not found")
+    return
+end
+
+gitsigns.setup({
     preview_config = {
         border = "rounded",
     },
@@ -28,8 +35,14 @@ require("gitsigns").setup({
         end, { expr = true })
 
         -- Actions
-        keymap({ "n", "v" }, "<leader>hs", ":Gitsigns stage_hunk<CR>", { silent = true })
-        keymap({ "n", "v" }, "<leader>hr", ":Gitsigns reset_hunk<CR>", { silent = true })
+        keymap("n", "<leader>hs", gs.stage_hunk)
+        keymap("n", "<leader>hr", gs.reset_hunk)
+        keymap("v", "<leader>hs", function()
+            gs.stage_hunk({ vim.fn.line("."), vim.fn.line("v") })
+        end)
+        keymap("v", "<leader>hr", function()
+            gs.reset_hunk({ vim.fn.line("."), vim.fn.line("v") })
+        end)
         keymap("n", "<leader>hS", gs.stage_buffer)
         keymap("n", "<leader>hu", gs.undo_stage_hunk)
         keymap("n", "<leader>hR", gs.reset_buffer)

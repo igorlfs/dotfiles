@@ -1,4 +1,17 @@
-require("noice").setup({
+local noice_status, noice = pcall(require, "noice")
+local notify_status, notify = pcall(require, "notify")
+
+if not noice_status then
+    vim.notify("noice not found")
+    return
+end
+
+if not notify_status then
+    vim.notify("notify not found")
+    return
+end
+
+noice.setup({
     messages = {
         view_search = false, -- disable view for search count messages
     },
@@ -41,7 +54,7 @@ require("noice").setup({
 local keymap = vim.keymap.set
 
 -- clear notifications
-keymap("n", "<leader>n", require("notify").dismiss)
+keymap("n", "<leader>n", notify.dismiss)
 
 -- we use separate mappings so we can centralize the screen in normal mode
 -- but we don't want to insert zz in insert mode

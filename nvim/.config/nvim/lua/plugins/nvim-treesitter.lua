@@ -1,4 +1,11 @@
-require("nvim-treesitter.configs").setup({
+local treesitter_status, treesitter = pcall(require, "nvim-treesitter.configs")
+
+if not treesitter_status then
+    vim.notify("treesitter not found")
+    return
+end
+
+treesitter.setup({
     ensure_installed = {
         "c",
         "cpp",

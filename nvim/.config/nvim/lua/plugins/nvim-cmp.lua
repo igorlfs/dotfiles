@@ -1,10 +1,26 @@
-local cmp = require("cmp")
-local snippy = require("snippy")
+local cmp_status, cmp = pcall(require, "cmp")
+local cmp_dap_status, cmp_dap = pcall(require, "cmp_dap")
+local snippy_status, snippy = pcall(require, "snippy")
+
+if not cmp_status then
+    vim.notify("cmp not found")
+    return
+end
+
+if not cmp_dap_status then
+    vim.notify("cmp_dap not found")
+    return
+end
+
+if not snippy_status then
+    vim.notify("snippy not found")
+    return
+end
 
 cmp.setup({
     enabled = function()
         -- Enable completion in prompt buffers to use cmp-dap
-        return vim.api.nvim_buf_get_option(0, "buftype") ~= "prompt" or require("cmp_dap").is_dap_buffer()
+        return vim.api.nvim_buf_get_option(0, "buftype") ~= "prompt" or cmp_dap.is_dap_buffer()
     end,
     snippet = {
         expand = function(args)

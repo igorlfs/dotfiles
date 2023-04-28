@@ -1,4 +1,11 @@
-require("catppuccin").setup({
+local catppuccin_status, catppuccin = pcall(require, "catppuccin")
+
+if not catppuccin_status then
+    vim.notify("catppuccin not found")
+    return
+end
+
+catppuccin.setup({
     compile_path = vim.fn.stdpath("cache") .. "/catppuccin",
     highlight_overrides = {
         mocha = function(mocha)
