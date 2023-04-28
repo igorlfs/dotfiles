@@ -16,4 +16,12 @@ function M.peek_or_show_documentation()
     end
 end
 
+function M.launch_jukit_with_venv()
+    if os.getenv("VIRTUAL_ENV") then
+        vim.cmd("JukitOut source $(poetry env info --path)/bin/activate")
+    else
+        vim.cmd("call jukit#splits#output()")
+    end
+end
+
 return M
