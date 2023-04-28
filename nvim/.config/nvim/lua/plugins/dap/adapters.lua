@@ -20,13 +20,6 @@ M.codelldb = {
 
 dap.adapters.codelldb = M.codelldb
 
--- Python adapter
-dap.adapters.python = {
-    type = "executable",
-    command = "/usr/bin/python3",
-    args = { "-m", "debugpy.adapter" },
-}
-
 -- JS and TS adapter
 dap.adapters["pwa-node"] = {
     type = "server",
