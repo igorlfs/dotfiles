@@ -1,6 +1,8 @@
 local keymap = vim.keymap.set
 local opts = { buffer = true }
 
+require("dap-python").setup("/usr/bin/python")
+
 ------ Jukit
 -- Splits
 -- Opening and Closing
