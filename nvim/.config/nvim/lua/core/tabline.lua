@@ -1,4 +1,4 @@
-M = {}
+local M = {}
 
 local function title(bufnr)
     local file = vim.fn.bufname(bufnr)
@@ -52,4 +52,6 @@ function M.tabline()
     return line
 end
 
-vim.opt.tabline = "%!v:lua.M.tabline()"
+vim.opt.tabline = "%!v:lua.require'core.tabline'.tabline()"
+
+return M

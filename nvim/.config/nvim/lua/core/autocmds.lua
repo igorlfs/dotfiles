@@ -3,9 +3,9 @@ local ag = vim.api.nvim_create_augroup
 local clear = vim.api.nvim_clear_autocmds
 local keymap = vim.keymap.set
 
--- Disable newline comments when inserting lines with o/O
 local defaults = ag("Defaults", {})
 au("FileType", {
+    desc = "Disable newline comments when inserting lines with o/O",
     group = defaults,
     pattern = { "*" },
     callback = function()
@@ -13,22 +13,22 @@ au("FileType", {
     end,
 })
 
--- Unclutter terminal
 au("Termopen", {
+    desc = "Unclutter terminal",
     group = defaults,
     pattern = { "*" },
     command = "setlocal nonumber norelativenumber scrolloff=0",
 })
 
--- Spell
 au("FileType", {
+    desc = "Enable spellchecker",
     group = defaults,
     pattern = { "gitcommit", "tex" },
     command = "setlocal spell",
 })
 
--- Build with C/C++
 au("FileType", {
+    desc = "Async build with C, C++",
     group = ag("Cpp", {}),
     pattern = { "cpp", "c", "make" },
     callback = function()
@@ -36,26 +36,25 @@ au("FileType", {
     end,
 })
 
--- Common Jukit mappings for python and ipynb
-local jukit = ag("Jukit", {})
 au("FileType", {
-    group = jukit,
+    desc = "Jukit convert notebooks",
+    group = ag("Jukit", {}),
     pattern = { "python", "json" },
     callback = function()
         keymap("n", "<leader>np", "<cmd>call jukit#convert#notebook_convert('jupyter-notebook')<cr>")
     end,
 })
 
--- Reload packer
 au("BufWritePost", {
+    desc = "Reload Packer",
     group = ag("packer", {}),
     pattern = "plugins.lua",
     command = "source <afile> | PackerCompile",
 })
 
--- Autoformat on save
 local lsp_group = ag("lsp", { clear = false })
 au("LspAttach", {
+    desc = "LSP autoformat",
     group = lsp_group,
     callback = function(args)
         local bufnr = args.buf
@@ -77,8 +76,8 @@ au("LspAttach", {
     end,
 })
 
--- LSP keymaps
 au("LspAttach", {
+    desc = "LSP Keymaps",
     group = lsp_group,
     callback = function(ev)
         -- Buffer local mappings.
@@ -127,8 +126,8 @@ au("LspAttach", {
     end,
 })
 
--- Winbar config
 au("LspAttach", {
+    desc = "Attach Winbar",
     group = lsp_group,
     callback = function(args)
         local bufnr = args.buf
@@ -137,4 +136,16 @@ au("LspAttach", {
             require("nvim-navic").attach(client, bufnr)
         end
     end,
+})
+
+au("VimEnter", {
+    desc = "Venv autoselect",
+    pattern = "*",
+    callback = function()
+        local venv = vim.fn.findfile("pyproject.toml", vim.fn.getcwd() .. ";")
+        if venv ~= "" then
+            require("venv-selector").retrieve_from_cache()
+        end
+    end,
+    once = true,
 })

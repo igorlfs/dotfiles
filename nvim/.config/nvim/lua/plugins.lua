@@ -179,6 +179,13 @@ return require("packer").startup(function(use)
     ------ Language Specific
     -- LaTeX
     use("lervag/vimtex")
+    -- Python
+    use({
+        "linux-cultist/venv-selector.nvim",
+        config = function()
+            require("venv-selector").setup()
+        end,
+    })
     -- Jupyter
     use("luk400/vim-jukit")
     -- SML
