@@ -1,9 +1,15 @@
-local tl = require("telescope")
+local status, telescope = pcall(require, "telescope")
+
+if not status then
+    vim.notify("telescope not found")
+    return
+end
+
 local actions = require("telescope.actions")
 
-tl.setup({
-    tl.load_extension("fzf"),
-    tl.load_extension("noice"),
+telescope.setup({
+    telescope.load_extension("fzf"),
+    telescope.load_extension("noice"),
     defaults = {
         file_ignore_patterns = {
             "^.git/*",
@@ -38,6 +44,7 @@ tl.setup({
     },
 })
 
+-- Keymaps
 local keymap = vim.keymap.set
 local builtin = require("telescope.builtin")
 

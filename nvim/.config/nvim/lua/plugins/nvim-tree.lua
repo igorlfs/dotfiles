@@ -28,7 +28,7 @@ nvim_tree.setup({
     },
 })
 
--- keymaps
+-- Keymaps
 local keymap = vim.keymap.set
 keymap("n", "<leader>v", "<cmd>NvimTreeToggle<CR>")
 

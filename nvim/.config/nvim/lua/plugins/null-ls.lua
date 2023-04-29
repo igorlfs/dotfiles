@@ -1,7 +1,13 @@
-local status, null_ls = pcall(require, "null-ls")
+local null_status, null_ls = pcall(require, "null-ls")
+local embedded_status, embedded = pcall(require, "null-ls-embedded")
 
-if not status then
-    vim.notify("null_ls not found")
+if not null_status then
+    vim.notify("null-ls not found")
+    return
+end
+
+if not embedded_status then
+    vim.notify("null-ls-embedded not found")
     return
 end
 
@@ -38,5 +44,8 @@ null_ls.setup({
 
         -- C++
         diagnostics.cppcheck,
+
+        -- Format inline code
+        embedded.nls_source,
     },
 })
