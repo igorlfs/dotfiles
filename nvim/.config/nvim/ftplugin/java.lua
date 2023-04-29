@@ -1,14 +1,27 @@
-local jdtls = require("jdtls")
+local jdtls_status, jdtls = pcall(require, "jdtls")
+local mason_status, mason = pcall(require, "mason-registry")
 
-local MASON_PATH = os.getenv("XDG_DATA_HOME") .. "/nvim/mason/packages/"
+if not jdtls_status then
+    vim.notify("jdtls not found")
+    return
+end
+
+if not mason_status then
+    vim.notify("mason not found")
+    return
+end
+
+local JDTLS_PATH = mason.get_package("jdtls"):get_install_path()
+local JAVA_DEBUG_PATH = mason.get_package("java-debug-adapter"):get_install_path()
+local JAVA_TEST_PATH = mason.get_package("java-test"):get_install_path()
 
 -- Debugging
 local bundles = {
-    vim.fn.glob(MASON_PATH .. "java-debug-adapter/extension/server/com.microsoft.java.debug.plugin-*.jar", true),
+    vim.fn.glob(JAVA_DEBUG_PATH .. "/extension/server/com.microsoft.java.debug.plugin-*.jar", true),
 }
-local extensions = vim.split(vim.fn.glob(MASON_PATH .. "java-test/extension/server/*.jar", true), "\n")
+local extensions = vim.split(vim.fn.glob(JAVA_TEST_PATH .. "/extension/server/*.jar", true), "\n")
 for _, extension in ipairs(extensions) do
-    -- as of dec/22 this extension throws an error (albeit harmless)
+    -- as of apr/23 this extension throws an error (albeit harmless)
     if not vim.endswith(extension, "com.microsoft.java.test.runner-jar-with-dependencies.jar") then
         table.insert(bundles, extension)
     end
@@ -33,7 +46,7 @@ local config = {
         "-Declipse.product=org.eclipse.jdt.ls.core.product",
         "-Dlog.protocol=true",
         "-Dlog.level=ALL",
-        "-javaagent:" .. MASON_PATH .. "jdtls/lombok.jar",
+        "-javaagent:" .. JDTLS_PATH .. "/lombok.jar",
         "-Xmx1g",
         "--add-modules=ALL-SYSTEM",
         "--add-opens",
@@ -42,10 +55,10 @@ local config = {
         "java.base/java.lang=ALL-UNNAMED",
 
         "-jar",
-        vim.fn.glob(MASON_PATH .. "jdtls/plugins/org.eclipse.equinox.launcher_*.jar", true),
+        vim.fn.glob(JDTLS_PATH .. "/plugins/org.eclipse.equinox.launcher_*.jar", true),
 
         "-configuration",
-        MASON_PATH .. "jdtls/config_linux",
+        JDTLS_PATH .. "/config_linux",
 
         "-data",
         JDTLS_DATA,
@@ -127,3 +140,7 @@ local config = {
 -- This starts a new client & server,
 -- or attaches to an existing client & server depending on the `root_dir`.
 jdtls.start_or_attach(config)
+
+local keymap = vim.keymap.set
+-- Using jdtls's builtin method allows debugging, which neotest's adapter currently lacks
+keymap("n", "<leader>dt", jdtls.test_nearest_method, { desc = "Debug Test" })
