@@ -64,3 +64,4 @@ treesitter.setup({
 })
 
 vim.treesitter.language.register("markdown", "octo")
+vim.treesitter.language.register("gitcommit", "NeogitCommitMessage")

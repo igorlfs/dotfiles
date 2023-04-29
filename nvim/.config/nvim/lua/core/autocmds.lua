@@ -23,7 +23,7 @@ au("Termopen", {
 au("FileType", {
     desc = "Enable spellchecker",
     group = defaults,
-    pattern = { "gitcommit", "tex" },
+    pattern = { "gitcommit", "tex", "NeogitCommitMessage" },
     command = "setlocal spell",
 })
 
