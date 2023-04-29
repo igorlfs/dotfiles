@@ -1,6 +1,6 @@
-local catppuccin_status, catppuccin = pcall(require, "catppuccin")
+local status, catppuccin = pcall(require, "catppuccin")
 
-if not catppuccin_status then
+if not status then
     vim.notify("catppuccin not found")
     return
 end

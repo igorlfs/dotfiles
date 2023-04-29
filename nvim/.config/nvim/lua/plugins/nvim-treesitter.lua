@@ -1,6 +1,6 @@
-local treesitter_status, treesitter = pcall(require, "nvim-treesitter.configs")
+local status, treesitter = pcall(require, "nvim-treesitter.configs")
 
-if not treesitter_status then
+if not status then
     vim.notify("treesitter not found")
     return
 end

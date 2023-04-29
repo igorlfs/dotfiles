@@ -1,6 +1,6 @@
-local statuscol_status, statuscol = pcall(require, "statuscol")
+local status, statuscol = pcall(require, "statuscol")
 
-if not statuscol_status then
+if not status then
     vim.notify("statuscol not found")
     return
 end

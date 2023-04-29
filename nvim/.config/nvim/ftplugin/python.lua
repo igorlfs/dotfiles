@@ -1,7 +1,13 @@
 local keymap = vim.keymap.set
 local opts = { buffer = true }
 
-require("dap-python").setup("/usr/bin/python")
+local status, dap_python = pcall(require, "dap-python")
+
+if status then
+    dap_python.setup("/usr/bin/python")
+else
+    vim.notify("gitsigns not found")
+end
 
 ------ Jukit
 -- Splits

@@ -1,6 +1,6 @@
-local neotest_status, neotest = pcall(require, "neotest")
+local status, neotest = pcall(require, "neotest")
 
-if not neotest_status then
+if not status then
     vim.notify("neotest not found")
     return
 end

@@ -27,7 +27,6 @@ local config = {
     -- The command that starts the language server
     -- See: https://github.com/eclipse/eclipse.jdt.ls#running-from-the-command-line
     cmd = {
-
         "java",
         "-Declipse.application=org.eclipse.jdt.ls.core.id1",
         "-Dosgi.bundles.defaultStartLevel=4",
@@ -57,7 +56,7 @@ local config = {
         require("jdtls.setup").add_commands()
         vim.lsp.codelens.refresh()
     end,
-    capabilities = require("plugins.lsp").capabilities,
+    capabilities = require("plugins.nvim-lspconfig").capabilities,
     -- Here you can configure eclipse.jdt.ls specific settings
     -- See https://github.com/eclipse/eclipse.jdt.ls/wiki/Running-the-JAVA-LS-server-from-the-command-line#initialize-request
     -- for a list of options

@@ -4,9 +4,9 @@
 -- don't open quickfix is there isn't any output to be parsed (e.g., open_on_match)
 -- I don't really understand what is params.bang, but this works
 
-local overseer_status, overseer = pcall(require, "overseer")
+local status, overseer = pcall(require, "overseer")
 
-if not overseer_status then
+if not status then
     vim.notify("overseer not found")
     return
 end

@@ -1,7 +1,11 @@
-local nt = require("nvim-tree")
+local status, nvim_tree = pcall(require, "nvim-tree")
 
--- setup
-nt.setup({
+if not status then
+    vim.notify("nvim-tree not found")
+    return
+end
+
+nvim_tree.setup({
     renderer = {
         highlight_git = true,
         icons = {
@@ -32,7 +36,11 @@ keymap("n", "<leader>v", "<cmd>NvimTreeToggle<CR>")
 local api = require("nvim-tree.api")
 local Event = api.events.Event
 api.events.subscribe(Event.TreeClose, function()
-    if require("dap").session() then
-        require("dapui").open({ reset = true })
+    local dap_status, dap = pcall(require, "dap")
+    local dap_ui_status, dapui = pcall(require, "dapui")
+    if dap_status and dap_ui_status then
+        if dap.session() then
+            dapui.open({ reset = true })
+        end
     end
 end)
