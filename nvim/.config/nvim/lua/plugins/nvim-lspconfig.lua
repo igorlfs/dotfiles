@@ -1,8 +1,11 @@
-local M = {}
+local status, lspconfig = pcall(require, "lspconfig")
 
--- Enable border for LspInfo
-require("lspconfig.ui.windows").default_options.border = "rounded"
+if not status then
+    vim.notify("lspconfig not found")
+    return
+end
 
+-- Diagnostics
 vim.diagnostic.config({
     -- Limit length
     open_float = {
@@ -18,108 +21,79 @@ vim.diagnostic.config({
     },
 })
 
-local keymap = vim.keymap.set
-
--- Diagnostic keymaps
-keymap("n", "<space>e", vim.diagnostic.open_float)
-keymap("n", "[d", vim.diagnostic.goto_prev)
-keymap("n", "]d", vim.diagnostic.goto_next)
-keymap("n", "<leader>q", vim.diagnostic.setloclist)
-
--- Add additional capabilities supported by nvim-cmp
-M.capabilities = require("cmp_nvim_lsp").default_capabilities()
--- Add additional capabilities supported by UFO
-M.capabilities.textDocument.foldingRange = {
-    dynamicRegistration = false,
-    lineFoldingOnly = true,
-}
--- Don't change fold level when opening and closing all folds
--- Otherwise UFO gets messed up
-keymap("n", "zR", require("ufo").openAllFolds)
-keymap("n", "zM", require("ufo").closeAllFolds)
-
-local lspconfig = require("lspconfig")
--- Language specific config
 -- C++
 lspconfig.clangd.setup({
     cmd = { "clangd", "--completion-style=detailed", "--clang-tidy", "--offset-encoding=utf-16" },
     on_attach = function(_, bufnr)
-        keymap("n", "<A-o>", "<cmd>ClangdSwitchSourceHeader<CR>", { buffer = bufnr })
+        vim.keymap.set("n", "<A-o>", "<cmd>ClangdSwitchSourceHeader<CR>", { buffer = bufnr })
     end,
-    capabilities = M.capabilities,
-})
-
--- Lua
-require("neodev").setup({
-    library = { plugins = { "nvim-dap-ui" }, types = true },
+    capabilities = require("plugins.util").capabilities,
 })
 
 -- Rust
-require("rust-tools").setup({
-    server = {
-        on_attach = function(_, bufnr)
-            keymap("n", "<C-space>", require("rust-tools").hover_actions.hover_actions, { buffer = bufnr })
-        end,
-        capabilities = M.capabilities,
-        settings = {
-            ["rust-analyzer"] = {
-                checkOnSave = {
-                    command = "clippy",
+local rust_status, rust_tools = pcall(require, "rust-tools")
+if rust_status then
+    rust_tools.setup({
+        server = {
+            on_attach = function(_, bufnr)
+                vim.keymap.set("n", "<C-space>", rust_tools.hover_actions.hover_actions, { buffer = bufnr })
+            end,
+            capabilities = require("plugins.util").capabilities,
+            settings = {
+                ["rust-analyzer"] = {
+                    checkOnSave = {
+                        command = "clippy",
+                    },
                 },
             },
         },
-    },
-    tools = {
-        hover_actions = {
-            auto_focus = true,
+        tools = {
+            hover_actions = {
+                auto_focus = true,
+            },
         },
-    },
-    dap = {
-        adapter = require("plugins.util").codelldb,
-    },
-})
-
--- JSON
-lspconfig.jsonls.setup({
-    capabilities = M.capabilities,
-    settings = {
-        json = {
-            schemas = require("schemastore").json.schemas(),
-            validate = { enable = true },
+        dap = {
+            adapter = require("plugins.util").codelldb,
         },
-    },
-})
+    })
+else
+    vim.notify("rust-tools not installed, skipping rust setup")
+end
 
--- YAML
-lspconfig.yamlls.setup({
-    capabilities = M.capabilities,
-    settings = {
-        yaml = {
-            schemas = require("schemastore").yaml.schemas(),
+local schemastore_status, schemastore = pcall(require, "schemastore")
+if schemastore_status then
+    -- JSON
+    lspconfig.jsonls.setup({
+        capabilities = require("plugins.util").capabilities,
+        settings = {
+            json = {
+                schemas = schemastore.json.schemas(),
+                validate = { enable = true },
+            },
         },
-    },
-})
+    })
 
--- Volar
--- In the future, we might wanna look into "takeover mode",
--- which allows volar to control tsserver and attach to JS/TS files,
--- and it's the "recommended" way of using both servers
---
--- However, this kind of sucks because we must disable tsserver
--- if we are into a vue project, which is cumbersome to configure
---
--- Enable takeover mode
--- filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue", "json" },
--- init_options = {
---     typescript = {
---         -- That's the path to the TS installation containing tsserver,
---         -- which is global in my setup, but could be based on current project configuration
---         tsdk = "/usr/lib/node_modules/typescript/lib/",
---     },
--- },
+    -- YAML
+    lspconfig.yamlls.setup({
+        capabilities = require("plugins.util").capabilities,
+        settings = {
+            yaml = {
+                schemas = schemastore.yaml.schemas(),
+            },
+        },
+    })
+else
+    vim.notify("Schemastore not installed, skipping JSON/YAML setup")
+end
 
--- General config
--- Enable some language servers with the additional completion capabilities offered by nvim-cmp
+-- Lua
+-- Has to be initialized here to avoid race condition
+local lua_status, neodev = pcall(require, "neodev")
+if lua_status then
+    neodev.setup()
+end
+
+-- Others
 local servers = {
     "pylsp",
     "texlab",
@@ -137,8 +111,9 @@ local servers = {
 }
 for _, lsp in ipairs(servers) do
     lspconfig[lsp].setup({
-        capabilities = M.capabilities,
+        capabilities = require("plugins.util").capabilities,
     })
 end
 
-return M
+-- Enable border for LspInfo
+require("lspconfig.ui.windows").default_options.border = "rounded"

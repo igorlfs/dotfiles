@@ -66,6 +66,9 @@ return require("packer").startup(function(use)
         requires = "kevinhwang91/promise-async",
         config = function()
             require("ufo").setup()
+            -- Don't change fold level when opening and closing all folds
+            vim.keymap.set("n", "zR", require("ufo").openAllFolds)
+            vim.keymap.set("n", "zM", require("ufo").closeAllFolds)
         end,
     })
 

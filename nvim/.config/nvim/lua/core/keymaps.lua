@@ -31,5 +31,11 @@ keymap("n", "<S-tab>", "<cmd>tabprevious<CR>")
 -- New tab
 keymap("n", "<A-t>", "<cmd>tab split<CR>")
 
+-- Diagnostic keymaps (LSP)
+keymap("n", "<space>e", vim.diagnostic.open_float)
+keymap("n", "[d", vim.diagnostic.goto_prev)
+keymap("n", "]d", vim.diagnostic.goto_next)
+keymap("n", "<leader>q", vim.diagnostic.setloclist)
+
 -- SQL
 keymap("n", "<A-s>", "<cmd>DBUIToggle<CR>")
