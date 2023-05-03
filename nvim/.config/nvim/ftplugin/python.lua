@@ -6,7 +6,7 @@ local status, dap_python = pcall(require, "dap-python")
 if status then
     dap_python.setup("/usr/bin/python")
 else
-    vim.notify("gitsigns not found")
+    vim.notify("dap-python not found")
 end
 
 ------ Jukit
@@ -41,3 +41,9 @@ keymap("n", "<leader>k", "<cmd>call jukit#cells#jump_to_previous_cell()<CR>", op
 -- Move
 keymap("n", "<leader>ck", "<cmd>call jukit#cells#move_up()<CR>", opts)
 keymap("n", "<leader>cj", "<cmd>call jukit#cells#move_down()<CR>", opts)
+
+-- Export to PDF
+-- Use data saved by jukit to build the output
+keymap("n", "<leader>pd", "<cmd>call jukit#convert#save_nb_to_file(0,1,'pdf')<CR>", opts)
+-- Re-run all cells to build the output
+keymap("n", "<leader>pD", "<cmd>call jukit#convert#save_nb_to_file(1,1,'pdf')<CR>", opts)
