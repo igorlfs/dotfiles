@@ -26,20 +26,6 @@ dap.adapters["pwa-node"] = {
 }
 
 -- Configurations
-dap.configurations.cpp = {
-    {
-        name = "Launch CodeLLDB",
-        type = "codelldb",
-        request = "launch",
-        program = function()
-            local binary = vim.fn.input("Executable: ")
-            return vim.fn.getcwd() .. "/" .. binary
-        end,
-        cwd = "${workspaceFolder}",
-        expressions = "native", -- Allows evaluating expressions such as "this"
-    },
-}
-dap.configurations.c = dap.configurations.cpp
 dap.configurations.javascript = {
     {
         type = "pwa-node",
