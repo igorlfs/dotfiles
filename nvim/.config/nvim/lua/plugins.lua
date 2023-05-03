@@ -93,10 +93,16 @@ return require("packer").startup(function(use)
 
     ------ Git
     use("lewis6991/gitsigns.nvim")
+    use("sindrets/diffview.nvim")
     use({
         "TimUntersberger/neogit",
         config = function()
-            require("neogit").setup({ disable_commit_confirmation = true })
+            require("neogit").setup({
+                disable_commit_confirmation = true,
+                integrations = {
+                    diffview = true,
+                },
+            })
         end,
     })
     -- Github
