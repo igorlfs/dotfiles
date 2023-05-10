@@ -45,3 +45,15 @@ lstlisting
 lhs
 rhs
 subarrays
+usepackage
+documentclass
+hyphenat
+graphicx
+fontenc
+fancyhdr
+hyperref
+MNIST
+overfitting
+SGD
+api
+keras.io

@@ -9,7 +9,6 @@ export XDG_DATA_HOME="${HOME}/.local/share"
 export XDG_STATE_HOME="${HOME}/.local/state"
 
 ### Home Cleanup
-export TMPDIR="/tmp"
 # Zsh
 export ZDOTDIR="${XDG_CONFIG_HOME}"/zsh
 # Javascript
