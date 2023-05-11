@@ -19,6 +19,7 @@ export CARGO_HOME="${XDG_DATA_HOME}"/cargo
 # Java
 export GRADLE_USER_HOME="$XDG_DATA_HOME"/gradle
 # Python
+export RUFF_CACHE_DIR=$XDG_CACHE_HOME/ruff
 export MYPY_CACHE_DIR="${XDG_CACHE_HOME}"/mypy
 export PYTHONSTARTUP="${XDG_CONFIG_HOME}"/python/startup.py
 # Ruby
