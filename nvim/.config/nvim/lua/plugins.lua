@@ -75,6 +75,12 @@ return require("packer").startup(function(use)
     ------ DAP
     use("mfussenegger/nvim-dap")
     use("rcarriga/nvim-dap-ui")
+    use({
+        "LiadOz/nvim-dap-repl-highlights",
+        config = function()
+            require("nvim-dap-repl-highlights").setup()
+        end,
+    })
     use("mfussenegger/nvim-dap-python")
 
     ------ Install LSP/DAP
