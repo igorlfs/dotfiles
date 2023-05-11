@@ -138,7 +138,7 @@ au("LspAttach", {
     end,
 })
 
-au("VimEnter", {
+au({ "VimEnter", "DirChanged" }, {
     desc = "Venv autoselect",
     pattern = "*",
     callback = function()
