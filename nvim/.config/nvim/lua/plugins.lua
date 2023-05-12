@@ -83,6 +83,9 @@ return require("packer").startup(function(use)
     })
     use("mfussenegger/nvim-dap-python")
 
+    ------ Mini
+    use("echasnovski/mini.indentscope")
+
     ------ Install LSP/DAP
     use({
         "williamboman/mason.nvim",
@@ -272,8 +275,6 @@ return require("packer").startup(function(use)
         config = function()
             require("indent_blankline").setup({
                 max_indent_increase = 1,
-                context_char = "│",
-                show_current_context = true,
                 show_trailing_blankline_indent = false,
             })
         end,

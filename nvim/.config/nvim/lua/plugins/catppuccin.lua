@@ -24,7 +24,9 @@ catppuccin.setup({
         neotest = true,
         notify = true,
         neogit = true,
+        noice = true,
         octo = true,
+        mini = true,
     },
 })
 
