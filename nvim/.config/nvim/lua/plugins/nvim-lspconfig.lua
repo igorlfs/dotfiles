@@ -103,10 +103,6 @@ local servers = {
     "gradle_ls",
     "ruff_lsp",
     "bashls",
-    "volar",
-    "html",
-    "cssls",
-    "rome",
     "millet",
 }
 for _, lsp in ipairs(servers) do
