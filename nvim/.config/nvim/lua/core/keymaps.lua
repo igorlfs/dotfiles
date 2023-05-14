@@ -36,6 +36,3 @@ keymap("n", "<space>e", vim.diagnostic.open_float)
 keymap("n", "[d", vim.diagnostic.goto_prev)
 keymap("n", "]d", vim.diagnostic.goto_next)
 keymap("n", "<leader>q", vim.diagnostic.setloclist)
-
--- SQL
-keymap("n", "<A-s>", "<cmd>DBUIToggle<CR>")
