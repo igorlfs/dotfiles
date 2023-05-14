@@ -1,8 +1,5 @@
 {
     "layer": "top", // Waybar at top layer
-    // "position": "bottom", // Waybar position (top|bottom|left|right)
-    // "height": 24, // Waybar height (to be removed for auto height)
-    // "width": 1280, // Waybar width
     "spacing": 0, // Gaps between modules (4px)
     // Choose the order of the modules
     "modules-left": ["wlr/workspaces"],
@@ -10,66 +7,49 @@
     "modules-right": ["idle_inhibitor", "pulseaudio", "network", "cpu", "memory", "backlight", "battery", "clock"],
     // Modules configuration
     "idle_inhibitor": {
-        "format": "{icon}",
+        "format": "IDLE {icon}",
         "format-icons": {
-            "activated": "",
-            "deactivated": ""
+            "activated": "ON",
+            "deactivated": "OFF"
         }
     },
     "clock": {
-        // "timezone": "America/New_York",
         "tooltip-format": "<big>{:%d %A}</big>\n<tt><small>{calendar}</small></tt>",
         "format-alt": "{:%Y-%m-%d}"
     },
     "cpu": {
-        "format": "{usage}% ",
+        "format": "CPU {usage}%",
         "tooltip": true
     },
     "memory": {
-        "format": "{}% "
+        "format": "MEM {}%"
     },
     "backlight": {
-        // "device": "acpi_video1",
-        "format": "{percent}% {icon}",
-        "format-icons": ["", "", "", "", "", "", "", "", ""]
+        "format": "BRI {percent}%"
     },
     "battery": {
         "states": {
-            // "good": 95,
             "warning": 20,
             "critical": 15
         },
-        "format": "{capacity}% {icon}",
-        "format-charging": "{capacity}% ",
-        "format-plugged": "{capacity}% ",
-        "format-alt": "{time} {icon}",
-        // "format-good": "", // An empty format will hide the module
-        "format-full": "Full",
-        "format-icons": ["", "", "", "", ""]
+        "format": "BAT -{capacity}%",
+        "format-charging": "BAT +{capacity}%",
+        "format-plugged": "BAT {capacity}%",
+        "format-alt": "{time}",
+        "format-full": "Full"
     },
     "network": {
-        // "interface": "wlp2*", // (Optional) To force the use of this interface
-        "format-wifi": "{essid} ({signalStrength}%) ",
-        "format-ethernet": "{ipaddr}/{cidr} ",
-        "tooltip-format": "{ifname} via {gwaddr} ",
-        "format-linked": "{ifname} (No IP) ",
-        "format-disconnected": "Disconnected ⚠",
+        "format-wifi": "{essid} ({signalStrength}%)",
+        "format-ethernet": "{ipaddr}/{cidr}",
+        "tooltip-format": "{ifname} via {gwaddr}",
+        "format-linked": "{ifname} (No IP)",
+        "format-disconnected": "Disconnected",
         "format-alt": "{ifname}: {ipaddr}/{cidr}"
     },
     "pulseaudio": {
-        // "scroll-step": 1, // %, can be a float
-        "format": "{volume}% {icon} {format_source}",
-        "format-muted": " {format_source}",
-        "format-source": "{volume}% ",
-        "format-source-muted": "",
-        "format-icons": {
-            "headphone": "",
-            "hands-free": "",
-            "headset": "",
-            "phone": "",
-            "portable": "",
-            "car": "",
-            "default": ["", "", ""]
-        }
+        "format": "VOL {volume}% {format_source}",
+        "format-muted": "MUTE {format_source}",
+        "format-source": "MIC {volume}%",
+        "format-source-muted": "MIC MUTE"
     }
 }
