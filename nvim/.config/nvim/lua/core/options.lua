@@ -15,7 +15,6 @@ o.sessionoptions:append("localoptions") -- Extend options saved by sessions
 o.fillchars:append([[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]) -- Fancy fold symbols
 o.jumpoptions = "view" -- Prevents moving cursor when switching files
 o.exrc = true -- Enable per-project config file (.nvim.lua)
-o.smoothscroll = true -- Scroll within visual lines
 
 -- Spell
 o.spelllang:append({ "pt_br" }) -- Additional language to spell check
