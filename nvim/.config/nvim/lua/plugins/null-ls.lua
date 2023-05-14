@@ -38,6 +38,7 @@ null_ls.setup({
 
         -- Python
         formatting.black,
+        formatting.isort,
 
         -- C++
         diagnostics.cppcheck,

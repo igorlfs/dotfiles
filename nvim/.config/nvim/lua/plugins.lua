@@ -275,17 +275,6 @@ return require("packer").startup(function(use)
             })
         end,
     })
-    -- Winbar with context
-    use({
-        "utilyre/barbecue.nvim",
-        tag = "*",
-        requires = { "SmiteshP/nvim-navic" },
-        config = function()
-            require("barbecue").setup({
-                attach_navic = false,
-            })
-        end,
-    })
     -- Highlight word under the cursor
     use({
         "RRethy/vim-illuminate",
