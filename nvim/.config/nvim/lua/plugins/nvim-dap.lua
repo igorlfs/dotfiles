@@ -55,9 +55,9 @@ keymap("n", "<F12>", dap.step_out)
 -- UI
 ui.setup({
     icons = {
-        expanded = "",
-        collapsed = "",
-        current_frame = "",
+        expanded = "󰅀",
+        collapsed = "󰅂",
+        current_frame = "󰅂",
     },
     layouts = {
         {

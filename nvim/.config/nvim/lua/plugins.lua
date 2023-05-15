@@ -130,7 +130,7 @@ return require("packer").startup(function(use)
     use("andy-bell101/neotest-java")
 
     ------ Fuzzy Finder
-    use({ "nvim-telescope/telescope.nvim", tag = "0.1.x" })
+    use("nvim-telescope/telescope.nvim")
     use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
 
     ------ Editing
@@ -225,7 +225,6 @@ return require("packer").startup(function(use)
     use("simrat39/rust-tools.nvim")
     use({
         "saecki/crates.nvim",
-        tag = "v0.3.0",
         config = function()
             require("crates").setup({
                 null_ls = {

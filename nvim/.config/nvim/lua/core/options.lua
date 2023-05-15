@@ -12,7 +12,7 @@ o.clipboard = "unnamedplus" -- Use system clipboard
 o.wildmode = "longest,list,full" -- Funky completion for commands
 o.conceallevel = 2 -- Hide verbosity in markdown and LaTeX
 o.sessionoptions:append("localoptions") -- Extend options saved by sessions
-o.fillchars:append([[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]) -- Fancy fold symbols
+o.fillchars:append([[eob: ,fold: ,foldopen:󰅀,foldsep: ,foldclose:󰅂]]) -- Fancy fold symbols
 o.jumpoptions = "view" -- Prevents moving cursor when switching files
 o.exrc = true -- Enable per-project config file (.nvim.lua)
 o.showtabline = 2 -- Always show tabline
@@ -42,7 +42,6 @@ o.shiftwidth = 4 -- Indent's width
 -- Lateral line
 o.number = true -- Print the line number in front of the current line
 o.relativenumber = true -- Print the line numbers for motion
-o.signcolumn = "yes" -- Always draw the extra column to indicate git or diagnostics
 
 -- Status line
 o.laststatus = 0 -- Hide status line
