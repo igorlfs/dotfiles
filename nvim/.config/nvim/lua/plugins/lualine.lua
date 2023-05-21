@@ -6,11 +6,9 @@ if not status then
 end
 
 lualine.setup({
+    extensions = { "nvim-tree", "toggleterm" },
     options = {
         globalstatus = true,
-        refresh = {
-            statusline = 100,
-        },
     },
     sections = {
         lualine_a = { "mode" },
