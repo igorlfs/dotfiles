@@ -95,7 +95,7 @@ end
 
 -- Others
 local servers = {
-    "pylsp",
+    "pylance",
     "texlab",
     "tsserver",
     "lua_ls",

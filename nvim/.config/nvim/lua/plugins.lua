@@ -118,7 +118,14 @@ return require("packer").startup(function(use)
     use({
         "pwntester/octo.nvim",
         config = function()
-            require("octo").setup()
+            require("octo").setup({
+                mappings = {
+                    review_diff = {
+                        add_review_comment = { lhs = "<space>ac", desc = "add a new review comment" },
+                        add_review_suggestion = { lhs = "<space>as", desc = "add a new review suggestion" },
+                    },
+                },
+            })
         end,
     })
 
