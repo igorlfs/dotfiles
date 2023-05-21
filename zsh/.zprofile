@@ -21,6 +21,7 @@ export GRADLE_USER_HOME="$XDG_DATA_HOME"/gradle
 # Python
 export RUFF_CACHE_DIR=$XDG_CACHE_HOME/ruff
 export MYPY_CACHE_DIR="${XDG_CACHE_HOME}"/mypy
+export NLTK_DATA="${XDG_CACHE_HOME}/nltk"
 export PYTHONSTARTUP="${XDG_CONFIG_HOME}"/python/startup.py
 # Ruby
 export GEM_HOME="${XDG_DATA_HOME}"/gems
