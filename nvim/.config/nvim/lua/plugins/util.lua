@@ -53,4 +53,25 @@ M.capabilities.textDocument.foldingRange = {
     lineFoldingOnly = true,
 }
 
+function M.title(bufnr)
+    local file = vim.fn.bufname(bufnr)
+    local buftype = vim.fn.getbufvar(bufnr, "&buftype")
+    local filetype = vim.fn.getbufvar(bufnr, "&filetype")
+
+    if filetype == "checkhealth" then
+        return "checkhealth"
+    elseif filetype == "TelescopePrompt" then
+        return "Telescope"
+    elseif filetype == "NvimTree" then
+        return "NvimTree"
+    elseif buftype == "terminal" then
+        local _, mtch = string.match(file, "term:(.*):(%a+)")
+        return mtch ~= nil and mtch or vim.fn.fnamemodify(vim.env.SHELL, ":t")
+    elseif file == "" then
+        return "[No Name]"
+    else
+        return vim.fn.fnamemodify(file, ":.")
+    end
+end
+
 return M

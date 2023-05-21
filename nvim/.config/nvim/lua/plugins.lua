@@ -249,6 +249,8 @@ return require("packer").startup(function(use)
     use({ "folke/noice.nvim", requires = "MunifTanjim/nui.nvim" })
 
     ------ Eye candy
+    -- Status Line
+    use("nvim-lualine/lualine.nvim")
     -- Status Column
     use("luukvbaal/statuscol.nvim")
     -- Icons
