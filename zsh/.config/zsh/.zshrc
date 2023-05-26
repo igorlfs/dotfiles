@@ -21,7 +21,6 @@ PS1="%{$fg[magenta]%}%~ %{$reset_color%}$ "
 alias s='pgrep -x sway || exec dbus-run-session sway'
 alias h='pgrep -x Hyprland || exec dbus-run-session Hyprland'
 alias v='nvim'
-alias wf='~/scripts/wl-record.sh'
 # utils
 alias cp='cp -r'
 alias mv='mv -i'

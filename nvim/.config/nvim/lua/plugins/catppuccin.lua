@@ -10,7 +10,7 @@ catppuccin.setup({
     highlight_overrides = {
         mocha = function(mocha)
             return {
-                -- see catppuccin/nvim#313
+                -- See catppuccin/nvim#313
                 NormalFloat = { fg = mocha.text, bg = mocha.none },
                 jukit_cellmarker_colors = { bg = mocha.mantle, fg = mocha.mantle },
                 jukit_textcell_bg_colors = { bg = mocha.crust },

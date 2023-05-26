@@ -4,6 +4,9 @@ local str = string.format
 -- Use space as leader
 vim.g.mapleader = " "
 
+-- Quick command mode
+keymap("n", "ç", ":")
+
 -- Quick save
 -- Prefer "<cmd>" over ":" as to not trigger mode-changes and messages
 keymap("n", "<C-s>", "<cmd>write<CR>")

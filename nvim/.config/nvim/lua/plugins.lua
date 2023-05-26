@@ -34,10 +34,12 @@ return require("packer").startup(function(use)
     })
     -- Sessions
     use({
-        "olimorris/persisted.nvim",
+        "rmagatti/auto-session",
         config = function()
-            require("persisted").setup()
-            require("telescope").load_extension("persisted")
+            require("auto-session").setup({
+                auto_session_suppress_dirs = { "~/" },
+            })
+            vim.keymap.set("n", "<leader>fs", require("auto-session.session-lens").search_session)
         end,
     })
     -- Library used by many plugins
@@ -119,6 +121,7 @@ return require("packer").startup(function(use)
         "pwntester/octo.nvim",
         config = function()
             require("octo").setup({
+                use_local_fs = true,
                 mappings = {
                     review_diff = {
                         add_review_comment = { lhs = "<space>ac", desc = "add a new review comment" },

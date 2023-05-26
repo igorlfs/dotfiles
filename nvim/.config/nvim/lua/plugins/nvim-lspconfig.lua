@@ -21,7 +21,7 @@ vim.diagnostic.config({
     },
 })
 
--- C++
+-- C,C++
 lspconfig.clangd.setup({
     cmd = { "clangd", "--completion-style=detailed", "--clang-tidy", "--offset-encoding=utf-16" },
     on_attach = function(_, bufnr)
@@ -104,6 +104,8 @@ local servers = {
     "ruff_lsp",
     "bashls",
     "millet",
+    "html",
+    "cssls",
 }
 for _, lsp in ipairs(servers) do
     lspconfig[lsp].setup({

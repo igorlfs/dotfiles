@@ -32,6 +32,8 @@ treesitter.setup({
         "rust",
         "typescript",
         "javascript",
+        "html",
+        "css",
     },
     highlight = {
         enable = true,
@@ -45,7 +47,7 @@ treesitter.setup({
     },
     indent = {
         enable = true,
-        disable = { "python" },
+        disable = { "python", "html" },
     },
     textobjects = {
         select = {

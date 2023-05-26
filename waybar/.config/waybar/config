@@ -48,7 +48,7 @@
     },
     "pulseaudio": {
         "format": "VOL {volume}% {format_source}",
-        "format-muted": "MUTE {format_source}",
+        "format-muted": "VOL MUTE {format_source}",
         "format-source": "MIC {volume}%",
         "format-source-muted": "MIC MUTE"
     }
