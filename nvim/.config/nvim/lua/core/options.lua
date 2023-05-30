@@ -1,7 +1,7 @@
 local g = vim.g
 local o = vim.opt
 
--- Behavior
+-- Miscellanous
 o.termguicolors = true -- Enable full color support
 o.updatetime = 200 -- Time for CursorHold event (e.g., LSP)
 o.diffopt:append({ "linematch:60" }) -- Better diffs
@@ -15,6 +15,12 @@ o.sessionoptions:append("localoptions") -- Extend options saved by sessions
 o.fillchars:append([[eob: ,fold: ,foldopen:󰅀,foldsep: ,foldclose:󰅂]]) -- Fancy fold symbols
 o.jumpoptions = "view" -- Prevents moving cursor when switching files
 o.exrc = true -- Enable per-project config file (.nvim.lua)
+o.number = true -- Print the line number in front of the current line
+o.relativenumber = true -- Print the line numbers for motion
+o.showmode = false -- Hide message indicating current mode
+o.smoothscroll = true -- Smooth scrolling
+o.undofile = true -- Enable persistent undo
+o.shadafile = "NONE" -- Don't save history
 
 -- Spell
 o.spelllang:append({ "pt_br" }) -- Additional language to spell check
@@ -37,20 +43,6 @@ o.splitkeep = "screen" -- Keep the same relative cursor position when splitting
 o.expandtab = true -- Expand tabs to spaces
 o.tabstop = 4 -- Width of a tab
 o.shiftwidth = 4 -- Indent's width
-
--- Lateral line
-o.number = true -- Print the line number in front of the current line
-o.relativenumber = true -- Print the line numbers for motion
-
--- Status line
-o.laststatus = 0 -- Hide status line
-
--- Command line
-o.showmode = false -- Hide message indicating current mode
-
--- History
-o.undofile = true -- Enable persistent undo
-o.shadafile = "NONE" -- Don't save history
 
 -- Providers
 g.python3_host_prog = "/usr/bin/python3"
