@@ -55,6 +55,15 @@ return require("packer").startup(function(use)
     use("LostNeophyte/null-ls-embedded")
 
     ------ LSP Extensions
+    -- Async autoformat
+    use({
+        "lukas-reineke/lsp-format.nvim",
+        config = function()
+            require("lsp-format").setup({
+                exclude = { "lua_ls" },
+            })
+        end,
+    })
     -- workspace/willRename
     use({
         "antosha417/nvim-lsp-file-operations",
@@ -69,8 +78,18 @@ return require("packer").startup(function(use)
         config = function()
             require("ufo").setup()
             -- Don't change fold level when opening and closing all folds
-            vim.keymap.set("n", "zR", require("ufo").openAllFolds)
-            vim.keymap.set("n", "zM", require("ufo").closeAllFolds)
+            vim.keymap.set("n", "zR", function()
+                require("ufo").openAllFolds()
+                vim.cmd("IndentBlanklineRefresh")
+            end)
+            vim.keymap.set("n", "zM", function()
+                require("ufo").closeAllFolds()
+                vim.cmd("IndentBlanklineRefresh")
+            end)
+            -- See indent-blankline.nvim#449
+            for _, keymap in pairs({ "zo", "zO", "zc", "zC", "za", "zA", "zv", "zx", "zX", "zm", "zr" }) do
+                vim.keymap.set("n", keymap, keymap .. "<CMD>IndentBlanklineRefresh<CR>", { silent = true })
+            end
         end,
     })
 

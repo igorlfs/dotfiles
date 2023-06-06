@@ -54,35 +54,15 @@ au("BufWritePost", {
 
 local lsp_group = ag("lsp", { clear = false })
 au("LspAttach", {
-    desc = "LSP autoformat",
-    group = lsp_group,
-    callback = function(args)
-        local bufnr = args.buf
-        local client = vim.lsp.get_client_by_id(args.data.client_id)
-        if client.supports_method("textDocument/formatting") then
-            au("BufWritePre", {
-                clear({ group = lsp_group, buffer = bufnr }),
-                group = lsp_group,
-                buffer = bufnr,
-                callback = function()
-                    vim.lsp.buf.format({
-                        filter = function(c)
-                            return c.name ~= "lua_ls" and c.name ~= "jsonls"
-                        end,
-                    })
-                end,
-            })
-        end
-    end,
-})
-
-au("LspAttach", {
-    desc = "LSP Keymaps",
+    desc = "LSP",
     group = lsp_group,
     callback = function(ev)
         -- Buffer local mappings.
         local opts = { buffer = ev.buf }
         local client = vim.lsp.get_client_by_id(ev.data.client_id)
+
+        -- Async autoformat
+        require("lsp-format").on_attach(client)
 
         if client.server_capabilities.hoverProvider then
             keymap("n", "K", require("plugins.util").peek_or_show_documentation, opts)

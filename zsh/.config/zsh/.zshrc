@@ -25,7 +25,9 @@ alias v='nvim'
 alias cp='cp -r'
 alias mv='mv -i'
 # colors
-alias ls='ls --color=auto -v'
+alias ls='exa'
+alias la='exa -a'
+alias ll='exa -l'
 alias pacman='pacman --color=always'
 alias nc='ncdu --color=dark --exclude-kernfs'
 

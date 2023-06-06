@@ -20,9 +20,6 @@ null_ls.setup({
         -- Markdown
         formatting.markdownlint,
 
-        -- TS / JS / JSON
-        formatting.rome,
-
         -- SML
         formatting.smlfmt,
 
