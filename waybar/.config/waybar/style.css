@@ -1,7 +1,11 @@
 @import "mocha.css";
 
 * {
-    font-size: 12px;
+    font-size: 11px;
+}
+window#waybar {
+    background-color: @base;
+    border-bottom: 0px;
 }
 
 #workspaces button {
@@ -55,6 +59,7 @@ label:focus {
 #memory,
 #backlight,
 #battery,
+#clock,
 #network {
     color: @crust;
     padding: 0 10px;
@@ -122,6 +127,5 @@ label:focus {
 }
 
 #clock {
-    background-color: @base;
-    color: @text;
+    background-color: @pink;
 }
