@@ -4,12 +4,11 @@ return {
     dependencies = {
         { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
     },
-    version = false,
     config = function()
         local telescope = require("telescope")
         telescope.load_extension("fzf")
         telescope.load_extension("noice")
-        telescope.load_extension("session-lens")
+        telescope.load_extension("possession")
 
         local actions = require("telescope.actions")
         telescope.setup({

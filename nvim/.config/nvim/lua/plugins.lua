@@ -17,14 +17,16 @@ return {
         },
     },
     -- Sessions
-    -- BROKEN
-    -- {
-    --     "rmagatti/auto-session",
-    --     opts = { auto_session_suppress_dirs = { "~/" } },
-    --     keys = {
-    --         { "<leader>fs", "<CMD>Autosession search<CR>" },
-    --     },
-    -- },
+    {
+        "jedrzejboczar/possession.nvim",
+        opts = {
+            autosave = {
+                current = true,
+            },
+        },
+        lazy = false,
+        keys = { { "<leader>fs", "<CMD>Telescope possession list<CR>", desc = "Search Sessions" } },
+    },
     -- Developer Tools Package Manager
     {
         "williamboman/mason.nvim",
@@ -126,7 +128,7 @@ return {
 
     ------ Language Extensions
     { "lervag/vimtex", ft = "tex" },
-    { "linux-cultist/venv-selector.nvim", config = true },
+    { "linux-cultist/venv-selector.nvim", event = { "BufReadPost", "BufNewFile" }, config = true },
     { "luk400/vim-jukit", ft = { "python", "json" } },
     { "jez/vim-better-sml", ft = "sml" },
     { "mfussenegger/nvim-jdtls", ft = "java" },
