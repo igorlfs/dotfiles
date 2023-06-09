@@ -1,46 +1,41 @@
-local null_status, null_ls = pcall(require, "null-ls")
-local embedded_status, embedded = pcall(require, "null-ls-embedded")
+return {
+    "jose-elias-alvarez/null-ls.nvim",
+    dependencies = { "LostNeophyte/null-ls-embedded" },
+    event = { "BufReadPre", "BufNewFile" },
+    opts = function()
+        local null_ls = require("null-ls")
+        local embedded = require("null-ls-embedded")
+        local formatting = null_ls.builtins.formatting
+        local diagnostics = null_ls.builtins.diagnostics
+        return {
+            border = "rounded",
+            sources = {
+                -- Markdown
+                formatting.markdownlint,
 
-if not null_status then
-    vim.notify("null-ls not found")
-    return
-end
+                -- SML
+                formatting.smlfmt,
 
-if not embedded_status then
-    vim.notify("null-ls-embedded not found")
-    return
-end
+                -- Shell
+                formatting.shfmt,
 
-local formatting = null_ls.builtins.formatting
-local diagnostics = null_ls.builtins.diagnostics
+                -- YAML
+                formatting.yamlfmt,
 
-null_ls.setup({
-    border = "rounded",
-    sources = {
-        -- Markdown
-        formatting.markdownlint,
+                -- Lua
+                diagnostics.selene,
+                formatting.stylua,
 
-        -- SML
-        formatting.smlfmt,
+                -- Python
+                formatting.black,
+                formatting.isort,
 
-        -- Shell
-        formatting.shfmt,
+                -- C++
+                diagnostics.cppcheck,
 
-        -- YAML
-        formatting.yamlfmt,
-
-        -- Lua
-        diagnostics.selene,
-        formatting.stylua,
-
-        -- Python
-        formatting.black,
-        formatting.isort,
-
-        -- C++
-        diagnostics.cppcheck,
-
-        -- Format inline code
-        embedded.nls_source,
-    },
-})
+                -- Format inline code
+                embedded.nls_source,
+            },
+        }
+    end,
+}

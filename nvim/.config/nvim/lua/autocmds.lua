@@ -1,6 +1,5 @@
 local au = vim.api.nvim_create_autocmd
 local ag = vim.api.nvim_create_augroup
-local clear = vim.api.nvim_clear_autocmds
 local keymap = vim.keymap.set
 
 local defaults = ag("Defaults", {})
@@ -8,9 +7,7 @@ au("FileType", {
     desc = "Disable newline comments when inserting lines with o/O",
     group = defaults,
     pattern = { "*" },
-    callback = function()
-        vim.opt.formatoptions:remove("o")
-    end,
+    callback = function() vim.opt.formatoptions:remove("o") end,
 })
 
 au("Termopen", {
@@ -31,25 +28,14 @@ au("FileType", {
     desc = "Async build with C, C++",
     group = ag("Cpp", {}),
     pattern = { "cpp", "c", "make" },
-    callback = function()
-        keymap("n", "<leader>m", "<cmd>Make<CR>", { buffer = true })
-    end,
+    callback = function() keymap("n", "<leader>m", "<cmd>Make<CR>", { buffer = true }) end,
 })
 
 au("FileType", {
     desc = "Jukit convert notebooks",
     group = ag("Jukit", {}),
     pattern = { "python", "json" },
-    callback = function()
-        keymap("n", "<leader>np", "<cmd>call jukit#convert#notebook_convert('jupyter-notebook')<cr>")
-    end,
-})
-
-au("BufWritePost", {
-    desc = "Reload Packer",
-    group = ag("packer", {}),
-    pattern = "plugins.lua",
-    command = "source <afile> | PackerCompile",
+    callback = function() keymap("n", "<leader>np", "<cmd>call jukit#convert#notebook_convert('jupyter-notebook')<cr>") end,
 })
 
 local lsp_group = ag("lsp", { clear = false })
@@ -65,7 +51,7 @@ au("LspAttach", {
         require("lsp-format").on_attach(client)
 
         if client.server_capabilities.hoverProvider then
-            keymap("n", "K", require("plugins.util").peek_or_show_documentation, opts)
+            keymap("n", "K", vim.lsp.buf.hover, opts)
         end
 
         -- Defaults
@@ -80,23 +66,17 @@ au("LspAttach", {
         if client.server_capabilities.codeActionProvider then
             keymap({ "n", "v" }, "<space>ca", lsp.code_action, opts)
         end
-        keymap("n", "<space>F", function()
-            lsp.format({ async = true })
-        end, opts)
+        keymap("n", "<space>F", function() lsp.format({ async = true }) end, opts)
         keymap("n", "<space>wa", lsp.add_workspace_folder, opts)
         keymap("n", "<space>wr", lsp.remove_workspace_folder, opts)
-        keymap("n", "<space>wl", function()
-            print(vim.inspect(lsp.list_workspace_folders()))
-        end, opts)
+        keymap("n", "<space>wl", function() print(vim.inspect(lsp.list_workspace_folders())) end, opts)
 
         -- Telescope Stuff
         local builtin = require("telescope.builtin")
         keymap("n", "gd", builtin.lsp_definitions, opts)
         keymap("n", "gi", builtin.lsp_implementations, opts)
         keymap("n", "<space>D", builtin.lsp_type_definitions, opts)
-        keymap("n", "gr", function()
-            builtin.lsp_references({ show_line = false })
-        end, opts)
+        keymap("n", "gr", function() builtin.lsp_references({ show_line = false }) end, opts)
         keymap("n", "<leader>ic", builtin.lsp_incoming_calls, opts)
         keymap("n", "<leader>oc", builtin.lsp_outgoing_calls, opts)
         keymap("n", "<leader>ds", builtin.lsp_document_symbols, opts)

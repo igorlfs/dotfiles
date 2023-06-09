@@ -1,53 +1,53 @@
-local status, telescope = pcall(require, "telescope")
-
-if not status then
-    vim.notify("telescope not found")
-    return
-end
-
-local actions = require("telescope.actions")
-
-telescope.setup({
-    telescope.load_extension("fzf"),
-    telescope.load_extension("noice"),
-    defaults = {
-        file_ignore_patterns = {
-            "^.git/*",
-            "node_modules/*",
-            ".mypy_cache/*",
-        },
-        mappings = {
-            i = {
-                ["<Tab>"] = actions.move_selection_next,
-                ["<S-Tab>"] = actions.move_selection_previous,
-                ["<C-n>"] = actions.toggle_selection + actions.move_selection_worse,
-                ["<C-p>"] = actions.toggle_selection + actions.move_selection_better,
-            },
-        },
+return {
+    "nvim-telescope/telescope.nvim",
+    cmd = "Telescope",
+    dependencies = {
+        { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
     },
-    pickers = {
-        buffers = {
-            mappings = {
-                i = {
-                    ["<c-d>"] = actions.delete_buffer,
+    version = false,
+    config = function()
+        local telescope = require("telescope")
+        telescope.load_extension("fzf")
+        telescope.load_extension("noice")
+        telescope.load_extension("session-lens")
+
+        local actions = require("telescope.actions")
+        telescope.setup({
+            defaults = {
+                file_ignore_patterns = {
+                    "^.git/*",
+                    "node_modules/*",
+                    ".mypy_cache/*",
+                },
+                mappings = {
+                    i = {
+                        ["<Tab>"] = actions.move_selection_next,
+                        ["<S-Tab>"] = actions.move_selection_previous,
+                        ["<C-n>"] = actions.toggle_selection + actions.move_selection_worse,
+                        ["<C-p>"] = actions.toggle_selection + actions.move_selection_better,
+                    },
                 },
             },
-        },
-        find_files = {
-            hidden = true,
-        },
-        live_grep = {
-            additional_args = function()
-                return { "--hidden" }
-            end,
-        },
+            pickers = {
+                buffers = {
+                    mappings = {
+                        i = {
+                            ["<c-d>"] = actions.delete_buffer,
+                        },
+                    },
+                },
+                find_files = {
+                    hidden = true,
+                },
+                live_grep = {
+                    additional_args = function() return { "--hidden" } end,
+                },
+            },
+        })
+    end,
+    keys = {
+        { "<leader>ff", "<CMD>Telescope find_files<CR>", desc = "Search Files" },
+        { "<leader>fg", "<CMD>Telescope live_grep<CR>", desc = "Grep Files" },
+        { "<leader>fb", "<CMD>Telescope buffers<CR>", desc = "Search Buffers" },
     },
-})
-
--- Keymaps
-local keymap = vim.keymap.set
-local builtin = require("telescope.builtin")
-
-keymap("n", "<leader>ff", builtin.find_files)
-keymap("n", "<leader>fg", builtin.live_grep)
-keymap("n", "<leader>fb", builtin.buffers)
+}

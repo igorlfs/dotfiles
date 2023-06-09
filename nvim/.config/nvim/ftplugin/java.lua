@@ -69,7 +69,7 @@ local config = {
         require("jdtls.setup").add_commands()
         vim.lsp.codelens.refresh()
     end,
-    capabilities = require("plugins.util").capabilities,
+    capabilities = require("util").capabilities,
     -- Here you can configure eclipse.jdt.ls specific settings
     -- See https://github.com/eclipse/eclipse.jdt.ls/wiki/Running-the-JAVA-LS-server-from-the-command-line#initialize-request
     -- for a list of options

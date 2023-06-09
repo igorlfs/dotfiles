@@ -1,99 +1,166 @@
-local dap_status, dap = pcall(require, "dap")
-local ui_status, ui = pcall(require, "dapui")
-
-if not dap_status then
-    vim.notify("dap not found")
-    return
-end
-
-if not ui_status then
-    vim.notify("dap-ui not found")
-    return
-end
-
--- Adapters
--- C, C++
-dap.adapters.codelldb = require("plugins.util").codelldb
--- JS, TS
-dap.adapters["pwa-node"] = {
-    type = "server",
-    host = "localhost",
-    port = "${port}",
-    executable = {
-        command = "js-debug-adapter",
-        args = { "${port}" },
-    },
-}
-
--- Signs
-local sign = vim.fn.sign_define
-sign("DapBreakpoint", { text = "●", texthl = "DapBreakpoint", linehl = "", numhl = "" })
-sign("DapBreakpointCondition", { text = "●", texthl = "DapBreakpointCondition", linehl = "", numhl = "" })
-sign("DapLogPoint", { text = "◆", texthl = "DapLogPoint", linehl = "", numhl = "" })
-
--- Keymaps
-local keymap = vim.keymap.set
-keymap("n", "<F2>", ui.eval)
-keymap("n", "<F3>", function()
-    ui.float_element("breakpoints")
-end)
-
-keymap("n", "<F4>", dap.terminate)
-keymap("n", "<F5>", require("plugins.util").start_or_continue_dap)
-keymap("n", "<F6>", dap.run_to_cursor)
-keymap("n", "<F7>", function()
-    dap.set_breakpoint(nil, nil, vim.fn.input("Log point message: "))
-end)
-keymap("n", "<F8>", function()
-    dap.set_breakpoint(vim.fn.input("Breakpoint condition: "))
-end)
-keymap("n", "<F9>", dap.toggle_breakpoint)
-keymap("n", "<F10>", dap.step_over)
-keymap("n", "<F11>", dap.step_into)
-keymap("n", "<F12>", dap.step_out)
-
--- UI
-ui.setup({
-    icons = {
-        expanded = "󰅀",
-        collapsed = "󰅂",
-        current_frame = "󰅂",
-    },
-    layouts = {
+return {
+    "mfussenegger/nvim-dap",
+    dependencies = {
         {
-            elements = {
-                { id = "scopes", size = 0.5 },
-                { id = "watches", size = 0.5 },
+            "rcarriga/nvim-dap-ui",
+            opts = {
+                icons = {
+                    expanded = "󰅀",
+                    collapsed = "󰅂",
+                    current_frame = "󰅂",
+                },
+                layouts = {
+                    {
+                        elements = {
+                            { id = "scopes", size = 0.5 },
+                            { id = "watches", size = 0.5 },
+                        },
+                        size = 40,
+                        position = "left",
+                    },
+                    {
+                        elements = { "console", "repl" },
+                        position = "bottom",
+                        size = 15,
+                    },
+                },
+                controls = {
+                    enabled = false,
+                },
+                floating = {
+                    border = "rounded",
+                },
+                render = {
+                    indent = 2,
+                    -- hide variable types as C++'s are verbose
+                    max_type_length = 0,
+                },
             },
-            size = 40,
-            position = "left",
+            keys = {
+                {
+                    "<F2>",
+                    function() require("dapui").eval() end,
+                    desc = "Eval",
+                    mode = { "n", "v" },
+                },
+                {
+                    "<F3>",
+                    function() require("dapui").float_element("breakpoints") end,
+                    desc = "Eval",
+                    mode = { "n", "v" },
+                },
+            },
         },
         {
-            elements = { "console", "repl" },
-            position = "bottom",
-            size = 15,
+            "LiadOz/nvim-dap-repl-highlights",
+            config = true,
+        },
+        {
+            "mfussenegger/nvim-dap-python",
+            config = function() require("dap-python").setup("/usr/bin/python") end,
         },
     },
-    controls = {
-        enabled = false,
+    keys = {
+        {
+            "<F4>",
+            function() require("dap").terminate() end,
+            desc = "Terminate",
+        },
+        {
+            "<F5>",
+            function()
+                -- (Re-)reads launch.json if present
+                if vim.fn.filereadable(".vscode/launch.json") then
+                    require("dap.ext.vscode").load_launchjs(nil, { codelldb = { "c", "cpp" } })
+                end
+                require("dap").continue()
+            end,
+            desc = "Continue",
+        },
+        {
+            "<leader><F5>",
+            function() require("dap").run_last() end,
+            desc = "Run Last",
+        },
+        {
+            "<F6>",
+            function() require("dap").run_to_cursor() end,
+            desc = "Run to Cursor",
+        },
+        {
+            "<F7>",
+            function() require("dap").goto_() end,
+            desc = "Go to line (skip)",
+        },
+        {
+            "<F8>",
+            function() require("dap").set_breakpoint(vim.fn.input("Breakpoint condition: ")) end,
+            desc = "Breakpoint Condition",
+        },
+        {
+            "<F9>",
+            function() require("dap").toggle_breakpoint() end,
+            desc = "Toggle Breakpoint",
+        },
+        {
+            "<F10>",
+            function() require("dap").step_over() end,
+            desc = "Step Over",
+        },
+        {
+            "<F11>",
+            function() require("dap").step_into() end,
+            desc = "Step Into",
+        },
+        {
+            "<F12>",
+            function() require("dap").step_out() end,
+            desc = "Step Out",
+        },
+        {
+            "<leader>dj",
+            function() require("dap").down() end,
+            desc = "Down",
+        },
+        {
+            "<leader>dk",
+            function() require("dap").up() end,
+            desc = "Up",
+        },
+        {
+            "<leader>dp",
+            function() require("dap").pause() end,
+            desc = "Pause",
+        },
     },
-    floating = {
-        border = "rounded",
-    },
-    render = {
-        indent = 2,
-        -- Hide variable types as C++'s are verbose
-        max_type_length = 0,
-    },
-})
+    config = function()
+        local dap = require("dap")
 
--- use nvim-dap events to open and close the windows automatically
-dap.listeners.after.event_initialized["dapui_config"] = function()
-    ui.open({ reset = true })
-end
-dap.listeners.before.event_terminated["dapui_config"] = function()
-    ui.close()
-end
-dap.listeners.before.event_exited["dapui_config"] = function()
-    ui.close()
-end
+        -- Signs
+        local sign = vim.fn.sign_define
+        sign("DapBreakpoint", { text = "●", texthl = "DapBreakpoint", linehl = "", numhl = "" })
+        sign("DapBreakpointCondition", { text = "●", texthl = "DapBreakpointCondition", linehl = "", numhl = "" })
+
+        -- Adapters
+        -- C, C++
+        dap.adapters.codelldb = require("util").codelldb
+        -- JS, TS
+        dap.adapters["pwa-node"] = {
+            type = "server",
+            host = "localhost",
+            port = "${port}",
+            executable = {
+                command = "js-debug-adapter",
+                args = { "${port}" },
+            },
+        }
+
+        local ui = require("dapui")
+
+        -- Hooks
+        -- Open and close UI's windows automatically
+        dap.listeners.after.event_initialized["dapui_config"] = function() ui.open({ reset = true }) end
+        dap.listeners.before.event_terminated["dapui_config"] = function() ui.close() end
+        dap.listeners.before.event_exited["dapui_config"] = function() ui.close() end
+    end,
+}

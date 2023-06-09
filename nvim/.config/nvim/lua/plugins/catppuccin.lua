@@ -1,35 +1,37 @@
-local status, catppuccin = pcall(require, "catppuccin")
+return {
+    {
+        "catppuccin/nvim",
+        name = "catppuccin",
+        opts = {
+            compile_path = vim.fn.stdpath("cache") .. "/catppuccin",
+            highlight_overrides = {
+                mocha = function(mocha)
+                    return {
+                        jukit_cellmarker_colors = { bg = mocha.mantle, fg = mocha.mantle },
+                        jukit_textcell_bg_colors = { bg = mocha.crust },
 
-if not status then
-    vim.notify("catppuccin not found")
-    return
-end
-
-catppuccin.setup({
-    compile_path = vim.fn.stdpath("cache") .. "/catppuccin",
-    highlight_overrides = {
-        mocha = function(mocha)
-            return {
-                -- See catppuccin/nvim#313
-                NormalFloat = { fg = mocha.text, bg = mocha.none },
-                jukit_cellmarker_colors = { bg = mocha.mantle, fg = mocha.mantle },
-                jukit_textcell_bg_colors = { bg = mocha.crust },
-            }
+                        -- See catppuccin/nvim#313
+                        NormalFloat = { fg = mocha.text, bg = mocha.none },
+                    }
+                end,
+            },
+            integrations = {
+                dap = {
+                    enabled = true,
+                    enable_ui = true,
+                },
+                illuminate = true,
+                neotest = true,
+                notify = true,
+                neogit = true,
+                noice = true,
+                octo = true,
+                mini = true,
+            },
+        },
+        config = function(_, opts)
+            require("catppuccin").setup(opts)
+            vim.cmd([[colorscheme catppuccin]])
         end,
     },
-    integrations = {
-        dap = {
-            enabled = true,
-            enable_ui = true,
-        },
-        illuminate = true,
-        neotest = true,
-        notify = true,
-        neogit = true,
-        noice = true,
-        octo = true,
-        mini = true,
-    },
-})
-
-vim.cmd.colorscheme("catppuccin")
+}

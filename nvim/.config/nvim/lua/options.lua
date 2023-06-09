@@ -52,3 +52,4 @@ g.loaded_ruby_provider = 0
 
 -- Plugins
 g.jukit_mappings_ext_enabled = {} -- disable jukit default mappings
+-- g.jukit_terminal = "nvimterm"

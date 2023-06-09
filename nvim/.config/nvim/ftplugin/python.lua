@@ -1,18 +1,16 @@
 local keymap = vim.keymap.set
 local opts = { buffer = true }
 
-local status, dap_python = pcall(require, "dap-python")
-
-if status then
-    dap_python.setup("/usr/bin/python")
-else
-    vim.notify("dap-python not found")
-end
-
 ------ Jukit
 -- Splits
 -- Opening and Closing
-keymap("n", "<leader>so", require("plugins.util").launch_jukit_with_venv, opts)
+keymap("n", "<leader>so", function()
+    if os.getenv("VIRTUAL_ENV") then
+        vim.cmd("JukitOut source $(poetry env info --path)/bin/activate")
+    else
+        vim.cmd("call jukit#splits#output()")
+    end
+end, opts)
 keymap("n", "<leader>sh", "<cmd>call jukit#splits#history()<CR>", opts)
 keymap("n", "<leader>sc", "<cmd>call jukit#splits#close_output_and_history(1)<CR>", opts)
 
