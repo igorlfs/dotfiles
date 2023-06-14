@@ -1,5 +1,6 @@
 local au = vim.api.nvim_create_autocmd
 local ag = vim.api.nvim_create_augroup
+local clear = vim.api.nvim_clear_autocmds
 local keymap = vim.keymap.set
 
 local defaults = ag("Defaults", {})
@@ -47,8 +48,20 @@ au("LspAttach", {
         local opts = { buffer = ev.buf }
         local client = vim.lsp.get_client_by_id(ev.data.client_id)
 
-        -- Async autoformat
-        require("lsp-format").on_attach(client)
+        -- Autoformat
+        local excluded = { "lua_ls" }
+        if client.supports_method("textDocument/formatting") then
+            au("BufWritePre", {
+                clear({ group = lsp_group, buffer = ev.buf }),
+                group = lsp_group,
+                buffer = ev.buf,
+                callback = function()
+                    vim.lsp.buf.format({
+                        filter = function(c) return not vim.tbl_contains(excluded, c.name) end,
+                    })
+                end,
+            })
+        end
 
         if client.server_capabilities.hoverProvider then
             keymap("n", "K", vim.lsp.buf.hover, opts)

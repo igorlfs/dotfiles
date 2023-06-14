@@ -42,6 +42,10 @@ return {
                 "dapui_watches",
                 "dapui_console",
                 "dap-repl",
+                "neotest-summary",
+            },
+            bt_ignore = {
+                "terminal",
             },
         })
     end,

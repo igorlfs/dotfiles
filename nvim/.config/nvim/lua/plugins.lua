@@ -9,7 +9,7 @@ return {
             direction = "float",
             float_opts = { border = "rounded" },
         },
-        keys = { { "<a-p>", "<CMD>ToggleTerm<CR>", desc = "Toggle Float Term" } },
+        keys = { { "<a-p>", "<CMD>ToggleTerm<CR>", desc = "Toggle Float Term", mode = { "n", "t" } } },
     },
     -- Sessions
     {
@@ -29,14 +29,6 @@ return {
     },
 
     ------ LSP Extensions
-    -- textDocument/formatting (async)
-    {
-        "lukas-reineke/lsp-format.nvim",
-        event = { "LspAttach" },
-        opts = {
-            lua = { exclude = { "lua_ls" } },
-        },
-    },
     -- textDocument/documentColor
     {
         "uga-rosa/ccc.nvim",

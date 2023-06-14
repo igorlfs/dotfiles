@@ -51,21 +51,14 @@ return {
                 },
             },
         },
-        {
-            "LiadOz/nvim-dap-repl-highlights",
-            config = true,
-        },
+        { "LiadOz/nvim-dap-repl-highlights", config = true },
         {
             "mfussenegger/nvim-dap-python",
             config = function() require("dap-python").setup("/usr/bin/python") end,
         },
     },
     keys = {
-        {
-            "<F4>",
-            function() require("dap").terminate() end,
-            desc = "Terminate",
-        },
+        { "<F4>", function() require("dap").terminate() end, desc = "Terminate" },
         {
             "<F5>",
             function()
@@ -77,61 +70,21 @@ return {
             end,
             desc = "Continue",
         },
-        {
-            "<leader><F5>",
-            function() require("dap").run_last() end,
-            desc = "Run Last",
-        },
-        {
-            "<F6>",
-            function() require("dap").run_to_cursor() end,
-            desc = "Run to Cursor",
-        },
-        {
-            "<F7>",
-            function() require("dap").goto_() end,
-            desc = "Go to line (skip)",
-        },
+        { "<leader><F5>", function() require("dap").run_last() end, desc = "Run Last" },
+        { "<F6>", function() require("dap").run_to_cursor() end, desc = "Run to Cursor" },
+        { "<F7>", function() require("dap").goto_() end, desc = "Go to line (skip)" },
         {
             "<F8>",
             function() require("dap").set_breakpoint(vim.fn.input("Breakpoint condition: ")) end,
             desc = "Breakpoint Condition",
         },
-        {
-            "<F9>",
-            function() require("dap").toggle_breakpoint() end,
-            desc = "Toggle Breakpoint",
-        },
-        {
-            "<F10>",
-            function() require("dap").step_over() end,
-            desc = "Step Over",
-        },
-        {
-            "<F11>",
-            function() require("dap").step_into() end,
-            desc = "Step Into",
-        },
-        {
-            "<F12>",
-            function() require("dap").step_out() end,
-            desc = "Step Out",
-        },
-        {
-            "<leader>dj",
-            function() require("dap").down() end,
-            desc = "Down",
-        },
-        {
-            "<leader>dk",
-            function() require("dap").up() end,
-            desc = "Up",
-        },
-        {
-            "<leader>dp",
-            function() require("dap").pause() end,
-            desc = "Pause",
-        },
+        { "<F9>", function() require("dap").toggle_breakpoint() end, desc = "Toggle Breakpoint" },
+        { "<F10>", function() require("dap").step_over() end, desc = "Step Over" },
+        { "<F11>", function() require("dap").step_into() end, desc = "Step Into" },
+        { "<F12>", function() require("dap").step_out() end, desc = "Step Out" },
+        { "<leader>dj", function() require("dap").down() end, desc = "Down" },
+        { "<leader>dk", function() require("dap").up() end, desc = "Up" },
+        { "<leader>dp", function() require("dap").pause() end, desc = "Pause" },
     },
     config = function()
         local dap = require("dap")
