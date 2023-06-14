@@ -3,7 +3,6 @@ return {
     {
         "folke/noice.nvim",
         dependencies = "MunifTanjim/nui.nvim",
-        event = "VeryLazy",
         opts = {
             messages = {
                 view_search = false, -- disable view for search count messages

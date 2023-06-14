@@ -6,15 +6,10 @@ return {
     {
         "akinsho/toggleterm.nvim",
         opts = {
-            open_mapping = [[<a-p>]],
             direction = "float",
-            float_opts = {
-                border = "rounded",
-            },
+            float_opts = { border = "rounded" },
         },
-        keys = {
-            { "<a-p>", "<CMD>ToggleTerm<CR>", desc = "Toggle Float Term" },
-        },
+        keys = { { "<a-p>", "<CMD>ToggleTerm<CR>", desc = "Toggle Float Term" } },
     },
     -- Sessions
     {
@@ -24,7 +19,6 @@ return {
                 current = true,
             },
         },
-        lazy = false,
         keys = { { "<leader>fs", "<CMD>Telescope possession list<CR>", desc = "Search Sessions" } },
     },
     -- Developer Tools Package Manager
@@ -40,7 +34,7 @@ return {
         "lukas-reineke/lsp-format.nvim",
         event = { "LspAttach" },
         opts = {
-            exclude = "lua_ls",
+            lua = { exclude = { "lua_ls" } },
         },
     },
     -- textDocument/documentColor

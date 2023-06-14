@@ -11,7 +11,7 @@ o.scrolloff = 4 -- Context lines when scrolling
 o.clipboard = "unnamedplus" -- Use system clipboard
 o.wildmode = "longest,list,full" -- Funky completion for commands
 o.conceallevel = 2 -- Hide verbosity in markdown and LaTeX
-o.sessionoptions:append("localoptions") -- Extend options saved by sessions
+o.sessionoptions:remove("buffers") -- Update options saved by sessions
 o.fillchars:append([[eob: ,fold: ,foldopen:󰅀,foldsep: ,foldclose:󰅂]]) -- Fancy fold symbols
 o.jumpoptions = "view" -- Prevents moving cursor when switching files
 o.exrc = true -- Enable per-project config file (.nvim.lua)
@@ -21,6 +21,10 @@ o.showmode = false -- Hide message indicating current mode
 o.smoothscroll = true -- Smooth scrolling
 o.undofile = true -- Enable persistent undo
 o.shadafile = "NONE" -- Don't save history
+
+-- Cursor
+o.cursorlineopt = "number" -- Only highlight numberline
+o.cursorline = true -- Highlight current line
 
 -- Spell
 o.spelllang:append({ "pt_br" }) -- Additional language to spell check
