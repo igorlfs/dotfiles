@@ -4,10 +4,7 @@ return {
         dependencies = {
             "nvim-tree/nvim-web-devicons",
             -- LSP Extension: workspace/willRename
-            {
-                "antosha417/nvim-lsp-file-operations",
-                config = true,
-            },
+            { "antosha417/nvim-lsp-file-operations", config = true },
         },
         keys = {
             { "<leader>v", "<CMD>NvimTreeToggle<CR>", desc = "Toggle NvimTree" },

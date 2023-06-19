@@ -20,12 +20,13 @@ return {
             },
         },
         keys = { { "<leader>fs", "<CMD>Telescope possession list<CR>", desc = "Search Sessions" } },
+        cmd = { "PossessionSave" },
     },
     -- Developer Tools Package Manager
     {
         "williamboman/mason.nvim",
-        dependencies = "williamboman/mason-lspconfig.nvim",
         opts = { ui = { border = "rounded" } },
+        cmd = "Mason",
     },
 
     ------ LSP Extensions
@@ -52,7 +53,7 @@ return {
         "TimUntersberger/neogit",
         dependencies = {
             "sindrets/diffview.nvim",
-            cmd = "DiffviewOpen",
+            cmd = { "DiffviewOpen", "DiffviewFileHistory" },
         },
         cmd = "Neogit",
         opts = {
@@ -88,7 +89,7 @@ return {
     { "numToStr/Comment.nvim", event = { "BufReadPost", "BufNewFile" }, config = true },
     -- Snippets
     { "honza/vim-snippets" },
-    -- Update Indent settings according to file
+    -- Indentation
     { "nmac427/guess-indent.nvim", config = true },
 
     ------ Eye Candy
@@ -113,9 +114,23 @@ return {
     },
 
     ------ Language Extensions
-    { "lervag/vimtex", ft = "tex" },
+    {
+        "lervag/vimtex",
+        init = function()
+            -- Avoid startup warning about Tree-sitter
+            -- Prefer Tree-sitter's highlighting as it allows spell-checking
+            vim.g.vimtex_syntax_enabled = 0
+            vim.g.vimtex_syntax_conceal_disable = 1
+        end,
+    },
+    {
+        "luk400/vim-jukit",
+        ft = { "python", "json" },
+        init = function()
+            vim.g.jukit_mappings_ext_enabled = {} -- disable default mappings
+        end,
+    },
     { "linux-cultist/venv-selector.nvim", event = { "BufReadPost", "BufNewFile" }, config = true },
-    { "luk400/vim-jukit", ft = { "python", "json" } },
     { "jez/vim-better-sml", ft = "sml" },
     { "mfussenegger/nvim-jdtls", ft = "java" },
     {

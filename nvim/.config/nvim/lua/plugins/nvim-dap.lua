@@ -32,7 +32,7 @@ return {
                 },
                 render = {
                     indent = 2,
-                    -- hide variable types as C++'s are verbose
+                    -- Hide variable types as C++'s are verbose
                     max_type_length = 0,
                 },
             },
@@ -40,13 +40,13 @@ return {
                 {
                     "<F2>",
                     function() require("dapui").eval() end,
-                    desc = "Eval",
+                    desc = "DAP Eval",
                     mode = { "n", "v" },
                 },
                 {
                     "<F3>",
                     function() require("dapui").float_element("breakpoints") end,
-                    desc = "Eval",
+                    desc = "DAP List Breakpoints",
                     mode = { "n", "v" },
                 },
             },
@@ -58,7 +58,7 @@ return {
         },
     },
     keys = {
-        { "<F4>", function() require("dap").terminate() end, desc = "Terminate" },
+        { "<F4>", function() require("dap").terminate() end, desc = "DAP Terminate" },
         {
             "<F5>",
             function()
@@ -68,7 +68,7 @@ return {
                 end
                 require("dap").continue()
             end,
-            desc = "Continue",
+            desc = "DAP Continue",
         },
         { "<leader><F5>", function() require("dap").run_last() end, desc = "Run Last" },
         { "<F6>", function() require("dap").run_to_cursor() end, desc = "Run to Cursor" },

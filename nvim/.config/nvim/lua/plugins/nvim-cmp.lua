@@ -1,8 +1,7 @@
 return {
     {
         "hrsh7th/nvim-cmp",
-        version = false,
-        event = "InsertEnter",
+        event = { "InsertEnter", "CmdlineEnter" },
         dependencies = {
             "hrsh7th/cmp-nvim-lsp",
             "hrsh7th/cmp-path",
@@ -19,7 +18,7 @@ return {
             return {
                 enabled = function()
                     -- Enable completion in prompt buffers to use cmp-dap
-                    return vim.api.nvim_buf_get_option(0, "buftype") ~= "prompt" or cmp_dap.is_dap_buffer()
+                    return vim.api.nvim_get_option_value("buftype", { buf = 0 }) ~= "prompt" or cmp_dap.is_dap_buffer()
                 end,
                 snippet = {
                     expand = function(args) snippy.expand_snippet(args.body) end,

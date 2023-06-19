@@ -1,8 +1,8 @@
 return {
-    { "MunifTanjim/nui.nvim", lazy = true },
     {
         "folke/noice.nvim",
         dependencies = "MunifTanjim/nui.nvim",
+        event = "VimEnter",
         opts = {
             messages = {
                 view_search = false, -- disable view for search count messages

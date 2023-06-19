@@ -23,7 +23,6 @@ end
 
 local servers = {
     "pylance",
-    "texlab",
     "tsserver",
     "lua_ls",
     "taplo",
@@ -37,18 +36,39 @@ local servers = {
 
 return {
     "neovim/nvim-lspconfig",
-    dependencies = { "folke/neodev.nvim" },
+    dependencies = {
+        { "folke/neodev.nvim", config = true },
+        { "williamboman/mason-lspconfig.nvim", config = true },
+    },
     config = function()
         -- Enable border for LspInfo
         require("lspconfig.ui.windows").default_options.border = "rounded"
-
-        require("neodev").setup()
 
         for _, lsp in ipairs(servers) do
             require("lspconfig")[lsp].setup({
                 capabilities = require("util").capabilities,
             })
         end
+
+        require("lspconfig").texlab.setup({
+            capabilities = require("util").capabilities,
+            settings = {
+                -- Vimtex's tectonic support can't handle "cotinuous compilation" so we texlab's build instead.
+                -- However, vimtex provides a nice command for inverse search, so it's worth keeping around
+                texlab = {
+                    build = {
+                        executable = "tectonic",
+                        args = { "-X", "compile", "%f", "--synctex", "--keep-intermediates" },
+                        forwardSearchAfter = true,
+                        onSave = true,
+                    },
+                    forwardSearch = {
+                        executable = "zathura",
+                        args = { "--synctex-forward", "%l:1:%f", "%p" },
+                    },
+                },
+            },
+        })
 
         require("lspconfig").clangd.setup({
             cmd = { "clangd", "--completion-style=detailed", "--clang-tidy", "--offset-encoding=utf-16" },

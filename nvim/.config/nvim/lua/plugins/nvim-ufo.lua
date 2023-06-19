@@ -3,6 +3,7 @@ return {
     "kevinhwang91/nvim-ufo",
     dependencies = { "kevinhwang91/promise-async" },
     event = "BufRead",
+    config = true,
     keys = {
         -- Don't change fold level when opening and closing all folds
         {
@@ -22,7 +23,4 @@ return {
             desc = "Open All Folds",
         },
     },
-    config = function()
-        require("ufo").setup()
-    end,
 }
