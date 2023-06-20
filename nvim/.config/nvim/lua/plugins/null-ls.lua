@@ -13,9 +13,6 @@ return {
                 -- Markdown
                 formatting.markdownlint,
 
-                -- SML
-                formatting.smlfmt,
-
                 -- Shell
                 formatting.shfmt,
 

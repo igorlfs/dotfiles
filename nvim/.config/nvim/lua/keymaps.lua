@@ -12,7 +12,6 @@ keymap("n", "ç", ":")
 keymap("n", "<C-s>", "<cmd>write<CR>")
 
 -- Quick exit terminal
--- Needs to be recursive, so it can be used elsewhere (e.g., SML Send To Repl)
 keymap("t", "<Esc>", "<C-\\><C-n>")
 
 -- Toggle spell checking

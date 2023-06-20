@@ -131,7 +131,6 @@ return {
         end,
     },
     { "linux-cultist/venv-selector.nvim", event = { "BufReadPost", "BufNewFile" }, config = true },
-    { "jez/vim-better-sml", ft = "sml" },
     { "mfussenegger/nvim-jdtls", ft = "java" },
     {
         "iamcco/markdown-preview.nvim",
