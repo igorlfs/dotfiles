@@ -19,6 +19,9 @@ return {
             hover_actions = {
                 auto_focus = true,
             },
+            inlay_hints = {
+                auto = false,
+            },
         },
         dap = {
             adapter = require("util").codelldb,

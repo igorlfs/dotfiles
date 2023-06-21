@@ -24,7 +24,6 @@ end
 local servers = {
     "pylance",
     "tsserver",
-    "lua_ls",
     "taplo",
     "gradle_ls",
     "ruff_lsp",
@@ -49,6 +48,11 @@ return {
                 capabilities = require("util").capabilities,
             })
         end
+
+        require("lspconfig").lua_ls.setup({
+            capabilities = require("util").capabilities,
+            settings = { Lua = { hint = { enable = true } } },
+        })
 
         require("lspconfig").texlab.setup({
             capabilities = require("util").capabilities,

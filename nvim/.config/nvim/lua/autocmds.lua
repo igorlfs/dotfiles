@@ -48,6 +48,11 @@ au("LspAttach", {
         local opts = { buffer = ev.buf }
         local client = vim.lsp.get_client_by_id(ev.data.client_id)
 
+        -- Inlay hints
+        if client.supports_method("textDocument/inlayHint") then
+            vim.lsp.buf.inlay_hint(ev.buf, true)
+        end
+
         -- Autoformat
         local excluded = { "lua_ls" }
         if client.supports_method("textDocument/formatting") then
