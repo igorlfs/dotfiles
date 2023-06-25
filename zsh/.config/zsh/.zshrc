@@ -18,7 +18,6 @@ PS1="%{$fg[magenta]%}%~ %{$reset_color%}$ "
 
 ### Aliases
 # lazy
-alias s='pgrep -x sway || exec dbus-run-session sway'
 alias h='pgrep -x Hyprland || exec dbus-run-session Hyprland'
 alias v='nvim'
 # utils
