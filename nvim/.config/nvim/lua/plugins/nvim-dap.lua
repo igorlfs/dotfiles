@@ -1,6 +1,7 @@
 return {
     "mfussenegger/nvim-dap",
     dependencies = {
+        { "stevearc/overseer.nvim" },
         {
             "rcarriga/nvim-dap-ui",
             opts = {

@@ -81,8 +81,6 @@ return {
     ------ Editing
     -- Pairs
     { "windwp/nvim-autopairs", event = "InsertEnter", config = true },
-    -- Tags
-    { "windwp/nvim-ts-autotag", config = true },
     -- Surround
     { "kylechui/nvim-surround", event = { "BufReadPost", "BufNewFile" }, config = true },
     -- Comments
@@ -90,7 +88,7 @@ return {
     -- Snippets
     { "honza/vim-snippets" },
     -- Indentation
-    { "nmac427/guess-indent.nvim", config = true },
+    { "nmac427/guess-indent.nvim", event = { "BufReadPost" }, config = true },
 
     ------ Eye Candy
     -- UI

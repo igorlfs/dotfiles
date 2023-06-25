@@ -6,7 +6,7 @@
 
 return {
     "stevearc/overseer.nvim",
-    event = "VeryLazy",
+    cmd = "Make",
     config = function()
         local uc = vim.api.nvim_create_user_command
         local overseer = require("overseer")

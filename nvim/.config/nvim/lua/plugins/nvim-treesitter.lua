@@ -6,6 +6,7 @@ return {
         event = { "BufReadPost", "BufNewFile" },
         dependencies = {
             { "nvim-treesitter/nvim-treesitter-textobjects" },
+            { "windwp/nvim-ts-autotag", config = true },
         },
         config = function()
             require("nvim-treesitter.configs").setup({
