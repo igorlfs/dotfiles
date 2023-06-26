@@ -12,6 +12,7 @@ vim.diagnostic.config({
         header = "",
         prefix = "",
     },
+    severity_sort = true,
 })
 
 -- Icons

@@ -13,6 +13,8 @@ keymap("n", "<leader>so", function()
 end, opts)
 keymap("n", "<leader>sh", "<cmd>call jukit#splits#history()<CR>", opts)
 keymap("n", "<leader>sc", "<cmd>call jukit#splits#close_output_and_history(1)<CR>", opts)
+-- Move
+keymap("n", "<A-i>", "<C-w>wi")
 
 -- Sending Code
 -- Current Cell

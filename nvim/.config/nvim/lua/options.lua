@@ -1,6 +1,8 @@
 local g = vim.g
 local o = vim.opt
 
+g.mapleader = " " -- Use space as leader
+
 -- Miscellanous
 o.termguicolors = true -- Enable full color support
 o.updatetime = 200 -- Time for CursorHold event (e.g., LSP)

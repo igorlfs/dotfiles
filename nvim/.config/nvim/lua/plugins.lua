@@ -88,7 +88,7 @@ return {
     -- Snippets
     { "honza/vim-snippets" },
     -- Indentation
-    { "nmac427/guess-indent.nvim", event = { "BufReadPost" }, config = true },
+    { "nmac427/guess-indent.nvim", event = { "VimEnter" }, config = true },
 
     ------ Eye Candy
     -- UI
@@ -126,6 +126,7 @@ return {
         ft = { "python", "json" },
         init = function()
             vim.g.jukit_mappings_ext_enabled = {} -- disable default mappings
+            vim.g.jukit_terminal = "nvimterm"
         end,
     },
     { "linux-cultist/venv-selector.nvim", event = { "BufReadPost", "BufNewFile" }, config = true },

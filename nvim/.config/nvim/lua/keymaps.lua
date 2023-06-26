@@ -1,21 +1,18 @@
 local keymap = vim.keymap.set
 local str = string.format
 
--- Use space as leader
-vim.g.mapleader = " "
-
 -- Quick command mode
 keymap("n", "ç", ":")
 
 -- Quick save
 -- Prefer "<cmd>" over ":" as to not trigger mode-changes and messages
-keymap("n", "<C-s>", "<cmd>write<CR>")
+keymap({ "n", "i" }, "<C-s>", "<cmd>write<CR>")
 
 -- Quick exit terminal
 keymap("t", "<Esc>", "<C-\\><C-n>")
 
 -- Toggle spell checking
-keymap("n", "<leader>s", "<cmd>setlocal spell!<CR>")
+keymap("n", "<leader>ss", "<cmd>setlocal spell!<CR>")
 
 -- Move within visual lines
 keymap("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })

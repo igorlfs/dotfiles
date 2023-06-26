@@ -1,46 +1,54 @@
-local au = vim.api.nvim_create_autocmd
-local ag = vim.api.nvim_create_augroup
+local autocmd = vim.api.nvim_create_autocmd
+local augroup = vim.api.nvim_create_augroup
 local clear = vim.api.nvim_clear_autocmds
 local keymap = vim.keymap.set
 
-local defaults = ag("Defaults", {})
-au("FileType", {
+local defaults = augroup("Defaults", {})
+
+autocmd("FileType", {
     desc = "Disable newline comments when inserting lines with o/O",
     group = defaults,
     pattern = { "*" },
-    callback = function() vim.opt.formatoptions:remove("o") end,
+    command = "setlocal formatoptions-=o",
 })
 
-au("Termopen", {
+autocmd("Termopen", {
     desc = "Unclutter terminal",
     group = defaults,
     pattern = { "*" },
-    command = "setlocal nonumber norelativenumber scrolloff=0",
+    callback = function()
+        vim.opt_local.number = false
+        vim.opt_local.relativenumber = false
+        vim.opt_local.scrolloff = 0
+        -- Use a fixed width to avoid resizing vim-jukit
+        vim.opt_local.winfixwidth = true
+        keymap("t", "<A-i>", "<C-\\><C-n><C-w>w")
+    end,
 })
 
-au("FileType", {
+autocmd("FileType", {
     desc = "Enable spellchecker",
     group = defaults,
     pattern = { "gitcommit", "tex", "NeogitCommitMessage" },
     command = "setlocal spell",
 })
 
-au("FileType", {
+autocmd("FileType", {
     desc = "Async build with C, C++",
-    group = ag("Cpp", {}),
+    group = augroup("Cpp", {}),
     pattern = { "cpp", "c", "make" },
     callback = function() keymap("n", "<leader>m", "<cmd>Make<CR>", { buffer = true }) end,
 })
 
-au("FileType", {
+autocmd("FileType", {
     desc = "Jukit convert notebooks",
-    group = ag("Jukit", {}),
+    group = augroup("Jukit", {}),
     pattern = { "python", "json" },
     callback = function() keymap("n", "<leader>np", "<cmd>call jukit#convert#notebook_convert('jupyter-notebook')<cr>") end,
 })
 
-local lsp_group = ag("lsp", { clear = false })
-au("LspAttach", {
+local lsp_group = augroup("lsp", { clear = false })
+autocmd("LspAttach", {
     desc = "LSP",
     group = lsp_group,
     callback = function(ev)
@@ -56,7 +64,7 @@ au("LspAttach", {
         -- Autoformat
         local excluded = { "lua_ls" }
         if client.supports_method("textDocument/formatting") then
-            au("BufWritePre", {
+            autocmd("BufWritePre", {
                 clear({ group = lsp_group, buffer = ev.buf }),
                 group = lsp_group,
                 buffer = ev.buf,
@@ -104,7 +112,7 @@ au("LspAttach", {
     end,
 })
 
-au({ "VimEnter", "DirChanged" }, {
+autocmd({ "VimEnter", "DirChanged" }, {
     desc = "Venv autoselect",
     pattern = "*",
     callback = function()

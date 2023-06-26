@@ -26,9 +26,11 @@ return {
                 "toggleterm",
                 "lazyterm",
             },
-            callback = function()
-                vim.b.miniindentscope_disable = true
-            end,
+            callback = function() vim.b.miniindentscope_disable = true end,
+        })
+        vim.api.nvim_create_autocmd("Termopen", {
+            pattern = { "*" },
+            callback = function() vim.b.miniindentscope_disable = true end,
         })
     end,
 }
