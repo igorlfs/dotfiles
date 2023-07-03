@@ -56,11 +56,6 @@ autocmd("LspAttach", {
         local opts = { buffer = ev.buf }
         local client = vim.lsp.get_client_by_id(ev.data.client_id)
 
-        -- Inlay hints
-        if client.supports_method("textDocument/inlayHint") then
-            vim.lsp.buf.inlay_hint(ev.buf, true)
-        end
-
         -- Autoformat
         local excluded = { "lua_ls" }
         if client.supports_method("textDocument/formatting") then
@@ -76,33 +71,37 @@ autocmd("LspAttach", {
             })
         end
 
-        if client.server_capabilities.hoverProvider then
-            keymap("n", "K", vim.lsp.buf.hover, opts)
-        end
-
         -- Defaults
         local lsp = vim.lsp.buf
+
+        if client.supports_method("textDocument/inlayHint") then
+            keymap("n", "<leader>H", function() vim.lsp.inlay_hint(0, nil) end, opts)
+        end
+
+        if client.server_capabilities.hoverProvider then
+            keymap("n", "K", lsp.hover, opts)
+        end
         if client.server_capabilities.declarationProvider then
             keymap("n", "gD", lsp.declaration, opts)
         end
         if client.server_capabilities.signatureHelpProvider then
             keymap({ "n", "i" }, "<C-k>", lsp.signature_help, opts)
         end
-        keymap("n", "<space>rn", lsp.rename, opts)
         if client.server_capabilities.codeActionProvider then
-            keymap({ "n", "v" }, "<space>ca", lsp.code_action, opts)
+            keymap({ "n", "v" }, "<leader>ca", lsp.code_action, opts)
         end
-        keymap("n", "<space>F", function() lsp.format({ async = true }) end, opts)
-        keymap("n", "<space>wa", lsp.add_workspace_folder, opts)
-        keymap("n", "<space>wr", lsp.remove_workspace_folder, opts)
-        keymap("n", "<space>wl", function() print(vim.inspect(lsp.list_workspace_folders())) end, opts)
+        keymap("n", "<leader>rn", lsp.rename, opts)
+        keymap("n", "<leader>F", function() lsp.format({ async = true }) end, opts)
+        keymap("n", "<leader>wl", function() print(vim.inspect(lsp.list_workspace_folders())) end, opts)
+        keymap("n", "<leader>wa", lsp.add_workspace_folder, opts)
+        keymap("n", "<leader>wr", lsp.remove_workspace_folder, opts)
 
         -- Telescope Stuff
         local builtin = require("telescope.builtin")
         keymap("n", "gd", builtin.lsp_definitions, opts)
         keymap("n", "gi", builtin.lsp_implementations, opts)
-        keymap("n", "<space>D", builtin.lsp_type_definitions, opts)
         keymap("n", "gr", function() builtin.lsp_references({ show_line = false }) end, opts)
+        keymap("n", "<leader>D", builtin.lsp_type_definitions, opts)
         keymap("n", "<leader>ic", builtin.lsp_incoming_calls, opts)
         keymap("n", "<leader>oc", builtin.lsp_outgoing_calls, opts)
         keymap("n", "<leader>ds", builtin.lsp_document_symbols, opts)

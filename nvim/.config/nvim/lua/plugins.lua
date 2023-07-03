@@ -50,7 +50,7 @@ return {
 
     ------ VCS
     {
-        "TimUntersberger/neogit",
+        "NeogitOrg/neogit",
         dependencies = {
             "sindrets/diffview.nvim",
             cmd = { "DiffviewOpen", "DiffviewFileHistory" },

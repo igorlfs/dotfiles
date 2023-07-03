@@ -25,8 +25,8 @@ for i = 1, 9 do
 end
 keymap("n", "<A-0>", "<cmd>tablast<CR>")
 -- Switch
-keymap("n", "<A-tab>", "<cmd>tabnext<CR>")
-keymap("n", "<S-tab>", "<cmd>tabprevious<CR>")
+keymap("n", "<A-]>", "<cmd>tabnext<CR>")
+keymap("n", "<A-[>", "<cmd>tabprevious<CR>")
 -- New tab
 keymap("n", "<A-t>", "<cmd>tab split<CR>")
 

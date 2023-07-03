@@ -11,18 +11,21 @@ o.hlsearch = false -- Don't keep searches highlighted
 o.linebreak = true -- Break lines correctly
 o.scrolloff = 4 -- Context lines when scrolling
 o.clipboard = "unnamedplus" -- Use system clipboard
-o.wildmode = "longest,list,full" -- Funky completion for commands
-o.conceallevel = 2 -- Hide verbosity in markdown and LaTeX
-o.sessionoptions:remove("buffers") -- Update options saved by sessions
+o.wildmode = "longest:full,full" -- Funky completion for commands
+o.conceallevel = 3 -- Hide verbosity in markdown and LaTeX
+o.sessionoptions:remove({ "buffers", "folds" }) -- Update options saved by sessions
 o.fillchars:append([[eob: ,fold: ,foldopen:󰅀,foldsep: ,foldclose:󰅂]]) -- Fancy fold symbols
 o.jumpoptions = "view" -- Prevents moving cursor when switching files
 o.exrc = true -- Enable per-project config file (.nvim.lua)
-o.number = true -- Print the line number in front of the current line
-o.relativenumber = true -- Print the line numbers for motion
 o.showmode = false -- Hide message indicating current mode
 o.smoothscroll = true -- Smooth scrolling
 o.undofile = true -- Enable persistent undo
 o.shadafile = "NONE" -- Don't save history
+o.shortmess:append("I") -- skip message at the start
+
+-- Statuscolumn
+o.number = true -- Print the line number in front of the current line
+o.relativenumber = true -- Print the line numbers for motion
 
 -- Cursor
 o.cursorlineopt = "number" -- Only highlight numberline
