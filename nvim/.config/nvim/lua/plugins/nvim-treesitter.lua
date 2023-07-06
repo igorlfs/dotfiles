@@ -1,7 +1,6 @@
 return {
     {
         "nvim-treesitter/nvim-treesitter",
-        version = false,
         build = ":TSUpdate",
         event = { "BufReadPost", "BufNewFile" },
         dependencies = {
@@ -34,6 +33,7 @@ return {
                     "latex",
                     "bibtex",
                     "rust",
+                    "julia",
                     "typescript",
                     "javascript",
                     "html",

@@ -18,6 +18,8 @@ export NODE_REPL_HISTORY="$XDG_DATA_HOME"/node_repl_history
 export CARGO_HOME="${XDG_DATA_HOME}"/cargo
 # Java
 export GRADLE_USER_HOME="$XDG_DATA_HOME"/gradle
+# Julia
+export JULIA_DEPOT_PATH="$XDG_DATA_HOME/julia:$JULIA_DEPOT_PATH"
 # Python
 export RUFF_CACHE_DIR=$XDG_CACHE_HOME/ruff
 export MYPY_CACHE_DIR="${XDG_CACHE_HOME}"/mypy

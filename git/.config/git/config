@@ -5,6 +5,8 @@
 	defaultBranch = main
 [core]
 	quotepath = off
+[push]
+	autoSetupRemote = true
 [filter "lfs"]
 	required = true
 	clean = git-lfs clean -- %f

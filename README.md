@@ -33,8 +33,9 @@ Editing some $\LaTeX$
 |    Java     |     jdtls     |    java-debug    |   jdtls    |    jdtls     |    junit    |
 |     Lua     |    lua_ls     |                  |   selene   |    stylua    |             |
 |    Shell    |    bashls     |                  | shellcheck |   shellfmt   |             |
+|    Julia    |   julia-lsp   |                  |            |              |             |
 
-Additionally, Python can be used in a REPL-like environment.
+Additionally, Python and Julia can be used in a REPL-like environment.
 
 ### Others
 

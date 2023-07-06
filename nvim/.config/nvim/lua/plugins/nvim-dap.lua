@@ -57,6 +57,7 @@ return {
             "mfussenegger/nvim-dap-python",
             config = function() require("dap-python").setup("/usr/bin/python") end,
         },
+        { "theHamsta/nvim-dap-virtual-text", config = true },
     },
     keys = {
         { "<F4>", function() require("dap").terminate() end, desc = "DAP Terminate" },

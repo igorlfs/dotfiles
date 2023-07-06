@@ -30,6 +30,7 @@ local servers = {
     "ruff_lsp",
     "bashls",
     "yamlls",
+    "julials",
     "html",
     "cssls",
 }
@@ -60,7 +61,7 @@ return {
         require("lspconfig").texlab.setup({
             capabilities = require("util").capabilities,
             settings = {
-                -- Vimtex's tectonic support can't handle "cotinuous compilation" so we texlab's build instead.
+                -- Vimtex's tectonic support can't handle "continuous compilation" so we texlab's build instead.
                 -- However, vimtex provides a nice command for inverse search, so it's worth keeping around
                 texlab = {
                     build = {

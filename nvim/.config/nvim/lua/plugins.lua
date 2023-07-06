@@ -123,7 +123,7 @@ return {
     },
     {
         "luk400/vim-jukit",
-        ft = { "python", "json" },
+        ft = { "python", "json", "julia" },
         init = function()
             vim.g.jukit_mappings_ext_enabled = {} -- disable default mappings
             vim.g.jukit_terminal = "nvimterm"
