@@ -47,19 +47,21 @@ return {
         -- Enable border for LspInfo
         require("lspconfig.ui.windows").default_options.border = "rounded"
 
+        local capabilities = require("cmp_nvim_lsp").default_capabilities()
+
         for _, lsp in ipairs(servers) do
             require("lspconfig")[lsp].setup({
-                capabilities = require("util").capabilities,
+                capabilities = capabilities,
             })
         end
 
         require("lspconfig").lua_ls.setup({
-            capabilities = require("util").capabilities,
+            capabilities = capabilities,
             settings = { Lua = { hint = { enable = true } } },
         })
 
         require("lspconfig").texlab.setup({
-            capabilities = require("util").capabilities,
+            capabilities = capabilities,
             settings = {
                 -- Vimtex's tectonic support can't handle "continuous compilation" so we texlab's build instead.
                 -- However, vimtex provides a nice command for inverse search, so it's worth keeping around
@@ -80,14 +82,14 @@ return {
 
         require("lspconfig").clangd.setup({
             cmd = { "clangd", "--completion-style=detailed", "--clang-tidy", "--offset-encoding=utf-16" },
+            capabilities = capabilities,
             on_attach = function(_, bufnr)
                 vim.keymap.set("n", "<A-o>", "<cmd>ClangdSwitchSourceHeader<CR>", { buffer = bufnr })
             end,
-            capabilities = require("util").capabilities,
         })
 
         require("lspconfig").jsonls.setup({
-            capabilities = require("util").capabilities,
+            capabilities = capabilities,
             on_new_config = function(new_config)
                 new_config.settings.json.schemas = new_config.settings.json.schemas or {}
                 vim.list_extend(new_config.settings.json.schemas, require("schemastore").json.schemas())

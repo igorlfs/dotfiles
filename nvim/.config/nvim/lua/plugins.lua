@@ -122,6 +122,21 @@ return {
         end,
     },
     {
+        "akinsho/flutter-tools.nvim",
+        -- We can't use `opts` here because Lazy can't figure out the order to load nvim-cmp
+        config = function()
+            require("flutter-tools").setup({
+                lsp = {
+                    capabilities = require("cmp_nvim_lsp").default_capabilities(),
+                },
+                debugger = {
+                    enabled = true,
+                    run_via_dap = true,
+                },
+            })
+        end,
+    },
+    {
         "luk400/vim-jukit",
         ft = { "python", "json", "julia" },
         init = function()

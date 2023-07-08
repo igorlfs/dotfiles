@@ -7,6 +7,7 @@ return {
             "rouge8/neotest-rust",
             "haydenmeade/neotest-jest",
             "andy-bell101/neotest-java",
+            "sidlatau/neotest-dart",
         },
         config = function()
             require("neotest").setup({
@@ -17,6 +18,7 @@ return {
                     require("neotest-rust"),
                     require("neotest-jest"),
                     require("neotest-java"),
+                    require("neotest-dart"),
                 },
                 output = {
                     -- disable pop-up with failing test info (prefer virtual text)

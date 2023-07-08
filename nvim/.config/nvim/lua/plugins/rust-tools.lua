@@ -6,7 +6,7 @@ return {
                 local rust_tools = require("rust-tools")
                 vim.keymap.set("n", "<C-space>", rust_tools.hover_actions.hover_actions, { buffer = bufnr })
             end,
-            capabilities = require("util").capabilities,
+            capabilities = require("cmp_nvim_lsp").default_capabilities(),
             settings = {
                 ["rust-analyzer"] = {
                     checkOnSave = {

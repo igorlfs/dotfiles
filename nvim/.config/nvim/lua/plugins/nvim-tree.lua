@@ -1,3 +1,19 @@
+local function isFileTypeOpen(filetype)
+    local current_tabpage = vim.api.nvim_get_current_tabpage()
+    local windows = vim.api.nvim_tabpage_list_wins(current_tabpage)
+
+    for _, window in ipairs(windows) do
+        local buffer = vim.api.nvim_win_get_buf(window)
+        local buffer_filetype = vim.api.nvim_get_option_value("filetype", { buf = buffer })
+
+        if buffer_filetype == filetype then
+            return true
+        end
+    end
+
+    return false
+end
+
 return {
     {
         "nvim-tree/nvim-tree.lua",
@@ -38,12 +54,11 @@ return {
             local api = require("nvim-tree.api")
             local Event = api.events.Event
             api.events.subscribe(Event.TreeClose, function()
-                local dap_status, dap = pcall(require, "dap")
                 local dap_ui_status, dapui = pcall(require, "dapui")
-                if dap_status and dap_ui_status then
-                    if dap.session() then
-                        dapui.open({ reset = true })
-                    end
+                -- Since we may have dapui hidden, we check if it's open
+                -- (instead of checking if the session is active)
+                if dap_ui_status and isFileTypeOpen("dapui_scopes") then
+                    dapui.open({ reset = true })
                 end
             end)
         end,
