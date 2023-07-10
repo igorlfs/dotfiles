@@ -88,7 +88,7 @@ return {
     -- Snippets
     { "honza/vim-snippets" },
     -- Indentation
-    { "nmac427/guess-indent.nvim", event = { "VimEnter" }, config = true },
+    { "nmac427/guess-indent.nvim", config = true },
 
     ------ Eye Candy
     -- UI
@@ -132,6 +132,9 @@ return {
                 debugger = {
                     enabled = true,
                     run_via_dap = true,
+                },
+                dev_log = {
+                    enabled = false,
                 },
             })
         end,

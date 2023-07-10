@@ -34,8 +34,11 @@ o.cursorline = true -- Highlight current line
 -- Spell
 o.spelllang:append({ "pt_br" }) -- Additional language to spell check
 o.spelloptions:append({ "camel" }) -- Consider camelCase when checking spell
-o.spellfile = -- Custom dictionary files
-    { vim.fn.expand("~/.config/nvim/spell/en.utf-8.add"), vim.fn.expand("~/.config/nvim/spell/pt.utf-8.add") }
+-- Custom dictionary files
+o.spellfile = {
+    os.getenv("XDG_CONFIG_HOME") .. "nvim/spell/en.utf-8.add",
+    os.getenv("XDG_CONFIG_HOME") .. "nvim/spell/pt.utf-8.add",
+}
 
 -- Folds
 -- UFO requires a large value for these settings

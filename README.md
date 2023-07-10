@@ -22,18 +22,19 @@ Editing some $\LaTeX$
 
 ### Programming Languages
 
-|  Language   |      LSP      |  Debugging[^1]   |  Linting   |  Formatting  | Testing[^2] |
-| :---------: | :-----------: | :--------------: | :--------: | :----------: | :---------: |
-|   Python    |    Pylance    |     debugpy      |    ruff    |    black     |   pytest    |
-|     C++     |    clangd     |     codelldb     |  cppcheck  | clang-format |             |
-|      C      |    clangd     |     codelldb     |  cppcheck  | clang-format |             |
-|    Rust     | rust-analyzer |     codelldb     |   clippy   |   rustfmt    |   nextest   |
-| Typescript  |   tsserver    | js-debug-adapter |            |              |    jest     |
-| Javascript  |   tsserver    | js-debug-adapter |            |              |    jest     |
-|    Java     |     jdtls     |    java-debug    |   jdtls    |    jdtls     |    junit    |
-|     Lua     |    lua_ls     |                  |   selene   |    stylua    |             |
-|    Shell    |    bashls     |                  | shellcheck |   shellfmt   |             |
-|    Julia    |   julia-lsp   |                  |            |              |             |
+|  Language  |      LSP      |   Debugging[^1]   |  Linting   |  Formatting  | Testing[^2] |
+| :--------: | :-----------: | :---------------: | :--------: | :----------: | :---------: |
+|   Python   |    Pylance    |      debugpy      |    ruff    |    black     |   pytest    |
+|    C++     |    clangd     |     codelldb      | clang-tidy | clang-format |             |
+|     C      |    clangd     |     codelldb      | clang-tidy | clang-format |             |
+|    Rust    | rust-analyzer |     codelldb      |   clippy   |   rustfmt    |   nextest   |
+|    Dart    |    dartls     | dart-debug-server |   dartls   |    dartls    |   flutter   |
+| Typescript |   tsserver    | js-debug-adapter  |            |              |    jest     |
+| Javascript |   tsserver    | js-debug-adapter  |            |              |    jest     |
+|    Java    |     jdtls     |    java-debug     |   jdtls    |    jdtls     |    junit    |
+|    Lua     |    lua_ls     |                   |            |    stylua    |             |
+|   Shell    |    bashls     |                   | shellcheck |   shellfmt   |             |
+|   Julia    |   julia-lsp   |                   | julia-lsp  |  julia-lsp   |             |
 
 Additionally, Python and Julia can be used in a REPL-like environment.
 

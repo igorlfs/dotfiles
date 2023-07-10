@@ -48,6 +48,11 @@ return {
         require("lspconfig.ui.windows").default_options.border = "rounded"
 
         local capabilities = require("cmp_nvim_lsp").default_capabilities()
+        -- Some servers complain without if not provied (e.g., yamlls)
+        capabilities.textDocument.foldingRange = {
+            dynamicRegistration = false,
+            lineFoldingOnly = true,
+        }
 
         for _, lsp in ipairs(servers) do
             require("lspconfig")[lsp].setup({
