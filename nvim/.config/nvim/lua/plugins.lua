@@ -58,9 +58,6 @@ return {
         cmd = "Neogit",
         opts = {
             disable_commit_confirmation = true,
-            integrations = {
-                diffview = true,
-            },
         },
     },
     -- Github
@@ -132,6 +129,7 @@ return {
                 debugger = {
                     enabled = true,
                     run_via_dap = true,
+                    exception_breakpoints = {},
                 },
                 dev_log = {
                     enabled = false,

@@ -15,7 +15,7 @@ local function title(bufnr)
     elseif file == "" then
         return "[No Name]"
     else
-        return vim.fn.fnamemodify(file, ":.")
+        return vim.fn.fnamemodify(file, ":t")
     end
 end
 
@@ -23,18 +23,18 @@ return {
     "nvim-lualine/lualine.nvim",
     event = "VeryLazy",
     opts = {
-        extensions = { "nvim-tree", "toggleterm" },
+        extensions = { "toggleterm" },
         options = {
             globalstatus = true,
             section_separators = { left = "", right = "" },
-            component_separators = { left = "|", right = "|" },
+            component_separators = { left = "", right = "" },
         },
         sections = {
             lualine_a = { "mode" },
             lualine_b = { "branch" },
-            lualine_c = { "diff" },
-            lualine_x = { "diagnostics" },
-            lualine_y = { "progress" },
+            lualine_c = { { "filename", path = 4 } },
+            lualine_x = { "selectioncount", "diff" },
+            lualine_y = { "diagnostics" },
             lualine_z = { "location" },
         },
         tabline = {

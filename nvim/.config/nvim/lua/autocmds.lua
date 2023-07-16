@@ -36,7 +36,7 @@ autocmd("FileType", {
 
 autocmd("FileType", {
     desc = "Async build with C, C++",
-    group = augroup("Cpp", {}),
+    group = augroup("make", {}),
     pattern = { "cpp", "c", "make" },
     callback = function() keymap("n", "<leader>m", "<cmd>Make<CR>", { buffer = true }) end,
 })
