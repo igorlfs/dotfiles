@@ -71,7 +71,6 @@ autocmd("LspAttach", {
         local opts = { buffer = ev.buf }
 
         keymap("n", "<leader>H", function() vim.lsp.inlay_hint(0, nil) end, opts)
-        keymap("n", "K", lsp.hover, opts)
         keymap("n", "gD", lsp.declaration, opts)
         keymap({ "n", "i" }, "<C-k>", lsp.signature_help, opts)
         keymap({ "n", "v" }, "<leader>ca", lsp.code_action, opts)

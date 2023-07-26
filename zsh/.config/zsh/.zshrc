@@ -27,6 +27,8 @@ alias mv='mv -i'
 alias ls='exa'
 alias la='exa -a'
 alias ll='exa -l'
+alias lal='exa -al'
+alias tree='exa -T'
 alias pacman='pacman --color=always'
 alias nc='ncdu --color=dark --exclude-kernfs'
 

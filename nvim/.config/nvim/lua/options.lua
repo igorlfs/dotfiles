@@ -21,7 +21,7 @@ o.showmode = false -- Hide message indicating current mode
 o.smoothscroll = true -- Smooth scrolling
 o.undofile = true -- Enable persistent undo
 o.shadafile = "NONE" -- Don't save history
-o.shortmess:append("I") -- skip message at the start
+o.shortmess:append("Ic") -- skip message at the start and reduce vim's verboseness
 
 -- Statuscolumn
 o.number = true -- Print the line number in front of the current line
@@ -32,13 +32,10 @@ o.cursorlineopt = "number" -- Only highlight numberline
 o.cursorline = true -- Highlight current line
 
 -- Spell
+local spell = vim.fn.stdpath("config") .. "/spell/"
+o.spellfile = { spell .. "en.utf-8.add", spell .. "pt.utf-8.add" } -- Custom dictionary files
 o.spelllang:append({ "pt_br" }) -- Additional language to spell check
 o.spelloptions:append({ "camel" }) -- Consider camelCase when checking spell
--- Custom dictionary files
-o.spellfile = {
-    os.getenv("XDG_CONFIG_HOME") .. "nvim/spell/en.utf-8.add",
-    os.getenv("XDG_CONFIG_HOME") .. "nvim/spell/pt.utf-8.add",
-}
 
 -- Folds
 -- UFO requires a large value for these settings
@@ -55,6 +52,7 @@ o.splitkeep = "screen" -- Keep the same relative cursor position when splitting
 o.expandtab = true -- Expand tabs to spaces
 o.tabstop = 4 -- Width of a tab
 o.shiftwidth = 4 -- Indent's width
+o.shiftround = true -- Round indent to multiple of 'shiftwidth'
 
 -- Providers
 g.python3_host_prog = "/usr/bin/python3"
