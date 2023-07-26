@@ -1,0 +1,3 @@
+[languages]
+lua = ["stylua -s -"]
+python = ["black --fast -"]

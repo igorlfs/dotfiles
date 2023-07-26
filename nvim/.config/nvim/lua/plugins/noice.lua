@@ -26,11 +26,6 @@ return {
                 view = "cmdline",
             },
             routes = {
-                -- Show "recording" messages
-                {
-                    view = "notify",
-                    filter = { event = "msg_showmode" },
-                },
                 -- Hide "written" messages
                 {
                     filter = {

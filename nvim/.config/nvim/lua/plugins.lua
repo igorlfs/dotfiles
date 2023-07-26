@@ -154,10 +154,7 @@ return {
     },
     {
         "saecki/crates.nvim",
-        opts = {
-            null_ls = { enabled = true },
-            popup = { border = "rounded" },
-        },
+        opts = { popup = { border = "rounded" } },
         ft = "toml",
     },
 }

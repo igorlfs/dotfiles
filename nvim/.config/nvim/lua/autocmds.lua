@@ -53,18 +53,22 @@ autocmd("LspAttach", {
     desc = "LSP",
     group = lsp_group,
     callback = function(ev)
+        local client = vim.lsp.get_client_by_id(ev.data.client_id)
+
         -- Autoformat
-        local excluded = { "lua_ls" }
-        autocmd("BufWritePre", {
-            clear({ group = lsp_group, buffer = ev.buf }),
-            group = lsp_group,
-            buffer = ev.buf,
-            callback = function()
-                vim.lsp.buf.format({
-                    filter = function(c) return not vim.tbl_contains(excluded, c.name) end,
-                })
-            end,
-        })
+        -- See https://github.com/redhat-developer/yaml-language-server/issues/486#issuecomment-1046792026
+        if client and client.name == "yamlls" then
+            client.server_capabilities.documentFormattingProvider = true
+        end
+        local excluded = { "lua_ls", "pylance", "ruff_lsp", "bashls" }
+        if client and not vim.tbl_contains(excluded, client.name) then
+            autocmd("BufWritePre", {
+                clear({ group = lsp_group, buffer = ev.buf }),
+                group = lsp_group,
+                buffer = ev.buf,
+                callback = function() vim.lsp.buf.format() end,
+            })
+        end
 
         -- Buffer local mappings.
         local lsp = vim.lsp.buf
@@ -155,4 +159,11 @@ autocmd("FileType", {
         -- Re-run all cells to build the output
         keymap("n", "<leader>pD", "<cmd>call jukit#convert#save_nb_to_file(1,1,'pdf')<CR>", opts)
     end,
+})
+
+autocmd("BufWritePost", {
+    desc = "Autoformat",
+    group = defaults,
+    pattern = { "*" },
+    command = "FormatWrite",
 })
