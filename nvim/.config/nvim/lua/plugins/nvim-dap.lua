@@ -77,7 +77,7 @@ return {
             end,
             desc = "DAP Continue",
         },
-        { "<leader><F5>", function() require("dap").run_last() end, desc = "Run Last" },
+        { "<F17>", function() require("dap").run_last() end, desc = "Run Last" },
         { "<F6>", function() require("dap").run_to_cursor() end, desc = "Run to Cursor" },
         { "<F7>", function() require("dap").goto_() end, desc = "Go to line (skip)" },
         {

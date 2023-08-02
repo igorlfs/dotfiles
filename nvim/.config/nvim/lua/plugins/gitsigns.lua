@@ -27,19 +27,27 @@ return {
             end, { expr = true })
 
             -- Actions
-            keymap("n", "<leader>hs", gs.stage_hunk)
-            keymap("n", "<leader>hr", gs.reset_hunk)
-            keymap("v", "<leader>hs", function() gs.stage_hunk({ vim.fn.line("."), vim.fn.line("v") }) end)
-            keymap("v", "<leader>hr", function() gs.reset_hunk({ vim.fn.line("."), vim.fn.line("v") }) end)
             keymap("n", "<leader>hS", gs.stage_buffer)
-            keymap("n", "<leader>hu", gs.undo_stage_hunk)
             keymap("n", "<leader>hR", gs.reset_buffer)
-            keymap("n", "<leader>hp", gs.preview_hunk)
-            keymap("n", "<leader>hb", function() gs.blame_line({ full = true }) end)
             keymap("n", "<leader>tb", gs.toggle_current_line_blame)
-            keymap("n", "<leader>hd", gs.diffthis)
-            keymap("n", "<leader>hD", function() gs.diffthis("~") end)
             keymap("n", "<leader>td", gs.toggle_deleted)
+            keymap("n", "<leader>hs", gs.stage_hunk, { desc = "[H]unk [S]tage" })
+            keymap("n", "<leader>hr", gs.reset_hunk, { desc = "[H]unk [R]eset" })
+            keymap("n", "<leader>hp", gs.preview_hunk, { desc = "[H]unk [P]review" })
+            keymap("n", "<leader>hu", gs.undo_stage_hunk, { desc = "[H]unk [U]ndo" })
+            keymap("n", "<leader>hb", function() gs.blame_line({ full = true }) end, { desc = "[H]unk [B]lame" })
+            keymap(
+                "v",
+                "<leader>hs",
+                function() gs.stage_hunk({ vim.fn.line("."), vim.fn.line("v") }) end,
+                { desc = "Stage selection" }
+            )
+            keymap(
+                "v",
+                "<leader>hr",
+                function() gs.reset_hunk({ vim.fn.line("."), vim.fn.line("v") }) end,
+                { desc = "Reset selection" }
+            )
 
             -- Text object
             keymap({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>")

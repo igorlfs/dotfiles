@@ -30,13 +30,14 @@ return {
             })
         end,
         keys = {
-            { "<leader>ts", "<CMD>Neotest summary toggle<CR>", desc = "Toggle Test Summary" },
+            { "<A-n>", "<CMD>Neotest summary toggle<CR>", desc = "Toggle Neotest" },
             { "<leader>tn", "<CMD>Neotest run<CR>", desc = "[T]est [N]earest" },
+            { "<leader>ts", "<CMD>Neotest stop<CR>", desc = "[T]est [S]top" },
             { "<leader>tf", "<CMD>Neotest run file<CR>", desc = "[T]est [F]ile" },
             {
-                "<leader>dt",
+                "<leader>td",
                 function() require("neotest").run.run({ strategy = "dap" }) end,
-                desc = "Debug Test",
+                desc = "[T]est [D]ebug",
             },
         },
         cmd = "Neotest",

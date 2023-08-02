@@ -45,7 +45,14 @@ autocmd("FileType", {
     desc = "Jukit convert notebooks",
     group = jukit,
     pattern = { "python", "json" },
-    callback = function() keymap("n", "<leader>np", "<cmd>call jukit#convert#notebook_convert('jupyter-notebook')<cr>") end,
+    callback = function()
+        keymap(
+            "n",
+            "<leader>es",
+            "<CMD>call jukit#convert#notebook_convert('jupyter-notebook')<cr>",
+            { buffer = true, desc = "Jukit [E]xport [S]ource" }
+        )
+    end,
 })
 
 local lsp_group = augroup("lsp", { clear = false })
@@ -75,14 +82,9 @@ autocmd("LspAttach", {
         local opts = { buffer = ev.buf }
 
         keymap("n", "<leader>H", function() vim.lsp.inlay_hint(0, nil) end, opts)
-        keymap("n", "gD", lsp.declaration, opts)
         keymap({ "n", "i" }, "<C-k>", lsp.signature_help, opts)
         keymap({ "n", "v" }, "<leader>ca", lsp.code_action, opts)
         keymap("n", "<leader>rn", lsp.rename, opts)
-        keymap("n", "<leader>F", function() lsp.format({ async = true }) end, opts)
-        keymap("n", "<leader>wl", function() print(vim.inspect(lsp.list_workspace_folders())) end, opts)
-        keymap("n", "<leader>wa", lsp.add_workspace_folder, opts)
-        keymap("n", "<leader>wr", lsp.remove_workspace_folder, opts)
 
         -- Telescope Stuff
         local telescope = require("telescope.builtin")
@@ -91,11 +93,8 @@ autocmd("LspAttach", {
         keymap("n", "gi", telescope.lsp_implementations, opts)
         keymap("n", "gr", function() telescope.lsp_references({ show_line = false }) end, opts)
         keymap("n", "<leader>D", telescope.lsp_type_definitions, opts)
-        keymap("n", "<leader>ic", telescope.lsp_incoming_calls, opts)
-        keymap("n", "<leader>oc", telescope.lsp_outgoing_calls, opts)
         keymap("n", "<leader>ds", telescope.lsp_document_symbols, opts)
 
-        -- Note: diagnostics are NOT specific to LSP
         keymap("n", "<leader>E", telescope.diagnostics, opts)
     end,
 })

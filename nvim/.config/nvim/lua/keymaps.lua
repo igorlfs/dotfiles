@@ -1,10 +1,9 @@
 local keymap = vim.keymap.set
 local str = string.format
 
--- Toggle spell checking
-keymap("n", "<leader>ss", "<cmd>setlocal spell!<CR>")
 keymap({ "n", "i" }, "<C-s>", "<cmd>write<CR>", { desc = "Quick Save" })
 keymap("t", "<Esc>", "<C-\\><C-n>", { desc = "Exit Terminal" })
+keymap("n", "<A-s>", "<cmd>setlocal spell!<CR>", { desc = "Toggle Spell" })
 
 -- Move within visual lines
 keymap("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })

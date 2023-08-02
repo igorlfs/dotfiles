@@ -86,6 +86,8 @@ return {
     { "honza/vim-snippets" },
     -- Indentation
     { "nmac427/guess-indent.nvim", config = true },
+    -- Refactoring
+    { "ThePrimeagen/refactoring.nvim", config = true },
 
     ------ Eye Candy
     -- UI
