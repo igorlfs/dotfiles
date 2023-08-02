@@ -1,18 +1,10 @@
 local keymap = vim.keymap.set
 local str = string.format
 
--- Quick command mode
-keymap("n", "ç", ":")
-
--- Quick save
--- Prefer "<cmd>" over ":" as to not trigger mode-changes and messages
-keymap({ "n", "i" }, "<C-s>", "<cmd>write<CR>")
-
--- Quick exit terminal
-keymap("t", "<Esc>", "<C-\\><C-n>")
-
 -- Toggle spell checking
 keymap("n", "<leader>ss", "<cmd>setlocal spell!<CR>")
+keymap({ "n", "i" }, "<C-s>", "<cmd>write<CR>", { desc = "Quick Save" })
+keymap("t", "<Esc>", "<C-\\><C-n>", { desc = "Exit Terminal" })
 
 -- Move within visual lines
 keymap("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
@@ -30,8 +22,7 @@ keymap("n", "<A-[>", "<cmd>tabprevious<CR>")
 -- New tab
 keymap("n", "<A-t>", "<cmd>tab split<CR>")
 
--- Diagnostics (LSP)
 keymap("n", "<space>e", vim.diagnostic.open_float)
-keymap("n", "[d", vim.diagnostic.goto_prev)
+-- Diagnostics
 keymap("n", "]d", vim.diagnostic.goto_next)
-keymap("n", "<leader>q", vim.diagnostic.setloclist)
+keymap("n", "[d", vim.diagnostic.goto_prev)

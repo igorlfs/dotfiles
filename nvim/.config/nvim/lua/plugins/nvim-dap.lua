@@ -89,9 +89,6 @@ return {
         { "<F10>", function() require("dap").step_over() end, desc = "Step Over" },
         { "<F11>", function() require("dap").step_into() end, desc = "Step Into" },
         { "<F12>", function() require("dap").step_out() end, desc = "Step Out" },
-        { "<leader>dj", function() require("dap").down() end, desc = "Down" },
-        { "<leader>dk", function() require("dap").up() end, desc = "Up" },
-        { "<leader>dp", function() require("dap").pause() end, desc = "Pause" },
     },
     config = function()
         local dap = require("dap")

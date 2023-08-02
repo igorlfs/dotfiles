@@ -9,6 +9,8 @@ local function title(bufnr)
         return "Telescope"
     elseif filetype == "NvimTree" then
         return "NvimTree"
+    elseif filetype == "qf" then
+        return "QuickFix"
     elseif buftype == "terminal" then
         local _, mtch = string.match(file, "term:(.*):(%a+)")
         return mtch ~= nil and mtch or vim.fn.fnamemodify(vim.env.SHELL, ":t")

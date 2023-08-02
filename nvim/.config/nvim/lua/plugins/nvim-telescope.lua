@@ -39,14 +39,14 @@ return {
                     hidden = true,
                 },
                 live_grep = {
-                    additional_args = function() return { "--hidden" } end,
+                    additional_args = { "--hidden" },
                 },
             },
         })
     end,
     keys = {
-        { "<leader>ff", "<CMD>Telescope find_files<CR>", desc = "Search Files" },
-        { "<leader>fg", "<CMD>Telescope live_grep<CR>", desc = "Grep Files" },
-        { "<leader>fb", "<CMD>Telescope buffers<CR>", desc = "Search Buffers" },
+        { "<leader>ff", "<CMD>Telescope find_files<CR>", desc = "[F]ind [F]iles" },
+        { "<leader>fg", "<CMD>Telescope live_grep<CR>", desc = "[F]ind [G]rep" },
+        { "<leader>fb", "<CMD>Telescope buffers<CR>", desc = "[F]ind [B]uffers" },
     },
 }

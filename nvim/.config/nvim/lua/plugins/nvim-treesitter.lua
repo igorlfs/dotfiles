@@ -81,8 +81,8 @@ return {
                         border = "rounded",
                         floating_preview_opts = {},
                         peek_definition_code = {
-                            ["<leader>pf"] = "@function.outer",
-                            ["<leader>pc"] = "@class.outer",
+                            ["<leader>pf"] = { query = "@function.outer", desc = "[P]review [F]unction" },
+                            ["<leader>pc"] = { query = "@class.outer", desc = "[P]review [C]lass" },
                         },
                     },
                 },

@@ -19,7 +19,7 @@ return {
                 current = true,
             },
         },
-        keys = { { "<leader>fs", "<CMD>Telescope possession list<CR>", desc = "Search Sessions" } },
+        keys = { { "<leader>fs", "<CMD>Telescope possession list<CR>", desc = "[F]ind [S]essions" } },
         cmd = { "PossessionSave" },
     },
     -- Developer Tools Package Manager

@@ -23,7 +23,7 @@ autocmd("Termopen", {
         vim.opt_local.scrolloff = 0
         -- Use a fixed width to avoid resizing vim-jukit
         vim.opt_local.winfixwidth = true
-        keymap("t", "<A-i>", "<C-\\><C-n><C-w>w")
+        keymap("t", "<A-i>", "<C-\\><C-n><C-w>w", { desc = "Toggle Split/Code" })
     end,
 })
 
@@ -38,7 +38,7 @@ autocmd("FileType", {
     desc = "Async build with C, C++",
     group = augroup("make", {}),
     pattern = { "cpp", "c", "make" },
-    callback = function() keymap("n", "<leader>m", "<cmd>Make<CR>", { buffer = true }) end,
+    callback = function() keymap("n", "<leader>m", "<CMD>Make<CR>", { buffer = true, desc = "Build" }) end,
 })
 
 autocmd("FileType", {
@@ -104,8 +104,7 @@ autocmd({ "VimEnter", "DirChanged" }, {
     desc = "Venv autoselect",
     pattern = "*",
     callback = function()
-        local venv = vim.fn.findfile("pyproject.toml", vim.fn.getcwd() .. ";")
-        if venv ~= "" then
+        if vim.fn.findfile("pyproject.toml", vim.fn.getcwd() .. ";") ~= "" then
             require("venv-selector").retrieve_from_cache()
         end
     end,
@@ -166,4 +165,10 @@ autocmd("BufWritePost", {
     group = defaults,
     pattern = { "*" },
     command = "FormatWrite",
+})
+
+autocmd("TextYankPost", {
+    desc = "Highlight on yank",
+    group = augroup("highlight_yank", {}),
+    callback = function() vim.highlight.on_yank() end,
 })
