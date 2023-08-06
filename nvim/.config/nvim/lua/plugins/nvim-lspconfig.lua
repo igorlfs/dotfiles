@@ -33,6 +33,7 @@ local servers = {
     "julials",
     "html",
     "cssls",
+    "emmet_language_server",
 }
 
 return {

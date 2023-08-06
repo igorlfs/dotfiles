@@ -93,7 +93,6 @@ autocmd("LspAttach", {
         keymap("n", "gi", telescope.lsp_implementations, opts)
         keymap("n", "gr", function() telescope.lsp_references({ show_line = false }) end, opts)
         keymap("n", "<leader>D", telescope.lsp_type_definitions, opts)
-        keymap("n", "<leader>ds", telescope.lsp_document_symbols, opts)
 
         keymap("n", "<leader>E", telescope.diagnostics, opts)
     end,

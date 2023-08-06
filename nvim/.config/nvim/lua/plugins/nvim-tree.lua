@@ -23,7 +23,7 @@ return {
             { "antosha417/nvim-lsp-file-operations", config = true },
         },
         keys = {
-            { "<leader>v", "<CMD>NvimTreeToggle<CR>", desc = "Toggle NvimTree" },
+            { "<A-e>", "<CMD>NvimTreeToggle<CR>", desc = "Toggle Explorer" },
         },
         opts = {
             renderer = {
