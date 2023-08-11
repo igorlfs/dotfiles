@@ -21,7 +21,7 @@ keymap("n", "<A-[>", "<cmd>tabprevious<CR>")
 -- New tab
 keymap("n", "<A-Tab>", "<cmd>tab split<CR>")
 
-keymap("n", "<space>e", vim.diagnostic.open_float)
 -- Diagnostics
+keymap("n", "<leader>d", vim.diagnostic.open_float, { desc = "Diagnostic Popup" })
 keymap("n", "]d", vim.diagnostic.goto_next)
 keymap("n", "[d", vim.diagnostic.goto_prev)

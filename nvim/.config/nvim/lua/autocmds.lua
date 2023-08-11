@@ -42,6 +42,18 @@ autocmd("FileType", {
 })
 
 autocmd("FileType", {
+    desc = "Disable foldcolumn",
+    group = defaults,
+    pattern = {
+        "neotest-summary",
+        "dap-repl",
+        "NeogitCommitMessage",
+        "NeogitStatus",
+    },
+    callback = function() vim.opt_local.foldcolumn = "0" end,
+})
+
+autocmd("FileType", {
     desc = "Jukit convert notebooks",
     group = jukit,
     pattern = { "python", "json" },
@@ -90,11 +102,8 @@ autocmd("LspAttach", {
         local telescope = require("telescope.builtin")
 
         keymap("n", "gd", telescope.lsp_definitions, opts)
-        keymap("n", "gi", telescope.lsp_implementations, opts)
         keymap("n", "gr", function() telescope.lsp_references({ show_line = false }) end, opts)
-        keymap("n", "<leader>D", telescope.lsp_type_definitions, opts)
 
-        keymap("n", "<leader>E", telescope.diagnostics, opts)
     end,
 })
 

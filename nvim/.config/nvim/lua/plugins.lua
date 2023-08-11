@@ -9,7 +9,7 @@ return {
             direction = "float",
             float_opts = { border = "rounded" },
         },
-        keys = { { "<a-p>", "<CMD>ToggleTerm<CR>", desc = "Toggle Float Term", mode = { "n", "t" } } },
+        keys = { { "<A-t>", "<CMD>ToggleTerm<CR>", desc = "Toggle Terminal", mode = { "n", "t" } } },
     },
     -- Sessions
     {
@@ -65,7 +65,6 @@ return {
         "pwntester/octo.nvim",
         cmd = "Octo",
         opts = {
-            use_local_fs = true,
             mappings = {
                 review_diff = {
                     add_review_comment = { lhs = "<space>ac", desc = "add a new review comment" },
