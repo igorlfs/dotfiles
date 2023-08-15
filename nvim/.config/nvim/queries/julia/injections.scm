@@ -1,6 +1,7 @@
 ; extends
 ; jukit
 (
-  (block_comment) @markdown
-  (#match? @markdown "°°°")
+  (block_comment) @injection.content
+  (#match? @injection.content "°°°")
+  (#set! injection.language "markdown")
  )

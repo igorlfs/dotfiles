@@ -93,17 +93,17 @@ autocmd("LspAttach", {
         local lsp = vim.lsp.buf
         local opts = { buffer = ev.buf }
 
-        keymap("n", "<leader>H", function() vim.lsp.inlay_hint(0, nil) end, opts)
-        keymap({ "n", "i" }, "<C-k>", lsp.signature_help, opts)
         keymap({ "n", "v" }, "<leader>ca", lsp.code_action, opts)
         keymap("n", "<leader>rn", lsp.rename, opts)
+        keymap({ "n", "i" }, "<C-k>", lsp.signature_help, { buffer = ev.buf })
 
-        -- Telescope Stuff
-        local telescope = require("telescope.builtin")
+        keymap("n", "<A-h>", function() vim.lsp.inlay_hint(0, nil) end, { buffer = ev.buf, desc = "Toggle Hints" })
 
-        keymap("n", "gd", telescope.lsp_definitions, opts)
         keymap("n", "gr", function() telescope.lsp_references({ show_line = false }) end, opts)
 
+        -- NOTE we define this mapping here, instead of using "<leader>f" because it overrides nvim's default gd
+        -- (which is a primitive way of going to definition), in spite of it being a Telescope mapping
+        keymap("n", "gd", "<CMD>Telescope lsp_definitions<CR>", { buffer = ev.buf, desc = "[G]o to [D]efinition" })
     end,
 })
 
