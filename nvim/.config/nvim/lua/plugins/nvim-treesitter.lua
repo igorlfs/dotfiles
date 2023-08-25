@@ -40,6 +40,7 @@ return {
                     "javascript",
                     "html",
                     "css",
+                    "csv",
                 },
                 highlight = {
                     enable = true,

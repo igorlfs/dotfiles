@@ -16,14 +16,8 @@ return {
                 end,
             },
             integrations = {
-                dap = {
-                    enabled = true,
-                    enable_ui = true,
-                },
-                illuminate = true,
                 neotest = true,
                 notify = true,
-                neogit = true,
                 noice = true,
                 octo = true,
                 mini = true,

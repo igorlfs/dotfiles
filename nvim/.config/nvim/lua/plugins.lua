@@ -28,6 +28,8 @@ return {
         opts = { ui = { border = "rounded" } },
         cmd = "Mason",
     },
+    -- Quickfix
+    { "kevinhwang91/nvim-bqf", ft = "qf" },
 
     ------ LSP Extensions
     -- textDocument/documentColor
@@ -64,14 +66,7 @@ return {
     {
         "pwntester/octo.nvim",
         cmd = "Octo",
-        opts = {
-            mappings = {
-                review_diff = {
-                    add_review_comment = { lhs = "<space>ac", desc = "add a new review comment" },
-                    add_review_suggestion = { lhs = "<space>as", desc = "add a new review suggestion" },
-                },
-            },
-        },
+        config = true,
     },
 
     ------ Editing
