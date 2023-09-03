@@ -99,7 +99,6 @@ autocmd("LspAttach", {
 
         keymap("n", "<A-h>", function() vim.lsp.inlay_hint(0, nil) end, { buffer = ev.buf, desc = "Toggle Hints" })
 
-        keymap("n", "gr", function() telescope.lsp_references({ show_line = false }) end, opts)
 
         -- NOTE we define this mapping here, instead of using "<leader>f" because it overrides nvim's default gd
         -- (which is a primitive way of going to definition), in spite of it being a Telescope mapping

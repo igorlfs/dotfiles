@@ -19,7 +19,7 @@ keymap("n", "<A-0>", "<cmd>tablast<CR>")
 keymap("n", "<A-]>", "<cmd>tabnext<CR>")
 keymap("n", "<A-[>", "<cmd>tabprevious<CR>")
 -- New tab
-keymap("n", "<A-Tab>", "<cmd>tab split<CR>")
+keymap("n", "<A-'>", "<cmd>tab split<CR>")
 
 -- Diagnostics
 keymap("n", "<leader>d", vim.diagnostic.open_float, { desc = "Diagnostic Popup" })

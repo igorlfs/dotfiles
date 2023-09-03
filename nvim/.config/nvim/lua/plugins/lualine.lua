@@ -12,8 +12,7 @@ local function title(bufnr)
     elseif filetype == "qf" then
         return "QuickFix"
     elseif buftype == "terminal" then
-        local _, mtch = string.match(file, "term:(.*):(%a+)")
-        return mtch ~= nil and mtch or vim.fn.fnamemodify(vim.env.SHELL, ":t")
+        return "Terminal"
     elseif file == "" then
         return "[No Name]"
     else
@@ -42,11 +41,10 @@ return {
                         noice.status.mode.get_hl,
                         cond = noice.status.mode.has,
                     },
-                    "selectioncount",
                     "diff",
                 },
                 lualine_y = { "diagnostics" },
-                lualine_z = { "location" },
+                lualine_z = { "selectioncount" },
             },
             tabline = {
                 lualine_a = {

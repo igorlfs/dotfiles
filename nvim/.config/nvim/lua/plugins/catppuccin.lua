@@ -16,6 +16,11 @@ return {
                 end,
             },
             integrations = {
+                dap = {
+                    enabled = true,
+                    enable_ui = true,
+                },
+                ufo = true,
                 neotest = true,
                 notify = true,
                 noice = true,

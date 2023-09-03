@@ -35,6 +35,9 @@ return {
                         },
                     },
                 },
+                lsp_references = {
+                    show_line = false,
+                },
                 find_files = {
                     hidden = true,
                 },
@@ -51,5 +54,6 @@ return {
         { "<leader>fd", "<CMD>Telescope diagnostics<CR>", desc = "[F]ind [D]iagnostics" },
         { "<leader>fi", "<CMD>Telescope lsp_implementations<CR>", desc = "[F]ind [I]mplementation" },
         { "<leader>ft", "<CMD>Telescope lsp_type_definitions<CR>", desc = "[F]ind [T]ype Definition" },
+        { "<leader>fr", "<CMD>Telescope lsp_references<CR>", desc = "[F]ind [R]eferences" },
     },
 }

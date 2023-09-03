@@ -71,7 +71,7 @@ return {
 
     ------ Editing
     -- Pairs
-    { "windwp/nvim-autopairs", event = "InsertEnter", config = true },
+    { "windwp/nvim-autopairs", event = "InsertEnter", opts = { check_ts = true, ignored_next_char = "" } },
     -- Surround
     { "kylechui/nvim-surround", event = { "BufReadPost", "BufNewFile" }, config = true },
     -- Comments
