@@ -31,6 +31,9 @@ alias lal='exa -al'
 alias tree='exa -T'
 alias pacman='pacman --color=always'
 alias nc='ncdu --color=dark --exclude-kernfs'
+alias ssh='kitty +kitten ssh'
 
 ### Load zsh-syntax-highlighting; should be last.
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
+
+eval "$(starship init zsh)"

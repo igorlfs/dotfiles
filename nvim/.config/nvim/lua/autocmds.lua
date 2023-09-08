@@ -73,32 +73,41 @@ autocmd("LspAttach", {
     group = lsp_group,
     callback = function(ev)
         local client = vim.lsp.get_client_by_id(ev.data.client_id)
+        local lsp = vim.lsp
+        local methods = lsp.protocol.Methods
+        local lsp_buf = lsp.buf
 
         -- Autoformat
         -- See https://github.com/redhat-developer/yaml-language-server/issues/486#issuecomment-1046792026
         if client and client.name == "yamlls" then
             client.server_capabilities.documentFormattingProvider = true
         end
-        local excluded = { "lua_ls", "pylance", "ruff_lsp", "bashls", "cssls" }
+        local excluded = { "lua_ls", "pylance", "ruff_lsp", "bashls", "cssls", "emmet_language_server " }
         if client and not vim.tbl_contains(excluded, client.name) then
             autocmd("BufWritePre", {
                 clear({ group = lsp_group, buffer = ev.buf }),
                 group = lsp_group,
                 buffer = ev.buf,
-                callback = function() vim.lsp.buf.format() end,
+                callback = function() lsp_buf.format() end,
+            })
+        end
+
+        -- Lenses
+        if client and client.supports_method(methods.textDocument_codeLens) then
+            autocmd({ "BufEnter", "CursorHold", "InsertLeave" }, {
+                buffer = ev.buf,
+                callback = function() lsp.codelens.refresh() end,
             })
         end
 
         -- Buffer local mappings.
-        local lsp = vim.lsp.buf
-        local opts = { buffer = ev.buf }
+        keymap({ "n", "i" }, "<C-k>", lsp_buf.signature_help, { buffer = ev.buf })
 
-        keymap({ "n", "v" }, "<leader>ca", lsp.code_action, opts)
-        keymap("n", "<leader>rn", lsp.rename, opts)
-        keymap({ "n", "i" }, "<C-k>", lsp.signature_help, { buffer = ev.buf })
+        keymap("n", "<A-h>", function() lsp.inlay_hint(0, nil) end, { buffer = ev.buf, desc = "Toggle Hints" })
 
-        keymap("n", "<A-h>", function() vim.lsp.inlay_hint(0, nil) end, { buffer = ev.buf, desc = "Toggle Hints" })
-
+        keymap({ "n", "v" }, "<leader>la", lsp_buf.code_action, { buffer = ev.buf, desc = "[L]SP [A]ctions" })
+        keymap("n", "<leader>lr", lsp_buf.rename, { buffer = ev.buf, desc = "[L]SP [R]ename" })
+        keymap("n", "<leader>ll", lsp.codelens.run, { buffer = ev.buf, desc = "[L]SP [L]ens" })
 
         -- NOTE we define this mapping here, instead of using "<leader>f" because it overrides nvim's default gd
         -- (which is a primitive way of going to definition), in spite of it being a Telescope mapping
