@@ -34,6 +34,7 @@ local servers = {
     "html",
     "cssls",
     "emmet_language_server",
+    "dotls",
 }
 
 return {

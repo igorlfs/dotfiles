@@ -2,9 +2,20 @@
     "layer": "top", // Waybar at top layer
     "spacing": 0, // Gaps between modules (4px)
     // Choose the order of the modules
-    "modules-left": ["wlr/workspaces"],
+    "modules-left": [
+        "hyprland/workspaces"
+    ],
     // "modules-center": [""],
-    "modules-right": ["idle_inhibitor", "pulseaudio", "network", "cpu", "memory", "backlight", "battery", "clock"],
+    "modules-right": [
+        "idle_inhibitor",
+        "pulseaudio",
+        "network",
+        "cpu",
+        "memory",
+        "backlight",
+        "battery",
+        "clock"
+    ],
     // Modules configuration
     "idle_inhibitor": {
         "format": "IDLE {icon}",

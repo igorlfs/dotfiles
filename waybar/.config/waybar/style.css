@@ -1,8 +1,7 @@
 @import "mocha.css";
 
 * {
-    font-family: JetBrainsMono NF;
-    font-size: 12px;
+    font-size: 11px;
 }
 window#waybar {
     background-color: @base;

@@ -4,6 +4,8 @@ local str = string.format
 keymap({ "n", "i" }, "<C-s>", "<cmd>write<CR>", { desc = "Quick Save" })
 keymap("t", "<Esc>", "<C-\\><C-n>", { desc = "Exit Terminal" })
 keymap("n", "<A-s>", "<cmd>setlocal spell!<CR>", { desc = "Toggle Spell" })
+keymap("n", "0", "^", { desc = "Ignore whitespace when going to start of line" })
+keymap("n", "x", '"_x', { desc = "Don't override clipboard register with x" })
 
 -- Move within visual lines
 keymap("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })

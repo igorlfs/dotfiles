@@ -41,6 +41,7 @@ return {
                     "html",
                     "css",
                     "csv",
+                    "dot",
                 },
                 highlight = {
                     enable = true,
