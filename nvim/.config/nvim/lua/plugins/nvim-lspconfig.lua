@@ -35,6 +35,7 @@ local servers = {
     "cssls",
     "emmet_language_server",
     "dotls",
+    "gdscript",
 }
 
 return {

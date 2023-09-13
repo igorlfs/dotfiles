@@ -82,7 +82,8 @@ autocmd("LspAttach", {
         if client and client.name == "yamlls" then
             client.server_capabilities.documentFormattingProvider = true
         end
-        local excluded = { "lua_ls", "pylance", "ruff_lsp", "bashls", "cssls", "emmet_language_server", "dotls" }
+        local excluded =
+            { "lua_ls", "pylance", "ruff_lsp", "bashls", "cssls", "emmet_language_server", "dotls", "gdscript" }
         if client and not vim.tbl_contains(excluded, client.name) then
             autocmd("BufWritePre", {
                 clear({ group = lsp_group, buffer = ev.buf }),

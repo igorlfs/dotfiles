@@ -111,6 +111,21 @@ return {
                 args = { "${port}" },
             },
         }
+        -- Godot
+        dap.adapters.godot = {
+            type = "server",
+            host = "127.0.0.1",
+            port = 6006,
+        }
+        dap.configurations.gdscript = {
+            {
+                type = "godot",
+                request = "launch",
+                name = "Launch Scene",
+                project = "${workspaceFolder}",
+                launch_scene = true,
+            },
+        }
 
         local ui = require("dapui")
 

@@ -42,6 +42,7 @@ return {
                     "css",
                     "csv",
                     "dot",
+                    "gdscript",
                 },
                 highlight = {
                     enable = true,

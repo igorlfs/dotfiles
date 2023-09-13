@@ -15,6 +15,14 @@ return {
                     require(types .. "python").black,
                     require(types .. "python").isort,
                 },
+                gdscript = {
+                    function()
+                        return {
+                            exe = "gdformat",
+                            stdin = false,
+                        }
+                    end,
+                },
                 markdown = {
                     function()
                         return {
