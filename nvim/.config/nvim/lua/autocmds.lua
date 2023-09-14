@@ -77,22 +77,6 @@ autocmd("LspAttach", {
         local methods = lsp.protocol.Methods
         local lsp_buf = lsp.buf
 
-        -- Autoformat
-        -- See https://github.com/redhat-developer/yaml-language-server/issues/486#issuecomment-1046792026
-        if client and client.name == "yamlls" then
-            client.server_capabilities.documentFormattingProvider = true
-        end
-        local excluded =
-            { "lua_ls", "pylance", "ruff_lsp", "bashls", "cssls", "emmet_language_server", "dotls", "gdscript" }
-        if client and not vim.tbl_contains(excluded, client.name) then
-            autocmd("BufWritePre", {
-                clear({ group = lsp_group, buffer = ev.buf }),
-                group = lsp_group,
-                buffer = ev.buf,
-                callback = function() lsp_buf.format() end,
-            })
-        end
-
         -- Lenses
         if client and client.supports_method(methods.textDocument_codeLens) then
             autocmd({ "BufEnter", "CursorHold", "InsertLeave" }, {
@@ -174,13 +158,6 @@ autocmd("FileType", {
         -- Re-run all cells to build the output
         keymap("n", "<leader>pD", "<cmd>call jukit#convert#save_nb_to_file(1,1,'pdf')<CR>", opts)
     end,
-})
-
-autocmd("BufWritePost", {
-    desc = "Autoformat",
-    group = defaults,
-    pattern = { "*" },
-    command = "FormatWrite",
 })
 
 autocmd("TextYankPost", {
