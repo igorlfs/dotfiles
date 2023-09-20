@@ -7,7 +7,7 @@ return {
             python = { "isort", "black" },
             sh = { "shfmt" },
             gdscript = { "gdformat" },
-            markdown = { "cbfmt" },
+            markdown = { "cbfmt", "markdownlint" },
         },
         format_on_save = {
             timeout_ms = 500,
