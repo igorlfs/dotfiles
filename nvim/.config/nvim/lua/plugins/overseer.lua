@@ -1,6 +1,6 @@
 -- Courtesy of
 -- https://github.com/stevearc/overseer.nvim/blob/master/doc/recipes.md#make-similar-to-vim-dispatch
--- With a slight modifiaction:
+-- With a slight modification:
 -- don't open quickfix is there isn't any output to be parsed (i.e., open_on_match)
 -- I don't really understand what is params.bang, but this works
 
@@ -8,10 +8,8 @@ return {
     "stevearc/overseer.nvim",
     cmd = "Make",
     config = function()
-        local uc = vim.api.nvim_create_user_command
-        local overseer = require("overseer")
-        overseer.setup()
-        uc("Make", function(params)
+        require("overseer").setup()
+        vim.api.nvim_create_user_command("Make", function(params)
             local args = vim.fn.expandcmd(params.args)
             -- Insert args at the '$*' in the makeprg
             local cmd, num_subs = vim.o.makeprg:gsub("%$%*", args)

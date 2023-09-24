@@ -1,18 +1,16 @@
 return {
     -- LSP Extension: textDocument/foldingRange (lineFoldingOnly)
     "kevinhwang91/nvim-ufo",
-    dependencies = { "kevinhwang91/promise-async" },
+    dependencies = "kevinhwang91/promise-async",
     event = "BufRead",
     opts = {
         provider_selector = function(_, filetype, _)
-            -- Languages whose LSP doesn't support folding
-            -- and treesitter support for folds is fine
-            -- as of 06/23, markdown's treesitter isn't that great
-            local excluded = { "cpp", "c", "julia", "lua" }
-            if vim.tbl_contains(excluded, filetype) then
-                return { "treesitter", "indent" }
+            -- Languages that support LSP folding
+            local foldable = { "python", "rust" }
+            if vim.tbl_contains(foldable, filetype) then
+                return { "lsp", "indent" }
             end
-            return { "lsp", "indent" }
+            return { "treesitter", "indent" }
         end,
     },
     keys = {

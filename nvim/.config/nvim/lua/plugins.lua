@@ -1,7 +1,7 @@
 return {
     ------ Miscellaneous
     -- Library used by many plugins
-    { "nvim-lua/plenary.nvim" },
+    { "nvim-lua/plenary.nvim", lazy = true },
     -- Terminal
     {
         "akinsho/toggleterm.nvim",
@@ -14,6 +14,7 @@ return {
     -- Sessions
     {
         "jedrzejboczar/possession.nvim",
+        dependencies = { "nvim-lua/plenary.nvim" },
         opts = {
             autosave = {
                 current = true,
@@ -54,34 +55,59 @@ return {
     {
         "NeogitOrg/neogit",
         dependencies = {
-            "sindrets/diffview.nvim",
-            cmd = { "DiffviewOpen", "DiffviewFileHistory" },
+            { "sindrets/diffview.nvim", cmd = { "DiffviewOpen", "DiffviewFileHistory" } },
+            { "nvim-lua/plenary.nvim" },
+            { "nvim-telescope/telescope.nvim" },
         },
         cmd = "Neogit",
-        opts = {
-            disable_commit_confirmation = true,
-        },
+        config = true,
     },
     -- Github
     {
         "pwntester/octo.nvim",
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+            "DaikyXendo/nvim-web-devicons",
+            "nvim-telescope/telescope.nvim",
+        },
         cmd = "Octo",
         config = true,
     },
 
     ------ Editing
     -- Pairs
-    { "windwp/nvim-autopairs", event = "InsertEnter", opts = { check_ts = true, ignored_next_char = "" } },
+    {
+        "windwp/nvim-autopairs",
+        event = "InsertEnter",
+        opts = { check_ts = true, ignored_next_char = "" },
+    },
+    -- Tags
+    {
+        "windwp/nvim-ts-autotag",
+        dependencies = "nvim-treesitter/nvim-treesitter",
+        config = true,
+    },
     -- Surround
-    { "kylechui/nvim-surround", event = { "BufReadPost", "BufNewFile" }, config = true },
+    { "kylechui/nvim-surround", event = "VeryLazy", config = true },
     -- Comments
-    { "numToStr/Comment.nvim", event = { "BufReadPost", "BufNewFile" }, config = true },
     -- Snippets
     { "honza/vim-snippets" },
+    {
+        "numToStr/Comment.nvim",
+        event = { "BufReadPost", "BufNewFile" },
+        config = true,
+    },
     -- Indentation
     { "nmac427/guess-indent.nvim", config = true },
     -- Refactoring
-    { "ThePrimeagen/refactoring.nvim", config = true },
+    {
+        "ThePrimeagen/refactoring.nvim",
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+            "nvim-treesitter/nvim-treesitter",
+        },
+        config = true,
+    },
 
     ------ Eye Candy
     -- UI
@@ -105,6 +131,7 @@ return {
     },
 
     ------ Language Extensions
+    -- LaTeX
     {
         "lervag/vimtex",
         init = function()
@@ -114,25 +141,7 @@ return {
             vim.g.vimtex_syntax_conceal_disable = 1
         end,
     },
-    {
-        "akinsho/flutter-tools.nvim",
-        -- We can't use `opts` here because Lazy can't figure out the order to load nvim-cmp
-        config = function()
-            require("flutter-tools").setup({
-                lsp = {
-                    capabilities = require("cmp_nvim_lsp").default_capabilities(),
-                },
-                debugger = {
-                    enabled = true,
-                    run_via_dap = true,
-                    exception_breakpoints = {},
-                },
-                dev_log = {
-                    enabled = false,
-                },
-            })
-        end,
-    },
+    -- REPL
     {
         "luk400/vim-jukit",
         ft = { "python", "json", "julia" },
@@ -141,16 +150,19 @@ return {
             vim.g.jukit_terminal = "nvimterm"
         end,
     },
-    { "linux-cultist/venv-selector.nvim", event = { "BufReadPost", "BufNewFile" }, config = true },
+    -- Java's JDTLS extensions
     { "mfussenegger/nvim-jdtls", ft = "java" },
+    -- Preview Markdown
     {
         "iamcco/markdown-preview.nvim",
         build = function() vim.fn["mkdp#util#install"]() end,
         ft = "markdown",
     },
+    -- Crates
     {
         "saecki/crates.nvim",
+        event = { "BufRead Cargo.toml" },
+        dependencies = { "nvim-lua/plenary.nvim" },
         opts = { popup = { border = "rounded" } },
-        ft = "toml",
     },
 }

@@ -1,6 +1,5 @@
 local autocmd = vim.api.nvim_create_autocmd
 local augroup = vim.api.nvim_create_augroup
-local clear = vim.api.nvim_clear_autocmds
 local keymap = vim.keymap.set
 
 local defaults = augroup("Defaults", {})
@@ -86,7 +85,7 @@ autocmd("LspAttach", {
         end
 
         -- Buffer local mappings.
-        keymap({ "n", "i" }, "<C-k>", lsp_buf.signature_help, { buffer = ev.buf })
+        keymap({ "n", "i" }, "<C-h>", lsp_buf.signature_help, { buffer = ev.buf })
 
         keymap("n", "<A-h>", function() lsp.inlay_hint(0, nil) end, { buffer = ev.buf, desc = "Toggle Hints" })
 
@@ -98,17 +97,6 @@ autocmd("LspAttach", {
         -- (which is a primitive way of going to definition), in spite of it being a Telescope mapping
         keymap("n", "gd", "<CMD>Telescope lsp_definitions<CR>", { buffer = ev.buf, desc = "[G]o to [D]efinition" })
     end,
-})
-
-autocmd({ "VimEnter", "DirChanged" }, {
-    desc = "Venv autoselect",
-    pattern = "*",
-    callback = function()
-        if vim.fn.findfile("pyproject.toml", vim.fn.getcwd() .. ";") ~= "" then
-            require("venv-selector").retrieve_from_cache()
-        end
-    end,
-    once = true,
 })
 
 autocmd("FileType", {
