@@ -15,52 +15,48 @@ local function isFileTypeOpen(filetype)
 end
 
 return {
-    {
-        "nvim-tree/nvim-tree.lua",
-        dependencies = {
-            "DaikyXendo/nvim-web-devicons",
-            -- LSP Extension: workspace/willRename
-            { "antosha417/nvim-lsp-file-operations", config = true },
-        },
-        keys = {
-            { "<A-e>", "<CMD>NvimTreeToggle<CR>", desc = "Toggle Explorer" },
-        },
-        opts = {
-            renderer = {
-                highlight_git = true,
-                icons = {
-                    show = {
-                        git = false,
-                    },
-                },
-            },
-            diagnostics = {
-                enable = true,
-                show_on_dirs = true,
-            },
-            actions = {
-                open_file = {
-                    quit_on_open = true,
-                },
-            },
-            view = {
-                adaptive_size = true,
-            },
-        },
-        config = function(_, opts)
-            require("nvim-tree").setup(opts)
-
-            -- Fix nvim-dapui's split sizes, see nvim-dap-ui#175
-            local api = require("nvim-tree.api")
-            local Event = api.events.Event
-            api.events.subscribe(Event.TreeClose, function()
-                local dap_ui_status, dapui = pcall(require, "dapui")
-                -- Since we may have dapui hidden, we check if it's open
-                -- (instead of checking if the session is active)
-                if dap_ui_status and isFileTypeOpen("dapui_scopes") then
-                    dapui.open({ reset = true })
-                end
-            end)
-        end,
+    "nvim-tree/nvim-tree.lua",
+    dependencies = {
+        "DaikyXendo/nvim-web-devicons",
+        "rcarriga/nvim-dap-ui", -- we need this to patch a bug, see below
     },
+    keys = {
+        { "<A-e>", "<CMD>NvimTreeToggle<CR>", desc = "Toggle Explorer" },
+    },
+    opts = {
+        renderer = {
+            highlight_git = true,
+            icons = {
+                show = {
+                    git = false,
+                },
+            },
+        },
+        diagnostics = {
+            enable = true,
+            show_on_dirs = true,
+        },
+        actions = {
+            open_file = {
+                quit_on_open = true,
+            },
+        },
+        view = {
+            adaptive_size = true,
+        },
+    },
+    config = function(_, opts)
+        require("nvim-tree").setup(opts)
+
+        -- Fix nvim-dapui's split sizes, see nvim-dap-ui#175
+        local api = require("nvim-tree.api")
+        local Event = api.events.Event
+        api.events.subscribe(Event.TreeClose, function()
+            -- Since we may have dapui hidden, we check if it's open
+            -- (instead of checking if the session is active)
+            if isFileTypeOpen("dapui_scopes") then
+                require("dapui").open({ reset = true })
+            end
+        end)
+    end,
 }

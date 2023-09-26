@@ -50,6 +50,12 @@ return {
         event = { "BufReadPost", "BufNewFile" },
         config = function() require("illuminate").configure({ providers = { "lsp" } }) end,
     },
+    -- workspace/willRename
+    {
+        "antosha417/nvim-lsp-file-operations",
+        dependencies = { "nvim-tree/nvim-tree.lua", "nvim-lua/plenary.nvim" },
+        config = true,
+    },
 
     ------ VCS
     {
