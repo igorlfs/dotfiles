@@ -3,7 +3,6 @@ return {
     dependencies = {
         -- Runs preLaunchTasks if present
         "stevearc/overseer.nvim",
-        { "LiadOz/nvim-dap-repl-highlights", config = true },
         {
             "mfussenegger/nvim-dap-python",
             config = function() require("dap-python").setup("/usr/bin/python") end,

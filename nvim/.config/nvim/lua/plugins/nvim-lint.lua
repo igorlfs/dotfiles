@@ -1,6 +1,6 @@
 return {
     "mfussenegger/nvim-lint",
-    event = { "BufReadPost", "BufNewFile" },
+    event = "BufWritePre",
     config = function()
         require("lint").linters_by_ft = {
             gdscript = { "gdlint" },

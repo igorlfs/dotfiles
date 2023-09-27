@@ -36,7 +36,6 @@ return {
     -- textDocument/documentColor
     {
         "uga-rosa/ccc.nvim",
-        event = { "BufReadPost", "BufNewFile" },
         opts = {
             highlighter = {
                 auto_enable = true,
@@ -63,8 +62,8 @@ return {
         "NeogitOrg/neogit",
         dependencies = {
             { "sindrets/diffview.nvim", cmd = { "DiffviewOpen", "DiffviewFileHistory" } },
-            { "nvim-lua/plenary.nvim" },
-            { "nvim-telescope/telescope.nvim" },
+            "nvim-lua/plenary.nvim",
+            "nvim-telescope/telescope.nvim",
         },
         cmd = "Neogit",
         config = true,
@@ -93,15 +92,11 @@ return {
     -- Comments
     -- Snippets
     { "honza/vim-snippets" },
-    {
-        "numToStr/Comment.nvim",
-        event = { "BufReadPost", "BufNewFile" },
-        config = true,
-    },
+    { "numToStr/Comment.nvim", config = true },
     -- Indentation
     {
         "nmac427/guess-indent.nvim",
-        event = { "BufReadPost", "BufNewFile" },
+        event = "BufReadPost",
         config = true,
     },
     -- Refactoring
@@ -167,7 +162,7 @@ return {
     -- Crates
     {
         "saecki/crates.nvim",
-        event = { "BufRead Cargo.toml" },
+        event = "BufRead Cargo.toml",
         dependencies = { "nvim-lua/plenary.nvim" },
         opts = { popup = { border = "rounded" } },
     },
