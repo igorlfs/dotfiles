@@ -39,11 +39,6 @@ return {
     config = function()
         local dap = require("dap")
 
-        -- Signs
-        local sign = vim.fn.sign_define
-        sign("DapBreakpoint", { text = "●", texthl = "DapBreakpoint", linehl = "", numhl = "" })
-        sign("DapBreakpointCondition", { text = "●", texthl = "DapBreakpointCondition", linehl = "", numhl = "" })
-
         -- Adapters
         -- C, C++
         dap.adapters.codelldb = require("util").codelldb
@@ -63,6 +58,10 @@ return {
             host = "127.0.0.1",
             port = 6006,
         }
+
+        -- Configurations
+        -- Usually prefer setting up via launch.json
+        -- Godot
         dap.configurations.gdscript = {
             {
                 type = "godot",
@@ -72,13 +71,5 @@ return {
                 launch_scene = true,
             },
         }
-
-        local ui = require("dapui")
-
-        -- Hooks
-        -- Open and close UI's windows automatically
-        dap.listeners.after.event_initialized["dapui_config"] = function() ui.open({ reset = true }) end
-        dap.listeners.before.event_terminated["dapui_config"] = function() ui.close() end
-        dap.listeners.before.event_exited["dapui_config"] = function() ui.close() end
     end,
 }

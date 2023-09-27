@@ -47,12 +47,13 @@ return {
     -- textDocument/documentHighlight
     {
         "RRethy/vim-illuminate",
-        event = { "BufReadPost", "BufNewFile" },
+        event = "LspAttach",
         config = function() require("illuminate").configure({ providers = { "lsp" } }) end,
     },
     -- workspace/willRename
     {
         "antosha417/nvim-lsp-file-operations",
+        event = "LspAttach",
         dependencies = { "nvim-tree/nvim-tree.lua", "nvim-lua/plenary.nvim" },
         config = true,
     },
@@ -87,12 +88,6 @@ return {
         event = "InsertEnter",
         opts = { check_ts = true, ignored_next_char = "" },
     },
-    -- Tags
-    {
-        "windwp/nvim-ts-autotag",
-        dependencies = "nvim-treesitter/nvim-treesitter",
-        config = true,
-    },
     -- Surround
     { "kylechui/nvim-surround", event = "VeryLazy", config = true },
     -- Comments
@@ -104,7 +99,11 @@ return {
         config = true,
     },
     -- Indentation
-    { "nmac427/guess-indent.nvim", config = true },
+    {
+        "nmac427/guess-indent.nvim",
+        event = { "BufReadPost", "BufNewFile" },
+        config = true,
+    },
     -- Refactoring
     {
         "ThePrimeagen/refactoring.nvim",
@@ -112,6 +111,7 @@ return {
             "nvim-lua/plenary.nvim",
             "nvim-treesitter/nvim-treesitter",
         },
+        cmd = "Refactor",
         config = true,
     },
 

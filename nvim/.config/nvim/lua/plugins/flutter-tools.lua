@@ -7,6 +7,7 @@ return {
         "nvim-lua/plenary.nvim",
         "stevearc/dressing.nvim",
     },
+    ft = "dart",
     config = function()
         require("flutter-tools").setup({
             lsp = {

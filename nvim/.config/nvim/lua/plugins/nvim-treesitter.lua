@@ -3,7 +3,8 @@ return {
     build = ":TSUpdate",
     event = { "BufReadPost", "BufNewFile" },
     dependencies = {
-        { "nvim-treesitter/nvim-treesitter-textobjects" },
+        "nvim-treesitter/nvim-treesitter-textobjects",
+        "windwp/nvim-ts-autotag",
     },
     config = function()
         require("nvim-treesitter.configs").setup({
@@ -88,6 +89,9 @@ return {
                         ["<leader>pc"] = { query = "@class.outer", desc = "[P]review [C]lass" },
                     },
                 },
+            },
+            autotag = {
+                enable = true,
             },
         })
         vim.treesitter.language.register("markdown", "octo")

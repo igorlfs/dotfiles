@@ -15,13 +15,6 @@ vim.diagnostic.config({
     severity_sort = true,
 })
 
--- Icons
-local icons = { Error = "󰅚 ", Warn = "󰀪 ", Info = "󰋽 ", Hint = "󰌶 " }
-for type, icon in pairs(icons) do
-    local hl = "DiagnosticSign" .. type
-    vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
-end
-
 local servers = {
     "pylance",
     "tsserver",
@@ -43,6 +36,8 @@ return {
     event = { "BufReadPre", "BufNewFile" },
     dependencies = {
         { "folke/neodev.nvim", config = true },
+        -- Some servers (e.g., julials) would require additional configuration such as setting up the path
+        -- mason-lspconfig bridges this gap and sets up everything to work perfecly with lspconfig
         { "williamboman/mason-lspconfig.nvim", config = true },
         -- Validate JSON files
         "b0o/schemastore.nvim",
