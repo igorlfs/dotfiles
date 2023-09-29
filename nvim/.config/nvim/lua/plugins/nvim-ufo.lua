@@ -17,18 +17,12 @@ return {
         -- Don't change fold level when opening and closing all folds
         {
             "zR",
-            function()
-                require("ufo").openAllFolds()
-                vim.cmd("IndentBlanklineRefresh")
-            end,
+            function() require("ufo").openAllFolds() end,
             desc = "Open All Folds",
         },
         {
             "zM",
-            function()
-                require("ufo").closeAllFolds()
-                vim.cmd("IndentBlanklineRefresh")
-            end,
+            function() require("ufo").closeAllFolds() end,
             desc = "Open All Folds",
         },
     },

@@ -57,6 +57,24 @@ return {
         config = true,
     },
 
+    ------ DAP Extensions
+    {
+        "theHamsta/nvim-dap-virtual-text",
+        opts = { enabled = false },
+        cmd = "DapVirtualTextToggle",
+    },
+    -- Python
+    {
+        "mfussenegger/nvim-dap-python",
+        ft = "python",
+        dependencies = "mfussenegger/nvim-dap",
+        config = function()
+            local debugpy_python_path = require("mason-registry").get_package("debugpy"):get_install_path()
+                .. "/venv/bin/python3"
+            require("dap-python").setup(debugpy_python_path)
+        end,
+    },
+
     ------ VCS
     {
         "NeogitOrg/neogit",
@@ -109,6 +127,12 @@ return {
         cmd = "Refactor",
         config = true,
     },
+    -- (f-)Strings
+    {
+        "chrisgrieser/nvim-puppeteer",
+        dependencies = "nvim-treesitter/nvim-treesitter",
+        lazy = false,
+    },
 
     ------ Eye Candy
     -- UI
@@ -117,18 +141,8 @@ return {
     {
         "lukas-reineke/indent-blankline.nvim",
         event = { "BufReadPost", "BufNewFile" },
-        opts = {
-            max_indent_increase = 1,
-            show_trailing_blankline_indent = false,
-        },
-        config = function(_, opts)
-            require("indent_blankline").setup(opts)
-
-            -- See indent-blankline.nvim#449
-            for _, keymap in pairs({ "zo", "zO", "zc", "zC", "za", "zA", "zv", "zx", "zX", "zm", "zr" }) do
-                vim.keymap.set("n", keymap, keymap .. "<CMD>IndentBlanklineRefresh<CR>", { silent = true })
-            end
-        end,
+        main = "ibl",
+        config = true,
     },
 
     ------ Language Extensions

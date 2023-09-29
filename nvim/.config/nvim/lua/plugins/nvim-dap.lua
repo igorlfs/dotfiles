@@ -3,14 +3,9 @@ return {
     dependencies = {
         -- Runs preLaunchTasks if present
         "stevearc/overseer.nvim",
-        {
-            "mfussenegger/nvim-dap-python",
-            config = function() require("dap-python").setup("/usr/bin/python") end,
-        },
-        { "theHamsta/nvim-dap-virtual-text", opts = { enabled = false } },
     },
     keys = {
-        { "<F4>", function() require("dap").terminate() end, desc = "DAP Terminate" },
+        { "<F4>", "<CMD>DapTerminate<CR>", desc = "DAP Terminate" },
         {
             "<F5>",
             function()
@@ -25,15 +20,15 @@ return {
         { "<F17>", function() require("dap").run_last() end, desc = "Run Last" },
         { "<F6>", function() require("dap").run_to_cursor() end, desc = "Run to Cursor" },
         { "<F7>", function() require("dap").goto_() end, desc = "Go to line (skip)" },
+        { "<F9>", "<CMD>DapToggleBreakpoint<CR>", desc = "Toggle Breakpoint" },
         {
-            "<F8>",
+            "<F21>",
             function() require("dap").set_breakpoint(vim.fn.input("Breakpoint condition: ")) end,
             desc = "Breakpoint Condition",
         },
-        { "<F9>", function() require("dap").toggle_breakpoint() end, desc = "Toggle Breakpoint" },
-        { "<F10>", function() require("dap").step_over() end, desc = "Step Over" },
-        { "<F11>", function() require("dap").step_into() end, desc = "Step Into" },
-        { "<F12>", function() require("dap").step_out() end, desc = "Step Out" },
+        { "<F10>", "<CMD>DapStepOver<CR>", desc = "Step Over" },
+        { "<F11>", "<CMD>DapStepInto<CR>", desc = "Step Into" },
+        { "<F12>", "<CMD>DapStepOut<CR>", desc = "Step Out" },
     },
     config = function()
         local dap = require("dap")

@@ -36,8 +36,10 @@ return {
     event = { "BufReadPre", "BufNewFile" },
     dependencies = {
         { "folke/neodev.nvim", config = true },
+        -- Enable additional capabilities (i.e., autocompletion)
+        "hrsh7th/cmp-nvim-lsp",
         -- Some servers (e.g., julials) would require additional configuration such as setting up the path
-        -- mason-lspconfig bridges this gap and sets up everything to work perfecly with lspconfig
+        -- mason-lspconfig bridges this gap and sets up everything to work perfectly with lspconfig
         { "williamboman/mason-lspconfig.nvim", config = true },
         -- Validate JSON files
         "b0o/schemastore.nvim",

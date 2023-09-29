@@ -3,7 +3,7 @@ local o = vim.opt
 
 g.mapleader = " " -- Use space as leader
 
--- Miscellanous
+-- Miscellaneous
 o.termguicolors = true -- Enable full color support
 o.updatetime = 200 -- Time for CursorHold event (e.g., LSP)
 o.diffopt:append({ "linematch:60" }) -- Better diffs
