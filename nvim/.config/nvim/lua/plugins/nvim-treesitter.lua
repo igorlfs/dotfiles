@@ -39,7 +39,6 @@ return {
                 "javascript",
                 "html",
                 "css",
-                "csv",
                 "dot",
                 "gdscript",
             },

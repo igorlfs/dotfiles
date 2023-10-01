@@ -7,21 +7,22 @@ return {
             "hrsh7th/cmp-path",
             "hrsh7th/cmp-buffer",
             "hrsh7th/cmp-cmdline",
-            "dcampos/cmp-snippy",
-            "dcampos/nvim-snippy",
+            "L3MON4D3/LuaSnip",
+            "saadparwaiz1/cmp_luasnip",
             "rcarriga/cmp-dap",
         },
         opts = function()
             local cmp = require("cmp")
-            local snippy = require("snippy")
-            local cmp_dap = require("cmp_dap")
+            local luasnip = require("luasnip")
+
             return {
                 enabled = function()
                     -- Enable completion in prompt buffers to use cmp-dap
-                    return vim.api.nvim_get_option_value("buftype", { buf = 0 }) ~= "prompt" or cmp_dap.is_dap_buffer()
+                    return vim.api.nvim_get_option_value("buftype", { buf = 0 }) ~= "prompt"
+                        or require("cmp_dap").is_dap_buffer()
                 end,
                 snippet = {
-                    expand = function(args) snippy.expand_snippet(args.body) end,
+                    expand = function(args) luasnip.lsp_expand(args.body) end,
                 },
                 preselect = cmp.PreselectMode.None,
                 view = {
@@ -38,8 +39,8 @@ return {
                     ["<Tab>"] = cmp.mapping(function(fallback)
                         if cmp.visible() then
                             cmp.select_next_item()
-                        elseif snippy.can_expand_or_advance() then
-                            snippy.expand_or_advance()
+                        elseif luasnip.expand_or_jumpable() then
+                            luasnip.expand_or_jump()
                         else
                             fallback()
                         end
@@ -47,8 +48,8 @@ return {
                     ["<S-Tab>"] = cmp.mapping(function(fallback)
                         if cmp.visible() then
                             cmp.select_prev_item()
-                        elseif snippy.can_jump(-1) then
-                            snippy.previous()
+                        elseif luasnip.jumpable(-1) then
+                            luasnip.jump(-1)
                         else
                             fallback()
                         end
@@ -59,7 +60,7 @@ return {
                 },
                 sources = cmp.config.sources({
                     { name = "nvim_lsp" },
-                    { name = "snippy" },
+                    { name = "luasnip" },
                     {
                         name = "buffer",
                         option = {
@@ -111,9 +112,6 @@ return {
                         name = "cmdline",
                         -- Prevent expanding %, see cmp-cmdline#33
                         keyword_pattern = [=[[^[:blank:]%]*]=],
-                        option = {
-                            ignore_cmds = { "Man", "!" },
-                        },
                     },
                 }),
             })

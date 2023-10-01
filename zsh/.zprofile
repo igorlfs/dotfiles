@@ -18,6 +18,7 @@ export NODE_REPL_HISTORY="$XDG_DATA_HOME"/node_repl_history
 export CARGO_HOME="${XDG_DATA_HOME}"/cargo
 # Java
 export GRADLE_USER_HOME="$XDG_DATA_HOME"/gradle
+export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="$XDG_CONFIG_HOME"/java
 # Julia
 export JULIA_DEPOT_PATH="$XDG_DATA_HOME/julia:$JULIA_DEPOT_PATH"
 # Python

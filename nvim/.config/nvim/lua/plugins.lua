@@ -108,8 +108,6 @@ return {
     -- Surround
     { "kylechui/nvim-surround", event = "VeryLazy", config = true },
     -- Comments
-    -- Snippets
-    { "honza/vim-snippets" },
     { "numToStr/Comment.nvim", config = true },
     -- Indentation
     {
@@ -142,7 +140,7 @@ return {
         "lukas-reineke/indent-blankline.nvim",
         event = { "BufReadPost", "BufNewFile" },
         main = "ibl",
-        config = true,
+        opts = { scope = { enabled = false } },
     },
 
     ------ Language Extensions
@@ -179,5 +177,11 @@ return {
         event = "BufRead Cargo.toml",
         dependencies = { "nvim-lua/plenary.nvim" },
         opts = { popup = { border = "rounded" } },
+    },
+    -- CSV
+    {
+        "cameron-wags/rainbow_csv.nvim",
+        config = true,
+        ft = { "csv", "tsv" },
     },
 }
