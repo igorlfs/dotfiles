@@ -29,6 +29,7 @@ local servers = {
     "emmet_language_server",
     "dotls",
     "gdscript",
+    "svelte",
 }
 
 return {

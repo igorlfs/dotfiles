@@ -23,6 +23,7 @@ return {
             notify = true,
             noice = true,
             octo = true,
+            ufo = false,
             mini = true,
         },
     },

@@ -15,6 +15,10 @@ return {
         local actions = require("telescope.actions")
         telescope.setup({
             defaults = {
+                sorting_strategy = "ascending",
+                layout_config = {
+                    prompt_position = "top",
+                },
                 file_ignore_patterns = {
                     "^.git/*",
                     "node_modules/*",

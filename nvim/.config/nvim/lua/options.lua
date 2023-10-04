@@ -11,8 +11,6 @@ o.hlsearch = false -- Don't keep searches highlighted
 o.linebreak = true -- Break lines correctly
 o.scrolloff = 4 -- Context lines when scrolling
 o.clipboard = "unnamedplus" -- Use system clipboard
-o.wildmode = "longest:full,full" -- Funky completion for commands
-o.conceallevel = 3 -- Hide verbosity in markdown and LaTeX
 o.sessionoptions:remove({ "buffers", "folds" }) -- Update options saved by sessions
 o.fillchars:append([[eob: ,fold: ,foldopen:󰅀,foldsep: ,foldclose:󰅂]]) -- Fancy fold symbols
 o.jumpoptions = "view" -- Prevents moving cursor when switching files
@@ -39,10 +37,8 @@ o.spelllang:append({ "pt_br" }) -- Additional language to spell check
 o.spelloptions:append({ "camel" }) -- Consider camelCase when checking spell
 
 -- Folds
--- UFO requires a large value for these settings
-o.foldlevel = 99
-o.foldlevelstart = 99
-o.foldcolumn = "1"
+o.foldlevelstart = 99 -- Don't close any folds at the start
+o.foldcolumn = "1" -- Clickable column that shows folds
 
 -- Splits
 o.splitbelow = true

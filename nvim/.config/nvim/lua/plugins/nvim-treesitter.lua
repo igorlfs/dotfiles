@@ -41,6 +41,7 @@ return {
                 "css",
                 "dot",
                 "gdscript",
+                "svelte",
             },
             highlight = {
                 enable = true,

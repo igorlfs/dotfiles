@@ -37,10 +37,15 @@ return {
                         select = false,
                     }),
                     ["<Tab>"] = cmp.mapping(function(fallback)
+                        -- Prefer jumping if both jumping and expanding are available
+                        -- Otherwise, you may recursively expand a snippet without ever jumping
+                        -- (which is annoying)
                         if cmp.visible() then
                             cmp.select_next_item()
-                        elseif luasnip.expand_or_jumpable() then
-                            luasnip.expand_or_jump()
+                        elseif luasnip.jumpable() then
+                            luasnip.jump(1)
+                        elseif luasnip.expandable() then
+                            luasnip.expand()
                         else
                             fallback()
                         end
@@ -117,7 +122,7 @@ return {
             })
 
             -- DAP Completion
-            cmp.setup.filetype({ "dap-repl", "dapui_watches", "dapui_hover" }, {
+            cmp.setup.filetype({ "dapui_watches", "dapui_hover" }, {
                 sources = {
                     { name = "dap" },
                 },

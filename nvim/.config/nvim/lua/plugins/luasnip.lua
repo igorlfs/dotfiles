@@ -2,10 +2,14 @@ return {
     "L3MON4D3/LuaSnip",
     dependencies = "rafamadriz/friendly-snippets",
     lazy = true,
+    build = "make install_jsregexp",
     opts = function()
         local types = require("luasnip.util.types")
 
         return {
+            -- "Forget" previous snippet if you enter insert mode
+            -- otherwise you may unexpectedly jump to a previous placeholder
+            region_check_events = "insertenter",
             -- Display a cursor-like placeholder in unvisited nodes of the snippet.
             ext_opts = {
                 [types.insertNode] = {
