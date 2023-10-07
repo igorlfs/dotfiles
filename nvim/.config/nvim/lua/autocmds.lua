@@ -34,13 +34,6 @@ autocmd("FileType", {
 })
 
 autocmd("FileType", {
-    desc = "Async build with C, C++",
-    group = augroup("make", {}),
-    pattern = { "cpp", "c", "make" },
-    callback = function() keymap("n", "<leader>m", "<CMD>Make<CR>", { buffer = true, desc = "Build" }) end,
-})
-
-autocmd("FileType", {
     desc = "Disable foldcolumn",
     group = defaults,
     pattern = {

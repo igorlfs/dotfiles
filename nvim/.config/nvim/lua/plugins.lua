@@ -171,13 +171,6 @@ return {
         build = function() vim.fn["mkdp#util#install"]() end,
         ft = "markdown",
     },
-    -- Crates
-    {
-        "saecki/crates.nvim",
-        event = "BufRead Cargo.toml",
-        dependencies = { "nvim-lua/plenary.nvim" },
-        opts = { popup = { border = "rounded" } },
-    },
     -- CSV
     {
         "cameron-wags/rainbow_csv.nvim",

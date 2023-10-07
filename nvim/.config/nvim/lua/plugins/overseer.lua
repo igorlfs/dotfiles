@@ -9,6 +9,7 @@ return {
     cmd = "Make",
     config = function()
         require("overseer").setup()
+
         vim.api.nvim_create_user_command("Make", function(params)
             local args = vim.fn.expandcmd(params.args)
             -- Insert args at the '$*' in the makeprg
@@ -28,6 +29,13 @@ return {
             desc = "Run your makeprg as an Overseer task",
             nargs = "*",
             bang = true,
+        })
+
+        vim.api.nvim_create_autocmd("FileType", {
+            desc = "Async build for C, C++",
+            group = vim.api.nvim_create_augroup("make", {}),
+            pattern = { "cpp", "c", "make" },
+            callback = function() vim.keymap.set("n", "<leader>m", "<CMD>Make<CR>", { buffer = true, desc = "Build" }) end,
         })
     end,
 }

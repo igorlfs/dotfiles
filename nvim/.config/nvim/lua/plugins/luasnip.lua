@@ -9,7 +9,7 @@ return {
         return {
             -- "Forget" previous snippet if you enter insert mode
             -- otherwise you may unexpectedly jump to a previous placeholder
-            region_check_events = "insertenter",
+            region_check_events = "InsertEnter",
             -- Display a cursor-like placeholder in unvisited nodes of the snippet.
             ext_opts = {
                 [types.insertNode] = {
