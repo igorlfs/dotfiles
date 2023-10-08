@@ -19,8 +19,12 @@ o.showmode = false -- Hide message indicating current mode
 o.smoothscroll = true -- Smooth scrolling
 o.undofile = true -- Enable persistent undo
 o.shadafile = "NONE" -- Don't save history
-o.shortmess:append("Ic") -- skip message at the start and reduce vim's verboseness
+o.shortmess:append("Ic") -- Skip message at the start and reduce vim's verboseness
 o.pumheight = 10 -- Limit completion window up to 10 lines
+
+-- Search
+o.ignorecase = true -- Ignore case when searching
+o.smartcase = true -- But also don't ignore if we use upper case
 
 -- Statuscolumn
 o.number = true -- Print the line number in front of the current line

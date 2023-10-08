@@ -86,7 +86,7 @@ return {
         cmd = "Neogit",
         config = true,
     },
-    -- Github
+    -- GitHub
     {
         "pwntester/octo.nvim",
         dependencies = {
@@ -152,15 +152,6 @@ return {
             -- Prefer Tree-sitter's highlighting as it allows spell-checking
             vim.g.vimtex_syntax_enabled = 0
             vim.g.vimtex_syntax_conceal_disable = 1
-        end,
-    },
-    -- REPL
-    {
-        "luk400/vim-jukit",
-        ft = { "python", "json", "julia" },
-        init = function()
-            vim.g.jukit_mappings_ext_enabled = {} -- disable default mappings
-            vim.g.jukit_terminal = "nvimterm"
         end,
     },
     -- Java's JDTLS extensions

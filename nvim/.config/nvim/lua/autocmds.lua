@@ -22,7 +22,7 @@ autocmd("Termopen", {
         vim.opt_local.scrolloff = 0
         -- Use a fixed width to avoid resizing vim-jukit
         vim.opt_local.winfixwidth = true
-        keymap("t", "<A-i>", "<C-\\><C-n><C-w>w", { desc = "Toggle Split/Code" })
+        keymap("t", "<A-i>", "<C-\\><C-n><C-w>w", { desc = "Move from REPL to Code" })
     end,
 })
 
@@ -45,20 +45,6 @@ autocmd("FileType", {
     callback = function() vim.opt_local.foldcolumn = "0" end,
 })
 
-autocmd("FileType", {
-    desc = "Jukit convert notebooks",
-    group = jukit,
-    pattern = { "python", "json" },
-    callback = function()
-        keymap(
-            "n",
-            "<leader>es",
-            "<CMD>call jukit#convert#notebook_convert('jupyter-notebook')<cr>",
-            { buffer = true, desc = "Jukit [E]xport [S]ource" }
-        )
-    end,
-})
-
 local lsp_group = augroup("lsp", { clear = false })
 autocmd("LspAttach", {
     desc = "LSP",
@@ -66,11 +52,9 @@ autocmd("LspAttach", {
     callback = function(ev)
         local client = vim.lsp.get_client_by_id(ev.data.client_id)
         local lsp = vim.lsp
-        local methods = lsp.protocol.Methods
-        local lsp_buf = lsp.buf
 
         -- Lenses
-        if client and client.supports_method(methods.textDocument_codeLens) then
+        if client and client.supports_method(lsp.protocol.Methods.textDocument_codeLens) then
             autocmd({ "BufEnter", "CursorHold", "InsertLeave" }, {
                 buffer = ev.buf,
                 callback = function() lsp.codelens.refresh() end,
@@ -78,12 +62,12 @@ autocmd("LspAttach", {
         end
 
         -- Buffer local mappings.
-        keymap({ "n", "i" }, "<C-h>", lsp_buf.signature_help, { buffer = ev.buf })
+        keymap({ "n", "i" }, "<C-h>", lsp.buf.signature_help, { buffer = ev.buf })
 
         keymap("n", "<A-h>", function() lsp.inlay_hint(0, nil) end, { buffer = ev.buf, desc = "Toggle Hints" })
 
-        keymap({ "n", "v" }, "<leader>la", lsp_buf.code_action, { buffer = ev.buf, desc = "[L]SP [A]ctions" })
-        keymap("n", "<leader>lr", lsp_buf.rename, { buffer = ev.buf, desc = "[L]SP [R]ename" })
+        keymap({ "n", "v" }, "<leader>la", lsp.buf.code_action, { buffer = ev.buf, desc = "[L]SP [A]ctions" })
+        keymap("n", "<leader>lr", lsp.buf.rename, { buffer = ev.buf, desc = "[L]SP [R]ename" })
         keymap("n", "<leader>ll", lsp.codelens.run, { buffer = ev.buf, desc = "[L]SP [L]ens" })
 
         -- NOTE we define this mapping here, instead of using "<leader>f" because it overrides nvim's default gd
@@ -99,21 +83,20 @@ autocmd("FileType", {
     callback = function()
         local opts = { buffer = true }
 
-        -- Splits
+        ---- Splits
         -- Opening and Closing
         keymap("n", "<leader>so", "<cmd>call jukit#splits#output()<CR>", opts)
         keymap("n", "<leader>sh", "<cmd>call jukit#splits#history()<CR>", opts)
         keymap("n", "<leader>sc", "<cmd>call jukit#splits#close_output_and_history(1)<CR>", opts)
         -- Move
-        keymap("n", "<A-i>", "<C-w>wi")
 
-        -- Sending Code
+        ---- Running Code
         -- Current Cell
         keymap("n", "<leader><leader>", "<cmd>call jukit#send#section(1)<CR>", opts)
         -- All cells up to current one
         keymap("n", "<leader>cc", "<cmd>call jukit#send#until_current_section()<CR>", opts)
 
-        -- Cells
+        ---- Cells
         -- Create
         keymap("n", "<leader>cO", "<cmd>call jukit#cells#create_above(0)<CR>", opts)
         keymap("n", "<leader>co", "<cmd>call jukit#cells#create_below(0)<CR>", opts)
@@ -127,8 +110,6 @@ autocmd("FileType", {
         keymap("n", "<leader>cM", "<cmd>call jukit#cells#merge_above()<CR>", opts)
         keymap("n", "<leader>cm", "<cmd>call jukit#cells#merge_below()<CR>", opts)
         -- Navigation
-        keymap("n", "<leader>j", "<cmd>call jukit#cells#jump_to_next_cell()<CR>", opts)
-        keymap("n", "<leader>k", "<cmd>call jukit#cells#jump_to_previous_cell()<CR>", opts)
         -- Move
         keymap("n", "<leader>ck", "<cmd>call jukit#cells#move_up()<CR>", opts)
         keymap("n", "<leader>cj", "<cmd>call jukit#cells#move_down()<CR>", opts)
