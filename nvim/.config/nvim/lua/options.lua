@@ -1,7 +1,8 @@
 local g = vim.g
 local o = vim.opt
 
-g.mapleader = " " -- Use space as leader
+g.mapleader = " "
+g.maplocalleader = "ç"
 
 -- Miscellaneous
 o.termguicolors = true -- Enable full color support
@@ -18,7 +19,6 @@ o.exrc = true -- Enable per-project config file (.nvim.lua)
 o.showmode = false -- Hide message indicating current mode
 o.smoothscroll = true -- Smooth scrolling
 o.undofile = true -- Enable persistent undo
-o.shadafile = "NONE" -- Don't save history
 o.shortmess:append("Ic") -- Skip message at the start and reduce vim's verboseness
 o.pumheight = 10 -- Limit completion window up to 10 lines
 
