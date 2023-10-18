@@ -17,7 +17,6 @@ vim.diagnostic.config({
 
 local servers = {
     "pylance",
-    "tsserver",
     "taplo",
     "gradle_ls",
     "ruff_lsp",

@@ -37,7 +37,7 @@ return {
                 buffers = {
                     mappings = {
                         i = {
-                            ["<BS>"] = actions.delete_buffer,
+                            ["<C-BS>"] = actions.delete_buffer,
                         },
                     },
                 },

@@ -9,6 +9,7 @@ return {
             gdscript = { "gdformat" },
             markdown = { "injected", "markdownlint" },
             yaml = { "prettier" },
+            typescript = { "prettier" },
         },
         format_on_save = {
             timeout_ms = 1000,

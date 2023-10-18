@@ -35,6 +35,7 @@ return {
                 "NvimTree",
                 "NeogitStatus",
                 "NeogitCommitMessage",
+                "NeogitCommitView",
                 "toggleterm",
                 "dapui_scopes",
                 "dapui_breakpoints",

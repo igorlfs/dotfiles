@@ -11,7 +11,10 @@ return {
             function()
                 -- (Re-)reads launch.json if present
                 if vim.fn.filereadable(".vscode/launch.json") then
-                    require("dap.ext.vscode").load_launchjs(nil, { codelldb = { "c", "cpp" } })
+                    require("dap.ext.vscode").load_launchjs(nil, {
+                        ["codelldb"] = { "c", "cpp" },
+                        ["pwa-node"] = { "typescript", "javascript" },
+                    })
                 end
                 require("dap").continue()
             end,

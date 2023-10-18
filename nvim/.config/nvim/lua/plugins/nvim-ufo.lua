@@ -6,7 +6,7 @@ return {
     opts = {
         provider_selector = function(_, filetype, _)
             -- Languages that support LSP folding
-            local foldable = { "python", "rust" }
+            local foldable = { "python", "rust", "typescript" }
             if vim.tbl_contains(foldable, filetype) then
                 return { "lsp", "indent" }
             end
