@@ -56,7 +56,7 @@ o.shiftwidth = 4 -- Indent's width
 o.shiftround = true -- Round indent to multiple of 'shiftwidth'
 
 -- Providers
-g.python3_host_prog = "/usr/bin/python3"
+g.python3_host_prog = vim.fn.expand("~/.local/share/virtualenvs/nvim-*/bin/python")
 g.loaded_node_provider = 0
 g.loaded_perl_provider = 0
 g.loaded_ruby_provider = 0
