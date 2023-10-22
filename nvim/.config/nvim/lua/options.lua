@@ -12,7 +12,7 @@ o.hlsearch = false -- Don't keep searches highlighted
 o.linebreak = true -- Break lines correctly
 o.scrolloff = 4 -- Context lines when scrolling
 o.clipboard = "unnamedplus" -- Use system clipboard
-o.sessionoptions:remove({ "buffers", "folds" }) -- Update options saved by sessions
+o.sessionoptions:remove({ "buffers" }) -- Update options saved by sessions
 o.fillchars:append([[eob: ,fold: ,foldopen:󰅀,foldsep: ,foldclose:󰅂]]) -- Fancy fold symbols
 o.jumpoptions = "view" -- Prevents moving cursor when switching files
 o.exrc = true -- Enable per-project config file (.nvim.lua)

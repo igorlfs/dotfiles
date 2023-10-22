@@ -17,7 +17,7 @@ return {
                 position = "left",
             },
             {
-                elements = { "console", "repl" },
+                elements = { "console" },
                 position = "bottom",
                 size = 15,
             },

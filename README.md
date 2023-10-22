@@ -5,55 +5,32 @@ Not much to see here!
 
 # Neovim
 
-Fully featured config for multiple languages, like Python, C++, Rust and Javascript.
+Fully featured config for multiple languages:
+
+- Python
+- C++, C
+- Rust
+- Typescript, Javascript
+- Dart
+- Java
+- Lua
+- Bash
+- Julia
+- Godot
+- LaTeX
+- CSS, HTML
+- YAML, JSON, TOML
 
 ## Screenshots
 
-![python](https://github.com/igorlfs/dotfiles/assets/84649544/9a966478-c7c4-4cfe-bc9f-bc6304ad2c6a)
-Data analysis using [vim-jukit](https://github.com/luk400/vim-jukit) and [visidata](https://github.com/saulpw/visidata)
+![rust](https://github.com/igorlfs/dotfiles/assets/84649544/3f5b37c2-8958-41c3-83d8-64abfbe22125)
+We do a little rusting!
 
-![rust](https://github.com/igorlfs/dotfiles/assets/84649544/39e260e2-d3d4-432b-bd6c-dbcd0609f0d2)
-Sample Rust project
+![c](https://github.com/igorlfs/dotfiles/assets/84649544/28690e54-7541-44e9-8a85-bec1e02b2071)
+C Debugging!
+
+![python](https://github.com/igorlfs/dotfiles/assets/84649544/c00e84c4-ea76-4a66-b4a4-275ca6fac11e)
+Python Testing!
 
 ![latex](https://github.com/igorlfs/dotfiles/assets/84649544/f530e1c8-a08a-482a-9ad8-d6a96a8d1641)
-Editing some $\LaTeX$
-
-## Support
-
-### Programming Languages
-
-|  Language  |      LSP      |   Debugging[^1]   |  Linting   |  Formatting  | Testing[^2] |
-| :--------: | :-----------: | :---------------: | :--------: | :----------: | :---------: |
-|   Python   |    Pylance    |      debugpy      |    ruff    |    black     |   pytest    |
-|    C++     |    clangd     |     codelldb      | clang-tidy | clang-format |             |
-|     C      |    clangd     |     codelldb      | clang-tidy | clang-format |             |
-|    Rust    | rust-analyzer |     codelldb      |   clippy   |   rustfmt    |   nextest   |
-|    Dart    |    dartls     | dart-debug-server |   dartls   |    dartls    |   flutter   |
-| Typescript |   tsserver    | js-debug-adapter  |            |              |    jest     |
-| Javascript |   tsserver    | js-debug-adapter  |            |              |    jest     |
-|    Java    |     jdtls     |    java-debug     |   jdtls    |    jdtls     |    junit    |
-|    Lua     |    lua_ls     |                   |            |    stylua    |             |
-|   Shell    |    bashls     |                   | shellcheck |   shellfmt   |             |
-|   Julia    |   julia-lsp   |                   | julia-lsp  |  julia-lsp   |             |
-
-Additionally, Python and Julia can be used in a REPL-like environment.
-
-### Others
-
-| Language |    LSP    |  Formatting  |
-| :------: | :-------: | :----------: |
-|   JSON   |  jsonls   |              |
-|   YAML   |  yamlls   |   yamlfmt    |
-|   TOML   |   taplo   |    taplo     |
-|  LaTeX   |  texlab   | latexindent  |
-|  BibTeX  |  texlab   |    texlab    |
-| Markdown |           | markdownlint |
-|  Gradle  | gradle_ls |              |
-|   HTML   |   html    |              |
-|   CSS    |   cssls   |              |
-
-Both JSON and YAML have enhanced capabilities with [schemastore](https://www.schemastore.org/json/).
-LaTeX and Markdown support live-preview.
-
-[^1]: via [nvim-dap](https://github.com/mfussenegger/nvim-dap)
-[^2]: via [neotest](https://github.com/nvim-neotest/neotest)
+We also can't forget the $\LaTeX$!

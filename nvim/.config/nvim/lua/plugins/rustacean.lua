@@ -1,8 +1,8 @@
 return {
-    "mrcjkb/ferris.nvim",
+    "mrcjkb/rustaceanvim",
     ft = { "rust" },
     init = function()
-        vim.g.ferris = {
+        vim.g.rustaceanvim = {
             dap = {
                 adapter = require("util").codelldb,
             },
