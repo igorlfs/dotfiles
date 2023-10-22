@@ -6,9 +6,6 @@ return {
         highlight_overrides = {
             mocha = function(mocha)
                 return {
-                    jukit_cellmarker_colors = { bg = mocha.mantle, fg = mocha.mantle },
-                    jukit_textcell_bg_colors = { bg = mocha.crust },
-
                     -- See catppuccin/nvim#313
                     NormalFloat = { fg = mocha.text, bg = mocha.none },
                 }

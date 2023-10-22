@@ -33,6 +33,7 @@ export BUNDLE_USER_CACHE="$XDG_CACHE_HOME"/bundle
 export BUNDLE_USER_PLUGIN="$XDG_DATA_HOME"/bundle
 
 ### MISC
+export PATH="${XDG_DATA_HOME}/npm/bin:${PATH}"
 export LESSHISTFILE="-"
 export EDITOR='nvim'
 export MANPAGER='nvim +Man!'

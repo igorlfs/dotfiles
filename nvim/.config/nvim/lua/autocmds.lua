@@ -19,9 +19,6 @@ autocmd("Termopen", {
         vim.opt_local.number = false
         vim.opt_local.relativenumber = false
         vim.opt_local.scrolloff = 0
-        -- Use a fixed width to avoid resizing vim-jukit
-        vim.opt_local.winfixwidth = true
-        keymap("t", "<A-i>", [[<C-\><C-n><C-w>w]], { desc = "Move from REPL to Code" })
     end,
 })
 
