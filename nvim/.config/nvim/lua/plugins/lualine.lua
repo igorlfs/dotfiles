@@ -51,17 +51,16 @@ return {
                 lualine_a = {
                     {
                         "tabs",
-                        max_length = vim.o.columns, -- Maximum width of tabs component.
-                        mode = 1, -- 1: Shows tab_name
+                        max_length = vim.o.columns,
+                        mode = 1,
+                        show_modified_status = false,
                         fmt = function(_, context)
-                            -- Display path to current file, from cwd
-                            -- Show + if buffer is modified in tab
                             local buflist = vim.fn.tabpagebuflist(context.tabnr)
                             local winnr = vim.fn.tabpagewinnr(context.tabnr)
                             local bufnr = buflist[winnr]
                             local mod = vim.fn.getbufvar(bufnr, "&mod")
 
-                            return title(bufnr) .. (mod == 1 and " +" or "")
+                            return title(bufnr) .. (mod == 1 and " ●" or "")
                         end,
                     },
                 },

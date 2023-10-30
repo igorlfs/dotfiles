@@ -22,6 +22,9 @@ return {
             octo = true,
             ufo = false,
             mini = true,
+            telescope = {
+                style = "nvchad",
+            },
         },
     },
     config = function(_, opts)

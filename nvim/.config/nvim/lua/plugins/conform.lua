@@ -4,7 +4,6 @@ return {
     opts = {
         formatters_by_ft = {
             lua = { "stylua" },
-            python = { "isort", "black" },
             sh = { "shfmt" },
             gdscript = { "gdformat" },
             markdown = { "injected", "markdownlint" },

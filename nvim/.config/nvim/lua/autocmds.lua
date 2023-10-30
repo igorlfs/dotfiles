@@ -37,6 +37,7 @@ autocmd("FileType", {
         "dap-repl",
         "NeogitCommitMessage",
         "NeogitCommitView",
+        "NoegitPopup",
         "NeogitStatus",
     },
     callback = function() vim.opt_local.foldcolumn = "0" end,

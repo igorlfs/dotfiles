@@ -34,6 +34,7 @@ return {
             ft_ignore = {
                 "NvimTree",
                 "NeogitStatus",
+                "NeogitPopup",
                 "NeogitCommitMessage",
                 "NeogitCommitView",
                 "toggleterm",
