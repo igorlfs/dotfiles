@@ -38,7 +38,14 @@ return {
 
         -- Adapters
         -- C, C++
-        dap.adapters.codelldb = require("util").codelldb
+        dap.adapters.codelldb = {
+            type = "server",
+            port = "${port}",
+            executable = {
+                command = "codelldb",
+                args = { "--port", "${port}" },
+            },
+        }
         -- JS, TS
         dap.adapters["pwa-node"] = {
             type = "server",
