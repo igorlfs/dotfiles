@@ -21,6 +21,7 @@ o.smoothscroll = true -- Smooth scrolling
 o.undofile = true -- Enable persistent undo
 o.shortmess:append("Ic") -- Skip message at the start and reduce vim's verboseness
 o.pumheight = 10 -- Limit completion window up to 10 lines
+o.switchbuf = "usetab" -- Avoid wacky jumps with nvim-dap
 
 -- Search
 o.ignorecase = true -- Ignore case when searching

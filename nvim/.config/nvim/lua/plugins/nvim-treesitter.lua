@@ -42,6 +42,7 @@ return {
                 "dot",
                 "gdscript",
                 "svelte",
+                "http",
             },
             highlight = {
                 enable = true,

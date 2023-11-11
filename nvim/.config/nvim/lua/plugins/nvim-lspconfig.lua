@@ -87,7 +87,7 @@ return {
         })
 
         require("lspconfig").clangd.setup({
-            cmd = { "clangd", "--completion-style=detailed", "--clang-tidy", "--offset-encoding=utf-16" },
+            cmd = { "clangd", "--completion-style=detailed", "--offset-encoding=utf-16" },
             capabilities = capabilities,
             on_attach = function(_, bufnr)
                 vim.keymap.set("n", "<A-o>", "<cmd>ClangdSwitchSourceHeader<CR>", { buffer = bufnr })

@@ -117,16 +117,6 @@ return {
         event = "BufReadPost",
         config = true,
     },
-    -- Refactoring
-    {
-        "ThePrimeagen/refactoring.nvim",
-        dependencies = {
-            "nvim-lua/plenary.nvim",
-            "nvim-treesitter/nvim-treesitter",
-        },
-        cmd = "Refactor",
-        config = true,
-    },
     -- (f-)Strings
     {
         "chrisgrieser/nvim-puppeteer",
