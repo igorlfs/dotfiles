@@ -17,7 +17,7 @@ end
 return {
     "nvim-tree/nvim-tree.lua",
     dependencies = {
-        "DaikyXendo/nvim-web-devicons",
+        "nvim-tree/nvim-web-devicons",
         "rcarriga/nvim-dap-ui", -- we need this to patch a bug, see below
     },
     keys = {

@@ -62,7 +62,12 @@ autocmd("LspAttach", {
         -- Mappings
         keymap({ "n", "i" }, "<C-h>", lsp.buf.signature_help, { buffer = ev.buf })
 
-        keymap("n", "<A-h>", function() lsp.inlay_hint(0, nil) end, { buffer = ev.buf, desc = "Toggle Hints" })
+        keymap(
+            "n",
+            "<A-h>",
+            function() lsp.inlay_hint.enable(nil, not lsp.inlay_hint.is_enabled(0)) end,
+            { buffer = ev.buf, desc = "Toggle Hints" }
+        )
 
         keymap({ "n", "v" }, "<leader>la", lsp.buf.code_action, { buffer = ev.buf, desc = "[L]SP [A]ctions" })
         keymap("n", "<leader>lr", lsp.buf.rename, { buffer = ev.buf, desc = "[L]SP [R]ename" })

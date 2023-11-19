@@ -93,7 +93,7 @@ return {
         "pwntester/octo.nvim",
         dependencies = {
             "nvim-lua/plenary.nvim",
-            "DaikyXendo/nvim-web-devicons",
+            "nvim-tree/nvim-web-devicons",
             "nvim-telescope/telescope.nvim",
         },
         cmd = "Octo",

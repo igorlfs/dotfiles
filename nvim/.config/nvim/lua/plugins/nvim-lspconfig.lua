@@ -35,7 +35,6 @@ return {
     "neovim/nvim-lspconfig",
     event = { "BufReadPre", "BufNewFile" },
     dependencies = {
-        { "folke/neodev.nvim", config = true },
         -- Enable additional capabilities (i.e., autocompletion)
         "hrsh7th/cmp-nvim-lsp",
         -- Some servers (e.g., julials) would require additional configuration such as setting up the path
@@ -87,7 +86,7 @@ return {
         })
 
         require("lspconfig").clangd.setup({
-            cmd = { "clangd", "--completion-style=detailed", "--offset-encoding=utf-16" },
+            cmd = { "clangd", "--completion-style=detailed" },
             capabilities = capabilities,
             on_attach = function(_, bufnr)
                 vim.keymap.set("n", "<A-o>", "<cmd>ClangdSwitchSourceHeader<CR>", { buffer = bufnr })
