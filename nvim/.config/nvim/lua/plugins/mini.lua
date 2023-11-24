@@ -19,6 +19,7 @@ return {
             pattern = {
                 "help",
                 "lazy",
+                "noice",
                 "mason",
                 "notify",
                 "toggleterm",

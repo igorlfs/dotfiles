@@ -7,6 +7,7 @@ name = "pypi"
 # Required Packages for Molten
 pynvim = "*"
 jupyter-client = "*"
+nbformat = "*"
 # Optional Packages for Molten
 cairosvg = "*" # SVG Images
 pnglatex = "*" # TeX Formulas

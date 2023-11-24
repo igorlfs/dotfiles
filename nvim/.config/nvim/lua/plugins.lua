@@ -112,11 +112,7 @@ return {
     -- Comments
     { "numToStr/Comment.nvim", config = true },
     -- Indentation
-    {
-        "nmac427/guess-indent.nvim",
-        event = "BufReadPost",
-        config = true,
-    },
+    { "nmac427/guess-indent.nvim", config = true },
     -- (f-)Strings
     {
         "chrisgrieser/nvim-puppeteer",

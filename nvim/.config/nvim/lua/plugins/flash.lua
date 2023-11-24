@@ -1,7 +1,12 @@
 return {
     "folke/flash.nvim",
     event = "VeryLazy",
-    config = true,
+    config = function()
+        require("flash").setup()
+
+        -- Disable within regular search by default
+        require("flash").toggle()
+    end,
     keys = {
         { "s", mode = { "n", "o", "x" }, function() require("flash").jump() end, desc = "Flash" },
         { "S", mode = { "n", "o", "x" }, function() require("flash").treesitter() end, desc = "Flash Treesitter" },

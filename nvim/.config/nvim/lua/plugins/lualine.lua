@@ -26,6 +26,7 @@ return {
     event = "VeryLazy",
     config = function()
         local noice = require("noice.api")
+
         return require("lualine").setup({
             extensions = { "toggleterm" },
             options = {
