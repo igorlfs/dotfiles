@@ -35,6 +35,8 @@ return {
     "neovim/nvim-lspconfig",
     event = { "BufReadPre", "BufNewFile" },
     dependencies = {
+        -- Betters docs for built-in Lua stuff
+        { "folke/neodev.nvim", config = true },
         -- Enable additional capabilities (i.e., autocompletion)
         "hrsh7th/cmp-nvim-lsp",
         -- Some servers (e.g., julials) would require additional configuration such as setting up the path

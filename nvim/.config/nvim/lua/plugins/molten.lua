@@ -2,6 +2,7 @@ return {
     "benlubas/molten-nvim",
     dependencies = "3rd/image.nvim",
     build = ":UpdateRemotePlugins",
+    ft = { "python", "julia" },
     init = function()
         vim.g.molten_image_provider = "image.nvim"
 
@@ -20,8 +21,8 @@ return {
         keymap("n", "<localleader>d", "<CMD>MoltenDelete<CR>", { desc = "Delete cell" })
         keymap("n", "<localleader>s", "<CMD>MoltenEnterOutput<CR>", { desc = "Show/enter output window" })
         keymap("n", "<localleader>h", "<CMD>MoltenHideOutput<CR>", { desc = "Hide output window" })
-        keymap("n", "]x", "<CMD>MoltenNext<CR>", { desc = "Go to next cell" })
-        keymap("n", "[x", "<CMD>MoltenPrev<CR>", { desc = "Go to previous cell" })
+        keymap("n", "]q", "<CMD>MoltenNext<CR>", { desc = "Goto next cell" })
+        keymap("n", "[q", "<CMD>MoltenPrev<CR>", { desc = "Goto prev cell" })
         keymap("v", "<localleader>e", ":<C-u>MoltenEvaluateVisual<CR>", { desc = "Evaluate visual selection" })
     end,
 }

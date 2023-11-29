@@ -31,7 +31,7 @@ alias lal='exa -al'
 alias tree='exa -T'
 alias pacman='pacman --color=always'
 alias nc='ncdu --color=dark --exclude-kernfs'
-alias ssh='kitty +kitten ssh'
+alias ssh='TERM=xterm-256color ssh'
 
 ### Load zsh-syntax-highlighting; should be last.
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null

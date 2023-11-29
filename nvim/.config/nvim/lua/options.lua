@@ -32,7 +32,7 @@ o.number = true -- Print the line number in front of the current line
 o.relativenumber = true -- Print the line numbers for motion
 
 -- Cursor
-o.cursorlineopt = "number" -- Only highlight numberline
+o.cursorlineopt = "number" -- Only highlight line number
 o.cursorline = true -- Highlight current line
 
 -- Spell

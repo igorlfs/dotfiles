@@ -16,7 +16,7 @@ return {
                 end
                 vim.schedule(function() gs.next_hunk() end)
                 return "<Ignore>"
-            end, { expr = true })
+            end, { expr = true, desc = "Goto next hunk" })
 
             keymap("n", "[c", function()
                 if vim.wo.diff then
@@ -24,7 +24,7 @@ return {
                 end
                 vim.schedule(function() gs.prev_hunk() end)
                 return "<Ignore>"
-            end, { expr = true })
+            end, { expr = true, desc = "Goto prev hunk" })
 
             -- Actions
             keymap("n", "<leader>hs", gs.stage_hunk, { desc = "[H]unk [S]tage" })

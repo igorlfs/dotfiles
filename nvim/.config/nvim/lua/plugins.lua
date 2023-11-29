@@ -60,10 +60,19 @@ return {
     { "yioneko/nvim-type-fmt" },
 
     ------ DAP Extensions
+    -- Virtual Text Variables
     {
         "theHamsta/nvim-dap-virtual-text",
         opts = { enabled = false },
         cmd = "DapVirtualTextToggle",
+    },
+    -- Goto Breakpoints
+    {
+        "ofirgall/goto-breakpoints.nvim",
+        keys = {
+            { "]b", function() require("goto-breakpoints").next() end, desc = "Goto next breakpoint" },
+            { "[b", function() require("goto-breakpoints").next() end, desc = "Goto prev breakpoint" },
+        },
     },
     -- Python
     {
@@ -137,7 +146,7 @@ return {
         "lervag/vimtex",
         init = function()
             -- Avoid startup warning about Tree-sitter
-            -- Prefer Tree-sitter's highlighting as it allows spell-checking
+            -- Prefer Tree-sitter's highlighting as it allows spell checking
             vim.g.vimtex_syntax_enabled = 0
             vim.g.vimtex_syntax_conceal_disable = 1
         end,
@@ -155,5 +164,9 @@ return {
         "cameron-wags/rainbow_csv.nvim",
         config = true,
         ft = { "csv", "tsv" },
+        init = function()
+            -- Avoid updating the statusline value
+            vim.g.disable_rainbow_statusline = 1
+        end,
     },
 }
