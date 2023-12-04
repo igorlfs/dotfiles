@@ -8,7 +8,6 @@ g.maplocalleader = "ç"
 o.termguicolors = true -- Enable full color support
 o.updatetime = 200 -- Time for CursorHold event (e.g., LSP)
 o.diffopt:append({ "linematch:60" }) -- Better diffs
-o.hlsearch = false -- Don't keep searches highlighted
 o.linebreak = true -- Break lines correctly
 o.scrolloff = 4 -- Context lines when scrolling
 o.clipboard = "unnamedplus" -- Use system clipboard

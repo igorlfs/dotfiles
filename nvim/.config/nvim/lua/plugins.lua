@@ -130,6 +130,12 @@ return {
     },
 
     ------ Eye Candy
+    -- Code Context
+    {
+        "SmiteshP/nvim-navic",
+        event = "VeryLazy",
+        opts = { lsp = { auto_attach = true }, highlight = true },
+    },
     -- UI
     { "stevearc/dressing.nvim", event = "VeryLazy", config = true },
     -- Indent Guides

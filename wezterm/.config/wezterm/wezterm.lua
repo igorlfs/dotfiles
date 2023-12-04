@@ -7,6 +7,9 @@ if wezterm.config_builder then
 	config = wezterm.config_builder()
 end
 
+-- As of dec/23, wayland is broken
+config.enable_wayland = false
+
 -- Cursor
 config.default_cursor_style = "BlinkingBlock"
 
