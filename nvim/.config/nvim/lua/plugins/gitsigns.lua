@@ -30,6 +30,7 @@ return {
             keymap("n", "<leader>hs", gs.stage_hunk, { desc = "[H]unk [S]tage" })
             keymap("n", "<leader>hr", gs.reset_hunk, { desc = "[H]unk [R]eset" })
             keymap("n", "<leader>hp", gs.preview_hunk, { desc = "[H]unk [P]review" })
+            keymap("n", "<leader>hi", gs.preview_hunk_inline, { desc = "[H]unk [I]nline Preview" })
             keymap("n", "<leader>hu", gs.undo_stage_hunk, { desc = "[H]unk [U]ndo" })
             keymap("n", "<leader>hb", function() gs.blame_line({ full = true }) end, { desc = "[H]unk [B]lame" })
             keymap(
