@@ -1,20 +1,3 @@
--- Diagnostics
-vim.diagnostic.config({
-    -- Limit length
-    open_float = {
-        width = 80,
-    },
-    -- Enable border
-    float = {
-        style = "minimal",
-        border = "rounded",
-        source = "always",
-        header = "",
-        prefix = "",
-    },
-    severity_sort = true,
-})
-
 local servers = {
     "pylance",
     "taplo",

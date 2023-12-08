@@ -34,6 +34,16 @@ return {
         { "<F12>", "<CMD>DapStepOut<CR>", desc = "Step Out" },
     },
     config = function()
+        -- Signs
+        local sign = vim.fn.sign_define
+
+        local dap_round_groups = { "DapBreakpoint", "DapBreakpointCondition", "DapBreakpointRejected", "DapLogPoint" }
+        for _, group in pairs(dap_round_groups) do
+            sign(group, { text = "●", texthl = group })
+        end
+
+        sign("DapStopped", { text = "", texthl = "DapStopped" })
+
         local dap = require("dap")
 
         -- Adapters

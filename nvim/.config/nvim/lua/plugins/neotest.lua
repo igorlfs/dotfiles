@@ -5,7 +5,7 @@ return {
         "nvim-neotest/neotest-python",
         "rouge8/neotest-rust",
         "haydenmeade/neotest-jest",
-        "andy-bell101/neotest-java",
+        "rcasia/neotest-java",
         "sidlatau/neotest-dart",
     },
     config = function()

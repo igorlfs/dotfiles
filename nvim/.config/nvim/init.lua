@@ -1,7 +1,8 @@
 require("options")
 require("keymaps")
 require("autocmds")
-require("misc")
+require("miscellaneous")
+require("diagnostics")
 require("filetype")
 
 -- Bootstrap Lazy

@@ -21,7 +21,6 @@ return {
             noice = true,
             octo = true,
             ufo = false,
-            mini = true,
             navic = { enabled = true },
             telescope = {
                 style = "nvchad",
