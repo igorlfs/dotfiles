@@ -12,12 +12,9 @@ return {
             end,
         },
         integrations = {
-            dap = {
-                enabled = true,
-                enable_ui = true,
-            },
             neotest = true,
             notify = true,
+            mason = true,
             noice = true,
             octo = true,
             ufo = false,

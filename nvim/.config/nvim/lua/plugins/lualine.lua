@@ -28,7 +28,6 @@ return {
         local noice = require("noice.api")
 
         require("lualine").setup({
-            extensions = { "toggleterm" },
             options = {
                 globalstatus = true,
                 section_separators = { left = "", right = "" },

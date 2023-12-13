@@ -42,8 +42,6 @@ return {
             sign(group, { text = "●", texthl = group })
         end
 
-        sign("DapStopped", { text = "", texthl = "DapStopped" })
-
         local dap = require("dap")
 
         -- Adapters

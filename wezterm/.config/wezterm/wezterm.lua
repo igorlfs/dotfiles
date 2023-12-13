@@ -11,7 +11,7 @@ end
 config.enable_wayland = false
 
 -- Cursor
-config.default_cursor_style = "BlinkingBlock"
+config.force_reverse_video_cursor = true
 
 -- Keyboard Protocol
 config.enable_kitty_keyboard = true

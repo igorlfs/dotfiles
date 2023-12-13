@@ -17,6 +17,8 @@ end
 keymap("n", "<A-0>", "<CMD>tablast<CR>", { desc = "Goto last tab" })
 keymap("n", "<A-]>", "<CMD>tabnext<CR>", { desc = "Goto next tab" })
 keymap("n", "<A-[>", "<CMD>tabprevious<CR>", { desc = "Goto prev tab" })
+keymap("n", "<A-->", "<CMD>tabm-<CR>", { desc = "Move tab to the left" })
+keymap("n", "<A-=>", "<CMD>tabm+<CR>", { desc = "Move tab to the right" })
 keymap("n", "<A-'>", "<CMD>tab split<CR>", { desc = "Clone window in new tab" })
 
 -- Diagnostics
