@@ -11,8 +11,8 @@ return {
                         name = {
                             "Dap",
                             "neotest",
-                            "Diagnostic",
                         },
+                        namespace = { "diagnostic" },
                         maxwidth = 1,
                         colwidth = 2,
                         auto = false,
@@ -22,7 +22,7 @@ return {
                 { text = { builtin.lnumfunc }, click = "v:lua.ScLa" },
                 {
                     sign = {
-                        namespace = { "gitsign" },
+                        namespace = { "gitsigns" },
                         maxwidth = 1,
                         colwidth = 1,
                         auto = false,

@@ -1,8 +1,9 @@
 @import "mocha.css";
 
 * {
-    font-size: 11px;
+    font-family: Iosevka NF;
 }
+
 window#waybar {
     background-color: @base;
     border-bottom: 0px;
@@ -20,7 +21,7 @@ window#waybar {
 
 #workspaces button.active {
     background-color: @surface2;
-    box-shadow: inset 0 -3px @text;
+    box-shadow: inset 0 -1px @text;
 }
 
 #workspaces button.urgent {
@@ -44,12 +45,6 @@ window#waybar {
     animation-direction: alternate;
 }
 
-#idle_inhibitor,
-#clock {
-    padding: 0 10px;
-    color: @text;
-}
-
 label:focus {
     background-color: @crust;
 }
@@ -60,6 +55,8 @@ label:focus {
 #backlight,
 #battery,
 #clock,
+#tray,
+#idle_inhibitor,
 #network {
     color: @crust;
     padding: 0 10px;
@@ -70,17 +67,21 @@ label:focus {
 }
 
 /* If workspaces is the leftmost module, omit left margin */
-.modules-left > widget:first-child > #workspaces {
+.modules-left>widget:first-child>#workspaces {
     margin-left: 0;
 }
 
 /* If workspaces is the rightmost module, omit right margin */
-.modules-right > widget:last-child > #workspaces {
+.modules-right>widget:last-child>#workspaces {
     margin-right: 0;
 }
 
+#tray {
+    background-color: @surface1;
+}
+
 #idle_inhibitor {
-    background-color: @surface0;
+    background-color: @peach;
 }
 
 #idle_inhibitor.activated {
@@ -89,7 +90,7 @@ label:focus {
 }
 
 #pulseaudio {
-    background-color: @peach;
+    background-color: @yellow;
     color: @crust;
 }
 
@@ -98,7 +99,7 @@ label:focus {
 }
 
 #network {
-    background-color: @yellow;
+    background-color: @green;
 }
 
 #network.disconnected {
@@ -106,11 +107,11 @@ label:focus {
 }
 
 #cpu {
-    background-color: @green;
+    background-color: @sky;
 }
 
 #memory {
-    background-color: @sky;
+    background-color: @sapphire;
 }
 
 #backlight {
@@ -122,7 +123,8 @@ label:focus {
     color: @crust;
 }
 
-#battery.charging, #battery.plugged {
+#battery.charging,
+#battery.plugged {
     background-color: @mauve;
 }
 

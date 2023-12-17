@@ -14,7 +14,8 @@
         "memory",
         "backlight",
         "battery",
-        "clock"
+        "clock",
+        "tray"
     ],
     // Modules configuration
     "idle_inhibitor": {

@@ -3,6 +3,14 @@ vim.diagnostic.config({
     open_float = {
         width = 80,
     },
+    signs = {
+        text = {
+            [vim.diagnostic.severity.ERROR] = "󰅚 ",
+            [vim.diagnostic.severity.WARN] = "󰀪 ",
+            [vim.diagnostic.severity.INFO] = "󰋽 ",
+            [vim.diagnostic.severity.HINT] = "󰌶 ",
+        },
+    },
     -- Enable border
     float = {
         style = "minimal",
@@ -13,13 +21,3 @@ vim.diagnostic.config({
     },
     severity_sort = true,
 })
-
--- Signs
-local sign = vim.fn.sign_define
-
-local diagnostic_icons = { Error = "󰅚 ", Warn = "󰀪 ", Info = "󰋽 ", Hint = "󰌶 " }
-
-for type, icon in pairs(diagnostic_icons) do
-    local hl = "DiagnosticSign" .. type
-    sign(hl, { text = icon, texthl = hl, numhl = hl })
-end

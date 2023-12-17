@@ -69,13 +69,13 @@ autocmd("LspAttach", {
             { buffer = ev.buf, desc = "Toggle Hints" }
         )
 
-        keymap({ "n", "v" }, "<leader>la", lsp.buf.code_action, { buffer = ev.buf, desc = "[L]SP [A]ctions" })
-        keymap("n", "<leader>lr", lsp.buf.rename, { buffer = ev.buf, desc = "[L]SP [R]ename" })
-        keymap("n", "<leader>ll", lsp.codelens.run, { buffer = ev.buf, desc = "[L]SP [L]ens" })
+        keymap({ "n", "v" }, "<leader>la", lsp.buf.code_action, { buffer = ev.buf, desc = "LSP Actions" })
+        keymap("n", "<leader>lr", lsp.buf.rename, { buffer = ev.buf, desc = "LSP Rename" })
+        keymap("n", "<leader>ll", lsp.codelens.run, { buffer = ev.buf, desc = "LSP Lens" })
 
         -- NOTE we define this mapping here, instead of using "<leader>f" because it overrides nvim's default gd
         -- (which is a primitive way of going to definition), in spite of it being a Telescope mapping
-        keymap("n", "gd", "<CMD>Telescope lsp_definitions<CR>", { buffer = ev.buf, desc = "[G]o to [D]efinition" })
+        keymap("n", "gd", "<CMD>Telescope lsp_definitions<CR>", { buffer = ev.buf, desc = "Go to Definition" })
     end,
 })
 

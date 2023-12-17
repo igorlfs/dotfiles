@@ -27,12 +27,12 @@ return {
             end, { expr = true, desc = "Goto prev hunk" })
 
             -- Actions
-            keymap("n", "<leader>hs", gs.stage_hunk, { desc = "[H]unk [S]tage" })
-            keymap("n", "<leader>hr", gs.reset_hunk, { desc = "[H]unk [R]eset" })
-            keymap("n", "<leader>hp", gs.preview_hunk, { desc = "[H]unk [P]review" })
-            keymap("n", "<leader>hi", gs.preview_hunk_inline, { desc = "[H]unk [I]nline Preview" })
-            keymap("n", "<leader>hu", gs.undo_stage_hunk, { desc = "[H]unk [U]ndo" })
-            keymap("n", "<leader>hb", function() gs.blame_line({ full = true }) end, { desc = "[H]unk [B]lame" })
+            keymap("n", "<leader>hs", gs.stage_hunk, { desc = "Hunk Stage" })
+            keymap("n", "<leader>hr", gs.reset_hunk, { desc = "Hunk Reset" })
+            keymap("n", "<leader>hp", gs.preview_hunk, { desc = "Hunk Preview" })
+            keymap("n", "<leader>hi", gs.preview_hunk_inline, { desc = "Hunk Inline Preview" })
+            keymap("n", "<leader>hu", gs.undo_stage_hunk, { desc = "Hunk Undo" })
+            keymap("n", "<leader>hb", function() gs.blame_line({ full = true }) end, { desc = "Hunk Blame" })
             keymap(
                 "v",
                 "<leader>hs",
@@ -45,8 +45,8 @@ return {
                 function() gs.reset_hunk({ vim.fn.line("."), vim.fn.line("v") }) end,
                 { desc = "Reset selection" }
             )
-            keymap("n", "<leader>bs", gs.stage_buffer, { desc = "[B]uffer [S]tage" })
-            keymap("n", "<leader>br", gs.reset_buffer, { desc = "[B]uffer [R]eset" })
+            keymap("n", "<leader>bs", gs.stage_buffer, { desc = "Buffer Stage" })
+            keymap("n", "<leader>br", gs.reset_buffer, { desc = "Buffer Reset" })
             keymap("n", "<A-b>", gs.toggle_current_line_blame, { desc = "Toggle Blame" })
             keymap("n", "<A-d>", gs.toggle_deleted, { desc = "Toggle Deleted" })
 

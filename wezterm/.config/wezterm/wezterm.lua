@@ -18,7 +18,7 @@ config.enable_kitty_keyboard = true
 
 -- Font
 config.font = wezterm.font("Iosevka NF")
-config.font_size = 12
+config.font_size = 10.5
 
 -- Remove extra space
 config.window_padding = { left = 0, right = 0, top = 0, bottom = 0 }

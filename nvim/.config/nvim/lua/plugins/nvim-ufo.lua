@@ -23,7 +23,7 @@ return {
         {
             "zM",
             function() require("ufo").closeAllFolds() end,
-            desc = "Open All Folds",
+            desc = "Close All Folds",
         },
     },
 }

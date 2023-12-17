@@ -45,7 +45,7 @@ return {
         local dap = require("dap")
 
         -- Adapters
-        -- C, C++
+        -- C, C++, Rust
         dap.adapters.codelldb = {
             type = "server",
             port = "${port}",

@@ -54,12 +54,12 @@ return {
         })
     end,
     keys = {
-        { "<leader>ff", "<CMD>Telescope find_files<CR>", desc = "[F]ind [F]iles" },
-        { "<leader>fg", "<CMD>Telescope live_grep<CR>", desc = "[F]ind [G]rep" },
-        { "<leader>fb", "<CMD>Telescope buffers<CR>", desc = "[F]ind [B]uffers" },
-        { "<leader>fd", "<CMD>Telescope diagnostics<CR>", desc = "[F]ind [D]iagnostics" },
-        { "<leader>fi", "<CMD>Telescope lsp_implementations<CR>", desc = "[F]ind [I]mplementation" },
-        { "<leader>ft", "<CMD>Telescope lsp_type_definitions<CR>", desc = "[F]ind [T]ype Definition" },
-        { "<leader>fr", "<CMD>Telescope lsp_references<CR>", desc = "[F]ind [R]eferences" },
+        { "<leader>ff", "<CMD>Telescope find_files<CR>", desc = "Find Files" },
+        { "<leader>fg", "<CMD>Telescope live_grep<CR>", desc = "Find Grep" },
+        { "<leader>fb", "<CMD>Telescope buffers<CR>", desc = "Find Buffers" },
+        { "<leader>fd", "<CMD>Telescope diagnostics<CR>", desc = "Find Diagnostics" },
+        { "<leader>fi", "<CMD>Telescope lsp_implementations<CR>", desc = "Find Implementation" },
+        { "<leader>ft", "<CMD>Telescope lsp_type_definitions<CR>", desc = "Find Type Definition" },
+        { "<leader>fr", "<CMD>Telescope lsp_references<CR>", desc = "Find References" },
     },
 }

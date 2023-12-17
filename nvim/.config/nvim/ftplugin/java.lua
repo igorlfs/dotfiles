@@ -137,4 +137,4 @@ jdtls.start_or_attach(config)
 
 local keymap = vim.keymap.set
 -- Using jdtls's builtin method allows debugging, which neotest's adapter currently lacks
-keymap("n", "<leader>td", jdtls.test_nearest_method, { desc = "[T]est [D]ebug" })
+keymap("n", "<leader>td", jdtls.test_nearest_method, { desc = "Test Debug" })
