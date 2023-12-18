@@ -22,6 +22,6 @@ keymap("n", "<A-=>", "<CMD>tabm+<CR>", { desc = "Move tab to the right" })
 keymap("n", "<A-'>", "<CMD>tab split<CR>", { desc = "Clone window in new tab" })
 
 -- Diagnostics
-keymap("n", "<leader>d", vim.diagnostic.open_float, { desc = "Diagnostic Popup" })
+keymap("n", "<leader>e", vim.diagnostic.open_float, { desc = "Diagnostic Popup" })
 keymap("n", "]d", vim.diagnostic.goto_next, { desc = "Goto next diagnostic" })
 keymap("n", "[d", vim.diagnostic.goto_prev, { desc = "Goto prev diagnostic" })

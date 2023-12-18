@@ -19,49 +19,63 @@
     ],
     // Modules configuration
     "idle_inhibitor": {
-        "format": "IDLE {icon}",
+        "format": "{icon}",
         "format-icons": {
-            "activated": "ON",
-            "deactivated": "OFF"
+            "activated": " ",
+            "deactivated": " "
         }
     },
     "clock": {
         "tooltip-format": "<big>{:%d %A}</big>\n<tt><small>{calendar}</small></tt>",
-        "format-alt": "{:%Y-%m-%d}"
+        "format-alt": "{:%d\/%m\/%y}"
     },
     "cpu": {
-        "format": "CPU {usage}%",
+        "format": "  {usage}",
         "tooltip": true
     },
     "memory": {
-        "format": "MEM {}%"
+        "format": "  {}"
     },
     "backlight": {
-        "format": "BRI {percent}%"
+        "format": "󰃟  {percent}"
     },
     "battery": {
         "states": {
             "warning": 20,
             "critical": 15
         },
-        "format": "BAT -{capacity}%",
-        "format-charging": "BAT +{capacity}%",
-        "format-plugged": "BAT {capacity}%",
+        "format": "{icon} {capacity}",
+        "format-charging": "{icon} {capacity}",
+        "format-plugged": "  {capacity}",
         "format-alt": "{time}",
-        "format-full": "Full"
+        "format-full": "",
+        "format-icons": [
+            " ",
+            " ",
+            " ",
+            " ",
+            " "
+        ]
     },
     "network": {
-        "format-wifi": "{essid} ({signalStrength}%)",
+        "format-wifi": "󰖩  {signalStrength}",
         "format-ethernet": "{ipaddr}/{cidr}",
-        "tooltip-format": "{ifname} via {gwaddr}",
+        "tooltip-format": "{essid} via {gwaddr}",
         "format-linked": "{ifname} (No IP)",
-        "format-disconnected": "Disconnected",
+        "format-disconnected": "󰖪 ",
         "format-alt": "{ifname}: {ipaddr}/{cidr}"
     },
     "pulseaudio": {
-        "format": "VOL {volume}% {format_source}",
-        "format-muted": "VOL MUTE {format_source}",
-        "format-source": "MIC {volume}%",
-        "format-source-muted": "MIC MUTE"
+        "format": "{icon} {volume} {format_source}",
+        "format-muted": "󰝟  {format_source}",
+        "format-source": " {volume}",
+        "format-source-muted": " ",
+        "format-icons": {
+            "default": [
+                "",
+                "",
+                ""
+            ]
+        }
     }
 }

@@ -124,9 +124,21 @@ return {
     { "nmac427/guess-indent.nvim", config = true },
     -- (f-)Strings
     {
-        "chrisgrieser/nvim-puppeteer",
+        "axelvc/template-string.nvim",
+        event = { "BufReadPost", "BufNewFile" },
         dependencies = "nvim-treesitter/nvim-treesitter",
-        lazy = false,
+        opts = {
+            filetypes = {
+                "python",
+                "html",
+                "typescript",
+                "javascript",
+                "typescriptreact",
+                "javascriptreact",
+                "vue",
+                "svelte",
+            },
+        },
     },
 
     ------ Eye Candy
@@ -141,7 +153,7 @@ return {
     -- Indent Guides
     {
         "lukas-reineke/indent-blankline.nvim",
-        event = { "BufReadPost", "BufNewFile" },
+        event = "VeryLazy",
         main = "ibl",
         opts = { scope = { enabled = false } },
     },
