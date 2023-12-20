@@ -1,9 +1,6 @@
 return {
     "folke/noice.nvim",
-    dependencies = {
-        "MunifTanjim/nui.nvim",
-        "rcarriga/nvim-notify",
-    },
+    dependencies = "MunifTanjim/nui.nvim",
     opts = {
         messages = {
             view_search = false, -- disable view for search count messages
