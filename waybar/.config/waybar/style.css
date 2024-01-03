@@ -2,6 +2,8 @@
 
 * {
     font-family: Iosevka NF;
+    font-size: 11px;
+    min-height: 0;
 }
 
 window#waybar {

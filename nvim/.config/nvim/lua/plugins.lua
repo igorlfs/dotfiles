@@ -127,18 +127,7 @@ return {
         "axelvc/template-string.nvim",
         event = { "BufReadPost", "BufNewFile" },
         dependencies = "nvim-treesitter/nvim-treesitter",
-        opts = {
-            filetypes = {
-                "python",
-                "html",
-                "typescript",
-                "javascript",
-                "typescriptreact",
-                "javascriptreact",
-                "vue",
-                "svelte",
-            },
-        },
+        config = true,
     },
     -- Undo
     {

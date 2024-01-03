@@ -4,9 +4,7 @@ return {
         "nvim-lua/plenary.nvim",
         "nvim-neotest/neotest-python",
         "rouge8/neotest-rust",
-        "haydenmeade/neotest-jest",
         "rcasia/neotest-java",
-        "sidlatau/neotest-dart",
     },
     config = function()
         require("neotest").setup({
@@ -15,9 +13,7 @@ return {
                     args = { "-v" }, -- get more diff
                 }),
                 require("neotest-rust"),
-                require("neotest-jest"),
                 require("neotest-java"),
-                require("neotest-dart"),
             },
             output = {
                 -- disable pop-up with failing test info (prefer virtual text)

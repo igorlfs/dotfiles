@@ -3,6 +3,7 @@ return {
     name = "catppuccin",
     priority = 1000,
     opts = {
+        term_colors = true,
         highlight_overrides = {
             mocha = function(mocha)
                 return {
@@ -13,7 +14,6 @@ return {
         },
         integrations = {
             neotest = true,
-            notify = true,
             mason = true,
             noice = true,
             octo = true,

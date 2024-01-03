@@ -21,6 +21,7 @@ o.shortmess:append("Ic") -- Skip message at the start and reduce vim's verbosene
 o.pumheight = 10 -- Limit completion window up to 10 lines
 o.switchbuf = "usetab" -- Avoid wacky jumps with nvim-dap
 o.shadafile = "NONE" -- Don't save history
+o.guifont = "Iosevka NF:h10.5" -- Font for Neovide
 
 -- Search
 o.ignorecase = true -- Ignore case when searching

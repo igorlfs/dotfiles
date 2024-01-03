@@ -35,23 +35,9 @@ return {
         },
     },
     keys = {
-        {
-            "<F1>",
-            function() require("dapui").toggle() end,
-            desc = "Toggle DAP UI",
-        },
-        {
-            "<F2>",
-            function() require("dapui").eval() end,
-            desc = "DAP Eval",
-            mode = { "n", "v" },
-        },
-        {
-            "<F3>",
-            function() require("dapui").float_element("breakpoints") end,
-            desc = "DAP List Breakpoints",
-            mode = { "n", "v" },
-        },
+        { "<F1>", function() require("dapui").toggle() end, desc = "Toggle DAP UI" },
+        { "<F2>", function() require("dapui").eval() end, desc = "DAP Eval" },
+        { "<F3>", function() require("dapui").float_element("breakpoints") end, desc = "DAP List Breakpoints" },
     },
     config = function(_, opts)
         local dap, dapui = require("dap"), require("dapui")
