@@ -1,0 +1,4 @@
+theme = "catppuccin_mocha"
+
+[editor.indent-guides]
+render = true

@@ -1,6 +1,7 @@
 return {
     "3rd/image.nvim",
-    enabled = false,
+    cond = vim.g.neovide == nil,
+    lazy = true,
     opts = {
         backend = "kitty",
         max_width = 100,

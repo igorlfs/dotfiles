@@ -6,6 +6,7 @@ return {
         "hrsh7th/cmp-path",
         "hrsh7th/cmp-buffer",
         "L3MON4D3/LuaSnip",
+        "hrsh7th/cmp-cmdline",
         "saadparwaiz1/cmp_luasnip",
         "rcarriga/cmp-dap",
     },
@@ -98,6 +99,27 @@ return {
     config = function(_, opts)
         local cmp = require("cmp")
         cmp.setup(opts)
+
+        -- oddly, it appears that using cmp-cmdline prevents this issue with diffview which is caused by noice
+        -- https://github.com/sindrets/diffview.nvim/issues/302
+        cmp.setup.cmdline({ "/", "?" }, {
+            mapping = cmp.mapping.preset.cmdline(),
+            sources = {
+                { name = "buffer", option = { keyword_pattern = [[\k\+]] } },
+            },
+        })
+        cmp.setup.cmdline(":", {
+            mapping = cmp.mapping.preset.cmdline(),
+            sources = cmp.config.sources({
+                { name = "path" },
+            }, {
+                {
+                    name = "cmdline",
+                    -- Prevent expanding %, see cmp-cmdline#33
+                    keyword_pattern = [=[[^[:blank:]%]*]=],
+                },
+            }),
+        })
 
         -- DAP Completion
         cmp.setup.filetype({ "dapui_watches", "dapui_hover" }, {

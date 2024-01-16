@@ -3,8 +3,11 @@ return {
     dependencies = "3rd/image.nvim",
     build = ":UpdateRemotePlugins",
     ft = { "python", "julia" },
+    cond = vim.g.neovide == nil,
     init = function()
         vim.g.molten_image_provider = "image.nvim"
+
+        vim.g.molten_tick_rate = 200
 
         -- Output Window
         vim.g.molten_auto_open_output = false
