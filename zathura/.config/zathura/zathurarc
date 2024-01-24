@@ -1,6 +1,6 @@
 map i recolor
 set recolor
-set recolor-keephue
+set recolor-keephue true
 set adjust-open "window-width"
 set page-padding 1
 set statusbar-v-padding 0

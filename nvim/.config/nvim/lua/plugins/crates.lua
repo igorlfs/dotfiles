@@ -6,10 +6,10 @@ return {
         popup = {
             border = "rounded",
         },
-        src = {
-            cmp = {
-                enabled = true,
-            },
+        lsp = {
+            enabled = true,
+            actions = true,
+            completion = true,
         },
     },
 }

@@ -11,7 +11,6 @@ local servers = {
     "emmet_language_server",
     "dotls",
     "gdscript",
-    "svelte",
 }
 
 return {
@@ -44,6 +43,22 @@ return {
                 capabilities = capabilities,
             })
         end
+
+        require("lspconfig").svelte.setup({
+            capabilities = capabilities,
+            settings = {
+                svelte = {
+                    plugin = {
+                        svelte = {
+                            compilerWarnings = {
+                                ["a11y-click-events-have-key-events"] = "ignore",
+                                ["a11y-no-static-element-interactions"] = "ignore",
+                            },
+                        },
+                    },
+                },
+            },
+        })
 
         require("lspconfig").lua_ls.setup({
             capabilities = capabilities,

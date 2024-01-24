@@ -79,7 +79,6 @@ return {
                         end,
                     },
                 },
-                { name = "crates" },
                 { name = "path" },
             }),
             formatting = {
