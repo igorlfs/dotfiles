@@ -1,29 +1,3 @@
 # yaml-language-server: $schema=https://json.schemastore.org/clangd.json
 CompileFlags:
-  # enable more warnings.
-  Add: [-Wall, -Wextra, -Wno-missing-prototypes, -Wshadow, -Wpedantic]
-  # Remove extra warnings specified in compile commands.
-  # Single value is also acceptable, same as "Remove: [-mabi]"
-  Remove: -mabi
-Diagnostics:
-  UnusedIncludes: Strict
-  # Tweak Clang-Tidy checks.
-  ClangTidy:
-    Add:
-      [
-        bugprone*,
-        google*,
-        misc*,
-        modernize*,
-        performance*,
-        portability*,
-        readability*,
-      ]
-    Remove: [modernize-use-trailing-return-type, modernize-use-nodiscard]
-    CheckOptions:
-      readability-identifier-naming.VariableCase: lower_case
-      readability-identifier-naming.FunctionCase: lower_case
-      readability-identifier-naming.MacroDefinitionCase: UPPER_CASE
-      readability-identifier-naming.ConstantCase: UPPER_CASE
-      # disable cognitive complexity for macros as it increases gtest complexity
-      readability-function-cognitive-complexity.IgnoreMacros: true
+  Add: [-Wall, -Wextra, -Wshadow, -Wpedantic] # enable more warnings.
