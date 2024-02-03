@@ -43,7 +43,6 @@ o.spelloptions:append({ "camel" }) -- Consider camelCase when checking spell
 
 -- Folds
 o.foldlevelstart = 99 -- Don't close any folds at the start
-o.foldcolumn = "1" -- Clickable column that shows folds
 
 -- Splits
 o.splitbelow = true

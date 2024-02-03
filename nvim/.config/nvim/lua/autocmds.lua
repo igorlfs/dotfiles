@@ -22,25 +22,17 @@ autocmd("Termopen", {
     end,
 })
 
+autocmd("TextYankPost", {
+    desc = "Highlight on yank",
+    group = defaults,
+    callback = function() vim.highlight.on_yank() end,
+})
+
 autocmd("FileType", {
     desc = "Enable spellchecker",
     group = defaults,
     pattern = { "gitcommit", "tex", "NeogitCommitMessage" },
     callback = function() vim.opt_local.spell = true end,
-})
-
-autocmd("FileType", {
-    desc = "Disable foldcolumn",
-    group = defaults,
-    pattern = {
-        "neotest-summary",
-        "dap-repl",
-        "NeogitCommitMessage",
-        "NeogitCommitView",
-        "NeogitPopup",
-        "NeogitStatus",
-    },
-    callback = function() vim.opt_local.foldcolumn = "0" end,
 })
 
 autocmd("LspAttach", {
@@ -77,10 +69,4 @@ autocmd("LspAttach", {
         -- (which is a primitive way of going to definition), in spite of it being a Telescope mapping
         keymap("n", "gd", "<CMD>Telescope lsp_definitions<CR>", { buffer = ev.buf, desc = "Go to Definition" })
     end,
-})
-
-autocmd("TextYankPost", {
-    desc = "Highlight on yank",
-    group = augroup("highlight_yank", {}),
-    callback = function() vim.highlight.on_yank() end,
 })

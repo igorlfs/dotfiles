@@ -1,6 +1,7 @@
 return {
     "luukvbaal/statuscol.nvim",
     branch = "0.10",
+    init = function() vim.opt_local.foldcolumn = "1" end,
     config = function()
         local builtin = require("statuscol.builtin")
         require("statuscol").setup({

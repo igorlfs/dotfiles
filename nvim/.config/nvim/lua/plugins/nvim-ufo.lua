@@ -2,7 +2,7 @@ return {
     -- LSP Extension: textDocument/foldingRange (lineFoldingOnly)
     "kevinhwang91/nvim-ufo",
     dependencies = "kevinhwang91/promise-async",
-    event = "BufReadPost",
+    event = "VeryLazy",
     opts = {
         provider_selector = function(_, filetype, _)
             -- Languages that support LSP folding
