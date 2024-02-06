@@ -22,6 +22,34 @@ autocmd("Termopen", {
     end,
 })
 
+autocmd("FileType", {
+    desc = "Disable foldcolumn",
+    pattern = {
+        "neotest-summary",
+        "dap-repl",
+        "NeogitCommitMessage",
+        "NeogitCommitView",
+        "NeogitPopup",
+        "NeogitStatus",
+    },
+    callback = function() vim.opt_local.foldcolumn = "0" end,
+})
+
+autocmd("BufWinEnter", {
+    desc = "Set options on DAP-UI windows",
+    group = augroup("set_dap_win_options", { clear = true }),
+    pattern = { "DAP *" },
+    callback = function(args)
+        local win = vim.fn.bufwinid(args.buf)
+        vim.schedule(function()
+            if win and not vim.api.nvim_win_is_valid(win) then
+                return
+            end
+            vim.api.nvim_set_option_value("foldcolumn", "0", { win = win })
+        end)
+    end,
+})
+
 autocmd("TextYankPost", {
     desc = "Highlight on yank",
     group = defaults,
