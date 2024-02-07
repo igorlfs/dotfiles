@@ -3,7 +3,7 @@ return {
     dependencies = {
         "nvim-lua/plenary.nvim",
         "nvim-neotest/neotest-python",
-        "rouge8/neotest-rust",
+        "mrcjkb/rustaceanvim",
         "rcasia/neotest-java",
     },
     config = function()
@@ -12,7 +12,7 @@ return {
                 require("neotest-python")({
                     args = { "-v" }, -- get more diff
                 }),
-                require("neotest-rust"),
+                require("rustaceanvim.neotest"),
                 require("neotest-java"),
             },
             output = {
