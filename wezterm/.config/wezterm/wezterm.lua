@@ -10,9 +10,6 @@ end
 -- Cursor
 config.force_reverse_video_cursor = true
 
--- Keyboard Protocol
-config.enable_kitty_keyboard = true
-
 -- Font
 config.font = wezterm.font("Iosevka NF")
 config.font_size = 10.5
