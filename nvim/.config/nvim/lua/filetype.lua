@@ -1,6 +1,7 @@
 vim.filetype.add({
     pattern = {
         [".*/%.vscode/.*%.json"] = "jsonc",
-        [".*/waybar/config"] = "jsonc",
+        ["~/dotfiles/waybar/.config/waybar/config"] = "jsonc",
+        ["~/dotfiles/hyprland/.*"] = "hyprlang",
     },
 })
