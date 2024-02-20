@@ -34,7 +34,6 @@ return {
                 "bibtex",
                 "rust",
                 "julia",
-                "dart",
                 "typescript",
                 "javascript",
                 "html",
@@ -56,8 +55,7 @@ return {
             },
             indent = {
                 enable = true,
-                -- See https://github.com/akinsho/flutter-tools.nvim/issues/267#issuecomment-1616728174
-                disable = { "python", "html", "dart" },
+                disable = { "python", "html" },
             },
             textobjects = {
                 swap = {
