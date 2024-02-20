@@ -1,7 +1,5 @@
 return {
     ------ Miscellaneous
-    -- Library used by many plugins
-    { "nvim-lua/plenary.nvim", lazy = true },
     -- Terminal
     {
         "akinsho/toggleterm.nvim",
@@ -29,8 +27,6 @@ return {
         opts = { ui = { border = "rounded" } },
         cmd = "Mason",
     },
-    -- Quickfix
-    { "kevinhwang91/nvim-bqf", ft = "qf" },
 
     ------ LSP Extensions
     -- textDocument/documentColor
@@ -65,14 +61,6 @@ return {
         "theHamsta/nvim-dap-virtual-text",
         opts = { enabled = false },
         cmd = "DapVirtualTextToggle",
-    },
-    -- Goto Breakpoints
-    {
-        "ofirgall/goto-breakpoints.nvim",
-        keys = {
-            { "]b", function() require("goto-breakpoints").next() end, desc = "Goto next breakpoint" },
-            { "[b", function() require("goto-breakpoints").next() end, desc = "Goto prev breakpoint" },
-        },
     },
     -- Python
     {
