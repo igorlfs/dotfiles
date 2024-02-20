@@ -75,7 +75,7 @@ autocmd("LspAttach", {
             autocmd({ "BufEnter", "CursorHold", "InsertLeave" }, {
                 buffer = ev.buf,
                 group = augroup("codelens", { clear = false }),
-                callback = function() lsp.codelens.refresh() end,
+                callback = function() lsp.codelens.refresh({ bufnr = 0 }) end,
             })
         end
 

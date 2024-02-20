@@ -1,7 +1,6 @@
 require("options")
 require("keymaps")
 require("autocmds")
-require("miscellaneous")
 require("diagnostics")
 require("filetype")
 

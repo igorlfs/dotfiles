@@ -2,9 +2,6 @@ return {
     "folke/noice.nvim",
     dependencies = "MunifTanjim/nui.nvim",
     opts = {
-        messages = {
-            view_search = false, -- disable view for search count messages
-        },
         lsp = {
             override = {
                 ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
