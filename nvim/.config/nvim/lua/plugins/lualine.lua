@@ -32,6 +32,10 @@ return {
                 globalstatus = true,
                 section_separators = { left = "", right = "" },
                 component_separators = { left = "", right = "" },
+                refresh = {
+                    statusline = 100,
+                    tabline = 100,
+                },
             },
             sections = {
                 lualine_a = { "branch" },
