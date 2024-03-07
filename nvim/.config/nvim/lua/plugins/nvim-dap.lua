@@ -1,8 +1,8 @@
 return {
     "mfussenegger/nvim-dap",
     dependencies = {
-        -- Runs preLaunchTasks if present
-        "stevearc/overseer.nvim",
+        -- Runs preLaunchTask / postDebugTask if present
+        { "stevearc/overseer.nvim", config = true },
     },
     keys = {
         { "<F4>", "<CMD>DapTerminate<CR>", desc = "DAP Terminate" },
