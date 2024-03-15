@@ -1,7 +1,6 @@
 local servers = {
     "pylance",
     "taplo",
-    "gradle_ls",
     "ruff_lsp",
     "bashls",
     "yamlls",

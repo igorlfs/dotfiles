@@ -56,6 +56,8 @@ return {
     keys = {
         { "<leader>ff", "<CMD>Telescope find_files<CR>", desc = "Find Files" },
         { "<leader>fg", "<CMD>Telescope live_grep<CR>", desc = "Find Grep" },
+        { "<leader>fw", "<CMD>Telescope grep_string<CR>", desc = "Find Word" },
+        { "<leader>fc", "<CMD>Telescope resume<CR>", desc = "Find Continue" },
         { "<leader>fb", "<CMD>Telescope buffers<CR>", desc = "Find Buffers" },
         { "<leader>fd", "<CMD>Telescope diagnostics<CR>", desc = "Find Diagnostics" },
         { "<leader>fi", "<CMD>Telescope lsp_implementations<CR>", desc = "Find Implementation" },
