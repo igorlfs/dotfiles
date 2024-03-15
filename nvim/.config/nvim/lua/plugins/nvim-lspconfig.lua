@@ -5,11 +5,9 @@ local servers = {
     "ruff_lsp",
     "bashls",
     "yamlls",
-    "julials",
     "html",
     "cssls",
     "emmet_language_server",
-    "dotls",
     "gdscript",
 }
 
