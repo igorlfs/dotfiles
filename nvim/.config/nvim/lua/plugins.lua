@@ -154,8 +154,6 @@ return {
     },
     -- Rust
     { "mrcjkb/rustaceanvim", ft = "rust" },
-    -- Java's JDTLS extensions
-    { "mfussenegger/nvim-jdtls", ft = "java" },
     -- Preview Markdown
     {
         "iamcco/markdown-preview.nvim",

@@ -4,7 +4,6 @@ return {
         "nvim-lua/plenary.nvim",
         "nvim-neotest/neotest-python",
         "mrcjkb/rustaceanvim",
-        "rcasia/neotest-java",
     },
     config = function()
         require("neotest").setup({
@@ -13,7 +12,6 @@ return {
                     args = { "-v" }, -- get more diff
                 }),
                 require("rustaceanvim.neotest"),
-                require("neotest-java"),
             },
             output = {
                 -- disable pop-up with failing test info (prefer virtual text)

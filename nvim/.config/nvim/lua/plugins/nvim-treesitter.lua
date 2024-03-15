@@ -16,8 +16,6 @@ return {
                 "python",
                 "vim",
                 "vimdoc",
-                "java",
-                "groovy",
                 "json",
                 "jsonc",
                 "toml",
