@@ -1,6 +1,9 @@
 local g = vim.g
 local o = vim.opt
 
+-- Neovide
+g.neovide_remember_window_size = false -- Disable Neovide's fullscreen by default
+
 g.mapleader = " "
 g.maplocalleader = "ç"
 
@@ -17,15 +20,10 @@ o.exrc = true -- Enable per-project config file (.nvim.lua)
 o.showmode = false -- Hide message indicating current mode
 o.smoothscroll = true -- Smooth scrolling
 o.undofile = true -- Enable persistent undo
-o.shortmess:append("Ic") -- Skip message at the start and reduce vim's verboseness
 o.pumheight = 10 -- Limit completion window up to 10 lines
 o.switchbuf = "usetab" -- Avoid wacky jumps with nvim-dap
 o.shadafile = "NONE" -- Don't save history
 o.guifont = "Iosevka NF:h10.5" -- Font for Neovide
-
--- Search
-o.ignorecase = true -- Ignore case when searching
-o.smartcase = true -- But also don't ignore if we use upper case
 
 -- Statuscolumn
 o.number = true -- Print the line number in front of the current line

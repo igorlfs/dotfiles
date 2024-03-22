@@ -63,6 +63,11 @@ autocmd("FileType", {
     callback = function() vim.opt_local.spell = true end,
 })
 
+autocmd("User", {
+    pattern = "TelescopePreviewerLoaded",
+    callback = function() vim.wo.wrap = true end,
+})
+
 autocmd("LspAttach", {
     desc = "LSP",
     group = augroup("lsp", { clear = false }),
