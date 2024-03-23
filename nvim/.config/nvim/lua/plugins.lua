@@ -34,7 +34,6 @@ return {
         "uga-rosa/ccc.nvim",
         opts = {
             highlighter = {
-                auto_enable = true,
                 lsp = true,
             },
         },
@@ -116,12 +115,6 @@ return {
         event = { "BufReadPost", "BufNewFile" },
         dependencies = "nvim-treesitter/nvim-treesitter",
         config = true,
-    },
-    -- Undo
-    {
-        "kevinhwang91/nvim-fundo",
-        dependencies = "kevinhwang91/promise-async",
-        build = function() require("fundo").install() end,
     },
 
     ------ Eye Candy
