@@ -21,11 +21,18 @@ return {
         keys = { { "<leader>fs", "<CMD>Telescope possession list<CR>", desc = "[F]ind [S]essions" } },
         cmd = { "PossessionSave" },
     },
-    -- Developer Tools Package Manager
+    ------ Package Manager
+    -- Language servers, debug adapters, linters and formatters
     {
         "williamboman/mason.nvim",
         opts = { ui = { border = "rounded" } },
         cmd = "Mason",
+    },
+    -- Lua Modules
+    {
+        "vhyrro/luarocks.nvim",
+        priority = 1000,
+        config = true,
     },
 
     ------ LSP Extensions
@@ -162,5 +169,12 @@ return {
             -- Avoid updating the statusline value
             vim.g.disable_rainbow_statusline = 1
         end,
+    },
+    -- Neorg
+    {
+        "nvim-neorg/neorg",
+        dependencies = { "luarocks.nvim" },
+        ft = "norg",
+        config = true,
     },
 }
