@@ -2,7 +2,6 @@ return {
     "benlubas/molten-nvim",
     build = ":UpdateRemotePlugins",
     ft = { "python", "julia" },
-    cond = vim.g.neovide == nil,
     init = function()
         vim.g.molten_tick_rate = 200
 
