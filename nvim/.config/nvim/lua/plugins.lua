@@ -154,6 +154,16 @@ return {
     },
     -- Rust
     { "mrcjkb/rustaceanvim", ft = "rust" },
+    -- Python
+    {
+        "linux-cultist/venv-selector.nvim",
+        cmd = { "VenvSelect", "VenvSelectCached" },
+        dependencies = {
+            "neovim/nvim-lspconfig",
+            "nvim-telescope/telescope.nvim",
+        },
+        config = true,
+    },
     -- Preview Markdown
     {
         "iamcco/markdown-preview.nvim",
