@@ -6,6 +6,7 @@ local servers = {
     "yamlls",
     "html",
     "cssls",
+    "typst_lsp",
     "emmet_language_server",
     "gdscript",
 }

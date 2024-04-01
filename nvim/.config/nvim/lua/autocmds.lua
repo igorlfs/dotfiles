@@ -59,7 +59,7 @@ autocmd("TextYankPost", {
 autocmd("FileType", {
     desc = "Enable spellchecker",
     group = defaults,
-    pattern = { "gitcommit", "tex", "NeogitCommitMessage", "octo" },
+    pattern = { "gitcommit", "tex", "NeogitCommitMessage", "octo", "typst" },
     callback = function() vim.opt_local.spell = true end,
 })
 
