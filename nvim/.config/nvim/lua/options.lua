@@ -33,7 +33,7 @@ o.number = true -- Print the line number in front of the current line
 o.relativenumber = true -- Print the line numbers for motion
 
 -- Cursor
-o.cursorlineopt = "number" -- Only highlight line number
+o.cursorlineopt = "number,screenline" -- Highlight line number and visual line
 o.cursorline = true -- Highlight current line
 
 -- Spell
@@ -41,6 +41,7 @@ local spell = vim.fn.stdpath("config") .. "/spell/"
 o.spellfile = { spell .. "en.utf-8.add", spell .. "pt.utf-8.add" } -- Custom dictionary files
 o.spelllang:append({ "pt_br" }) -- Additional language to spell check
 o.spelloptions:append({ "camel" }) -- Consider camelCase when checking spell
+o.spellsuggest:append("9") -- Limit the number of suggestions for spell
 
 -- Folds
 o.foldlevelstart = 99 -- Don't close any folds at the start

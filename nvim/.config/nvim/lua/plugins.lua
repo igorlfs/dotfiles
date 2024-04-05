@@ -83,6 +83,7 @@ return {
     ------ VCS
     {
         "NeogitOrg/neogit",
+        branch = "nightly",
         dependencies = {
             { "sindrets/diffview.nvim", cmd = { "DiffviewOpen", "DiffviewFileHistory" } },
             "nvim-lua/plenary.nvim",
@@ -112,8 +113,6 @@ return {
     },
     -- Surround
     { "kylechui/nvim-surround", event = "VeryLazy", config = true },
-    -- Comments
-    { "numToStr/Comment.nvim", config = true },
     -- Indentation
     { "nmac427/guess-indent.nvim", config = true },
     -- (f-)Strings
