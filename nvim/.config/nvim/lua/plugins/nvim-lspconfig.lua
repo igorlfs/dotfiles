@@ -64,26 +64,6 @@ return {
             settings = { Lua = { hint = { enable = true } } },
         })
 
-        require("lspconfig").texlab.setup({
-            capabilities = capabilities,
-            settings = {
-                -- Vimtex's tectonic support can't handle "continuous compilation" so we texlab's build instead.
-                -- However, vimtex provides a nice command for inverse search, so it's worth keeping around
-                texlab = {
-                    build = {
-                        executable = "tectonic",
-                        args = { "-X", "compile", "%f", "--synctex", "--keep-intermediates" },
-                        forwardSearchAfter = true,
-                        onSave = true,
-                    },
-                    forwardSearch = {
-                        executable = "zathura",
-                        args = { "--synctex-forward", "%l:1:%f", "%p" },
-                    },
-                },
-            },
-        })
-
         require("lspconfig").clangd.setup({
             cmd = { "clangd", "--completion-style=detailed" },
             capabilities = capabilities,

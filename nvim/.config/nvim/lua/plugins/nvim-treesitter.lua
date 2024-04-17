@@ -28,7 +28,6 @@ return {
                 "bash",
                 "markdown",
                 "markdown_inline",
-                "latex",
                 "bibtex",
                 "rust",
                 "typescript",

@@ -143,16 +143,6 @@ return {
     },
 
     ------ Language Extensions
-    -- LaTeX
-    {
-        "lervag/vimtex",
-        init = function()
-            -- Avoid startup warning about Tree-sitter
-            -- Prefer Tree-sitter's highlighting as it allows spell checking
-            vim.g.vimtex_syntax_enabled = 0
-            vim.g.vimtex_syntax_conceal_disable = 1
-        end,
-    },
     -- Rust
     { "mrcjkb/rustaceanvim", ft = "rust" },
     -- Python
