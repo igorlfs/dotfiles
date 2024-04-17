@@ -7,6 +7,7 @@ local servers = {
     "html",
     "cssls",
     "typst_lsp",
+    "tailwindcss",
     "emmet_language_server",
     "gdscript",
 }

@@ -5,6 +5,5 @@ vim.filetype.add({
     },
     filename = {
         ["~/dotfiles/waybar/.config/waybar/config"] = "jsonc",
-        ["zathurarc"] = "zathurarc",
     },
 })

@@ -11,6 +11,7 @@ g.mapleader = " "
 g.maplocalleader = "ç"
 
 -- Miscellaneous
+o.gdefault = true -- Replace all matches in line by default with substitution
 o.updatetime = 200 -- Time for CursorHold event (e.g., LSP)
 o.diffopt:append({ "linematch:60" }) -- Better diffs
 o.linebreak = true -- Break lines correctly

@@ -31,6 +31,7 @@ autocmd("FileType", {
         "NeogitCommitView",
         "NeogitPopup",
         "NeogitStatus",
+        "NeogitDiffView",
     },
     callback = function() vim.opt_local.foldcolumn = "0" end,
 })
