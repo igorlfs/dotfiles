@@ -91,7 +91,7 @@ autocmd("LspAttach", {
         keymap(
             "n",
             "<A-h>",
-            function() lsp.inlay_hint.enable(nil, not lsp.inlay_hint.is_enabled(0)) end,
+            function() lsp.inlay_hint.enable(not lsp.inlay_hint.is_enabled()) end,
             { buffer = ev.buf, desc = "Toggle Hints" }
         )
 

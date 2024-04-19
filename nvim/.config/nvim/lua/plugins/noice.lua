@@ -19,17 +19,6 @@ return {
         cmdline = {
             view = "cmdline",
         },
-        routes = {
-            -- Hide "written" messages
-            {
-                filter = {
-                    event = "msg_show",
-                    kind = "",
-                    find = "written",
-                },
-                opts = { skip = true },
-            },
-        },
     },
     keys = {
         {
