@@ -1,7 +1,7 @@
 local servers = {
-    "pylance",
+    "basedpyright",
     "taplo",
-    "ruff_lsp",
+    "ruff",
     "bashls",
     "yamlls",
     "html",
