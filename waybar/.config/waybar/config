@@ -34,7 +34,7 @@
         "tooltip": true
     },
     "memory": {
-        "format": "  {}"
+        "format": "  {}"
     },
     "backlight": {
         "format": "󰃟  {percent}"
