@@ -1,15 +1,14 @@
 local servers = {
     "basedpyright",
-    "taplo",
-    "ruff",
-    "bashls",
-    "yamlls",
-    "html",
     "cssls",
-    "typst_lsp",
-    "tailwindcss",
     "emmet_language_server",
     "gdscript",
+    "html",
+    "ruff",
+    "tailwindcss",
+    "taplo",
+    "tinymist",
+    "yamlls",
 }
 
 return {

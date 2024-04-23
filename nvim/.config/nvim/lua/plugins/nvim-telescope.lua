@@ -16,6 +16,7 @@ return {
         telescope.setup({
             defaults = {
                 sorting_strategy = "ascending",
+                path_display = { "filename_first" },
                 layout_config = {
                     prompt_position = "top",
                 },

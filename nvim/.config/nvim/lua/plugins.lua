@@ -38,12 +38,8 @@ return {
     ------ LSP Extensions
     -- textDocument/documentColor
     {
-        "uga-rosa/ccc.nvim",
-        opts = {
-            highlighter = {
-                lsp = true,
-            },
-        },
+        "brenoprata10/nvim-highlight-colors",
+        opts = { render = "virtual" },
     },
     -- textDocument/documentHighlight
     {
