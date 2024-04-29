@@ -3,7 +3,6 @@ local o = vim.opt
 
 -- Neovide
 g.neovide_remember_window_size = false -- Disable Neovide's fullscreen by default
-g.neovide_cursor_animation_length = 0 -- Disable cursor animations as there are some wacky jumps (caused by noice?)
 g.neovide_floating_shadow = false -- Not a fan
 g.neovide_hide_mouse_when_typing = true
 

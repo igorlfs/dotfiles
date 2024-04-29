@@ -95,7 +95,7 @@ autocmd("LspAttach", {
             { buffer = ev.buf, desc = "Toggle Hints" }
         )
 
-        keymap({ "n", "v" }, "<leader>la", lsp.buf.code_action, { buffer = ev.buf, desc = "LSP Actions" })
+        keymap({ "n", "x" }, "<leader>la", lsp.buf.code_action, { buffer = ev.buf, desc = "LSP Actions" })
         keymap("n", "<leader>lr", lsp.buf.rename, { buffer = ev.buf, desc = "LSP Rename" })
         keymap("n", "<leader>ll", lsp.codelens.run, { buffer = ev.buf, desc = "LSP Lens" })
 

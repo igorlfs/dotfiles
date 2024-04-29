@@ -1,5 +1,6 @@
 local servers = {
     "basedpyright",
+    "biome",
     "cssls",
     "emmet_language_server",
     "gdscript",
