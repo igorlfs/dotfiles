@@ -20,11 +20,6 @@ return {
                 layout_config = {
                     prompt_position = "top",
                 },
-                file_ignore_patterns = {
-                    "^.git/*",
-                    "node_modules/*",
-                    ".mypy_cache/*",
-                },
                 mappings = {
                     i = {
                         ["<Tab>"] = actions.move_selection_next,
@@ -56,6 +51,7 @@ return {
     end,
     keys = {
         { "<leader>ff", "<CMD>Telescope find_files<CR>", desc = "Find Files" },
+        { "<leader>fv", "<CMD>Telescope git_files<CR>", desc = "Find Files" },
         { "<leader>fg", "<CMD>Telescope live_grep<CR>", desc = "Find Grep" },
         { "<leader>fw", "<CMD>Telescope grep_string<CR>", desc = "Find Word" },
         { "<leader>fc", "<CMD>Telescope resume<CR>", desc = "Find Continue" },

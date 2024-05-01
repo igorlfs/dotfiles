@@ -39,15 +39,4 @@ return {
         { "<F2>", function() require("dapui").eval() end, desc = "DAP Eval" },
         { "<F3>", function() require("dapui").float_element("breakpoints") end, desc = "DAP List Breakpoints" },
     },
-    config = function(_, opts)
-        local dap, dapui = require("dap"), require("dapui")
-
-        -- Open and Close windows automatically
-        dap.listeners.before.attach.dapui_config = function() dapui.open() end
-        dap.listeners.before.launch.dapui_config = function() dapui.open() end
-        dap.listeners.before.event_terminated.dapui_config = function() dapui.close() end
-        dap.listeners.before.event_exited.dapui_config = function() dapui.close() end
-
-        dapui.setup(opts)
-    end,
 }

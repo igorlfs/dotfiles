@@ -4,6 +4,7 @@ return {
     ft = { "python", "julia" },
     init = function()
         vim.g.molten_tick_rate = 200
+        vim.g.molten_auto_image_popup = true
 
         -- Output Window
         vim.g.molten_auto_open_output = false
