@@ -15,7 +15,7 @@ vim.diagnostic.config({
     float = {
         style = "minimal",
         border = "rounded",
-        source = "always",
+        source = true,
         header = "",
         prefix = "",
     },

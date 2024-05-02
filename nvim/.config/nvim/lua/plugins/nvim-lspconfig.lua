@@ -5,6 +5,7 @@ local servers = {
     "emmet_language_server",
     "gdscript",
     "html",
+    "jsonls",
     "ruff",
     "tailwindcss",
     "taplo",
@@ -23,8 +24,6 @@ return {
         -- Some servers (e.g., julials) would require additional configuration such as setting up the path
         -- mason-lspconfig bridges this gap and sets up everything to work perfectly with lspconfig
         { "williamboman/mason-lspconfig.nvim", config = true },
-        -- Validate JSON files
-        "b0o/schemastore.nvim",
     },
     config = function()
         -- Enable border for LspInfo
@@ -70,16 +69,6 @@ return {
             on_attach = function(_, bufnr)
                 vim.keymap.set("n", "<A-o>", "<cmd>ClangdSwitchSourceHeader<CR>", { buffer = bufnr })
             end,
-        })
-
-        require("lspconfig").jsonls.setup({
-            capabilities = capabilities,
-            settings = {
-                json = {
-                    schemas = require("schemastore").json.schemas(),
-                    validate = { enable = true },
-                },
-            },
         })
     end,
 }
