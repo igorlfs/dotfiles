@@ -81,7 +81,7 @@ return {
         "NeogitOrg/neogit",
         branch = "nightly",
         dependencies = {
-            { "sindrets/diffview.nvim", cmd = { "DiffviewOpen", "DiffviewFileHistory" } },
+            "sindrets/diffview.nvim",
             "nvim-lua/plenary.nvim",
             "nvim-telescope/telescope.nvim",
         },

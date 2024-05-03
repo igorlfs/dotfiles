@@ -22,6 +22,7 @@ return {
                 "noice",
                 "mason",
                 "toggleterm",
+                "csv",
             },
             callback = function() vim.b.miniindentscope_disable = true end,
         })

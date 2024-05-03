@@ -1,5 +1,4 @@
 local servers = {
-    "basedpyright",
     "biome",
     "cssls",
     "emmet_language_server",
@@ -24,6 +23,8 @@ return {
         -- Some servers (e.g., julials) would require additional configuration such as setting up the path
         -- mason-lspconfig bridges this gap and sets up everything to work perfectly with lspconfig
         { "williamboman/mason-lspconfig.nvim", config = true },
+        -- Restore Python Virtual Env
+        "linux-cultist/venv-selector.nvim",
     },
     config = function()
         -- Enable border for LspInfo
@@ -56,6 +57,11 @@ return {
                     },
                 },
             },
+        })
+
+        require("lspconfig").basedpyright.setup({
+            capabilities = capabilities,
+            on_attach = function() require("venv-selector").retrieve_from_cache() end,
         })
 
         require("lspconfig").lua_ls.setup({

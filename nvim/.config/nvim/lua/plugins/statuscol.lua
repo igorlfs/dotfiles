@@ -26,6 +26,7 @@ return {
                         maxwidth = 1,
                         colwidth = 1,
                         auto = false,
+                        wrap = true,
                         fillcharhl = "StatusColumnSeparator",
                     },
                     click = "v:lua.ScSa",
