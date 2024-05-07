@@ -28,12 +28,6 @@ return {
         opts = { ui = { border = "rounded" } },
         cmd = "Mason",
     },
-    -- Lua Modules
-    {
-        "vhyrro/luarocks.nvim",
-        priority = 1000,
-        config = true,
-    },
 
     ------ LSP Extensions
     -- textDocument/documentColor
@@ -135,7 +129,10 @@ return {
         "lukas-reineke/indent-blankline.nvim",
         event = "VeryLazy",
         main = "ibl",
-        opts = { scope = { enabled = false } },
+        opts = {
+            scope = { enabled = false },
+            exclude = { filetypes = { "csv" } },
+        },
     },
 
     ------ Language Extensions
@@ -145,10 +142,7 @@ return {
     {
         "linux-cultist/venv-selector.nvim",
         cmd = { "VenvSelect", "VenvSelectCached" },
-        dependencies = {
-            "neovim/nvim-lspconfig",
-            "nvim-telescope/telescope.nvim",
-        },
+        dependencies = { "nvim-telescope/telescope.nvim" },
         config = true,
     },
     -- Preview Markdown
@@ -158,19 +152,5 @@ return {
         ft = "markdown",
     },
     -- CSV
-    {
-        "cameron-wags/rainbow_csv.nvim",
-        config = true,
-        init = function()
-            -- Avoid updating the statusline value
-            vim.g.disable_rainbow_statusline = 1
-        end,
-    },
-    -- Neorg
-    {
-        "nvim-neorg/neorg",
-        dependencies = { "luarocks.nvim" },
-        ft = "norg",
-        config = true,
-    },
+    { "cameron-wags/rainbow_csv.nvim", config = true },
 }

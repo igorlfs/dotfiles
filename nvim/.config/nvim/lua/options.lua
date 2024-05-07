@@ -1,11 +1,7 @@
 local g = vim.g
 local o = vim.opt
 
--- Neovide
-g.neovide_remember_window_size = false -- Disable Neovide's fullscreen by default
-g.neovide_floating_shadow = false -- Not a fan
-g.neovide_hide_mouse_when_typing = true
-
+-- Leaders
 g.mapleader = " "
 g.maplocalleader = "ç"
 

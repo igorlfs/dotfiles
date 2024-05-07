@@ -4,6 +4,10 @@ require("autocmds")
 require("diagnostics")
 require("filetype")
 
+if vim.g.neovide ~= nil then
+    require("neovide")
+end
+
 -- Bootstrap Lazy
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.uv.fs_stat(lazypath) then
