@@ -34,6 +34,7 @@ export BUNDLE_USER_PLUGIN="$XDG_DATA_HOME"/bundle
 
 ### MISC
 export PATH="${XDG_DATA_HOME}/npm/bin:${PATH}"
+export RIPGREP_CONFIG_PATH="${XDG_CONFIG_HOME}/ripgrep/config"
 export LESSHISTFILE="-"
 export EDITOR='nvim'
 export MANPAGER='nvim +Man!'
