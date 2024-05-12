@@ -17,6 +17,7 @@ return {
             mason = true,
             noice = true,
             octo = true,
+            diffview = true,
             ufo = false,
             navic = { enabled = true },
             telescope = {

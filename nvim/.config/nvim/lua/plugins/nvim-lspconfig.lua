@@ -4,7 +4,6 @@ local servers = {
     "emmet_language_server",
     "gdscript",
     "html",
-    "jsonls",
     "ruff",
     "tailwindcss",
     "taplo",
@@ -25,6 +24,8 @@ return {
         { "williamboman/mason-lspconfig.nvim", config = true },
         -- Restore Python Virtual Env
         "linux-cultist/venv-selector.nvim",
+        -- Validate JSON files
+        "b0o/schemastore.nvim",
     },
     config = function()
         -- Enable border for LspInfo
@@ -75,6 +76,16 @@ return {
             on_attach = function(_, bufnr)
                 vim.keymap.set("n", "<A-o>", "<cmd>ClangdSwitchSourceHeader<CR>", { buffer = bufnr })
             end,
+        })
+
+        require("lspconfig").jsonls.setup({
+            capabilities = capabilities,
+            settings = {
+                json = {
+                    schemas = require("schemastore").json.schemas(),
+                    validate = { enable = true },
+                },
+            },
         })
     end,
 }

@@ -51,18 +51,6 @@ return {
     end,
     keys = {
         { "<leader>ff", "<CMD>Telescope find_files<CR>", desc = "Find Files" },
-        -- See telescope.nvim#2181
-        {
-            "<leader>fv",
-            function()
-                local ok, message = pcall(require("telescope.builtin").git_files)
-
-                if not ok then
-                    vim.notify(message)
-                end
-            end,
-            desc = "Find Git Files",
-        },
         { "<leader>fg", "<CMD>Telescope live_grep<CR>", desc = "Find Grep" },
         { "<leader>fw", "<CMD>Telescope grep_string<CR>", desc = "Find Word" },
         { "<leader>fc", "<CMD>Telescope resume<CR>", desc = "Find Continue" },
