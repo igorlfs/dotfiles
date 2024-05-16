@@ -73,14 +73,18 @@ return {
     ------ VCS
     {
         "NeogitOrg/neogit",
-        branch = "nightly",
         dependencies = {
             "sindrets/diffview.nvim",
             "nvim-lua/plenary.nvim",
             "nvim-telescope/telescope.nvim",
         },
         cmd = "Neogit",
-        config = true,
+        opts = {
+            commit_editor = {
+                kind = "vsplit",
+                show_staged_diff = false,
+            },
+        },
     },
     -- GitHub
     {

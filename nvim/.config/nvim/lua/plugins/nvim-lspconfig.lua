@@ -62,7 +62,6 @@ return {
 
         require("lspconfig").basedpyright.setup({
             capabilities = capabilities,
-            on_attach = function() require("venv-selector").retrieve_from_cache() end,
         })
 
         require("lspconfig").lua_ls.setup({

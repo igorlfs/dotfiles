@@ -11,6 +11,18 @@ autocmd("FileType", {
     callback = function() vim.opt_local.formatoptions:remove("o") end,
 })
 
+-- See neovim#28692 and related plugin issues
+autocmd("BufEnter", {
+    desc = "Fix 'No Fold Found' after restoring session",
+    group = defaults,
+    pattern = { "*" },
+    callback = function()
+        if vim.wo.foldmethod == "expr" then
+            vim.schedule(function() vim.opt.foldmethod = "expr" end)
+        end
+    end,
+})
+
 autocmd("Termopen", {
     desc = "Unclutter terminal",
     group = defaults,
@@ -86,12 +98,12 @@ autocmd("LspAttach", {
         end
 
         -- Mappings
-        keymap({ "n", "i" }, "<C-h>", lsp.buf.signature_help, { buffer = ev.buf })
+        keymap({ "n", "i" }, "<C-h>", lsp.buf.signature_help, { buffer = ev.buf, desc = "Signature Help" })
 
         keymap(
             "n",
             "<A-h>",
-            function() lsp.inlay_hint.enable(not lsp.inlay_hint.is_enabled()) end,
+            function() lsp.inlay_hint.enable(not lsp.inlay_hint.is_enabled({ bufnr = 0 }), { bufnr = 0 }) end,
             { buffer = ev.buf, desc = "Toggle Hints" }
         )
 

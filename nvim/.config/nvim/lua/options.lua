@@ -42,7 +42,7 @@ o.spellsuggest:append("9") -- Limit the number of suggestions for spell
 -- Folds
 o.foldmethod = "expr"
 o.foldexpr = "v:lua.vim.treesitter.foldexpr()" -- Treesitter folds
-o.foldtext = "" -- highlight folded lines
+o.foldtext = "" -- Highlight folded lines
 o.foldlevelstart = 99 -- Don't close any folds at the start
 o.foldcolumn = "1" -- Clickable column that shows folds
 
