@@ -31,10 +31,7 @@ return {
 
     ------ LSP Extensions
     -- textDocument/documentColor
-    {
-        "brenoprata10/nvim-highlight-colors",
-        opts = { render = "virtual" },
-    },
+    { "brenoprata10/nvim-highlight-colors", config = true },
     -- textDocument/documentHighlight
     {
         "RRethy/vim-illuminate",
@@ -84,6 +81,7 @@ return {
                 kind = "vsplit",
                 show_staged_diff = false,
             },
+            auto_show_console = false,
         },
     },
     -- GitHub
@@ -111,6 +109,8 @@ return {
     { "numToStr/Comment.nvim", config = true },
     -- Indentation
     { "nmac427/guess-indent.nvim", config = true },
+    -- Tags
+    { "windwp/nvim-ts-autotag", event = "InsertEnter", config = true },
     -- (f-)Strings
     {
         "axelvc/template-string.nvim",

@@ -52,7 +52,7 @@ return {
             keymap("n", "<A-d>", gitsigns.toggle_deleted, { desc = "Toggle Deleted" })
 
             -- Text object
-            keymap({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>")
+            keymap({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>", { silent = true })
         end,
     },
 }

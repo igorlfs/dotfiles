@@ -11,18 +11,6 @@ autocmd("FileType", {
     callback = function() vim.opt_local.formatoptions:remove("o") end,
 })
 
--- See neovim#28692 and related plugin issues
-autocmd("BufEnter", {
-    desc = "Fix 'No Fold Found' after restoring session",
-    group = defaults,
-    pattern = { "*" },
-    callback = function()
-        if vim.wo.foldmethod == "expr" then
-            vim.schedule(function() vim.opt.foldmethod = "expr" end)
-        end
-    end,
-})
-
 autocmd("Termopen", {
     desc = "Unclutter terminal",
     group = defaults,
