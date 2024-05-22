@@ -21,12 +21,22 @@ return {
         keys = { { "<leader>fs", "<CMD>Telescope possession list<CR>", desc = "[F]ind [S]essions" } },
         cmd = { "PossessionSave" },
     },
-    ------ Package Manager
-    -- Language servers, debug adapters, linters and formatters
+    -- Package Manager for language servers, debug adapters, linters and formatters
     {
         "williamboman/mason.nvim",
         opts = { ui = { border = "rounded" } },
         cmd = "Mason",
+    },
+    -- GitHub
+    {
+        "pwntester/octo.nvim",
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+            "nvim-tree/nvim-web-devicons",
+            "nvim-telescope/telescope.nvim",
+        },
+        cmd = "Octo",
+        config = true,
     },
 
     ------ LSP Extensions
@@ -53,7 +63,7 @@ return {
     {
         "theHamsta/nvim-dap-virtual-text",
         opts = { enabled = false },
-        cmd = "DapVirtualTextToggle",
+        keys = { { "<A-v>", "<CMD>DapVirtualTextToggle<CR>", desc = "Toggle DAP Virtual Text" } },
     },
     -- Python
     {
@@ -65,35 +75,6 @@ return {
                 .. "/venv/bin/python3"
             require("dap-python").setup(debugpy_python_path)
         end,
-    },
-
-    ------ VCS
-    {
-        "NeogitOrg/neogit",
-        dependencies = {
-            "sindrets/diffview.nvim",
-            "nvim-lua/plenary.nvim",
-            "nvim-telescope/telescope.nvim",
-        },
-        cmd = "Neogit",
-        opts = {
-            commit_editor = {
-                kind = "vsplit",
-                show_staged_diff = false,
-            },
-            auto_show_console = false,
-        },
-    },
-    -- GitHub
-    {
-        "pwntester/octo.nvim",
-        dependencies = {
-            "nvim-lua/plenary.nvim",
-            "nvim-tree/nvim-web-devicons",
-            "nvim-telescope/telescope.nvim",
-        },
-        cmd = "Octo",
-        config = true,
     },
 
     ------ Editing
@@ -141,7 +122,15 @@ return {
 
     ------ Language Extensions
     -- Rust
-    { "mrcjkb/rustaceanvim", ft = "rust" },
+    {
+        "mrcjkb/rustaceanvim",
+        ft = "rust",
+        init = function()
+            vim.g.rustaceanvim = {
+                tools = { float_win_config = { border = "rounded" } },
+            }
+        end,
+    },
     -- Python
     {
         "linux-cultist/venv-selector.nvim",
