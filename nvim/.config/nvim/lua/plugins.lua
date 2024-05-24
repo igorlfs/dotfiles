@@ -93,12 +93,7 @@ return {
     -- Tags
     { "windwp/nvim-ts-autotag", event = "InsertEnter", config = true },
     -- (f-)Strings
-    {
-        "axelvc/template-string.nvim",
-        event = { "BufReadPost", "BufNewFile" },
-        dependencies = "nvim-treesitter/nvim-treesitter",
-        config = true,
-    },
+    { "axelvc/template-string.nvim", event = "InsertEnter", config = true },
 
     ------ Eye Candy
     -- Code Context

@@ -1,5 +1,6 @@
 local g = vim.g
 local o = vim.opt
+local config = vim.fn.stdpath("config")
 
 -- Leaders
 g.mapleader = " "
@@ -29,12 +30,11 @@ o.number = true -- Print the line number in front of the current line
 o.relativenumber = true -- Print the line numbers for motion
 
 -- Cursor
-o.cursorlineopt = "number,screenline" -- Highlight line number and visual line
+o.cursorlineopt = "number" -- Highlight only line number
 o.cursorline = true -- Highlight current line
 
 -- Spell
-local spell = vim.fn.stdpath("config") .. "/spell/"
-o.spellfile = { spell .. "en.utf-8.add", spell .. "pt.utf-8.add" } -- Custom dictionary files
+o.spellfile = { config .. "/spell/en.utf-8.add", config .. "/spell/pt.utf-8.add" } -- Custom dictionary files
 o.spelllang:append({ "pt_br" }) -- Additional language to spell check
 o.spelloptions:append({ "camel" }) -- Consider camelCase when checking spell
 o.spellsuggest:append("9") -- Limit the number of suggestions for spell
@@ -55,7 +55,7 @@ o.shiftwidth = 4 -- Indent's width
 o.shiftround = true -- Round indent to multiple of 'shiftwidth'
 
 -- Providers
-g.python3_host_prog = vim.fn.expand("~/.local/share/virtualenvs/nvim-*/bin/python")
+g.python3_host_prog = config .. "/.venv/bin/python"
 g.loaded_node_provider = 0
 g.loaded_perl_provider = 0
 g.loaded_ruby_provider = 0
