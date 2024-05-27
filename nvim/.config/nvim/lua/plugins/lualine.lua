@@ -22,7 +22,7 @@ end
 
 return {
     "nvim-lualine/lualine.nvim",
-    dependencies = { "folke/noice.nvim" },
+    dependencies = "folke/noice.nvim",
     event = "VeryLazy",
     config = function()
         local noice = require("noice.api")

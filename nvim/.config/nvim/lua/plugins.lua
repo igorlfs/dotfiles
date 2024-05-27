@@ -12,13 +12,13 @@ return {
     -- Sessions
     {
         "jedrzejboczar/possession.nvim",
-        dependencies = { "nvim-lua/plenary.nvim" },
+        dependencies = "nvim-lua/plenary.nvim",
         opts = {
             autosave = {
                 current = true,
             },
         },
-        keys = { { "<leader>fs", "<CMD>Telescope possession list<CR>", desc = "[F]ind [S]essions" } },
+        keys = { { "<leader>fs", "<CMD>Telescope possession list<CR>", desc = "Find Sessions" } },
         cmd = { "PossessionSave" },
     },
     -- Package Manager for language servers, debug adapters, linters and formatters
@@ -130,7 +130,7 @@ return {
     {
         "linux-cultist/venv-selector.nvim",
         cmd = { "VenvSelect", "VenvSelectCached" },
-        dependencies = { "nvim-telescope/telescope.nvim" },
+        dependencies = "nvim-telescope/telescope.nvim",
         config = true,
     },
     -- Preview Markdown

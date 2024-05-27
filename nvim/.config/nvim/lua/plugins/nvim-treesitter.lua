@@ -2,7 +2,6 @@ return {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
     event = "VeryLazy",
-    dependencies = "nvim-treesitter/nvim-treesitter-textobjects",
     config = function()
         require("nvim-treesitter.configs").setup({
             ensure_installed = {
@@ -48,38 +47,6 @@ return {
             indent = {
                 enable = true,
                 disable = { "python", "html" },
-            },
-            textobjects = {
-                swap = {
-                    enable = true,
-                    swap_next = {
-                        ["<leader>a"] = "@parameter.inner",
-                    },
-                    swap_previous = {
-                        ["<leader>A"] = "@parameter.inner",
-                    },
-                },
-                select = {
-                    enable = true,
-                    lookahead = true,
-                    keymaps = {
-                        ["aa"] = "@parameter.outer",
-                        ["ia"] = "@parameter.inner",
-                        ["af"] = "@function.outer",
-                        ["if"] = "@function.inner",
-                        ["ac"] = "@class.outer",
-                        ["ic"] = "@class.inner",
-                    },
-                },
-                lsp_interop = {
-                    enable = true,
-                    border = "rounded",
-                    floating_preview_opts = {},
-                    peek_definition_code = {
-                        ["<leader>pf"] = { query = "@function.outer", desc = "[P]review [F]unction" },
-                        ["<leader>pc"] = { query = "@class.outer", desc = "[P]review [C]lass" },
-                    },
-                },
             },
         })
         vim.treesitter.language.register("markdown", "octo")
