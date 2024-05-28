@@ -49,6 +49,5 @@ return {
                 disable = { "python", "html" },
             },
         })
-        vim.treesitter.language.register("markdown", "octo")
     end,
 }

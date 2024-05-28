@@ -35,7 +35,7 @@ return {
         },
     },
     keys = {
-        { "<F1>", function() require("dapui").toggle() end, desc = "Toggle DAP UI" },
+        { "<F1>", function() require("dapui").toggle({ reset = true }) end, desc = "Toggle DAP UI" },
         { "<F2>", function() require("dapui").eval() end, desc = "DAP Eval" },
         { "<F3>", function() require("dapui").float_element("breakpoints") end, desc = "DAP List Breakpoints" },
     },

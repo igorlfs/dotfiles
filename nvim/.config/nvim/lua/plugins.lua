@@ -3,41 +3,19 @@ return {
     -- Terminal
     {
         "akinsho/toggleterm.nvim",
-        opts = {
-            direction = "float",
-            float_opts = { border = "rounded" },
-        },
+        opts = { direction = "float", float_opts = { border = "rounded" } },
         keys = { { "<A-t>", "<CMD>ToggleTerm<CR>", desc = "Toggle Terminal", mode = { "n", "t" } } },
     },
     -- Sessions
     {
         "jedrzejboczar/possession.nvim",
         dependencies = "nvim-lua/plenary.nvim",
-        opts = {
-            autosave = {
-                current = true,
-            },
-        },
+        opts = { autosave = { current = true } },
         keys = { { "<leader>fs", "<CMD>Telescope possession list<CR>", desc = "Find Sessions" } },
         cmd = { "PossessionSave" },
     },
     -- Package Manager for language servers, debug adapters, linters and formatters
-    {
-        "williamboman/mason.nvim",
-        opts = { ui = { border = "rounded" } },
-        cmd = "Mason",
-    },
-    -- GitHub
-    {
-        "pwntester/octo.nvim",
-        dependencies = {
-            "nvim-lua/plenary.nvim",
-            "nvim-tree/nvim-web-devicons",
-            "nvim-telescope/telescope.nvim",
-        },
-        cmd = "Octo",
-        config = true,
-    },
+    { "williamboman/mason.nvim", opts = { ui = { border = "rounded" } }, cmd = "Mason" },
 
     ------ LSP Extensions
     -- textDocument/documentColor
@@ -65,28 +43,13 @@ return {
         opts = { enabled = false },
         keys = { { "<A-v>", "<CMD>DapVirtualTextToggle<CR>", desc = "Toggle DAP Virtual Text" } },
     },
-    -- Python
-    {
-        "mfussenegger/nvim-dap-python",
-        ft = "python",
-        dependencies = "mfussenegger/nvim-dap",
-        config = function()
-            local debugpy_python_path = require("mason-registry").get_package("debugpy"):get_install_path()
-                .. "/venv/bin/python3"
-            require("dap-python").setup(debugpy_python_path)
-        end,
-    },
 
     ------ Editing
     -- Pairs
-    {
-        "windwp/nvim-autopairs",
-        event = "InsertEnter",
-        opts = { check_ts = true, ignored_next_char = "" },
-    },
+    { "windwp/nvim-autopairs", event = "InsertEnter", opts = { ignored_next_char = "" } },
     -- Surround
     { "kylechui/nvim-surround", event = "VeryLazy", config = true },
-    -- -- Comments
+    -- Comments
     { "numToStr/Comment.nvim", config = true },
     -- Indentation
     { "nmac427/guess-indent.nvim", config = true },

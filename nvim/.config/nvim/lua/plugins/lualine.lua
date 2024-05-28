@@ -22,7 +22,7 @@ end
 
 return {
     "nvim-lualine/lualine.nvim",
-    dependencies = "folke/noice.nvim",
+    dependencies = { "folke/noice.nvim", "mfussenegger/nvim-dap" },
     event = "VeryLazy",
     config = function()
         local noice = require("noice.api")
@@ -47,6 +47,10 @@ return {
                         cond = noice.status.mode.has,
                     },
                     "diff",
+                    {
+                        function() return require("dap").session() and " " or "" end,
+                        color = "DapBreakpoint",
+                    },
                 },
                 lualine_y = { "diagnostics" },
                 lualine_z = { "selectioncount" },
