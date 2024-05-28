@@ -27,8 +27,8 @@ NVIM_APPNAME=igorlfs/dotfiles/nvim/.config/nvim nvim
 
 ### bars-and-lines
 
-+ [SmiteshP/nvim-navic](https://dotfyle.com/plugins/SmiteshP/nvim-navic)
 + [luukvbaal/statuscol.nvim](https://dotfyle.com/plugins/luukvbaal/statuscol.nvim)
++ [SmiteshP/nvim-navic](https://dotfyle.com/plugins/SmiteshP/nvim-navic)
 
 ### code-runner
 
@@ -37,11 +37,15 @@ NVIM_APPNAME=igorlfs/dotfiles/nvim/.config/nvim nvim
 
 ### color
 
-+ [uga-rosa/ccc.nvim](https://dotfyle.com/plugins/uga-rosa/ccc.nvim)
++ [brenoprata10/nvim-highlight-colors](https://dotfyle.com/plugins/brenoprata10/nvim-highlight-colors)
 
 ### colorscheme
 
 + [catppuccin/nvim](https://dotfyle.com/plugins/catppuccin/nvim)
+
+### comment
+
++ [numToStr/Comment.nvim](https://dotfyle.com/plugins/numToStr/Comment.nvim)
 
 ### completion
 
@@ -56,13 +60,16 @@ NVIM_APPNAME=igorlfs/dotfiles/nvim/.config/nvim nvim
 + [theHamsta/nvim-dap-virtual-text](https://dotfyle.com/plugins/theHamsta/nvim-dap-virtual-text)
 + [rcarriga/nvim-dap-ui](https://dotfyle.com/plugins/rcarriga/nvim-dap-ui)
 + [mfussenegger/nvim-dap](https://dotfyle.com/plugins/mfussenegger/nvim-dap)
-+ [mfussenegger/nvim-dap-python](https://github.com/mfussenegger/nvim-dap-python)
 
 ### editing-support
 
-+ [axelvc/template-string.nvim](https://dotfyle.com/plugins/axelvc/template-string.nvim)
 + [windwp/nvim-autopairs](https://dotfyle.com/plugins/windwp/nvim-autopairs)
++ [axelvc/template-string.nvim](https://dotfyle.com/plugins/axelvc/template-string.nvim)
 + [windwp/nvim-ts-autotag](https://dotfyle.com/plugins/windwp/nvim-ts-autotag)
+
+### file-explorer
+
++ [nvim-tree/nvim-tree.lua](https://dotfyle.com/plugins/nvim-tree/nvim-tree.lua)
 
 ### formatting
 
@@ -74,25 +81,27 @@ NVIM_APPNAME=igorlfs/dotfiles/nvim/.config/nvim nvim
 
 ### git
 
++ [sindrets/diffview.nvim](https://dotfyle.com/plugins/sindrets/diffview.nvim)
 + [lewis6991/gitsigns.nvim](https://dotfyle.com/plugins/lewis6991/gitsigns.nvim)
 + [NeogitOrg/neogit](https://dotfyle.com/plugins/NeogitOrg/neogit)
-+ [sindrets/diffview.nvim](https://dotfyle.com/plugins/sindrets/diffview.nvim)
 
 ### github
 
 + [pwntester/octo.nvim](https://dotfyle.com/plugins/pwntester/octo.nvim)
 
+### icon
+
++ [nvim-tree/nvim-web-devicons](https://dotfyle.com/plugins/nvim-tree/nvim-web-devicons)
+
 ### indent
 
-+ [echasnovski/mini.indentscope](https://dotfyle.com/plugins/echasnovski/mini.indentscope)
 + [lukas-reineke/indent-blankline.nvim](https://dotfyle.com/plugins/lukas-reineke/indent-blankline.nvim)
++ [echasnovski/mini.indentscope](https://dotfyle.com/plugins/echasnovski/mini.indentscope)
 
 ### lsp
 
 + [neovim/nvim-lspconfig](https://dotfyle.com/plugins/neovim/nvim-lspconfig)
-+ [mfussenegger/nvim-lint](https://dotfyle.com/plugins/mfussenegger/nvim-lint)
-+ [antosha417/nvim-lsp-file-operations](https://github.com/antosha417/nvim-lsp-file-operations)
-+ [yioneko/nvim-type-fmt](https://github.com/yioneko/nvim-type-fmt)
++ [mrcjkb/rustaceanvim](https://dotfyle.com/plugins/mrcjkb/rustaceanvim)
 
 ### lsp-installer
 
@@ -106,26 +115,15 @@ NVIM_APPNAME=igorlfs/dotfiles/nvim/.config/nvim nvim
 
 + [folke/flash.nvim](https://dotfyle.com/plugins/folke/flash.nvim)
 
-### note-taking
-
-+ [nvim-neorg/neorg](https://dotfyle.com/plugins/nvim-neorg/neorg)
-
 ### nvim-dev
 
 + [folke/neodev.nvim](https://dotfyle.com/plugins/folke/neodev.nvim)
-+ [MunifTanjim/nui.nvim](https://dotfyle.com/plugins/MunifTanjim/nui.nvim)
 + [nvim-lua/plenary.nvim](https://dotfyle.com/plugins/nvim-lua/plenary.nvim)
++ [MunifTanjim/nui.nvim](https://dotfyle.com/plugins/MunifTanjim/nui.nvim)
 
 ### plugin-manager
 
 + [folke/lazy.nvim](https://dotfyle.com/plugins/folke/lazy.nvim)
-
-### programming-languages-support
-
-+ [pmizio/typescript-tools.nvim](https://github.com/pmizio/typescript-tools.nvim)
-+ [mrcjkb/rustaceanvim](https://dotfyle.com/plugins/mrcjkb/rustaceanvim)
-+ [saecki/crates.nvim](https://github.com/saecki/crates.nvim)
-+ [lervag/vimtex](https://github.com/lervag/vimtex)
 
 ### session
 
@@ -133,8 +131,8 @@ NVIM_APPNAME=igorlfs/dotfiles/nvim/.config/nvim nvim
 
 ### snippet
 
-+ [L3MON4D3/LuaSnip](https://dotfyle.com/plugins/L3MON4D3/LuaSnip)
 + [rafamadriz/friendly-snippets](https://dotfyle.com/plugins/rafamadriz/friendly-snippets)
++ [L3MON4D3/LuaSnip](https://dotfyle.com/plugins/L3MON4D3/LuaSnip)
 
 ### statusline
 
@@ -142,9 +140,13 @@ NVIM_APPNAME=igorlfs/dotfiles/nvim/.config/nvim nvim
 
 ### syntax
 
++ [nvim-treesitter/nvim-treesitter](https://dotfyle.com/plugins/nvim-treesitter/nvim-treesitter)
 + [kylechui/nvim-surround](https://dotfyle.com/plugins/kylechui/nvim-surround)
 + [nvim-treesitter/nvim-treesitter-textobjects](https://dotfyle.com/plugins/nvim-treesitter/nvim-treesitter-textobjects)
-+ [nvim-treesitter/nvim-treesitter](https://dotfyle.com/plugins/nvim-treesitter/nvim-treesitter)
+
+### terminal-integration
+
++ [akinsho/toggleterm.nvim](https://dotfyle.com/plugins/akinsho/toggleterm.nvim)
 
 ### test
 
@@ -153,24 +155,18 @@ NVIM_APPNAME=igorlfs/dotfiles/nvim/.config/nvim nvim
 ### utility
 
 + [folke/noice.nvim](https://dotfyle.com/plugins/folke/noice.nvim)
-+ [nmac427/guess-indent.nvim](https://github.com/nmac427/guess-indent.nvim)
-+ [stevearc/dressing.nvim](https://dotfyle.com/plugins/stevearc/dressing.nvim)
 + [kevinhwang91/nvim-ufo](https://dotfyle.com/plugins/kevinhwang91/nvim-ufo)
++ [stevearc/dressing.nvim](https://dotfyle.com/plugins/stevearc/dressing.nvim)
 
 ## Language Servers
 
-+ bashls
 + clangd
 + cssls
-+ emmet_language_server
 + gdscript
 + html
-+ jsonls
-+ lua_ls
-+ ruff_lsp
 + svelte
++ tailwindcss
 + taplo
-+ texlab
 + yamlls
 
  This readme was generated by [Dotfyle](https://dotfyle.com)
