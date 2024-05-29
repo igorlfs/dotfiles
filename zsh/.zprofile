@@ -40,4 +40,4 @@ export EDITOR='nvim'
 export MANPAGER='nvim +Man!'
 
 ##### SSH
-eval $(ssh-agent)
+pgrep ssh-agent || eval $(ssh-agent)
