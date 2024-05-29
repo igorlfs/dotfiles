@@ -39,8 +39,5 @@ export LESSHISTFILE="-"
 export EDITOR='nvim'
 export MANPAGER='nvim +Man!'
 
-### KEYS
-source ~/.config/zsh/secret.sh
-
 ##### SSH
 eval $(ssh-agent)
