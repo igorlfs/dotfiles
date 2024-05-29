@@ -1,9 +1,9 @@
 vim.filetype.add({
     pattern = {
         [".*/%.vscode/.*%.json"] = "jsonc",
-        ["~/dotfiles/hyprland/.*"] = "hyprlang",
-    },
-    filename = {
-        ["~/dotfiles/waybar/.config/waybar/config"] = "jsonc",
+        [".*/hypr/.+%.conf"] = "hyprlang",
+        [".*/sway/config.d/.*"] = "swayconfig",
+        [".*/waybar/config"] = "jsonc",
+        ["%.env%.[%w_.-]+"] = "sh",
     },
 })
