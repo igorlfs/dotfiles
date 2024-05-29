@@ -23,15 +23,14 @@ alias v='nvim'
 # utils
 alias cp='cp -r'
 alias mv='mv -i'
+alias tree='exa -T'
+alias ssh='kitty +kitten ssh'
 # colors
 alias ls='exa'
 alias la='exa -a'
 alias ll='exa -l'
 alias lal='exa -al'
-alias tree='exa -T'
 alias pacman='pacman --color=always'
-alias nc='ncdu --color=dark --exclude-kernfs'
-alias ssh='kitty +kitten ssh'
 
 ### Load zsh-syntax-highlighting; should be last.
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
