@@ -89,13 +89,6 @@ return {
             }
         end,
     },
-    -- Python
-    {
-        "linux-cultist/venv-selector.nvim",
-        cmd = { "VenvSelect", "VenvSelectCached" },
-        dependencies = "nvim-telescope/telescope.nvim",
-        config = true,
-    },
     -- Preview Markdown
     {
         "iamcco/markdown-preview.nvim",
