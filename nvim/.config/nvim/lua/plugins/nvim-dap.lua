@@ -13,8 +13,13 @@ return {
         { "<F9>", "<CMD>DapToggleBreakpoint<CR>", desc = "Toggle Breakpoint" },
         {
             "<F21>",
-            function() require("dap").set_breakpoint(vim.fn.input("Breakpoint condition: ")) end,
-            desc = "Breakpoint Condition",
+            function()
+                vim.ui.input(
+                    { prompt = "Breakpoint condition: " },
+                    function(input) require("dap").set_breakpoint(input) end
+                )
+            end,
+            desc = "Conditional Breakpoint",
         },
         { "<F10>", "<CMD>DapStepOver<CR>", desc = "Step Over" },
         { "<F11>", "<CMD>DapStepInto<CR>", desc = "Step Into" },
