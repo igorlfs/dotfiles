@@ -19,7 +19,7 @@ return {
 
     ------ LSP Extensions
     -- textDocument/documentColor
-    { "brenoprata10/nvim-highlight-colors", config = true },
+    { "brenoprata10/nvim-highlight-colors", opts = { enable_short_hex = false } },
     -- textDocument/documentHighlight
     {
         "RRethy/vim-illuminate",
