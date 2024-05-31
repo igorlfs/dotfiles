@@ -9,6 +9,7 @@ return {
         "hrsh7th/cmp-cmdline",
         "saadparwaiz1/cmp_luasnip",
         "rcarriga/cmp-dap",
+        "hrsh7th/cmp-emoji",
     },
     opts = function()
         local cmp = require("cmp")
@@ -80,6 +81,7 @@ return {
                     },
                 },
                 { name = "path" },
+                { name = "emoji" },
             }),
             formatting = {
                 format = function(_, vim_item)
