@@ -3,11 +3,11 @@
 * {
     font-family: Iosevka NF;
     font-size: 11px;
+    font-weight: bold;
     min-height: 0;
 }
 
 window#waybar {
-    background-color: @base;
     border-bottom: 0px;
 }
 
@@ -54,11 +54,9 @@ label:focus {
 #pulseaudio,
 #cpu,
 #memory,
-#backlight,
 #battery,
 #clock,
 #tray,
-#idle_inhibitor,
 #network {
     color: @crust;
     padding: 0 10px;
@@ -83,7 +81,8 @@ label:focus {
 }
 
 #idle_inhibitor {
-    background-color: @peach;
+    padding: 0 10px;
+    background-color: @mantle;
 }
 
 #idle_inhibitor.activated {

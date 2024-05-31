@@ -26,7 +26,12 @@
     },
     "clock": {
         "tooltip-format": "<big>{:%d %A}\n{calendar}</big>",
-        "format-alt": "{:%d\/%m\/%y}"
+        "format-alt": "{:%d\/%m\/%y}",
+        "calendar": {
+            "format": {
+                "today": "<span color='#11111b' background='#eeeef4'>{}</span>"
+            }
+        }
     },
     "cpu": {
         "format": "CPU {usage}",
