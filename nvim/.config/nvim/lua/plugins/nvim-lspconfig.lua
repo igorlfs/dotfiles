@@ -70,9 +70,7 @@ return {
         require("lspconfig").clangd.setup({
             cmd = { "clangd", "--completion-style=detailed" },
             capabilities = capabilities,
-            on_attach = function(_, bufnr)
-                vim.keymap.set("n", "<A-o>", "<cmd>ClangdSwitchSourceHeader<CR>", { buffer = bufnr })
-            end,
+            on_attach = function() vim.keymap.set("n", "<A-o>", "<CMD>ClangdSwitchSourceHeader<CR>", { buffer = 0 }) end,
         })
 
         require("lspconfig").jsonls.setup({

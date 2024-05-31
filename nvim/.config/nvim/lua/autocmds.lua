@@ -75,32 +75,33 @@ autocmd("LspAttach", {
     callback = function(ev)
         local client = vim.lsp.get_client_by_id(ev.data.client_id)
         local lsp = vim.lsp
+        local methods = lsp.protocol.Methods
 
         -- Lenses
-        if client and client.supports_method(lsp.protocol.Methods.textDocument_codeLens) then
+        if client and client.supports_method(methods.textDocument_codeLens) then
             autocmd({ "BufEnter", "CursorHold", "InsertLeave" }, {
-                buffer = ev.buf,
+                buffer = 0,
                 group = augroup("codelens", { clear = false }),
                 callback = function() lsp.codelens.refresh({ bufnr = 0 }) end,
             })
         end
 
         -- Mappings
-        keymap({ "n", "i" }, "<C-h>", lsp.buf.signature_help, { buffer = ev.buf, desc = "Signature Help" })
+        keymap({ "n", "i" }, "<C-h>", lsp.buf.signature_help, { buffer = 0, desc = "Signature Help" })
 
         keymap(
             "n",
             "<A-h>",
             function() lsp.inlay_hint.enable(not lsp.inlay_hint.is_enabled({ bufnr = 0 }), { bufnr = 0 }) end,
-            { buffer = ev.buf, desc = "Toggle Hints" }
+            { buffer = 0, desc = "Toggle Hints" }
         )
 
-        keymap({ "n", "x" }, "<leader>la", lsp.buf.code_action, { buffer = ev.buf, desc = "LSP Actions" })
-        keymap("n", "<leader>lr", lsp.buf.rename, { buffer = ev.buf, desc = "LSP Rename" })
-        keymap("n", "<leader>ll", lsp.codelens.run, { buffer = ev.buf, desc = "LSP Lens" })
+        keymap({ "n", "x" }, "<leader>la", lsp.buf.code_action, { buffer = 0, desc = "LSP Actions" })
+        keymap("n", "<leader>lr", lsp.buf.rename, { buffer = 0, desc = "LSP Rename" })
+        keymap("n", "<leader>ll", lsp.codelens.run, { buffer = 0, desc = "LSP Lens" })
 
         -- NOTE we define this mapping here, instead of using "<leader>f" because it overrides nvim's default gd
         -- (which is a primitive way of going to definition), in spite of it being a Telescope mapping
-        keymap("n", "gd", "<CMD>Telescope lsp_definitions<CR>", { buffer = ev.buf, desc = "Go to Definition" })
+        keymap("n", "gd", "<CMD>Telescope lsp_definitions<CR>", { buffer = 0, desc = "Go to Definition" })
     end,
 })
