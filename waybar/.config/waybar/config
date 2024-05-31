@@ -12,7 +12,6 @@
         "network",
         "cpu",
         "memory",
-        "backlight",
         "battery",
         "clock",
         "tray"
@@ -26,56 +25,48 @@
         }
     },
     "clock": {
-        "tooltip-format": "<big>{:%d %A}</big>\n<tt><small>{calendar}</small></tt>",
+        "tooltip-format": "<big>{:%d %A}\n{calendar}</big>",
         "format-alt": "{:%d\/%m\/%y}"
     },
     "cpu": {
-        "format": "  {usage}",
+        "format": "CPU {usage}",
         "tooltip": true
     },
     "memory": {
-        "format": "  {}"
-    },
-    "backlight": {
-        "format": "󰃟  {percent}"
+        "format": "MEM {}"
     },
     "battery": {
         "states": {
             "warning": 20,
             "critical": 15
         },
-        "format": "{icon} {capacity}",
-        "format-charging": "{icon} {capacity}",
+        "format": "BAT {capacity}",
+        "format-charging": "BAT {capacity}",
         "format-plugged": "  {capacity}",
         "format-alt": "{time}",
-        "format-full": "",
-        "format-icons": [
-            " ",
-            " ",
-            " ",
-            " ",
-            " "
-        ]
+        "format-full": ""
     },
     "network": {
-        "format-wifi": "󰖩  {signalStrength}",
+        "format-wifi": "{icon} {signalStrength}",
         "format-ethernet": "{ipaddr}/{cidr}",
         "tooltip-format": "{essid} via {gwaddr}",
         "format-linked": "{ifname} (No IP)",
-        "format-disconnected": "󰖪 ",
-        "format-alt": "{ifname}: {ipaddr}/{cidr}"
-    },
-    "pulseaudio": {
-        "format": "{icon} {volume} {format_source}",
-        "format-muted": "󰝟  {format_source}",
-        "format-source": " {volume}",
-        "format-source-muted": " ",
+        "format-disconnected": "󰤭 ",
+        "format-alt": "{ifname}: {ipaddr}/{cidr}",
         "format-icons": {
             "default": [
-                "",
-                "",
-                ""
+                "󰤯 ",
+                "󰤟 ",
+                "󰤢 ",
+                "󰤥 ",
+                "󰤨 "
             ]
         }
+    },
+    "pulseaudio": {
+        "format": "{format_source} | VOL {volume}",
+        "format-muted": "{format_source} | MUTE",
+        "format-source": " {volume}",
+        "format-source-muted": " "
     }
 }

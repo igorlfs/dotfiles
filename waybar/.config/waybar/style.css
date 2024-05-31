@@ -97,7 +97,7 @@ label:focus {
 }
 
 #pulseaudio.muted {
-    background-color: @maroon;
+    background-color: @red;
 }
 
 #network {
@@ -105,7 +105,7 @@ label:focus {
 }
 
 #network.disconnected {
-    background-color: @red;
+    background-color: @maroon;
 }
 
 #cpu {
@@ -113,10 +113,6 @@ label:focus {
 }
 
 #memory {
-    background-color: @sapphire;
-}
-
-#backlight {
     background-color: @blue;
 }
 
