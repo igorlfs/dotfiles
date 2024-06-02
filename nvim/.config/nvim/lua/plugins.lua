@@ -79,6 +79,8 @@ return {
     },
 
     ------ Language Extensions
+    -- Lua
+    { "folke/lazydev.nvim", ft = "lua", config = true },
     -- Rust
     {
         "mrcjkb/rustaceanvim",
