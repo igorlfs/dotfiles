@@ -9,18 +9,18 @@ g.maplocalleader = "ç"
 
 -- Miscellaneous
 
-o.gdefault = true -- Replace all matches in line by default with substitution
+o.gdefault = true -- Replace all line matches during substitution
 o.updatetime = 200 -- Time for CursorHold event (e.g., LSP)
 o.diffopt:append({ "linematch:60" }) -- Better diffs
-o.linebreak = true -- Break lines correctly
+o.linebreak = true -- Wrap words, not chars
 o.scrolloff = 4 -- Context lines when scrolling
 o.clipboard = "unnamedplus" -- Use system clipboard
 o.sessionoptions:remove({ "buffers", "folds" }) -- Update options saved by sessions
-o.fillchars:append([[eob: ,fold: ,foldopen:󰅀,foldsep: ,foldclose:󰅂]]) -- Fancy fold symbols
+o.fillchars = [[eob: ,fold: ,foldopen:󰅀,foldsep: ,foldclose:󰅂]] -- Fancy fold symbols
 o.jumpoptions = "view" -- Prevents moving cursor when switching files
 o.exrc = true -- Enable per-project config file (.nvim.lua)
 o.showmode = false -- Hide message indicating current mode
-o.smoothscroll = true -- Smooth scrolling
+o.smoothscroll = true -- Scroll by visual line
 o.undofile = true -- Enable persistent undo
 o.pumheight = 10 -- Limit completion window up to 10 lines
 o.switchbuf = "usetab" -- Avoid wacky jumps with nvim-dap
@@ -38,11 +38,11 @@ o.cursorlineopt = "number" -- Highlight only line number
 o.cursorline = true -- Highlight current line
 
 -- Spell
-o.spellfile = { config .. "/spell/en.utf-8.add", config .. "/spell/pt.utf-8.add" } -- Custom dictionary files
-o.spelllang:append({ "pt_br" }) -- Additional language to spell check
-o.spelloptions:append({ "camel" }) -- Consider camelCase when checking spell
-o.spellsuggest:append("9") -- Limit the number of suggestions for spell
 
+o.spellfile = config .. "/spell/en.utf-8.add," .. config .. "/spell/pt.utf-8.add" -- Custom dictionary files
+o.spelllang = "en,pt_br" -- Languages to spell check
+o.spelloptions = "camel" -- Consider camelCase when checking spell
+o.spellsuggest = "best,9" -- Limit the number of suggestions for spell
 
 -- Folds
 
