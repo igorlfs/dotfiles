@@ -34,7 +34,7 @@ return {
                 component_separators = { left = "", right = "" },
                 refresh = {
                     statusline = 100,
-                    tabline = 100,
+                    tabline = 50,
                 },
             },
             sections = {
