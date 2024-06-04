@@ -30,7 +30,6 @@ return {
                 "javascript",
                 "html",
                 "css",
-                "gdscript",
                 "svelte",
                 "typst",
             },

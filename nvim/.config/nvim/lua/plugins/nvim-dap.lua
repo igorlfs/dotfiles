@@ -83,24 +83,5 @@ return {
                 args = { "${port}" },
             },
         }
-        -- Godot
-        dap.adapters.godot = {
-            type = "server",
-            host = "127.0.0.1",
-            port = 6006,
-        }
-
-        -- Configurations
-        -- Usually prefer setting up via launch.json
-        -- Godot
-        dap.configurations.gdscript = {
-            {
-                type = "godot",
-                request = "launch",
-                name = "Launch Scene",
-                project = "${workspaceFolder}",
-                launch_scene = true,
-            },
-        }
     end,
 }
