@@ -36,6 +36,13 @@ autocmd("FileType", {
     callback = function() vim.opt_local.foldcolumn = "0" end,
 })
 
+-- This could be built-in (see nvim-dap#1194 for discussion)
+autocmd("FileType", {
+    desc = "Quit DAP-Float",
+    pattern = { "dap-float" },
+    callback = function() keymap("n", "q", "<C-w>q", { buffer = 0 }) end,
+})
+
 autocmd("BufWinEnter", {
     desc = "Set options on DAP-UI windows",
     group = augroup("set_dap_win_options", { clear = true }),

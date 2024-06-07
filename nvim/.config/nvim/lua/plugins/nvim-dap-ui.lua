@@ -9,19 +9,12 @@ return {
         },
         layouts = {
             {
-                elements = {
-                    { id = "scopes", size = 0.5 },
-                    { id = "watches", size = 0.5 },
-                },
-                size = 40,
-                position = "left",
-            },
-            {
-                elements = { "console" },
+                elements = { "console", "watches" },
                 position = "bottom",
                 size = 15,
             },
         },
+        expand_lines = false,
         controls = {
             enabled = false,
         },

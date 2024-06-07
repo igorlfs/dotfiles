@@ -6,6 +6,14 @@ return {
         "williamboman/mason.nvim",
     },
     keys = {
+        {
+            "<leader>ds",
+            function()
+                local widgets = require("dap.ui.widgets")
+                widgets.centered_float(widgets.scopes, { border = "rounded" })
+            end,
+            desc = "DAP Scopes",
+        },
         { "<F4>", "<CMD>DapTerminate<CR>", desc = "DAP Terminate" },
         { "<F5>", "<CMD>DapContinue<CR>", desc = "DAP Continue" },
         { "<F17>", function() require("dap").run_last() end, desc = "Run Last" },
