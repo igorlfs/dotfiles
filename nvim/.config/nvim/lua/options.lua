@@ -11,7 +11,6 @@ g.maplocalleader = "ç"
 
 o.gdefault = true -- Replace all line matches during substitution
 o.updatetime = 200 -- Time for CursorHold event (e.g., LSP)
-o.diffopt:append({ "linematch:60" }) -- Better diffs
 o.linebreak = true -- Wrap words, not chars
 o.scrolloff = 4 -- Context lines when scrolling
 o.clipboard = "unnamedplus" -- Use system clipboard
@@ -25,7 +24,7 @@ o.undofile = true -- Enable persistent undo
 o.pumheight = 10 -- Limit completion window up to 10 lines
 o.switchbuf = "usetab" -- Avoid wacky jumps with nvim-dap
 o.shadafile = "NONE" -- Don't save history
-o.guifont = "Iosevka NF:h10.5" -- Font for Neovide
+o.guifont = "Iosevka NF:h10" -- Font for Neovide
 
 -- Statuscolumn
 

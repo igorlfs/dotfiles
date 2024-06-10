@@ -49,8 +49,6 @@ return {
     { "windwp/nvim-autopairs", event = "InsertEnter", opts = { ignored_next_char = "" } },
     -- Surround
     { "kylechui/nvim-surround", event = "VeryLazy", config = true },
-    -- Comments
-    { "numToStr/Comment.nvim", config = true },
     -- Indentation
     { "nmac427/guess-indent.nvim", config = true },
     -- Tags
@@ -72,10 +70,7 @@ return {
         "lukas-reineke/indent-blankline.nvim",
         event = "VeryLazy",
         main = "ibl",
-        opts = {
-            scope = { enabled = false },
-            exclude = { filetypes = { "csv" } },
-        },
+        opts = { scope = { enabled = false } },
     },
 
     ------ Language Extensions
