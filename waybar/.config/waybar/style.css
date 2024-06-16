@@ -2,13 +2,19 @@
 
 * {
     font-family: Iosevka NF;
-    font-size: 11px;
+    font-size: 12px;
     font-weight: bold;
     min-height: 0;
 }
 
 window#waybar {
     border-bottom: 0px;
+}
+
+#window {
+    font-family: sans-serif;
+    padding: 4px 0px;
+    color: @text;
 }
 
 #workspaces button {

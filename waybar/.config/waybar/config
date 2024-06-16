@@ -5,7 +5,9 @@
     "modules-left": [
         "hyprland/workspaces"
     ],
-    // "modules-center": [""],
+    "modules-center": [
+        "hyprland/window"
+    ],
     "modules-right": [
         "idle_inhibitor",
         "pulseaudio",
