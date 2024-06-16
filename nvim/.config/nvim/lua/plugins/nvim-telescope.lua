@@ -30,13 +30,6 @@ return {
                 },
             },
             pickers = {
-                buffers = {
-                    mappings = {
-                        i = {
-                            ["<S-BS>"] = actions.delete_buffer,
-                        },
-                    },
-                },
                 lsp_references = {
                     show_line = false,
                 },
@@ -58,6 +51,5 @@ return {
         { "<leader>fd", "<CMD>Telescope diagnostics<CR>", desc = "Find Diagnostics" },
         { "<leader>fi", "<CMD>Telescope lsp_implementations<CR>", desc = "Find Implementation" },
         { "<leader>ft", "<CMD>Telescope lsp_type_definitions<CR>", desc = "Find Type Definition" },
-        { "<leader>fr", "<CMD>Telescope lsp_references<CR>", desc = "Find References" },
     },
 }

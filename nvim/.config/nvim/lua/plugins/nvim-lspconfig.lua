@@ -7,7 +7,7 @@ local servers = {
     "ruff",
     "tailwindcss",
     "taplo",
-    "tinymist",
+    "typst_lsp",
     "yamlls",
 }
 
@@ -56,7 +56,7 @@ return {
             },
         })
 
-        require("lspconfig").basedpyright.setup({
+        require("lspconfig").pylance.setup({
             capabilities = capabilities,
         })
 
