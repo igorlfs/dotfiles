@@ -121,7 +121,7 @@ return {
         })
 
         -- DAP Completion
-        cmp.setup.filetype({ "dapui_watches", "dapui_hover" }, {
+        cmp.setup.filetype({ "dapui_watches", "dapui_hover", "dap-repl" }, {
             sources = {
                 { name = "dap" },
             },

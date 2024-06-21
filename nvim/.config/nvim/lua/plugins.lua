@@ -1,11 +1,5 @@
 return {
     ------ Miscellaneous
-    -- Terminal
-    {
-        "akinsho/toggleterm.nvim",
-        opts = { direction = "float", float_opts = { border = "rounded" } },
-        keys = { { "<A-t>", "<CMD>ToggleTerm<CR>", desc = "Toggle Terminal", mode = { "n", "t" } } },
-    },
     -- Sessions
     {
         "jedrzejboczar/possession.nvim",
@@ -89,12 +83,11 @@ return {
             }
         end,
     },
-    -- Preview Markdown
+    -- Markdown
     {
         "iamcco/markdown-preview.nvim",
         build = function() vim.fn["mkdp#util#install"]() end,
         ft = "markdown",
     },
     -- CSV
-    { "cameron-wags/rainbow_csv.nvim", config = true },
 }

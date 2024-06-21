@@ -5,7 +5,7 @@ return {
     event = "VeryLazy",
     opts = {
         provider_selector = function(_, filetype, _)
-            local lspSupport = { "rust", "typescript", "yaml", "lua", "python" }
+            local lspSupport = { "rust", "typescript", "yaml", "lua", "python", "typst" }
             if vim.tbl_contains(lspSupport, filetype) then
                 return { "lsp", "indent" }
             end

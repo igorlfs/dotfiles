@@ -7,7 +7,6 @@ local servers = {
     "ruff",
     "tailwindcss",
     "taplo",
-    "typst_lsp",
     "yamlls",
 }
 
@@ -15,8 +14,6 @@ return {
     "neovim/nvim-lspconfig",
     event = { "BufReadPre", "BufNewFile" },
     dependencies = {
-        -- Enable additional capabilities (i.e., autocompletion)
-        "hrsh7th/cmp-nvim-lsp",
         -- Some servers (e.g., julials) would require additional configuration such as setting up the path
         -- mason-lspconfig bridges this gap and sets up everything to work perfectly with lspconfig
         { "williamboman/mason-lspconfig.nvim", config = true },
@@ -33,12 +30,22 @@ return {
             dynamicRegistration = false,
             lineFoldingOnly = true,
         }
+        -- Enable additional capabilities for fileOperations just in case a server needs it
+        capabilities = vim.tbl_deep_extend("force", capabilities, require("lsp-file-operations").default_capabilities())
 
         for _, lsp in ipairs(servers) do
             require("lspconfig")[lsp].setup({
                 capabilities = capabilities,
             })
         end
+
+        require("lspconfig").tinymist.setup({
+            capabilities = capabilities,
+            settings = {
+                formatterMode = "typstyle",
+                exportPdf = "onSave",
+            },
+        })
 
         require("lspconfig").svelte.setup({
             capabilities = capabilities,
