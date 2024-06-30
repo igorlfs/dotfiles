@@ -30,8 +30,6 @@ return {
         dependencies = { "nvim-tree/nvim-tree.lua", "nvim-lua/plenary.nvim" },
         config = true,
     },
-    -- textDocument/onTypeFormatting
-    { "yioneko/nvim-type-fmt" },
 
     ------ DAP Extensions
     -- Virtual Text Variables

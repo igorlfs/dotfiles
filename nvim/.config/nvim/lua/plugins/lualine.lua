@@ -52,8 +52,10 @@ return {
                         color = "DapBreakpoint",
                     },
                 },
-                lualine_y = { "diagnostics" },
-                lualine_z = { "selectioncount" },
+                lualine_y = { "diagnostics", "selectioncount" },
+                lualine_z = {
+                    function() return require("possession.session").get_session_name() or "" end,
+                },
             },
             tabline = {
                 lualine_a = {
