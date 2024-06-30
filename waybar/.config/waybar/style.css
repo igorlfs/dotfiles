@@ -102,7 +102,7 @@ label:focus {
 }
 
 #pulseaudio.muted {
-    background-color: @peach;
+    background-color: @red;
 }
 
 #network {
