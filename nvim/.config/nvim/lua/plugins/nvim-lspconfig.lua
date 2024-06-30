@@ -47,6 +47,24 @@ return {
             },
         })
 
+        require("lspconfig").texlab.setup({
+            capabilities = capabilities,
+            settings = {
+                texlab = {
+                    build = {
+                        executable = "tectonic",
+                        args = { "-X", "compile", "%f", "--synctex", "--keep-intermediates" },
+                        forwardSearchAfter = true,
+                        onSave = true,
+                    },
+                    forwardSearch = {
+                        executable = "zathura",
+                        args = { "--synctex-forward", "%l:1:%f", "%p" },
+                    },
+                },
+            },
+        })
+
         require("lspconfig").svelte.setup({
             capabilities = capabilities,
             settings = {

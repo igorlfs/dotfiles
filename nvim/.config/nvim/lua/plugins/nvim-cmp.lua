@@ -82,10 +82,10 @@ return {
                 { name = "path" },
             }),
             formatting = {
-                format = function(_, vim_item)
+                format = function(_, item)
                     -- Limit completion window to 50 characters
-                    vim_item.abbr = string.sub(vim_item.abbr, 1, 50)
-                    return vim_item
+                    item.abbr = string.sub(item.abbr, 1, 50)
+                    return item
                 end,
             },
             experimental = {
