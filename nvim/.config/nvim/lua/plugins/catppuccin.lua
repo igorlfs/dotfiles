@@ -7,8 +7,6 @@ return {
         highlight_overrides = {
             mocha = function(mocha)
                 return {
-                    -- See catppuccin/nvim#313
-                    NormalFloat = { fg = mocha.text, bg = mocha.none },
                 }
             end,
         },

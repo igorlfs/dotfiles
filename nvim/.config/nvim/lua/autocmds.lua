@@ -11,6 +11,12 @@ autocmd("FileType", {
     callback = function() vim.opt_local.formatoptions:remove("o") end,
 })
 
+autocmd("FileType", {
+    desc = "Disable remove a comment leader when joining lines, as it consumes some unwanted characters",
+    pattern = { "svelte" },
+    callback = function() vim.opt_local.formatoptions:remove("j") end,
+})
+
 autocmd("Termopen", {
     desc = "Unclutter terminal",
     group = defaults,
@@ -64,6 +70,16 @@ autocmd("TextYankPost", {
     callback = function() vim.highlight.on_yank() end,
 })
 
+autocmd("DirChanged", {
+    desc = "Reload .nvim.lua when changing directory",
+    callback = function(args)
+        local contents = vim.secure.read(string.format("%s/.nvim.lua", args.file))
+        if contents then
+            assert(loadstring(contents))()
+        end
+    end,
+})
+
 autocmd("FileType", {
     desc = "Enable spellchecker",
     group = defaults,
@@ -87,29 +103,29 @@ autocmd("LspAttach", {
         -- Lenses
         if client and client.supports_method(methods.textDocument_codeLens) then
             autocmd({ "BufEnter", "CursorHold", "InsertLeave" }, {
-                buffer = 0,
+                buffer = ev.buf,
                 group = augroup("codelens", { clear = false }),
-                callback = function() lsp.codelens.refresh({ bufnr = 0 }) end,
+                callback = function() lsp.codelens.refresh({ bufnr = ev.buf }) end,
             })
         end
 
         -- Mappings
-        keymap({ "n", "i" }, "<C-h>", lsp.buf.signature_help, { buffer = 0, desc = "Signature Help" })
+        keymap({ "n", "i" }, "<C-h>", lsp.buf.signature_help, { buffer = ev.buf, desc = "Signature Help" })
 
         keymap(
             "n",
             "<A-h>",
-            function() lsp.inlay_hint.enable(not lsp.inlay_hint.is_enabled({ bufnr = 0 }), { bufnr = 0 }) end,
-            { buffer = 0, desc = "Toggle Hints" }
+            function() lsp.inlay_hint.enable(not lsp.inlay_hint.is_enabled({ bufnr = ev.buf }), { bufnr = ev.buf }) end,
+            { buffer = ev.buf, desc = "Toggle Hints" }
         )
 
-        keymap({ "n", "x" }, "<leader>la", lsp.buf.code_action, { buffer = 0, desc = "LSP Actions" })
-        keymap("n", "<leader>ll", lsp.codelens.run, { buffer = 0, desc = "LSP Lens" })
+        keymap({ "n", "x" }, "<leader>la", lsp.buf.code_action, { buffer = ev.buf, desc = "LSP Actions" })
+        keymap("n", "<leader>ll", lsp.codelens.run, { buffer = ev.buf, desc = "LSP Lens" })
 
         -- NOTE we define this mapping here, instead of using "<leader>f" because it overrides nvim's default gd
         -- (which is a primitive way of going to definition), in spite of it being a Telescope mapping
-        keymap("n", "gd", "<CMD>Telescope lsp_definitions<CR>", { buffer = 0, desc = "Go to Definition" })
+        keymap("n", "gd", "<CMD>Telescope lsp_definitions<CR>", { buffer = ev.buf, desc = "Go to Definition" })
         -- Similarly with LSP references, which is now mapped by default
-        keymap("n", "grr", "<CMD>Telescope lsp_references<CR>", { buffer = 0, desc = "Find References" })
+        keymap("n", "grr", "<CMD>Telescope lsp_references<CR>", { buffer = ev.buf, desc = "Find References" })
     end,
 })

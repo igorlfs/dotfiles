@@ -21,9 +21,6 @@ return {
         "b0o/schemastore.nvim",
     },
     config = function()
-        -- Enable border for LspInfo
-        require("lspconfig.ui.windows").default_options.border = "rounded"
-
         local capabilities = require("cmp_nvim_lsp").default_capabilities()
         -- Some servers complain if not provided (e.g., yamlls)
         capabilities.textDocument.foldingRange = {

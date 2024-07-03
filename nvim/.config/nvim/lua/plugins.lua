@@ -9,7 +9,7 @@ return {
         cmd = { "PossessionSave" },
     },
     -- Package Manager for language servers, debug adapters, linters and formatters
-    { "williamboman/mason.nvim", opts = { ui = { border = "rounded" } }, cmd = "Mason" },
+    { "williamboman/mason.nvim", config = true, cmd = "Mason" },
 
     ------ LSP Extensions
     -- textDocument/documentColor

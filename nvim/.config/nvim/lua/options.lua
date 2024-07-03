@@ -14,7 +14,7 @@ o.updatetime = 200 -- Time for CursorHold event (e.g., LSP)
 o.linebreak = true -- Wrap words, not chars
 o.scrolloff = 4 -- Context lines when scrolling
 o.clipboard = "unnamedplus" -- Use system clipboard
-o.sessionoptions:remove({ "buffers", "folds" }) -- Update options saved by sessions
+o.sessionoptions:remove({ "buffers" }) -- Update options saved by sessions
 o.fillchars = [[eob: ,fold: ,foldopen:󰅀,foldsep: ,foldclose:󰅂]] -- Fancy fold symbols
 o.jumpoptions = "view" -- Prevents moving cursor when switching files
 o.exrc = true -- Enable per-project config file (.nvim.lua)
