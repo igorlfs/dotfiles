@@ -24,7 +24,7 @@ return {
         })
     end,
     keys = {
-        { "<A-n>", "<CMD>Neotest summary toggle<CR>", desc = "Toggle Neotest" },
+        { "<A-t>", "<CMD>Neotest summary toggle<CR>", desc = "Toggle Neotest" },
         { "<leader>tn", "<CMD>Neotest run<CR>", desc = "Test Nearest" },
         { "<leader>ts", "<CMD>Neotest stop<CR>", desc = "Test Stop" },
         { "<leader>tf", "<CMD>Neotest run file<CR>", desc = "Test File" },

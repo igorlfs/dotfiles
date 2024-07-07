@@ -88,4 +88,5 @@ return {
         ft = "markdown",
     },
     -- CSV
+    { "emmanueltouzery/decisive.nvim" },
 }

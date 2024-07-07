@@ -14,6 +14,7 @@ return {
             end,
             desc = "DAP Scopes",
         },
+        { "<F2>", function() require("dap.ui.widgets").hover(nil, { border = "rounded" }) end },
         { "<F4>", "<CMD>DapTerminate<CR>", desc = "DAP Terminate" },
         { "<F5>", "<CMD>DapContinue<CR>", desc = "DAP Continue" },
         { "<F17>", function() require("dap").run_last() end, desc = "Run Last" },
