@@ -7,6 +7,7 @@ return {
         highlight_overrides = {
             mocha = function(mocha)
                 return {
+                    FloatBorder = { fg = mocha.blue, bg = mocha.mantle },
                 }
             end,
         },

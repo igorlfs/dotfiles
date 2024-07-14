@@ -88,5 +88,5 @@ return {
         ft = "markdown",
     },
     -- CSV
-    { "emmanueltouzery/decisive.nvim" },
+    { "emmanueltouzery/decisive.nvim", ft = "csv" },
 }
