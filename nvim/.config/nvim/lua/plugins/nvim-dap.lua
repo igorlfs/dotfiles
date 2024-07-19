@@ -4,6 +4,7 @@ return {
         -- Runs preLaunchTask / postDebugTask if present
         { "stevearc/overseer.nvim", config = true },
         "williamboman/mason.nvim",
+        "rcarriga/nvim-dap-ui",
     },
     keys = {
         {

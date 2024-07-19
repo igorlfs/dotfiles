@@ -24,7 +24,7 @@ o.undofile = true -- Enable persistent undo
 o.pumheight = 10 -- Limit completion window up to 10 lines
 o.switchbuf = "usetab,newtab" -- Avoid wacky jumps with nvim-dap
 o.shadafile = "NONE" -- Don't save history
-o.guifont = "Iosevka NF:h10" -- Font for Neovide
+o.guifont = "Iosevka NF:h12.5" -- Font for Neovide
 o.title = true -- Window title
 o.breakindent = true -- Indent softwrapped lines
 

@@ -1,25 +1,3 @@
-local function title(bufnr)
-    local file = vim.fn.bufname(bufnr)
-    local buftype = vim.fn.getbufvar(bufnr, "&buftype")
-    local filetype = vim.fn.getbufvar(bufnr, "&filetype")
-
-    if filetype == "checkhealth" then
-        return "checkhealth"
-    elseif filetype == "TelescopePrompt" then
-        return "Telescope"
-    elseif filetype == "NvimTree" then
-        return "NvimTree"
-    elseif filetype == "qf" then
-        return "QuickFix"
-    elseif buftype == "terminal" then
-        return "Terminal"
-    elseif file == "" then
-        return "[No Name]"
-    else
-        return vim.fn.fnamemodify(file, ":t")
-    end
-end
-
 return {
     "nvim-lualine/lualine.nvim",
     dependencies = { "folke/noice.nvim", "mfussenegger/nvim-dap" },
@@ -34,7 +12,6 @@ return {
                 component_separators = { left = "", right = "" },
                 refresh = {
                     statusline = 100,
-                    tabline = 50,
                 },
             },
             sections = {
@@ -57,39 +34,6 @@ return {
                     function() return require("possession.session").get_session_name() or "" end,
                 },
             },
-            tabline = {
-                lualine_a = {
-                    {
-                        "tabs",
-                        max_length = function() return vim.o.columns end,
-                        mode = 1,
-                        show_modified_status = false,
-                        use_mode_colors = true,
-                        fmt = function(_, context)
-                            local buflist = vim.fn.tabpagebuflist(context.tabnr)
-                            local winnr = vim.fn.tabpagewinnr(context.tabnr)
-                            local bufnr = buflist[winnr]
-                            local mod = vim.fn.getbufvar(bufnr, "&mod")
-
-                            return title(bufnr) .. (mod == 1 and " ●" or "")
-                        end,
-                    },
-                },
-            },
-        })
-
-        -- Lualine does not respect showtabline
-        -- See Lualine#1013 and Lualine#1048
-        require("lualine").hide({ place = { "tabline" }, unhide = false })
-        vim.api.nvim_create_autocmd({ "TabNew", "TabClosed" }, {
-            group = vim.api.nvim_create_augroup("lualine_tmp", { clear = true }),
-            callback = function()
-                if vim.fn.tabpagenr("$") == 1 then
-                    require("lualine").hide({ place = { "tabline" }, unhide = false })
-                else
-                    require("lualine").hide({ place = { "tabline" }, unhide = true })
-                end
-            end,
         })
     end,
 }
