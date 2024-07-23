@@ -4,13 +4,10 @@ return {
     dependencies = {
         { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
         "folke/noice.nvim",
-        "jedrzejboczar/possession.nvim",
     },
     config = function()
         local telescope = require("telescope")
-        telescope.load_extension("fzf")
         telescope.load_extension("noice")
-        telescope.load_extension("possession")
 
         local actions = require("telescope.actions")
         telescope.setup({
@@ -41,6 +38,7 @@ return {
                 },
             },
         })
+        telescope.load_extension("fzf")
     end,
     keys = {
         { "<leader>ff", "<CMD>Telescope find_files<CR>", desc = "Find Files" },
