@@ -8,11 +8,11 @@ local theme = {
 return {
     "nanozuki/tabby.nvim",
     dependencies = "nvim-tree/nvim-web-devicons",
-    opts = function()
+    config = function()
         local api = require("tabby.module.api")
         local buf_name = require("tabby.feature.buf_name")
 
-        return {
+        require("tabby").setup({
             option = {
                 tab_name = {
                     name_fallback = function(tabid)
@@ -26,7 +26,7 @@ return {
                         elseif buftype == "terminal" then
                             return "Terminal"
                         elseif filetype == "checkhealth" then
-                            return "checkhealth"
+                            return "Checkhealth"
                         elseif filetype == "NvimTree" then
                             return "NvimTree"
                         elseif filetype == "octo" then
@@ -61,6 +61,6 @@ return {
                     hl = theme.fill,
                 }
             end,
-        }
+        })
     end,
 }

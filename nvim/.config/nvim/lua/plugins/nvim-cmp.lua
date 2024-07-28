@@ -129,5 +129,12 @@ return {
                 { name = "dap" },
             },
         })
+
+        -- SQL Completion
+        cmp.setup.filetype({ "sql" }, {
+            sources = {
+                { name = "vim-dadbod-completion" },
+            },
+        })
     end,
 }
