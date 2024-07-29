@@ -3,7 +3,6 @@ return {
     dependencies = {
         -- Runs preLaunchTask / postDebugTask if present
         { "stevearc/overseer.nvim", config = true },
-        "williamboman/mason.nvim",
         "rcarriga/nvim-dap-ui",
     },
     keys = {
@@ -57,32 +56,10 @@ return {
             },
         }
         -- Python
-        dap.adapters.python = function(cb, config)
-            if config.request == "attach" then
-                ---@diagnostic disable-next-line: undefined-field
-                local port = (config.connect or config).port
-                ---@diagnostic disable-next-line: undefined-field
-                local host = (config.connect or config).host or "localhost"
-                cb({
-                    type = "server",
-                    port = assert(port, "`connect.port` is required for a python `attach` configuration"),
-                    host = host,
-                    options = {
-                        source_filetype = "python",
-                    },
-                })
-            else
-                local debugpy = require("mason-registry").get_package("debugpy")
-                cb({
-                    type = "executable",
-                    command = debugpy:get_install_path() .. "/venv/bin/python3",
-                    args = { "-m", "debugpy.adapter" },
-                    options = {
-                        source_filetype = "python",
-                    },
-                })
-            end
-        end
+        dap.adapters.python = {
+            type = "executable",
+            command = "debugpy-adapter",
+        }
         -- JS, TS
         dap.adapters["pwa-node"] = {
             type = "server",

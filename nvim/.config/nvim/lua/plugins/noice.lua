@@ -12,6 +12,14 @@ return {
                 silent = true,
             },
         },
+        views = {
+            hover = {
+                scrollbar = false,
+            },
+            popupmenu = {
+                scrollbar = false,
+            },
+        },
         presets = {
             lsp_doc_border = true, -- add a border to hover docs and signature help
         },
