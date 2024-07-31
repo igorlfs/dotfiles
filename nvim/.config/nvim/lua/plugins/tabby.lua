@@ -2,7 +2,6 @@ local theme = {
     fill = "TabLineFill",
     current_tab = "TabLineSel",
     tab = "TabLine",
-    logo = "String",
 }
 
 return {
@@ -44,7 +43,6 @@ return {
             },
             line = function(line)
                 return {
-                    { "   ", hl = theme.logo },
                     line.tabs().foreach(function(tab)
                         local hl = tab.is_current() and theme.current_tab or theme.tab
                         local number = "[" .. tab.number() .. "]"

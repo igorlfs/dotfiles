@@ -56,19 +56,35 @@ return {
             },
         }
         -- Python
-        dap.adapters.python = {
-            type = "executable",
-            command = "debugpy-adapter",
-        }
+        dap.adapters.python = function(cb, config)
+            if config.request == "attach" then
+                ---@diagnostic disable-next-line: undefined-field
+                local port = (config.connect or config).port
+                ---@diagnostic disable-next-line: undefined-field
+                local host = (config.connect or config).host or "localhost"
+                cb({
+                    type = "server",
+                    port = assert(port, "`connect.port` is required for a python `attach` configuration"),
+                    host = host,
+                })
+            else
+                cb({
+                    type = "executable",
+                    command = "debugpy-adapter",
+                })
+            end
+        end
         -- JS, TS
-        dap.adapters["pwa-node"] = {
-            type = "server",
-            host = "localhost",
-            port = "${port}",
-            executable = {
-                command = "js-debug-adapter",
-                args = { "${port}" },
-            },
-        }
+        for _, js_adapter in pairs({ "pwa-node", "pwa-chrome" }) do
+            dap.adapters[js_adapter] = {
+                type = "server",
+                host = "localhost",
+                port = "${port}",
+                executable = {
+                    command = "js-debug-adapter",
+                    args = { "${port}" },
+                },
+            }
+        end
     end,
 }
