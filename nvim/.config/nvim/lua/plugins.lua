@@ -9,7 +9,7 @@ return {
         cmd = { "PossessionSave" },
     },
     -- Package Manager for language servers, debug adapters, linters and formatters
-    { "williamboman/mason.nvim", config = true, cmd = "Mason" },
+    { "williamboman/mason.nvim", config = true },
     -- Database Client
     {
         "kristijanhusak/vim-dadbod-ui",
