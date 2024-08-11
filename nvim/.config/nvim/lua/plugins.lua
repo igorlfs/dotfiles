@@ -11,7 +11,6 @@ return {
     },
     -- Package Manager for language servers, debug adapters, linters and formatters
     { "williamboman/mason.nvim", config = true },
-    -- Database Client
 
     ------ LSP Extensions
     -- textDocument/documentColor
@@ -54,12 +53,6 @@ return {
     { "axelvc/template-string.nvim", event = "InsertEnter", config = true },
 
     ------ Eye Candy
-    -- Code Context
-    {
-        "SmiteshP/nvim-navic",
-        event = "VeryLazy",
-        opts = { lsp = { auto_attach = true }, highlight = true },
-    },
     -- UI
     { "stevearc/dressing.nvim", event = "VeryLazy", config = true },
     -- Indent Guides
@@ -91,5 +84,15 @@ return {
         keys = { { "<A-o>", "<CMD>MarkdownPreviewToggle<CR>", desc = "Toggle Markdown Preview" } },
     },
     -- CSV
-    { "emmanueltouzery/decisive.nvim", ft = "csv" },
+    {
+        "emmanueltouzery/decisive.nvim",
+        ft = "csv",
+        keys = {
+            {
+                "<leader><leader>",
+                function() require("decisive").align_csv({}) end,
+                desc = "Align CSV",
+            },
+        },
+    },
 }

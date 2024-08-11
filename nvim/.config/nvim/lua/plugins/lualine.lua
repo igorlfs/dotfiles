@@ -17,7 +17,7 @@ return {
             sections = {
                 lualine_a = { "branch" },
                 lualine_b = { { "filename", path = 1 } },
-                lualine_c = { { "navic", color_correction = "static" } },
+                lualine_c = {},
                 lualine_x = {
                     {
                         noice.status.mode.get_hl,

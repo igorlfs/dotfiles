@@ -39,7 +39,7 @@ autocmd("Termopen", {
 })
 
 autocmd("FileType", {
-    desc = "Softwrap",
+    desc = "Enable Softwrap",
     group = defaults,
     pattern = { "tex", "octo", "typst", "markdown" },
     callback = function() vim.opt_local.wrap = true end,
@@ -110,7 +110,7 @@ autocmd("DirChanged", {
 })
 
 autocmd("FileType", {
-    desc = "Enable spellchecker",
+    desc = "Enable Spellchecker",
     group = defaults,
     pattern = { "gitcommit", "tex", "NeogitCommitMessage", "octo", "typst" },
     callback = function() vim.opt_local.spell = true end,
