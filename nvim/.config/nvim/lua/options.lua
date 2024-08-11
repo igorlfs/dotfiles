@@ -1,5 +1,5 @@
 local g = vim.g
-local o = vim.opt
+local o = vim.o
 local config = vim.fn.stdpath("config")
 
 -- Leaders
@@ -11,21 +11,25 @@ g.maplocalleader = "ç"
 
 o.gdefault = true -- Replace all line matches during substitution
 o.updatetime = 200 -- Time for CursorHold event (e.g., LSP)
-o.linebreak = true -- Wrap words, not chars
 o.scrolloff = 4 -- Context lines when scrolling
 o.clipboard = "unnamedplus" -- Use system clipboard
-o.sessionoptions:remove({ "buffers" }) -- Update options saved by sessions
 o.fillchars = [[eob: ,fold: ,foldopen:󰅀,foldsep: ,foldclose:󰅂]] -- Fancy fold symbols
 o.jumpoptions = "view" -- Prevents moving cursor when switching files
 o.exrc = true -- Enable per-project config file (.nvim.lua)
 o.showmode = false -- Hide message indicating current mode
 o.undofile = true -- Enable persistent undo
 o.pumheight = 10 -- Limit completion window up to 10 lines
+o.tabclose = "left" -- When closing a tab, go to the one on the left
 o.switchbuf = "usetab,newtab" -- Avoid wacky jumps with nvim-dap
 o.shadafile = "NONE" -- Don't save history
 o.guifont = "Iosevka NF:h12.5" -- Font for Neovide
 o.title = true -- Window title
+
+-- Softwrap
+o.wrap = false -- Disable softwrap by default
+o.linebreak = true -- Wrap words, not chars
 o.breakindent = true -- Indent softwrapped lines
+o.showbreak = " " -- Wrap indicator
 
 -- Statuscolumn
 

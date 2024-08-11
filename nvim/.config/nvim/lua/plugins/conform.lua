@@ -8,6 +8,7 @@ return {
             markdown = { "injected", "markdownlint" },
             yaml = { "prettier" },
             typescript = { "prettier" },
+            javascript = { "prettier" },
         },
         format_on_save = {
             timeout_ms = 500,

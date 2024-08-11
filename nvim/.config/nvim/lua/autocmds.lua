@@ -4,6 +4,16 @@ local keymap = vim.keymap.set
 
 local defaults = augroup("Defaults", {})
 
+autocmd({ "FocusGained", "TermClose", "TermLeave" }, {
+    group = augroup("Checktime", {}),
+    desc = "Check if we need to reload the file when it changed",
+    callback = function()
+        if vim.o.buftype ~= "nofile" then
+            vim.cmd("checktime")
+        end
+    end,
+})
+
 autocmd("FileType", {
     desc = "Disable newline comments when inserting lines with o/O",
     group = defaults,
@@ -26,6 +36,13 @@ autocmd("Termopen", {
         vim.opt_local.relativenumber = false
         vim.opt_local.scrolloff = 0
     end,
+})
+
+autocmd("FileType", {
+    desc = "Softwrap",
+    group = defaults,
+    pattern = { "tex", "octo", "typst", "markdown" },
+    callback = function() vim.opt_local.wrap = true end,
 })
 
 autocmd("FileType", {
