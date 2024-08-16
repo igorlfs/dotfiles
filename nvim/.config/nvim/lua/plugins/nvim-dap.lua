@@ -14,7 +14,7 @@ return {
             end,
             desc = "DAP Scopes",
         },
-        { "<F2>", function() require("dap.ui.widgets").hover(nil, { border = "rounded" }) end },
+        { "<F1>", function() require("dap.ui.widgets").hover(nil, { border = "rounded" }) end },
         { "<F4>", "<CMD>DapDisconnect<CR>", desc = "DAP Disconnect" },
         { "<F16>", "<CMD>DapTerminate<CR>", desc = "DAP Terminate" },
         { "<F5>", "<CMD>DapContinue<CR>", desc = "DAP Continue" },

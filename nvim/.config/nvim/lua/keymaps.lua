@@ -5,6 +5,8 @@ keymap({ "n", "i" }, "<C-s>", "<CMD>write<CR>", { desc = "Quick Save" })
 keymap("t", "<Esc>", [[<C-\><C-n>]], { desc = "Exit Terminal" })
 keymap("n", "<A-s>", "<CMD>setlocal spell!<CR>", { desc = "Toggle Spell" })
 keymap("n", "x", '"_x', { desc = "Don't override clipboard register with x" })
+keymap("n", "p", "]p", { desc = "[p]aste with indent" })
+keymap("n", "P", "]P", { desc = "[P]aste with indent" })
 
 -- Move within visual lines
 keymap("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })

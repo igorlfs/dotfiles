@@ -92,6 +92,7 @@ return {
                 "<leader><leader>",
                 function() require("decisive").align_csv({}) end,
                 desc = "Align CSV",
+                ft = "csv",
             },
         },
     },

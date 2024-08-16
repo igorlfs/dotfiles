@@ -28,7 +28,6 @@ return {
         },
     },
     keys = {
-        { "<F1>", function() require("dapui").toggle({ reset = true }) end, desc = "Toggle DAP UI" },
-        { "<F14>", function() require("dapui").eval() end, desc = "DAP Eval" },
+        { "<A-p>", function() require("dapui").toggle({ reset = true }) end, desc = "Toggle DAP UI" },
     },
 }
