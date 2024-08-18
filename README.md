@@ -28,12 +28,10 @@ NVIM_APPNAME=igorlfs/dotfiles/nvim/.config/nvim nvim
 ### bars-and-lines
 
 + [luukvbaal/statuscol.nvim](https://dotfyle.com/plugins/luukvbaal/statuscol.nvim)
-+ [SmiteshP/nvim-navic](https://dotfyle.com/plugins/SmiteshP/nvim-navic)
 
 ### code-runner
 
 + [stevearc/overseer.nvim](https://dotfyle.com/plugins/stevearc/overseer.nvim)
-+ [benlubas/molten-nvim](https://dotfyle.com/plugins/benlubas/molten-nvim)
 
 ### color
 
@@ -43,13 +41,13 @@ NVIM_APPNAME=igorlfs/dotfiles/nvim/.config/nvim nvim
 
 + [catppuccin/nvim](https://dotfyle.com/plugins/catppuccin/nvim)
 
-### comment
-
-+ [numToStr/Comment.nvim](https://dotfyle.com/plugins/numToStr/Comment.nvim)
-
 ### completion
 
 + [hrsh7th/nvim-cmp](https://dotfyle.com/plugins/hrsh7th/nvim-cmp)
+
+### csv-files
+
++ [emmanueltouzery/decisive.nvim](https://dotfyle.com/plugins/emmanueltouzery/decisive.nvim)
 
 ### cursorline
 
@@ -66,6 +64,7 @@ NVIM_APPNAME=igorlfs/dotfiles/nvim/.config/nvim nvim
 + [windwp/nvim-autopairs](https://dotfyle.com/plugins/windwp/nvim-autopairs)
 + [axelvc/template-string.nvim](https://dotfyle.com/plugins/axelvc/template-string.nvim)
 + [windwp/nvim-ts-autotag](https://dotfyle.com/plugins/windwp/nvim-ts-autotag)
++ [echasnovski/mini.ai](https://dotfyle.com/plugins/echasnovski/mini.ai)
 
 ### file-explorer
 
@@ -96,7 +95,6 @@ NVIM_APPNAME=igorlfs/dotfiles/nvim/.config/nvim nvim
 ### indent
 
 + [lukas-reineke/indent-blankline.nvim](https://dotfyle.com/plugins/lukas-reineke/indent-blankline.nvim)
-+ [echasnovski/mini.indentscope](https://dotfyle.com/plugins/echasnovski/mini.indentscope)
 
 ### lsp
 
@@ -117,8 +115,8 @@ NVIM_APPNAME=igorlfs/dotfiles/nvim/.config/nvim nvim
 
 ### nvim-dev
 
-+ [folke/neodev.nvim](https://dotfyle.com/plugins/folke/neodev.nvim)
 + [nvim-lua/plenary.nvim](https://dotfyle.com/plugins/nvim-lua/plenary.nvim)
++ [folke/lazydev.nvim](https://dotfyle.com/plugins/folke/lazydev.nvim)
 + [MunifTanjim/nui.nvim](https://dotfyle.com/plugins/MunifTanjim/nui.nvim)
 
 ### plugin-manager
@@ -144,9 +142,9 @@ NVIM_APPNAME=igorlfs/dotfiles/nvim/.config/nvim nvim
 + [kylechui/nvim-surround](https://dotfyle.com/plugins/kylechui/nvim-surround)
 + [nvim-treesitter/nvim-treesitter-textobjects](https://dotfyle.com/plugins/nvim-treesitter/nvim-treesitter-textobjects)
 
-### terminal-integration
+### tabline
 
-+ [akinsho/toggleterm.nvim](https://dotfyle.com/plugins/akinsho/toggleterm.nvim)
++ [nanozuki/tabby.nvim](https://dotfyle.com/plugins/nanozuki/tabby.nvim)
 
 ### test
 
