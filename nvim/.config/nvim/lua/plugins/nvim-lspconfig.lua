@@ -2,7 +2,6 @@ local servers = {
     "biome",
     "cssls",
     "emmet_language_server",
-    "gdscript",
     "html",
     "ruff",
     "tailwindcss",
@@ -29,6 +28,20 @@ return {
         }
         -- Enable additional capabilities for fileOperations just in case a server needs it
         capabilities = vim.tbl_deep_extend("force", capabilities, require("lsp-file-operations").default_capabilities())
+        -- (completely) Disable file watching for LSP
+        --
+        -- This makes the Svelte LSP use its own backend for file listening, which works nicely.
+        -- Specifically, it handles file creation, and the workaround below, using `$/onDidChangeTsOrJsFile`, doesn't
+        -- See this comment https://github.com/sveltejs/language-tools/issues/2008#issuecomment-2148860446
+        --
+        -- The main drawback of this approach is that it only works because the Svelte LSP has its own file watcher.
+        -- An alternative would be to fully enable neovim's file watcher, using a custom backend (e.g., watchman).
+        -- Steps
+        -- (1) Installing watchman (i.e., yay -S watchman-bin)
+        -- (2) Requiring this implementation https://github.com/neovim/neovim/issues/23291#issuecomment-1712422887
+        -- (3) Change the line below to
+        -- capabilities.workspace.didChangeWatchedFiles = { dynamicRegistration = true }
+        capabilities.workspace.didChangeWatchedFiles = false
 
         for _, lsp in ipairs(servers) do
             require("lspconfig")[lsp].setup({
@@ -66,6 +79,7 @@ return {
             capabilities = capabilities,
             on_attach = function(client, _)
                 -- Workaround to trigger reloading JS/TS files
+                -- See https://github.com/sveltejs/language-tools/issues/2008
                 vim.api.nvim_create_autocmd("BufWritePost", {
                     pattern = { "*.js", "*.ts" },
                     group = vim.api.nvim_create_augroup("svelte_ondidchangetsorjsfile", { clear = true }),
@@ -73,6 +87,19 @@ return {
                 })
             end,
             settings = {
+                typescript = {
+                    inlayHints = {
+                        parameterNames = {
+                            enabled = "literals",
+                            suppressWhenArgumentMatchesName = true,
+                        },
+                        parameterTypes = { enabled = true },
+                        variableTypes = { enabled = false },
+                        propertyDeclarationTypes = { enabled = true },
+                        functionLikeReturnTypes = { enabled = true },
+                        enumMemberValues = { enabled = true },
+                    },
+                },
                 svelte = {
                     plugin = {
                         svelte = {
