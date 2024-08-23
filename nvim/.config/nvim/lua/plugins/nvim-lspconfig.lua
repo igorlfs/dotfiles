@@ -28,20 +28,14 @@ return {
         }
         -- Enable additional capabilities for fileOperations just in case a server needs it
         capabilities = vim.tbl_deep_extend("force", capabilities, require("lsp-file-operations").default_capabilities())
-        -- (completely) Disable file watching for LSP
+        -- Enable file watching for LSP
         --
-        -- This makes the Svelte LSP use its own backend for file listening, which works nicely.
-        -- Specifically, it handles file creation, and the workaround below, using `$/onDidChangeTsOrJsFile`, doesn't
-        -- See this comment https://github.com/sveltejs/language-tools/issues/2008#issuecomment-2148860446
+        -- By default, it's disabled because the default implementation is considered slow.
+        -- I've tried using it but it straight up doesn't work for me.
         --
-        -- The main drawback of this approach is that it only works because the Svelte LSP has its own file watcher.
-        -- An alternative would be to fully enable neovim's file watcher, using a custom backend (e.g., watchman).
-        -- Steps
-        -- (1) Installing watchman (i.e., yay -S watchman-bin)
-        -- (2) Requiring this implementation https://github.com/neovim/neovim/issues/23291#issuecomment-1712422887
-        -- (3) Change the line below to
-        -- capabilities.workspace.didChangeWatchedFiles = { dynamicRegistration = true }
-        capabilities.workspace.didChangeWatchedFiles = false
+        -- Instead, use a custom backend.
+        -- Requires `watchman` to be installed https://github.com/facebook/watchman
+        capabilities.workspace.didChangeWatchedFiles = { dynamicRegistration = true }
 
         for _, lsp in ipairs(servers) do
             require("lspconfig")[lsp].setup({
