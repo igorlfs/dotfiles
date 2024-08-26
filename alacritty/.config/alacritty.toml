@@ -1,0 +1,9 @@
+import = ["~/.config/alacritty/catppuccin-mocha.toml"]
+
+[env]
+TERM = "xterm-256color"
+
+# Font config:
+[font]
+normal = { family = "ZedMono Nerd Font", style = "Regular" }
+size = 12
