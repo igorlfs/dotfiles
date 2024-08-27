@@ -1,6 +1,7 @@
 local servers = {
     "biome",
     "cssls",
+    "dockerls",
     "emmet_language_server",
     "html",
     "ruff",

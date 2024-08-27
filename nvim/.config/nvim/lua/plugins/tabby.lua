@@ -6,7 +6,6 @@ local theme = {
 
 return {
     "nanozuki/tabby.nvim",
-    dependencies = "nvim-tree/nvim-web-devicons",
     config = function()
         local api = require("tabby.module.api")
         local buf_name = require("tabby.feature.buf_name")
