@@ -67,6 +67,8 @@ return {
     ------ Language Extensions
     -- Lua
     { "folke/lazydev.nvim", ft = "lua", config = true },
+    -- JSON
+    { "b0o/schemastore.nvim", lazy = true },
     -- Rust
     {
         "mrcjkb/rustaceanvim",
@@ -76,32 +78,5 @@ return {
                 tools = { float_win_config = { border = "rounded" } },
             }
         end,
-    },
-    -- Markdown
-    {
-        "iamcco/markdown-preview.nvim",
-        build = function() vim.fn["mkdp#util#install"]() end,
-        ft = "markdown",
-        keys = {
-            {
-                "<A-o>",
-                "<CMD>MarkdownPreviewToggle<CR>",
-                desc = "Toggle Markdown Preview",
-                ft = "markdown",
-            },
-        },
-    },
-    -- CSV
-    {
-        "emmanueltouzery/decisive.nvim",
-        ft = "csv",
-        keys = {
-            {
-                "<leader><leader>",
-                function() require("decisive").align_csv({}) end,
-                desc = "Align CSV",
-                ft = "csv",
-            },
-        },
     },
 }
