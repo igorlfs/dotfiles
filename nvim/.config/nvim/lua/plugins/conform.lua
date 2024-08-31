@@ -10,7 +10,6 @@ return {
             typescript = { "prettier" },
             javascript = { "prettier" },
             json = { "jq" },
-            jsonc = { "prettier" },
         },
         format_on_save = {
             timeout_ms = 500,

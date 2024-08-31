@@ -1,7 +1,7 @@
 return {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
-    dependencies = "nvim-treesitter/nvim-treesitter-textobjects",
+    dependencies = { "nvim-treesitter/nvim-treesitter-textobjects", branch = "main" },
     event = "VeryLazy",
     config = function()
         ---@diagnostic disable-next-line: missing-fields
@@ -48,16 +48,6 @@ return {
             indent = {
                 enable = true,
                 disable = { "python", "html" },
-            },
-            textobjects = {
-                lsp_interop = {
-                    enable = true,
-                    border = "rounded",
-                    peek_definition_code = {
-                        ["<leader>pf"] = { query = "@function.outer", desc = "[P]review [F]unction" },
-                        ["<leader>pc"] = { query = "@class.outer", desc = "[P]review [C]lass" },
-                    },
-                },
             },
         })
     end,
