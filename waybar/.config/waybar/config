@@ -10,9 +10,10 @@
     ],
     "modules-right": [
         "idle_inhibitor",
-        "pulseaudio",
+        "pulseaudio#vol",
+        "pulseaudio#mic",
         "network",
-        "cpu",
+        "bluetooth",
         "memory",
         "battery",
         "clock",
@@ -35,9 +36,10 @@
             }
         }
     },
-    "cpu": {
-        "format": "CPU {usage}",
-        "tooltip": true
+    "bluetooth": {
+        "format": "",
+        "format-connected": "BLU {device_battery_percentage}",
+        "tooltip-format": "{controller_address}"
     },
     "memory": {
         "format": "MEM {}"
@@ -48,8 +50,7 @@
             "critical": 15
         },
         "format": "BAT {capacity}",
-        "format-charging": "BAT {capacity}",
-        "format-plugged": "  {capacity}",
+        "format-charging": "  {capacity}",
         "format-alt": "{time}",
         "format-full": ""
     },
@@ -70,10 +71,13 @@
             ]
         }
     },
-    "pulseaudio": {
-        "format": "{format_source} | VOL {volume}",
-        "format-muted": "{format_source} | MUTE",
-        "format-source": " {volume}",
+    "pulseaudio#vol": {
+        "format": "VOL {volume}",
+        "format-muted": "󰖁 "
+    },
+    "pulseaudio#mic": {
+        "format": "{format_source}",
+        "format-source": "MIC {volume}",
         "format-source-muted": " "
     }
 }

@@ -1,8 +1,8 @@
 @import "mocha.css";
 
 * {
-    font-family: Iosevka NF;
-    font-size: 12px;
+    font-family: ZedMono Nerd Font;
+    font-size: 12.5px;
     font-weight: bold;
     min-height: 0;
 }
@@ -62,6 +62,7 @@ label:focus {
 #memory,
 #battery,
 #clock,
+#bluetooth,
 #tray,
 #network {
     color: @crust;
@@ -83,54 +84,37 @@ label:focus {
 }
 
 #tray {
-    background-color: @surface1;
+    background-color: @base;
 }
 
 #idle_inhibitor {
     padding: 0 10px;
-    background-color: @mantle;
+    background-color: @crust;
 }
 
 #idle_inhibitor.activated {
     background-color: @text;
-    color: @surface0;
-}
-
-#pulseaudio {
-    background-color: @yellow;
     color: @crust;
 }
 
-#pulseaudio.muted {
-    background-color: @red;
-}
-
-#network {
-    background-color: @green;
-}
-
+#pulseaudio.mic.source-muted,
+#pulseaudio.vol.muted,
 #network.disconnected {
     background-color: @red;
 }
 
-#cpu {
-    background-color: @sky;
-}
-
-#memory {
+#memory,
+#bluetooth,
+#clock {
     background-color: @blue;
 }
 
+#pulseaudio,
 #battery {
-    background-color: @lavender;
-    color: @crust;
+    background-color: @yellow;
 }
 
-#battery.charging,
-#battery.plugged {
-    background-color: @mauve;
-}
-
-#clock {
-    background-color: @pink;
+#network,
+#battery.charging {
+    background-color: @green;
 }
