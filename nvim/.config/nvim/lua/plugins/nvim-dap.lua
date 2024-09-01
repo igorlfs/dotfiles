@@ -7,6 +7,11 @@ return {
     },
     keys = {
         {
+            "<leader>db",
+            function() require("dap").list_breakpoints() end,
+            desc = "DAP Breakpoints",
+        },
+        {
             "<leader>ds",
             function()
                 local widgets = require("dap.ui.widgets")
@@ -39,7 +44,8 @@ return {
         -- Signs
         local sign = vim.fn.sign_define
 
-        local dap_round_groups = { "DapBreakpoint", "DapBreakpointCondition", "DapBreakpointRejected", "DapLogPoint" }
+        local dap_round_groups =
+            { "DapBreakpoint", "DapBreakpointCondition", "DapBreakpointRejected", "DapLogPoint" }
         for _, group in pairs(dap_round_groups) do
             sign(group, { text = "●", texthl = group })
         end
@@ -65,7 +71,10 @@ return {
                 local host = (config.connect or config).host or "localhost"
                 cb({
                     type = "server",
-                    port = assert(port, "`connect.port` is required for a python `attach` configuration"),
+                    port = assert(
+                        port,
+                        "`connect.port` is required for a python `attach` configuration"
+                    ),
                     host = host,
                 })
             else
