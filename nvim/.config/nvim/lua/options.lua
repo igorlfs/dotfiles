@@ -22,7 +22,7 @@ o.pumheight = 10 -- Limit completion window up to 10 lines
 o.tabclose = "left" -- When closing a tab, go to the one on the left
 o.switchbuf = "usetab,newtab" -- Avoid wacky jumps with nvim-dap
 o.shadafile = "NONE" -- Don't save history
-o.guifont = "ZedMono Nerd Font:h12.5" -- Font for Neovide
+o.guifont = "ZedMono Nerd Font:h12" -- Font for Neovide
 o.title = true
 
 -- Softwrap
