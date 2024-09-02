@@ -1,1 +1,0 @@
-ssh-agent -k
