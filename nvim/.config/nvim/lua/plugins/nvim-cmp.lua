@@ -8,18 +8,12 @@ return {
         "L3MON4D3/LuaSnip",
         "hrsh7th/cmp-cmdline",
         "saadparwaiz1/cmp_luasnip",
-        "rcarriga/cmp-dap",
     },
     opts = function()
         local cmp = require("cmp")
         local luasnip = require("luasnip")
 
         return {
-            enabled = function()
-                -- Enable completion in prompt buffers to use cmp-dap
-                return vim.api.nvim_get_option_value("buftype", { buf = 0 }) ~= "prompt"
-                    or require("cmp_dap").is_dap_buffer()
-            end,
             snippet = {
                 expand = function(args) luasnip.lsp_expand(args.body) end,
             },
@@ -121,13 +115,6 @@ return {
                     keyword_pattern = [=[[^[:blank:]%]*]=],
                 },
             }),
-        })
-
-        -- DAP Completion
-        cmp.setup.filetype({ "dapui_watches", "dapui_hover", "dap-repl" }, {
-            sources = {
-                { name = "dap" },
-            },
         })
     end,
 }
