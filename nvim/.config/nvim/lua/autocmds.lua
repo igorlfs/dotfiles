@@ -1,6 +1,6 @@
 local autocmd = vim.api.nvim_create_autocmd
 local augroup = vim.api.nvim_create_augroup
-local keymap = vim.keymap.set
+local keymap = require("util").keymap
 
 local defaults = augroup("Defaults", {})
 
@@ -73,7 +73,7 @@ autocmd("FileType", {
 autocmd("FileType", {
     desc = "Quit DAP-Float",
     pattern = { "dap-float" },
-    callback = function() keymap("n", "q", "<C-w>q", { buffer = 0 }) end,
+    callback = function() keymap("q", "<C-w>q", { buffer = 0 }) end,
 })
 
 autocmd("BufWinEnter", {
@@ -138,14 +138,13 @@ autocmd("LspAttach", {
 
         -- Mappings
         keymap(
-            { "n", "i" },
             "<C-h>",
             lsp.buf.signature_help,
-            { buffer = ev.buf, desc = "Signature Help" }
+            { buffer = ev.buf, desc = "Signature Help" },
+            { "n", "i" }
         )
 
         keymap(
-            "n",
             "<A-h>",
             function()
                 lsp.inlay_hint.enable(
@@ -157,24 +156,22 @@ autocmd("LspAttach", {
         )
 
         keymap(
-            { "n", "x" },
             "<leader>la",
             lsp.buf.code_action,
-            { buffer = ev.buf, desc = "LSP Actions" }
+            { buffer = ev.buf, desc = "LSP Actions" },
+            { "n", "x" }
         )
-        keymap("n", "<leader>ll", lsp.codelens.run, { buffer = ev.buf, desc = "LSP Lens" })
+        keymap("<leader>ll", lsp.codelens.run, { buffer = ev.buf, desc = "LSP Lens" })
 
         -- NOTE we define this mapping here, instead of using "<leader>f" because it overrides nvim's default gd
         -- (which is a primitive way of going to definition), in spite of it being a Telescope mapping
         keymap(
-            "n",
             "gd",
             "<CMD>Telescope lsp_definitions<CR>",
             { buffer = ev.buf, desc = "Go to Definition" }
         )
         -- Similarly with LSP references, which is now mapped by default
         keymap(
-            "n",
             "grr",
             "<CMD>Telescope lsp_references<CR>",
             { buffer = ev.buf, desc = "Find References" }
