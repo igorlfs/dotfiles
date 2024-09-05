@@ -27,6 +27,15 @@ autocmd("FileType", {
     callback = function() vim.opt_local.formatoptions:remove("j") end,
 })
 
+autocmd("FileType", {
+    desc = "Unclutter DAP REPL",
+    pattern = { "dap-repl" },
+    callback = function()
+        vim.opt_local.number = false
+        vim.opt_local.relativenumber = false
+    end,
+})
+
 autocmd("Termopen", {
     desc = "Unclutter terminal",
     group = defaults,
