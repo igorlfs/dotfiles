@@ -42,15 +42,28 @@ return {
     },
     config = function()
         -- Signs
-        local sign = vim.fn.sign_define
-
-        local dap_round_groups =
-            { "DapBreakpoint", "DapBreakpointCondition", "DapBreakpointRejected", "DapLogPoint" }
-        for _, group in pairs(dap_round_groups) do
-            sign(group, { text = "●", texthl = group })
+        for _, group in pairs({
+            "DapBreakpoint",
+            "DapBreakpointCondition",
+            "DapBreakpointRejected",
+            "DapLogPoint",
+        }) do
+            vim.fn.sign_define(group, { text = "●", texthl = group })
         end
 
         local dap = require("dap")
+
+        -- Setup
+
+        -- Decides when and how to jump when stopping at a breakpoint
+        -- The order matters!
+        --
+        -- (1) If the line with the breakpoint is visible, don't jump at all
+        -- (2) If the buffer is opened in a tab, jump to it instead
+        -- (3) Else, create a new tab with the buffer
+        --
+        -- This avoid unnecessary jumps
+        dap.defaults.switchbuf = "usevisible,usetab,newtab"
 
         -- Adapters
         -- C, C++, Rust
