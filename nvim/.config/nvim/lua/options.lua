@@ -66,6 +66,10 @@ o.tabstop = 4 -- Width of a tab
 o.shiftwidth = 4 -- Indent's width
 o.shiftround = true -- Round indent to multiple of 'shiftwidth'
 
+-- Options
+
+vim.opt.shortmess:append("c") -- Reduce vim's verboseness
+
 -- Providers
 
 g.loaded_python3_provider = 0
