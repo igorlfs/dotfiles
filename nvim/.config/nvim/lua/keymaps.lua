@@ -20,3 +20,7 @@ keymap("<A-[>", "<CMD>tabprevious<CR>", "Goto prev tab")
 keymap("<A-->", "<CMD>tabm-<CR>", "Move tab to the left")
 keymap("<A-=>", "<CMD>tabm+<CR>", "Move tab to the right")
 keymap("<A-'>", "<CMD>tab split<CR>", "Clone window in new tab")
+
+-- Diff
+keymap("<leader>wdt", "<CMD>windo diffthis<CR>", "Enable Diff Files in Tab")
+keymap("<leader>wdo", "<CMD>windo diffoff<CR>", "Disable Diff Files in Tab")
