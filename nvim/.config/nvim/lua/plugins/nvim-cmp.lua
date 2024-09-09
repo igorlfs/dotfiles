@@ -79,8 +79,8 @@ return {
             }),
             formatting = {
                 format = function(_, item)
-                    -- Limit completion window to 50 characters
-                    item.abbr = string.sub(item.abbr, 1, 50)
+                    -- Limit completion window to 30 characters
+                    item.abbr = string.sub(item.abbr, 1, 30)
                     return item
                 end,
             },
