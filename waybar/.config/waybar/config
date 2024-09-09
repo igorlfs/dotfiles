@@ -14,7 +14,6 @@
         "pulseaudio#mic",
         "network",
         "bluetooth",
-        "memory",
         "battery",
         "clock",
         "tray"
@@ -40,9 +39,6 @@
         "format": "",
         "format-connected": "BLU {device_battery_percentage}",
         "tooltip-format": "{controller_address}"
-    },
-    "memory": {
-        "format": "MEM {}"
     },
     "battery": {
         "states": {

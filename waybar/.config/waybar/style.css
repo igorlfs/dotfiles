@@ -59,7 +59,6 @@ label:focus {
 
 #pulseaudio,
 #cpu,
-#memory,
 #battery,
 #clock,
 #bluetooth,
@@ -103,7 +102,6 @@ label:focus {
     background-color: @red;
 }
 
-#memory,
 #bluetooth,
 #clock {
     background-color: @blue;
