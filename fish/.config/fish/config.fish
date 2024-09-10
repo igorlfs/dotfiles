@@ -1,7 +1,7 @@
 # Run on login (like .zprofile)
 if status is-login
     # https://superuser.com/questions/1727591/how-to-run-ssh-agent-in-fish-shell
-    keychain --eval $SSH_KEYS_TO_AUTOLOAD --absolute --dir "$XDG_RUNTIME_DIR"/keychain | source
+    keychain --noask --eval $SSH_KEYS_TO_AUTOLOAD --absolute --dir "$XDG_RUNTIME_DIR"/keychain | source
 end
 
 if not status is-interactive
