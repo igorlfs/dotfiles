@@ -52,14 +52,6 @@ return {
     { "windwp/nvim-ts-autotag", event = "InsertEnter", config = true },
     -- (f-)Strings
     { "axelvc/template-string.nvim", event = "InsertEnter", config = true },
-    -- Quickfix
-    {
-        "stevearc/quicker.nvim",
-        config = true,
-        keys = {
-            { "<leader>q", function() require("quicker").toggle() end, desc = "Toggle quickfix" },
-        },
-    },
 
     ------ Eye Candy
     -- UI
