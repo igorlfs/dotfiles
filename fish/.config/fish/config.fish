@@ -18,6 +18,8 @@ set -g fish_history ""
 alias v="nvim"
 alias hyprland="pgrep -x Hyprland || exec dbus-run-session Hyprland"
 
+alias pacman="pacman --color=auto"
+
 alias cp="cp -r"
 alias mv="mv -i"
 
