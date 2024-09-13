@@ -63,7 +63,7 @@ return {
         -- (3) Else, create a new tab with the buffer
         --
         -- This avoid unnecessary jumps
-        dap.defaults.switchbuf = "usevisible,usetab,newtab"
+        dap.defaults.fallback.switchbuf = "usevisible,usetab,newtab"
 
         -- Adapters
         -- C, C++, Rust
