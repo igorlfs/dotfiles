@@ -1,4 +1,7 @@
 vim.filetype.add({
+    extension = {
+        http = "http",
+    },
     pattern = {
         [".*/%.vscode/.*%.json"] = "jsonc",
         [".*/zed/.*%.json"] = "jsonc",
