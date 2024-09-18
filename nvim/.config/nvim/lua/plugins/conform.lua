@@ -9,6 +9,7 @@ return {
             yaml = { "prettier" },
             typescript = { "prettier" },
             javascript = { "prettier" },
+            http = { "injected" },
             json = { "jq" },
         },
         format_on_save = {
