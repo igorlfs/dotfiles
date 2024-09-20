@@ -70,7 +70,7 @@ o.shiftround = true -- Round indent to multiple of 'shiftwidth'
 
 -- Options
 
-vim.opt.shortmess:append("c") -- Reduce vim's verboseness
+vim.opt.shortmess:append("Ic") -- Reduce vim's verboseness and remove intro message
 
 -- Providers
 
