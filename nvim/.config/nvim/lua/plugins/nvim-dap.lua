@@ -97,6 +97,8 @@ return {
                 })
             end
         end
+        -- The python adapter is deprecated, see nvim-dap-python#129
+        dap.adapters.debugpy = dap.adapters.python
         -- JS, TS
         for _, js_adapter in pairs({ "pwa-node", "pwa-chrome" }) do
             dap.adapters[js_adapter] = {
