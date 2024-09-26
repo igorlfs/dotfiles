@@ -23,6 +23,7 @@ return {
                         noice.status.mode.get_hl,
                         cond = noice.status.mode.has,
                     },
+                    "kulala",
                     "diff",
                     {
                         function() return require("dap").session() and " " or "" end,
