@@ -105,10 +105,6 @@ NVIM_APPNAME=igorlfs/dotfiles/nvim/.config/nvim nvim
 
 + [williamboman/mason.nvim](https://dotfyle.com/plugins/williamboman/mason.nvim)
 
-### markdown-and-latex
-
-+ [iamcco/markdown-preview.nvim](https://dotfyle.com/plugins/iamcco/markdown-preview.nvim)
-
 ### motion
 
 + [folke/flash.nvim](https://dotfyle.com/plugins/folke/flash.nvim)
@@ -146,13 +142,10 @@ NVIM_APPNAME=igorlfs/dotfiles/nvim/.config/nvim nvim
 
 + [nanozuki/tabby.nvim](https://dotfyle.com/plugins/nanozuki/tabby.nvim)
 
-### test
-
-+ [nvim-neotest/neotest](https://dotfyle.com/plugins/nvim-neotest/neotest)
-
 ### utility
 
 + [folke/noice.nvim](https://dotfyle.com/plugins/folke/noice.nvim)
++ [brianhuster/live-preview.nvim](https://dotfyle.com/plugins/brianhuster/live-preview.nvim)
 + [kevinhwang91/nvim-ufo](https://dotfyle.com/plugins/kevinhwang91/nvim-ufo)
 + [stevearc/dressing.nvim](https://dotfyle.com/plugins/stevearc/dressing.nvim)
 
@@ -160,7 +153,7 @@ NVIM_APPNAME=igorlfs/dotfiles/nvim/.config/nvim nvim
 
 + clangd
 + cssls
-+ gdscript
++ dockerls
 + html
 + svelte
 + tailwindcss
