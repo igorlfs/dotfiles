@@ -24,6 +24,7 @@ return {
                 "regex",
                 "diff",
                 "bash",
+                "fish",
                 "markdown",
                 "markdown_inline",
                 "bibtex",
