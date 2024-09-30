@@ -3,3 +3,6 @@
 
 # Inserts a blank line between shell prompts
 add_newline = false
+
+[time]
+disabled = false
