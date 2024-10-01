@@ -13,8 +13,8 @@ return {
         },
     },
     keys = {
-        { "[q", function() require("kulala").jump_prev() end, ft = "http" },
-        { "]q", function() require("kulala").jump_next() end, ft = "http" },
+        { "[r", function() require("kulala").jump_prev() end, ft = "http" },
+        { "]r", function() require("kulala").jump_next() end, ft = "http" },
         { "<leader><leader>", function() require("kulala").run() end, ft = "http" },
     },
 }
