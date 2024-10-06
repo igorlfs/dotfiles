@@ -26,6 +26,7 @@ o.title = true
 -- Completion
 o.completeopt = "menuone,noselect,noinsert,fuzzy" -- More intuitive completion options
 o.pumheight = 10 -- Limit completion window up to 10 lines
+o.wildoptions = "pum,tagfile,fuzzy" -- Enable fuzzy finding commands
 
 -- Softwrap
 o.wrap = false -- Disable softwrap by default
