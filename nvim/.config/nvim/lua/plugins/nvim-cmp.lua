@@ -1,5 +1,5 @@
 return {
-    "hrsh7th/nvim-cmp",
+    "iguanacucumber/magazine.nvim",
     event = { "InsertEnter", "CmdlineEnter" },
     dependencies = {
         "hrsh7th/cmp-nvim-lsp",
