@@ -2,7 +2,6 @@ local keymap = require("util").keymap
 local str = string.format
 
 keymap("<C-s>", "<CMD>write<CR>", "Quick Save", { "i", "n" })
-keymap("<C-w>e", "<CMD>term<CR>", "Terminal")
 keymap("<Esc>", [[<C-\><C-n>]], "Exit Terminal", "t")
 keymap("<A-s>", "<CMD>setlocal spell!<CR>", "Toggle Spell")
 keymap("x", '"_x', "Don't override clipboard register with x")
@@ -10,6 +9,10 @@ keymap("x", '"_x', "Don't override clipboard register with x")
 -- Move within visual lines
 keymap("k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 keymap("j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+
+-- Windows
+keymap("<C-w>e", "<CMD>term<CR>", "Terminal")
+keymap("<C-w>m", "<CMD>vnew<CR>", "New File Vertical Split")
 
 -- Tabs
 for i = 1, 9 do
