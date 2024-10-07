@@ -42,6 +42,3 @@ set index-active-bg		    "#302d41"
 
 set render-loading-bg		"#1e1e2e"
 set render-loading-fg		"#d9e0ee"
-
-set highlight-fg            "#f5c2e7"
-set highlight-active-color	"#f5c2e7"
