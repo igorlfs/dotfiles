@@ -65,6 +65,8 @@ return {
     },
 
     ------ Language Extensions
+    -- Java's JDTLS extensions
+    { "mfussenegger/nvim-jdtls", ft = "java" },
     -- Lua
     { "folke/lazydev.nvim", ft = "lua", config = true },
     -- JSON
