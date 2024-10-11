@@ -76,6 +76,25 @@ autocmd("FileType", {
     callback = function() keymap("q", "<C-w>q", { buffer = 0 }) end,
 })
 
+-- From https://github.com/neovim/neovim/pull/30164#issuecomment-2315421660
+autocmd("FileType", {
+    desc = "Enable treesitter folds",
+    callback = function(args)
+        if not pcall(vim.treesitter.start, args.buf) then
+            return
+        end
+
+        if vim.api.nvim_buf_line_count(args.buf) > 40000 then
+            return
+        end
+        vim.api.nvim_buf_call(args.buf, function()
+            vim.wo[0][0].foldexpr = "v:lua.vim.treesitter.foldexpr()"
+            vim.wo[0][0].foldmethod = "expr"
+            vim.cmd.normal("zx")
+        end)
+    end,
+})
+
 autocmd("BufWinEnter", {
     desc = "Set options on DAP-UI windows",
     group = augroup("set_dap_win_options", { clear = true }),

@@ -54,6 +54,7 @@ o.spellsuggest = "best,9" -- Limit the number of suggestions for spell
 
 -- Folds
 
+o.foldtext = "" -- Highlight folds
 o.foldlevelstart = 99 -- Don't close any folds at the start
 
 -- Splits
