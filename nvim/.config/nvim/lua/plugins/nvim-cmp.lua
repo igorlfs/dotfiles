@@ -53,10 +53,7 @@ return {
                 end, { "i", "s" }),
             }),
             window = {
-                documentation = {
-                    border = "rounded",
-                    winhighlight = "Normal:NormalFloat",
-                },
+                documentation = cmp.config.window.bordered(),
             },
             sources = cmp.config.sources({
                 { name = "nvim_lsp" },

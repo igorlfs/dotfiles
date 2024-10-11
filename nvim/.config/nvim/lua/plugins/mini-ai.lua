@@ -7,6 +7,7 @@ return {
 
         ai.setup({
             n_lines = 500,
+            search_method = "cover",
             custom_textobjects = {
                 f = ai.gen_spec.treesitter({ a = "@function.outer", i = "@function.inner" }),
                 u = ai.gen_spec.function_call(),
