@@ -12,13 +12,10 @@ return {
             end,
         },
         integrations = {
-            neotest = true,
             mason = true,
             noice = true,
             octo = true,
             diffview = true,
-            ufo = false,
-            navic = { enabled = true },
             telescope = {
                 style = "nvchad",
             },
