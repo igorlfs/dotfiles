@@ -49,5 +49,7 @@ return {
         { "<leader>fd", "<CMD>Telescope diagnostics<CR>", desc = "Find Diagnostics" },
         { "<leader>fi", "<CMD>Telescope lsp_implementations<CR>", desc = "Find Implementation" },
         { "<leader>ft", "<CMD>Telescope lsp_type_definitions<CR>", desc = "Find Type Definition" },
+        { "gd", "<CMD>Telescope lsp_definitions<CR>", desc = "Go to Definition" },
+        { "grr", "<CMD>Telescope lsp_references<CR>", desc = "Find References" },
     },
 }
