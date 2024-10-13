@@ -2,10 +2,7 @@ local autocmd = vim.api.nvim_create_autocmd
 local augroup = vim.api.nvim_create_augroup
 local keymap = require("util").keymap
 
-local defaults = augroup("Defaults", {})
-
 autocmd({ "FocusGained", "TermClose", "TermLeave" }, {
-    group = augroup("Checktime", {}),
     desc = "Check if we need to reload the file when it changed",
     callback = function()
         if vim.o.buftype ~= "nofile" then
@@ -16,26 +13,23 @@ autocmd({ "FocusGained", "TermClose", "TermLeave" }, {
 
 autocmd("FileType", {
     desc = "Disable newline comments when inserting lines with o/O",
-    group = defaults,
     callback = function() vim.opt_local.formatoptions:remove("o") end,
 })
 
 autocmd("Termopen", {
     desc = "Unclutter terminal",
-    group = defaults,
     callback = function()
-        vim.opt_local.number = false
-        vim.opt_local.relativenumber = false
-        vim.opt_local.scrolloff = 0
-        vim.opt_local.foldcolumn = "0"
+        vim.wo.number = false
+        vim.wo.relativenumber = false
+        vim.wo.scrolloff = 0
+        vim.wo.foldcolumn = "0"
     end,
 })
 
 autocmd("FileType", {
     desc = "Enable Softwrap",
-    group = defaults,
     pattern = { "tex", "octo", "typst", "markdown" },
-    callback = function() vim.opt_local.wrap = true end,
+    callback = function() vim.wo.wrap = true end,
 })
 
 autocmd("FileType", {
@@ -49,7 +43,7 @@ autocmd("FileType", {
         "NeogitStatus",
         "NeogitDiffView",
     },
-    callback = function() vim.opt_local.foldcolumn = "0" end,
+    callback = function() vim.wo.foldcolumn = "0" end,
 })
 
 -- This could be built-in (see nvim-dap#1194 for discussion)
@@ -71,8 +65,8 @@ autocmd("FileType", {
             return
         end
         vim.api.nvim_buf_call(args.buf, function()
-            vim.wo[0][0].foldexpr = "v:lua.vim.treesitter.foldexpr()"
-            vim.wo[0][0].foldmethod = "expr"
+            vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+            vim.wo.foldmethod = "expr"
             vim.cmd.normal("zx")
         end)
     end,
@@ -95,7 +89,6 @@ autocmd("BufWinEnter", {
 
 autocmd("TextYankPost", {
     desc = "Highlight on yank",
-    group = defaults,
     callback = function() vim.highlight.on_yank() end,
 })
 
@@ -111,9 +104,8 @@ autocmd("DirChanged", {
 
 autocmd("FileType", {
     desc = "Enable Spellchecker",
-    group = defaults,
     pattern = { "gitcommit", "tex", "NeogitCommitMessage", "octo", "typst" },
-    callback = function() vim.opt_local.spell = true end,
+    callback = function() vim.wo.spell = true end,
 })
 
 autocmd("User", {

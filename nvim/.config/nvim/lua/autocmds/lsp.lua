@@ -1,10 +1,7 @@
-local autocmd = vim.api.nvim_create_autocmd
-local augroup = vim.api.nvim_create_augroup
 local keymap = require("util").keymap
 
-autocmd("LspAttach", {
+vim.api.nvim_create_autocmd("LspAttach", {
     desc = "LSP",
-    group = augroup("lsp", { clear = false }),
     callback = function(ev)
         local client = vim.lsp.get_client_by_id(ev.data.client_id)
         local lsp = vim.lsp
@@ -12,9 +9,8 @@ autocmd("LspAttach", {
 
         -- Lenses
         if client and client.supports_method(methods.textDocument_codeLens) then
-            autocmd({ "BufEnter", "CursorHold", "InsertLeave" }, {
+            vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "InsertLeave" }, {
                 buffer = ev.buf,
-                group = augroup("codelens", { clear = false }),
                 callback = function() lsp.codelens.refresh({ bufnr = ev.buf }) end,
             })
         end
