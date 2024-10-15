@@ -19,17 +19,17 @@ autocmd("FileType", {
 autocmd("Termopen", {
     desc = "Unclutter terminal",
     callback = function()
-        vim.wo.number = false
-        vim.wo.relativenumber = false
-        vim.wo.scrolloff = 0
-        vim.wo.foldcolumn = "0"
+        vim.wo[0][0].number = false
+        vim.wo[0][0].relativenumber = false
+        vim.wo[0][0].scrolloff = 0
+        vim.wo[0][0].foldcolumn = "0"
     end,
 })
 
 autocmd("FileType", {
     desc = "Enable Softwrap",
     pattern = { "tex", "octo", "typst", "markdown" },
-    callback = function() vim.wo.wrap = true end,
+    callback = function() vim.wo[0][0].wrap = true end,
 })
 
 autocmd("FileType", {
@@ -43,7 +43,7 @@ autocmd("FileType", {
         "NeogitStatus",
         "NeogitDiffView",
     },
-    callback = function() vim.wo.foldcolumn = "0" end,
+    callback = function() vim.wo[0][0].foldcolumn = "0" end,
 })
 
 -- This could be built-in (see nvim-dap#1194 for discussion)
@@ -105,10 +105,10 @@ autocmd("DirChanged", {
 autocmd("FileType", {
     desc = "Enable Spellchecker",
     pattern = { "gitcommit", "tex", "NeogitCommitMessage", "octo", "typst" },
-    callback = function() vim.wo.spell = true end,
+    callback = function() vim.wo[0][0].spell = true end,
 })
 
 autocmd("User", {
     pattern = "TelescopePreviewerLoaded",
-    callback = function() vim.wo.wrap = true end,
+    callback = function() vim.wo[0][0].wrap = true end,
 })
