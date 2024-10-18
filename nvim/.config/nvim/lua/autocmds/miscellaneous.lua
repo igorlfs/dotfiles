@@ -6,7 +6,7 @@ autocmd({ "FocusGained", "TermClose", "TermLeave" }, {
     desc = "Check if we need to reload the file when it changed",
     callback = function()
         if vim.o.buftype ~= "nofile" then
-            vim.cmd("checktime")
+            vim.cmd.checktime()
         end
     end,
 })
@@ -30,20 +30,6 @@ autocmd("FileType", {
     desc = "Enable Softwrap",
     pattern = { "tex", "octo", "typst", "markdown" },
     callback = function() vim.wo[0][0].wrap = true end,
-})
-
-autocmd("FileType", {
-    desc = "Disable foldcolumn",
-    pattern = {
-        "neotest-summary",
-        "dap-repl",
-        "NeogitCommitMessage",
-        "NeogitCommitView",
-        "NeogitPopup",
-        "NeogitStatus",
-        "NeogitDiffView",
-    },
-    callback = function() vim.wo[0][0].foldcolumn = "0" end,
 })
 
 -- This could be built-in (see nvim-dap#1194 for discussion)
@@ -104,7 +90,7 @@ autocmd("DirChanged", {
 
 autocmd("FileType", {
     desc = "Enable Spellchecker",
-    pattern = { "gitcommit", "tex", "NeogitCommitMessage", "octo", "typst" },
+    pattern = { "gitcommit", "tex", "octo", "typst" },
     callback = function() vim.wo[0][0].spell = true end,
 })
 

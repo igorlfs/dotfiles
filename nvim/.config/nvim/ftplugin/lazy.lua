@@ -1,1 +1,1 @@
-vim.wo.scrolloff = 0
+vim.wo[0][0].scrolloff = 0
