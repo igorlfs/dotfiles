@@ -1,5 +1,4 @@
 local autocmd = vim.api.nvim_create_autocmd
-local augroup = vim.api.nvim_create_augroup
 local keymap = require("util").keymap
 
 autocmd({ "FocusGained", "TermClose", "TermLeave" }, {
@@ -22,7 +21,6 @@ autocmd("Termopen", {
         vim.wo[0][0].number = false
         vim.wo[0][0].relativenumber = false
         vim.wo[0][0].scrolloff = 0
-        vim.wo[0][0].foldcolumn = "0"
     end,
 })
 
@@ -53,22 +51,8 @@ autocmd("FileType", {
         vim.api.nvim_buf_call(args.buf, function()
             vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
             vim.wo.foldmethod = "expr"
+            vim.wo.foldcolumn = "1"
             vim.cmd.normal("zx")
-        end)
-    end,
-})
-
-autocmd("BufWinEnter", {
-    desc = "Set options on DAP-UI windows",
-    group = augroup("set_dap_win_options", { clear = true }),
-    pattern = { "DAP *" },
-    callback = function(args)
-        local win = vim.fn.bufwinid(args.buf)
-        vim.schedule(function()
-            if win and not vim.api.nvim_win_is_valid(win) then
-                return
-            end
-            vim.api.nvim_set_option_value("foldcolumn", "0", { win = win })
         end)
     end,
 })

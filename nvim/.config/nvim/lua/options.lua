@@ -38,7 +38,6 @@ o.showbreak = " " -- Wrap indicator
 
 o.number = true -- Print the line number in front of the current line
 o.relativenumber = true -- Print the line numbers for motion
-o.foldcolumn = "1" -- Clickable column that shows folds
 
 -- Cursor
 
