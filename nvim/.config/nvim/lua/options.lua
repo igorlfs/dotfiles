@@ -1,11 +1,5 @@
-local g = vim.g
 local o = vim.o
 local config = vim.fn.stdpath("config")
-
--- Leaders
-
-g.mapleader = " "
-g.maplocalleader = "ç"
 
 -- Miscellaneous
 
@@ -72,10 +66,3 @@ o.shiftround = true -- Round indent to multiple of 'shiftwidth'
 -- Options
 
 vim.opt.shortmess:append("Ic") -- Reduce vim's verboseness and remove intro message
-
--- Providers
-
-g.loaded_python3_provider = 0
-g.loaded_node_provider = 0
-g.loaded_perl_provider = 0
-g.loaded_ruby_provider = 0
