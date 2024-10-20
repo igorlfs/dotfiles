@@ -1,10 +1,7 @@
 return {
     "nvim-lualine/lualine.nvim",
-    dependencies = { "folke/noice.nvim", "mfussenegger/nvim-dap" },
     event = "VeryLazy",
     config = function()
-        local noice = require("noice.api")
-
         require("lualine").setup({
             options = {
                 globalstatus = true,
@@ -20,8 +17,10 @@ return {
                 lualine_c = {},
                 lualine_x = {
                     {
-                        noice.status.mode.get_hl,
-                        cond = noice.status.mode.has,
+                        function()
+                            local register = vim.fn.reg_recording() --[[@as string]]
+                            return register ~= "" and "recording @" .. register or ""
+                        end,
                     },
                     "kulala",
                     "diff",
