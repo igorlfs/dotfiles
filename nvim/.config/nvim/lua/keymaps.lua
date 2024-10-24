@@ -13,6 +13,13 @@ keymap("j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 -- Windows
 keymap("<C-w>e", "<CMD>term<CR>", "Terminal")
 keymap("<C-w>m", "<CMD>vnew<CR>", "New File Vertical Split")
+keymap("<A-w>", function()
+    if vim.wo.diff then
+        vim.cmd.windo("diffoff")
+    else
+        vim.cmd.windo("diffthis")
+    end
+end, "Toggle Window Diff")
 
 -- Tabs
 for i = 1, 9 do
@@ -24,7 +31,3 @@ keymap("<A-[>", "<CMD>tabprevious<CR>", "Goto prev tab")
 keymap("<A-->", "<CMD>tabm-<CR>", "Move tab to the left")
 keymap("<A-=>", "<CMD>tabm+<CR>", "Move tab to the right")
 keymap("<A-'>", "<CMD>tab split<CR>", "Clone window in new tab")
-
--- Diff
-keymap("<leader>wdt", "<CMD>windo diffthis<CR>", "Enable Diff Files in Tab")
-keymap("<leader>wdo", "<CMD>windo diffoff<CR>", "Disable Diff Files in Tab")
