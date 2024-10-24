@@ -2,11 +2,20 @@ local autocmd = vim.api.nvim_create_autocmd
 local keymap = require("util").keymap
 
 autocmd({ "FocusGained", "TermClose", "TermLeave" }, {
-    desc = "Check if we need to reload the file when it changed",
+    desc = "Reload files if they changed externaly",
     callback = function()
         if vim.o.buftype ~= "nofile" then
             vim.cmd.checktime()
         end
+    end,
+})
+
+autocmd({ "VimResized" }, {
+    desc = "Resize splits if window got resized",
+    callback = function()
+        local current_tab = vim.fn.tabpagenr()
+        vim.cmd.tabdo("wincmd =")
+        vim.cmd.tabnext(current_tab)
     end,
 })
 
