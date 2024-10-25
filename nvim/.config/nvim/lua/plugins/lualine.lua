@@ -25,6 +25,10 @@ return {
                     "kulala",
                     "diff",
                     {
+                        function() return vim.wo.spell and "󰓆" or "" end,
+                        color = "DapLogPoint",
+                    },
+                    {
                         function() return require("dap").session() and " " or "" end,
                         color = "DapBreakpoint",
                     },
