@@ -29,6 +29,10 @@ return {
                         color = "DapLogPoint",
                     },
                     {
+                        function() return vim.g.disable_autoformat and "󰉩" or "" end,
+                        color = "DapBreakpointCondition",
+                    },
+                    {
                         function() return require("dap").session() and " " or "" end,
                         color = "DapBreakpoint",
                     },
