@@ -8,6 +8,8 @@ return {
             mocha = function(mocha)
                 return {
                     FloatBorder = { fg = mocha.blue, bg = mocha.mantle },
+
+                    Comment = { fg = mocha.overlay1 },
                 }
             end,
         },

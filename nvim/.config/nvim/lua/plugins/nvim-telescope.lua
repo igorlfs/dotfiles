@@ -51,5 +51,6 @@ return {
         { "<leader>ft", "<CMD>Telescope lsp_type_definitions<CR>", desc = "Find Type Definition" },
         { "gd", "<CMD>Telescope lsp_definitions<CR>", desc = "Go to Definition" },
         { "grr", "<CMD>Telescope lsp_references<CR>", desc = "Find References" },
+        { "gO", "<CMD>Telescope lsp_document_symbols<CR>", desc = "Document Symbols" },
     },
 }
