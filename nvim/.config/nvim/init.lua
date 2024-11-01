@@ -26,7 +26,10 @@ end
 
 vim.opt.runtimepath:prepend(lazypath)
 
-require("lazy").setup("plugins", {
+require("lazy").setup({
+    { import = "plugins.common", cond = true },
+    { import = "plugins.not_vscode", cond = function() return not vim.g.vscode end },
+}, {
     performance = {
         rtp = {
             disabled_plugins = {
@@ -42,5 +45,3 @@ require("lazy").setup("plugins", {
         },
     },
 })
-
-vim.cmd.colorscheme("catppuccin")
