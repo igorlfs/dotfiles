@@ -28,7 +28,7 @@ vim.opt.runtimepath:prepend(lazypath)
 
 require("lazy").setup({
     { import = "plugins.common", cond = true },
-    { import = "plugins.not_vscode", cond = function() return not vim.g.vscode end },
+    { import = "plugins.bare", cond = function() return not vim.g.vscode end },
 }, {
     performance = {
         rtp = {
