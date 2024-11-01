@@ -51,6 +51,8 @@ set -x DOCKER_CONFIG "$XDG_CONFIG_HOME/docker"
 # Python
 set -x RUFF_CACHE_DIR "$XDG_CACHE_HOME/ruff"
 set -x PYTHONSTARTUP "$XDG_CONFIG_HOME/python/startup.py"
+# VS Code
+set -x VSCODE_PORTABLE "$XDG_DATA_HOME"/vscode
 
 fish_add_path -P "$XDG_DATA_HOME/npm/bin"
 
