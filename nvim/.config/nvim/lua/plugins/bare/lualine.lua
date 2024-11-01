@@ -19,7 +19,7 @@ return {
                     {
                         function()
                             local register = vim.fn.reg_recording() --[[@as string]]
-                            return register ~= "" and "recording @" .. register or ""
+                            return (register ~= "" and "@") .. register
                         end,
                     },
                     "kulala",
