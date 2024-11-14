@@ -24,12 +24,14 @@ return {
             function() require("dap.ui.widgets").hover(nil, { border = "rounded" }) end,
             desc = "DAP Hover",
         },
-        { "<F4>", "<CMD>DapDisconnect<CR>", desc = "DAP Disconnect" },
-        { "<F16>", "<CMD>DapTerminate<CR>", desc = "DAP Terminate" },
+        { "<F4>", "<CMD>DapTerminate<CR>", desc = "DAP Terminate" },
         { "<F5>", "<CMD>DapContinue<CR>", desc = "DAP Continue" },
-        { "<F17>", function() require("dap").run_last() end, desc = "Run Last" },
         { "<F6>", function() require("dap").run_to_cursor() end, desc = "Run to Cursor" },
         { "<F9>", "<CMD>DapToggleBreakpoint<CR>", desc = "Toggle Breakpoint" },
+        { "<F10>", "<CMD>DapStepOver<CR>", desc = "Step Over" },
+        { "<F11>", "<CMD>DapStepInto<CR>", desc = "Step Into" },
+        { "<F12>", "<CMD>DapStepOut<CR>", desc = "Step Out" },
+        { "<F17>", function() require("dap").run_last() end, desc = "Run Last" },
         {
             "<F21>",
             function()
@@ -40,9 +42,6 @@ return {
             end,
             desc = "Conditional Breakpoint",
         },
-        { "<F10>", "<CMD>DapStepOver<CR>", desc = "Step Over" },
-        { "<F11>", "<CMD>DapStepInto<CR>", desc = "Step Into" },
-        { "<F12>", "<CMD>DapStepOut<CR>", desc = "Step Out" },
     },
     config = function()
         -- Signs

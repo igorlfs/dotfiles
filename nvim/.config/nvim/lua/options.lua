@@ -15,7 +15,8 @@ o.undofile = true -- Enable persistent undo
 o.tabclose = "left" -- When closing a tab, go to the one on the left
 o.shadafile = "NONE" -- Don't save history
 o.guifont = "ZedMono Nerd Font:h12" -- Font for Neovide
-o.title = true
+o.title = true -- Title for the Neovim Window
+o.swapfile = false -- A swap file is yet to save me
 
 -- Completion
 o.completeopt = "menuone,noselect,noinsert,fuzzy" -- More intuitive completion options

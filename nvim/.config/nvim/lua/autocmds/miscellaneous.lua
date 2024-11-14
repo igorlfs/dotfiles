@@ -68,7 +68,7 @@ autocmd("FileType", {
 
 autocmd("TextYankPost", {
     desc = "Highlight on yank",
-    callback = function() vim.highlight.on_yank() end,
+    callback = function() vim.hl.on_yank() end,
 })
 
 autocmd("DirChanged", {
