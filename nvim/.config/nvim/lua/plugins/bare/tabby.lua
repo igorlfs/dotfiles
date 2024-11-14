@@ -30,7 +30,7 @@ return {
                         elseif filetype == "octo" then
                             return "Octo"
                         else
-                            local name = buf_name.get(winid)
+                            local name = buf_name.get(bufnr)
                             if vim.bo[vim.api.nvim_win_get_buf(winid)].modified then
                                 return name .. " ●"
                             else
