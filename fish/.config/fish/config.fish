@@ -53,7 +53,10 @@ set -x RUFF_CACHE_DIR "$XDG_CACHE_HOME/ruff"
 set -x PYTHONSTARTUP "$XDG_CONFIG_HOME/python/startup.py"
 # VS Code
 set -x VSCODE_PORTABLE "$XDG_DATA_HOME"/vscode
+# pnpm
+set -x PNPM_HOME "$XDG_DATA_HOME/pnpm"
 
 fish_add_path -P "$XDG_DATA_HOME/npm/bin"
+fish_add_path -P "$PNPM_HOME"
 
 starship init fish | source
