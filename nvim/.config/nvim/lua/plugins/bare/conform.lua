@@ -2,6 +2,15 @@ return {
     "stevearc/conform.nvim",
     event = { "LspAttach", "BufWritePre" },
     opts = {
+        formatters = {
+            injected = {
+                options = {
+                    lang_to_formatters = {
+                        json = { "jq" },
+                    },
+                },
+            },
+        },
         formatters_by_ft = {
             lua = { "stylua" },
             sh = { "shfmt" },
@@ -10,7 +19,6 @@ return {
             typescript = { "prettier" },
             javascript = { "prettier" },
             http = { "injected" },
-            json = { "jq" },
         },
         format_on_save = function()
             if vim.g.disable_autoformat then
