@@ -1,7 +1,7 @@
 local keymap = require("util").keymap
 local str = string.format
 
-keymap("<C-s>", "<CMD>write<CR>", "Quick Save", { "i", "n" })
+keymap("<C-s>", "<CMD>write<CR>", "Quick Save")
 keymap("<Esc>", [[<C-\><C-n>]], "Exit Terminal", "t")
 keymap("<A-s>", "<CMD>setlocal spell!<CR>", "Toggle Spell")
 keymap("x", '"_x', "Don't override clipboard register with x")

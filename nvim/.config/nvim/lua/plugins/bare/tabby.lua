@@ -17,11 +17,9 @@ return {
                         local winid = api.get_tab_current_win(tabid)
                         local bufnr = api.get_win_buf(winid)
                         local buftype = vim.fn.getbufvar(bufnr, "&buftype")
-                        local filetype = vim.fn.getbufvar(bufnr, "&filetype")
+                        local filetype = vim.fn.getbufvar(bufnr, "&filetype") --[[@as string]]
 
-                        if api.is_float_win(winid) then
-                            return "[Floating]"
-                        elseif buftype == "terminal" then
+                        if buftype == "terminal" then
                             return "Terminal"
                         elseif filetype == "checkhealth" then
                             return "Checkhealth"
@@ -29,6 +27,14 @@ return {
                             return "NvimTree"
                         elseif filetype == "octo" then
                             return "Octo"
+                        elseif filetype == "mason" then
+                            return "Mason"
+                        elseif filetype == "lazy" then
+                            return "Lazy"
+                        elseif string.match(filetype, "Telescope") then
+                            return "Telescope"
+                        elseif string.match(filetype, "Neogit") then
+                            return filetype
                         else
                             local name = buf_name.get(bufnr)
                             if vim.bo[vim.api.nvim_win_get_buf(winid)].modified then

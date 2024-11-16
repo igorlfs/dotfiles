@@ -41,6 +41,7 @@ return {
             "biome",
             "cssls",
             "dockerls",
+            "dotls",
             "emmet_language_server",
             "html",
             "ruff",
