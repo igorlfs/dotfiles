@@ -18,6 +18,7 @@ return {
                         local bufnr = api.get_win_buf(winid)
                         local buftype = vim.fn.getbufvar(bufnr, "&buftype")
                         local filetype = vim.fn.getbufvar(bufnr, "&filetype") --[[@as string]]
+                        local full_buf_name = vim.api.nvim_buf_get_name(bufnr)
 
                         if buftype == "terminal" then
                             return "Terminal"
@@ -31,10 +32,16 @@ return {
                             return "Mason"
                         elseif filetype == "lazy" then
                             return "Lazy"
+                        elseif filetype == "dap-repl" then
+                            return "REPL"
+                        elseif filetype == "dap-float" then
+                            return "DAP"
                         elseif string.match(filetype, "Telescope") then
                             return "Telescope"
                         elseif string.match(filetype, "Neogit") then
                             return filetype
+                        elseif full_buf_name == "kulala://ui" then
+                            return "Kulala"
                         else
                             local name = buf_name.get(bufnr)
                             if vim.bo[vim.api.nvim_win_get_buf(winid)].modified then
