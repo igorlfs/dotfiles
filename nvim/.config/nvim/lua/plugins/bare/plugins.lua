@@ -44,13 +44,6 @@ return {
     ------ Eye Candy
     -- UI
     { "stevearc/dressing.nvim", event = "VeryLazy", config = true },
-    -- Indent Guides
-    {
-        "lukas-reineke/indent-blankline.nvim",
-        event = "VeryLazy",
-        main = "ibl",
-        opts = { scope = { enabled = false } },
-    },
 
     ------ Language Extensions
     -- TypeScript
