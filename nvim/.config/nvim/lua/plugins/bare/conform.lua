@@ -3,6 +3,7 @@ return {
     event = { "LspAttach", "BufWritePre" },
     opts = {
         formatters = {
+            ["biome-check"] = { require_cwd = true },
             injected = {
                 options = {
                     lang_to_formatters = {
@@ -16,7 +17,7 @@ return {
             sh = { "shfmt" },
             markdown = { "injected", "markdownlint" },
             yaml = { "prettier" },
-            typescript = { "prettier" },
+            typescript = { "biome-check", "prettier", stop_after_first = true },
             javascript = { "prettier" },
             http = { "injected" },
         },
