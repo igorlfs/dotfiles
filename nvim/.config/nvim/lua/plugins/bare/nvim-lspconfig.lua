@@ -13,13 +13,6 @@ return {
                 -- Enable additional capabilities for fileOperations just in case a server needs it
                 require("lsp-file-operations").default_capabilities(),
                 {
-                    textDocument = {
-                        -- Some servers complain if not provided (i.e., yamlls)
-                        foldingRange = {
-                            dynamicRegistration = false,
-                            lineFoldingOnly = true,
-                        },
-                    },
                     workspace = {
                         didChangeWatchedFiles = {
                             -- Enable file watching for LSP
