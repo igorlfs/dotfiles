@@ -68,8 +68,10 @@ return {
             }),
             formatting = {
                 format = function(_, item)
-                    -- Limit completion window to 30 characters
+                    -- Limit "main" component from the completion window to 30 characters
                     item.abbr = string.sub(item.abbr, 1, 30)
+                    -- Hide additional completion information so we can save even more space
+                    item.menu = ""
                     return item
                 end,
             },
