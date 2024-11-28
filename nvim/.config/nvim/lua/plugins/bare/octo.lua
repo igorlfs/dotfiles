@@ -6,6 +6,10 @@ return {
         "nvim-telescope/telescope.nvim",
     },
     cmd = "Octo",
-    config = true,
+    opts = {
+        reviews = {
+            auto_show_threads = false,
+        },
+    },
     init = function() vim.treesitter.language.register("markdown", "octo") end,
 }
