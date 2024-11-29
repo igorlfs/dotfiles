@@ -16,6 +16,7 @@ return {
             noice = true,
             octo = true,
             diffview = true,
+            neotest = true,
             telescope = {
                 style = "nvchad",
             },
