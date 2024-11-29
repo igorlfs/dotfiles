@@ -8,20 +8,12 @@ vim.api.nvim_create_autocmd("LspAttach", {
         local methods = lsp.protocol.Methods
 
         -- Lenses
-        if client and client.supports_method(methods.textDocument_codeLens) then
+        if client and client:supports_method(methods.textDocument_codeLens) then
             vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "InsertLeave" }, {
                 buffer = ev.buf,
                 callback = function() lsp.codelens.refresh({ bufnr = ev.buf }) end,
             })
         end
-
-        -- Mappings
-        keymap(
-            "<C-h>",
-            lsp.buf.signature_help,
-            { buffer = ev.buf, desc = "Signature Help" },
-            { "n", "i" }
-        )
 
         keymap(
             "<A-h>",
