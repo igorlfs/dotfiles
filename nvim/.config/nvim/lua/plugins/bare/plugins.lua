@@ -44,6 +44,8 @@ return {
     ------ Eye Candy
     -- UI
     { "stevearc/dressing.nvim", event = "VeryLazy", config = true },
+    -- Rainbow Brackets
+    { "HiPhish/rainbow-delimiters.nvim", event = "VeryLazy" },
 
     ------ Language Extensions
     -- TypeScript
