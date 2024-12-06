@@ -11,12 +11,14 @@ o.fillchars = [[eob: ,fold: ,foldopen:󰅀,foldsep: ,foldclose:󰅂]] -- Fancy f
 o.jumpoptions = "view" -- Prevents moving cursor when switching files
 o.exrc = true -- Enable per-project config file (.nvim.lua)
 o.showmode = false -- Hide message indicating current mode
-o.undofile = true -- Enable persistent undo
 o.tabclose = "left" -- When closing a tab, go to the one on the left
-o.shadafile = "NONE" -- Don't save history
 o.guifont = "ZedMono Nerd Font:h12" -- Font for Neovide
 o.title = true -- Title for the Neovim Window
+
+-- History
+o.undofile = true -- Enable persistent undo
 o.swapfile = false -- A swap file is yet to save me
+o.shadafile = "NONE" -- Don't save history
 
 -- Completion
 o.completeopt = "menuone,noselect,noinsert,fuzzy" -- More intuitive completion options
