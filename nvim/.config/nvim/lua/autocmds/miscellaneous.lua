@@ -24,13 +24,10 @@ autocmd("FileType", {
     callback = function() vim.opt_local.formatoptions:remove("o") end,
 })
 
+-- See https://github.com/neovim/neovim/pull/31443#issuecomment-2521958704
 autocmd("Termopen", {
-    desc = "Unclutter terminal",
-    callback = function()
-        vim.wo[0][0].number = false
-        vim.wo[0][0].relativenumber = false
-        vim.wo[0][0].scrolloff = 0
-    end,
+    desc = "Disable scrolloff for terminal",
+    callback = function() vim.wo[0][0].scrolloff = 0 end,
 })
 
 autocmd("FileType", {
