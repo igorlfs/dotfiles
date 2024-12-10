@@ -10,7 +10,7 @@ autocmd({ "FocusGained", "TermClose", "TermLeave" }, {
     end,
 })
 
-autocmd({ "VimResized" }, {
+autocmd("VimResized", {
     desc = "Resize splits if window got resized",
     callback = function()
         local current_tab = vim.fn.tabpagenr()
