@@ -16,9 +16,8 @@ return {
                     name_fallback = function(tabid)
                         local winid = api.get_tab_current_win(tabid)
                         local bufnr = api.get_win_buf(winid)
-                        local buftype = vim.fn.getbufvar(bufnr, "&buftype")
+                        local buftype = vim.fn.getbufvar(bufnr, "&buftype") --[[@as string]]
                         local filetype = vim.fn.getbufvar(bufnr, "&filetype") --[[@as string]]
-                        local full_buf_name = vim.api.nvim_buf_get_name(bufnr)
 
                         if buftype == "terminal" then
                             return "Terminal"
@@ -40,11 +39,11 @@ return {
                             return "Telescope"
                         elseif string.match(filetype, "Neogit") then
                             return filetype
-                        elseif full_buf_name == "kulala://ui" then
+                        elseif vim.api.nvim_buf_get_name(bufnr) == "kulala://ui" then
                             return "Kulala"
                         else
-                            local name = buf_name.get(bufnr)
-                            if vim.bo[vim.api.nvim_win_get_buf(winid)].modified then
+                            local name = buf_name.get(winid)
+                            if vim.bo[bufnr].modified then
                                 return name .. " ●"
                             else
                                 return name
