@@ -11,6 +11,9 @@ return {
                     },
                 },
             },
+            jq = {
+                prepend_args = { "--indent", "4" },
+            },
         },
         formatters_by_ft = {
             lua = { "stylua" },
