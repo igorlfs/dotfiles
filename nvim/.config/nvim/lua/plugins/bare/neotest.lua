@@ -13,6 +13,7 @@ return {
                     args = { "-v" }, -- get more diff
                 }),
                 require("neotest-gtest").setup({}),
+                require("rustaceanvim.neotest"),
             },
             output = {
                 -- disable pop-up with failing test info (prefer virtual text)
