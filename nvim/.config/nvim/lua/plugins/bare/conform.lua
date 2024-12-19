@@ -20,12 +20,14 @@ return {
             typescript = { "biome-check", "prettier", stop_after_first = true },
             javascript = { "prettier" },
             http = { "injected" },
+            svelte = { "biome-check", lsp_format = "first" },
         },
-        format_on_save = function()
+        format_on_save = function(bufnr)
             if vim.g.disable_autoformat then
                 return
             end
-            return { timeout_ms = 500, lsp_format = "fallback" }
+            local lsp_first = vim.tbl_contains({ "svelte" }, vim.bo[bufnr].filetype)
+            return { timeout_ms = 1000, lsp_format = lsp_first and "first" or "fallback" }
         end,
     },
     keys = {
