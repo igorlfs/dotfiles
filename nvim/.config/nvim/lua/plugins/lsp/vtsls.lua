@@ -4,7 +4,7 @@ require("lspconfig").vtsls.setup({
     settings = {
         typescript = {
             inlayHints = {
-                parameterNames = { enabled = "literals" },
+                parameterNames = { enabled = "all" },
                 parameterTypes = { enabled = true },
                 variableTypes = { enabled = true },
                 propertyDeclarationTypes = { enabled = true },
