@@ -3,7 +3,6 @@ return {
     dependencies = {
         -- Runs preLaunchTask / postDebugTask if present
         { "stevearc/overseer.nvim", config = true },
-        "rcarriga/nvim-dap-ui",
     },
     keys = {
         {
