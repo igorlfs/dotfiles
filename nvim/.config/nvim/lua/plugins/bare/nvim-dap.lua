@@ -41,6 +41,11 @@ return {
             end,
             desc = "Conditional Breakpoint",
         },
+        {
+            "<A-r>",
+            function() require("dap").repl.toggle(nil, "tab split") end,
+            desc = "Toggle DAP REPL",
+        },
     },
     config = function()
         -- Signs
