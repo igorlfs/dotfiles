@@ -1,10 +1,11 @@
 return {
-    "emmanueltouzery/decisive.nvim",
+    "hat0uma/csvview.nvim",
+    config = true,
     ft = "csv",
     keys = {
         {
             "<leader><leader>",
-            function() require("decisive").align_csv({}) end,
+            function() require("csvview").toggle() end,
             desc = "Align CSV",
             ft = "csv",
         },
