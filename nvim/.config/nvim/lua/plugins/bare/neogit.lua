@@ -12,5 +12,6 @@ return {
             kind = "vsplit",
             show_staged_diff = false,
         },
+        auto_show_console = false,
     },
 }
