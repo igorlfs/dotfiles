@@ -10,15 +10,6 @@ autocmd({ "FocusGained", "TermClose", "TermLeave" }, {
     end,
 })
 
-autocmd("VimResized", {
-    desc = "Resize splits if window got resized",
-    callback = function()
-        local current_tab = vim.fn.tabpagenr()
-        vim.cmd.tabdo("wincmd =")
-        vim.cmd.tabnext(current_tab)
-    end,
-})
-
 autocmd("FileType", {
     desc = "Disable newline comments when inserting lines with o/O",
     callback = function() vim.opt_local.formatoptions:remove("o") end,
