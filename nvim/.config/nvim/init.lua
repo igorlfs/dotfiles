@@ -4,7 +4,7 @@ require("keymaps")
 require("autocmds")
 require("diagnostics")
 require("filetype")
-require("lsp")
+require("watch")
 
 if vim.g.neovide ~= nil then
     require("neovide")
