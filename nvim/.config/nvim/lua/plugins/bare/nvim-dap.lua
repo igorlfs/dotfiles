@@ -6,11 +6,6 @@ return {
     },
     keys = {
         {
-            "<leader>db",
-            function() require("dap").list_breakpoints() end,
-            desc = "DAP Breakpoints",
-        },
-        {
             "<leader>ds",
             function()
                 local widgets = require("dap.ui.widgets")

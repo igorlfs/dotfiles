@@ -1,7 +1,6 @@
 return {
     "mistweaverco/kulala.nvim",
     opts = {
-        winbar = true,
         icons = {
             lualine = "󰖟",
             inlay = {
