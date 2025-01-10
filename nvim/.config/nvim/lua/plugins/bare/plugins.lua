@@ -27,7 +27,6 @@ return {
     -- workspace/willRename
     {
         "igorlfs/nvim-lsp-file-operations",
-        branch = "fix/31",
         event = "LspAttach",
         dependencies = { "nvim-tree/nvim-tree.lua", "nvim-lua/plenary.nvim" },
         config = true,
