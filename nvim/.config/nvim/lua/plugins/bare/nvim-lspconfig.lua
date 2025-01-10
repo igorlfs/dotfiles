@@ -10,21 +10,7 @@ return {
                 -- Enable additional capabilities nvim-cmp provides for completion
                 require("cmp_nvim_lsp").default_capabilities(),
                 -- Enable additional capabilities for fileOperations just in case a server needs it
-                require("lsp-file-operations").default_capabilities(),
-                {
-                    workspace = {
-                        didChangeWatchedFiles = {
-                            -- Enable file watching for LSP
-                            --
-                            -- By default, it's disabled because the default implementation is considered slow.
-                            -- I've tried using it but it straight up doesn't work for me.
-                            --
-                            -- Instead, use a custom backend.
-                            -- Requires `watchman` to be installed https://github.com/facebook/watchman
-                            dynamicRegistration = true,
-                        },
-                    },
-                }
+                require("lsp-file-operations").default_capabilities()
             ),
         })
 
