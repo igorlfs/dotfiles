@@ -17,6 +17,7 @@ return {
             octo = true,
             diffview = true,
             neotest = true,
+            blink_cmp = true,
             telescope = {
                 style = "nvchad",
             },
