@@ -42,12 +42,12 @@ autocmd("FileType", {
             return
         end
 
-        vim.api.nvim_buf_call(args.buf, function()
-            vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
-            vim.wo.foldmethod = "expr"
-            vim.wo.foldcolumn = "1"
-            vim.cmd.normal("zx")
-        end)
+        vim.wo[0][0].foldexpr = "v:lua.vim.treesitter.foldexpr()"
+        vim.wo[0][0].foldmethod = "expr"
+        vim.wo[0][0].foldcolumn = "1"
+
+        -- Properly restore folds when restoring sessions
+        vim.api.nvim_buf_call(args.buf, function() vim.cmd.normal("zx") end)
     end,
 })
 
