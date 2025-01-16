@@ -36,15 +36,12 @@ autocmd("FileType", {
 
 -- From https://github.com/neovim/neovim/pull/30164#issuecomment-2315421660
 autocmd("FileType", {
-    desc = "Enable treesitter folds",
+    desc = "Enable Treesitter",
     callback = function(args)
         if not pcall(vim.treesitter.start, args.buf) then
             return
         end
 
-        if vim.api.nvim_buf_line_count(args.buf) > 40000 then
-            return
-        end
         vim.api.nvim_buf_call(args.buf, function()
             vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
             vim.wo.foldmethod = "expr"
