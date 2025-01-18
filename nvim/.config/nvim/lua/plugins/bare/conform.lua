@@ -21,7 +21,7 @@ return {
             markdown = { "injected", "markdownlint" },
             yaml = { "prettier" },
             typescript = { "biome-check", "prettier", stop_after_first = true },
-            javascript = { "prettier" },
+            javascript = { "biome-check", "prettier", stop_after_first = true },
             http = { "injected" },
             svelte = { "biome-check", lsp_format = "first" },
         },
