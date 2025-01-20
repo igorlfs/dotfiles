@@ -7,8 +7,8 @@ keymap("<A-s>", "<CMD>setlocal spell!<CR>", "Toggle Spell")
 keymap("x", '"_x', "Don't override clipboard register with x")
 
 -- Move within visual lines
-keymap("k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
-keymap("j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+keymap("k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true }, { "n", "x" })
+keymap("j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true }, { "n", "x" })
 
 -- Windows
 keymap("<C-w>e", "<CMD>term<CR>", "Terminal")
