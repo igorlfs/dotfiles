@@ -4,7 +4,6 @@ return {
         "nvim-neotest/nvim-nio",
         "nvim-lua/plenary.nvim",
         "nvim-neotest/neotest-python",
-        "alfaix/neotest-gtest",
     },
     config = function()
         require("neotest").setup({
@@ -12,7 +11,6 @@ return {
                 require("neotest-python")({
                     args = { "-v" }, -- get more diff
                 }),
-                require("neotest-gtest").setup({}),
                 require("rustaceanvim.neotest"),
             },
             output = {
