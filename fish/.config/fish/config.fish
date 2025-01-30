@@ -30,13 +30,15 @@ alias lal="exa -al"
 alias tree="exa -T"
 
 ### Variables
-set -x EDITOR "nvim"
+set -x EDITOR nvim
 set -x MANPAGER "nvim +Man!"
 # XDG DIRECTORIES
 set -x XDG_CONFIG_HOME "$HOME/.config"
 set -x XDG_CACHE_HOME "$HOME/.cache"
 set -x XDG_DATA_HOME "$HOME/.local/share"
 set -x XDG_STATE_HOME "$HOME/.local/state"
+# Wayland
+set -x SDL_VIDEODRIVER wayland
 # ripgrep
 set -x RIPGREP_CONFIG_PATH "$XDG_CONFIG_HOME/ripgrep/config"
 # Javascript
