@@ -2,6 +2,7 @@ return {
     "lewis6991/gitsigns.nvim",
     event = "VeryLazy",
     opts = {
+        attach_to_untracked = true,
         preview_config = {
             border = "rounded",
         },
@@ -31,7 +32,6 @@ return {
             keymap("<leader>hr", gitsigns.reset_hunk, "Hunk Reset")
             keymap("<leader>hp", gitsigns.preview_hunk, "Hunk Preview")
             keymap("<leader>hi", gitsigns.preview_hunk_inline, "Hunk Inline Preview")
-            keymap("<leader>hu", gitsigns.undo_stage_hunk, "Hunk Undo Stage")
             keymap("<leader>hb", function() gitsigns.blame_line({ full = true }) end, "Hunk Blame")
             keymap(
                 "<leader>hs",
