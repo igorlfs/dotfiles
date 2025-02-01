@@ -1,6 +1,5 @@
 local g = vim.g
 
-g.neovide_remember_window_size = false -- Disable Neovide's fullscreen by default
 g.neovide_scroll_animation_length = 0.2 -- Slightly faster scroll animation
 g.neovide_hide_mouse_when_typing = true
 
