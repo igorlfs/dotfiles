@@ -23,10 +23,6 @@ return {
         presets = {
             lsp_doc_border = true, -- add a border to hover docs and signature help
         },
-        -- "Classic" command line
-        cmdline = {
-            view = "cmdline",
-        },
     },
     keys = {
         {
