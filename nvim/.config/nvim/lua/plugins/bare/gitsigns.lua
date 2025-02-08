@@ -48,10 +48,9 @@ return {
             keymap("<leader>bs", gitsigns.stage_buffer, "Buffer Stage")
             keymap("<leader>br", gitsigns.reset_buffer, "Buffer Reset")
             keymap("<A-b>", gitsigns.toggle_current_line_blame, "Toggle Blame")
-            keymap("<A-d>", gitsigns.toggle_deleted, "Toggle Deleted")
 
             -- Text object
-            keymap("ih", ":<C-U>Gitsigns select_hunk<CR>", { silent = true }, { "o", "x" })
+            keymap("ih", gitsigns.select_hunk, { silent = true }, { "o", "x" })
         end,
     },
 }
