@@ -8,7 +8,7 @@ return {
     "nanozuki/tabby.nvim",
     config = function()
         local api = require("tabby.module.api")
-        local buf_name = require("tabby.feature.buf_name")
+        local win_name = require("tabby.feature.win_name")
 
         require("tabby").setup({
             option = {
@@ -16,8 +16,8 @@ return {
                     name_fallback = function(tabid)
                         local winid = api.get_tab_current_win(tabid)
                         local bufnr = api.get_win_buf(winid)
-                        local buftype = vim.fn.getbufvar(bufnr, "&buftype") --[[@as string]]
-                        local filetype = vim.fn.getbufvar(bufnr, "&filetype") --[[@as string]]
+                        local buftype = vim.bo[bufnr].buftype
+                        local filetype = vim.bo[bufnr].filetype
 
                         if buftype == "terminal" then
                             return "Terminal"
@@ -32,7 +32,7 @@ return {
                         elseif filetype == "lazy" then
                             return "Lazy"
                         elseif filetype == "dap-repl" then
-                            return "REPL"
+                            return "DAP REPL"
                         elseif filetype == "dap-float" then
                             return "DAP"
                         elseif string.match(filetype, "Telescope") then
@@ -42,7 +42,7 @@ return {
                         elseif vim.api.nvim_buf_get_name(bufnr) == "kulala://ui" then
                             return "Kulala"
                         else
-                            local name = buf_name.get(winid)
+                            local name = win_name.get(winid)
                             if vim.bo[bufnr].modified then
                                 return name .. " ●"
                             else
