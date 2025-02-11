@@ -2,7 +2,6 @@ local g = vim.g
 
 g.neovide_scroll_animation_length = 0.2 -- Slightly faster scroll animation
 g.neovide_hide_mouse_when_typing = true
-g.neovide_floating_corner_radius = 1.0 -- Sexy rounded corners for floating windows
 
 g.neovide_scale_factor = 1.0
 
