@@ -8,6 +8,7 @@ return {
                 done = "",
                 error = "",
             },
+            textHighlight = "Comment",
         },
     },
     keys = {

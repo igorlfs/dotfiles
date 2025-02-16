@@ -7,10 +7,7 @@ return {
             segments = {
                 {
                     sign = {
-                        name = {
-                            "Dap",
-                            "neotest",
-                        },
+                        name = { "Dap" },
                         namespace = { "diagnostic" },
                         maxwidth = 1,
                         colwidth = 2,

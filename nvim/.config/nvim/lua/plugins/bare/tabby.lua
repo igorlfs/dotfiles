@@ -56,10 +56,8 @@ return {
                 return {
                     line.tabs().foreach(function(tab)
                         local hl = tab.is_current() and theme.current_tab or theme.tab
-                        local number = "[" .. tab.number() .. "]"
                         return {
                             line.sep("", hl, theme.fill),
-                            number,
                             tab.name(),
                             line.sep("", hl, theme.fill),
                             hl = hl,

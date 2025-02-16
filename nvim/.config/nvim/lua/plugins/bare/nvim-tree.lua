@@ -12,7 +12,6 @@ return {
         -- Also, it mixes both files and directories
         -- Both of these issues are fixable, for sure, but currently there's no strong need for this feature
         renderer = {
-            highlight_git = true,
             icons = {
                 show = {
                     git = false,
