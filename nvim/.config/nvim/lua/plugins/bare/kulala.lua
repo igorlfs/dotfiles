@@ -11,9 +11,12 @@ return {
             textHighlight = "Comment",
         },
     },
-    keys = {
-        { "[r", function() require("kulala").jump_prev() end, ft = "http" },
-        { "]r", function() require("kulala").jump_next() end, ft = "http" },
-        { "<leader><leader>", function() require("kulala").run() end, ft = "http" },
-    },
+    keys = function()
+        local kulala = require("kulala")
+        return {
+            { "[r", kulala.jump_prev, ft = "http" },
+            { "]r", kulala.jump_next, ft = "http" },
+            { "<leader><leader>", kulala.run, ft = "http" },
+        }
+    end,
 }
