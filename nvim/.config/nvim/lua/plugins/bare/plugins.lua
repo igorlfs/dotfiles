@@ -51,14 +51,4 @@ return {
     { "folke/lazydev.nvim", ft = "lua", config = true },
     -- JSON
     { "b0o/schemastore.nvim", lazy = true },
-    -- Rust
-    {
-        "mrcjkb/rustaceanvim",
-        ft = "rust",
-        init = function()
-            vim.g.rustaceanvim = {
-                tools = { float_win_config = { border = "rounded" } },
-            }
-        end,
-    },
 }
