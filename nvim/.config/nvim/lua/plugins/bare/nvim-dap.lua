@@ -4,44 +4,45 @@ return {
         -- Runs preLaunchTask / postDebugTask if present
         { "stevearc/overseer.nvim", config = true },
     },
-    keys = {
-        {
-            "<leader>ds",
-            function()
-                local widgets = require("dap.ui.widgets")
-                widgets.centered_float(widgets.scopes, { border = "rounded" })
-            end,
-            desc = "DAP Scopes",
-        },
-        {
-            "<F1>",
-            function() require("dap.ui.widgets").hover(nil, { border = "rounded" }) end,
-            desc = "DAP Hover",
-        },
-        { "<F4>", "<CMD>DapTerminate<CR>", desc = "DAP Terminate" },
-        { "<F5>", "<CMD>DapContinue<CR>", desc = "DAP Continue" },
-        { "<F6>", function() require("dap").run_to_cursor() end, desc = "Run to Cursor" },
-        { "<F9>", "<CMD>DapToggleBreakpoint<CR>", desc = "Toggle Breakpoint" },
-        { "<F10>", "<CMD>DapStepOver<CR>", desc = "Step Over" },
-        { "<F11>", "<CMD>DapStepInto<CR>", desc = "Step Into" },
-        { "<F12>", "<CMD>DapStepOut<CR>", desc = "Step Out" },
-        { "<F17>", function() require("dap").run_last() end, desc = "Run Last" },
-        {
-            "<F21>",
-            function()
-                vim.ui.input(
-                    { prompt = "Breakpoint condition: " },
-                    function(input) require("dap").set_breakpoint(input) end
-                )
-            end,
-            desc = "Conditional Breakpoint",
-        },
-        {
-            "<A-r>",
-            function() require("dap").repl.toggle(nil, "tab split") end,
-            desc = "Toggle DAP REPL",
-        },
-    },
+    keys = function()
+        local dap = require("dap")
+        local widgets = require("dap.ui.widgets")
+        return {
+            {
+                "<leader>ds",
+                function() widgets.centered_float(widgets.scopes, { border = "rounded" }) end,
+                desc = "DAP Scopes",
+            },
+            {
+                "<F1>",
+                function() widgets.hover(nil, { border = "rounded" }) end,
+                desc = "DAP Hover",
+            },
+            { "<F4>", dap.terminate, desc = "DAP Terminate" },
+            { "<F5>", dap.continue, desc = "DAP Continue" },
+            { "<F6>", dap.run_to_cursor, desc = "Run to Cursor" },
+            { "<F9>", dap.toggle_breakpoint, desc = "Toggle Breakpoint" },
+            { "<F10>", dap.step_over, desc = "Step Over" },
+            { "<F11>", dap.step_into, desc = "Step Into" },
+            { "<F12>", dap.step_out, desc = "Step Out" },
+            { "<F17>", dap.run_last, desc = "Run Last" },
+            {
+                "<F21>",
+                function()
+                    vim.ui.input(
+                        { prompt = "Breakpoint condition: " },
+                        function(input) dap.set_breakpoint(input) end
+                    )
+                end,
+                desc = "Conditional Breakpoint",
+            },
+            {
+                "<A-r>",
+                function() dap.repl.toggle(nil, "tab split") end,
+                desc = "Toggle DAP REPL",
+            },
+        }
+    end,
     config = function()
         -- Signs
         for _, group in pairs({
