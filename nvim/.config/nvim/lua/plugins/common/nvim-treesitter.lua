@@ -2,7 +2,6 @@ return {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
     dependencies = { "nvim-treesitter/nvim-treesitter-textobjects", branch = "main" },
-    event = "VeryLazy",
     config = function()
         ---@diagnostic disable-next-line: missing-fields
         require("nvim-treesitter.configs").setup({
