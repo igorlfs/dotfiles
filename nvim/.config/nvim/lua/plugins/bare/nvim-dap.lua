@@ -18,6 +18,7 @@ return {
                 function() widgets.hover(nil, { border = "rounded" }) end,
                 desc = "DAP Hover",
             },
+            { "<F3>", dap.pause, desc = "DAP Pause" },
             { "<F4>", dap.terminate, desc = "DAP Terminate" },
             { "<F5>", dap.continue, desc = "DAP Continue" },
             { "<F6>", dap.run_to_cursor, desc = "Run to Cursor" },
