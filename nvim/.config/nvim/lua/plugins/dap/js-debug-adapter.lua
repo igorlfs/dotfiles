@@ -3,6 +3,11 @@ local dap = require("dap")
 for _, adapter in pairs({ "node", "chrome" }) do
     local pwa_adapter = "pwa-" .. adapter
 
+    -- Handle launch.json configurations
+    -- which specify type as "node" or "chrome"
+    -- Inspired by https://github.com/StevanFreeborn/nvim-config/blob/main/lua/plugins/debugging.lua#L111-L123
+
+    -- Main adapter
     dap.adapters[pwa_adapter] = {
         type = "server",
         host = "localhost",
@@ -11,19 +16,13 @@ for _, adapter in pairs({ "node", "chrome" }) do
             command = "js-debug-adapter",
             args = { "${port}" },
         },
+        enrich_config = function(config, on_config)
+            -- Under the hood, always use the main adapter
+            config.type = pwa_adapter
+            on_config(config)
+        end,
     }
 
-    -- This allow us to handle launch.json configurations
-    -- which specify type as "node" or "chrome"
-    -- Courtesy of https://github.com/StevanFreeborn/nvim-config/blob/main/lua/plugins/debugging.lua#L111-L123
-    dap.adapters[adapter] = function(callback, config)
-        local native_adapter = dap.adapters[pwa_adapter]
-
-        config.type = pwa_adapter
-
-        -- We just defined the pwa_adapter above, it's not a function
-        assert(type(native_adapter) ~= "function")
-
-        callback(native_adapter)
-    end
+    -- Dummy adapter, redirects to the main one
+    dap.adapters[adapter] = dap.adapters[pwa_adapter]
 end
