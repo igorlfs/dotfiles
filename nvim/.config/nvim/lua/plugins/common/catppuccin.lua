@@ -16,7 +16,6 @@ return {
             noice = true,
             octo = true,
             diffview = true,
-            blink_cmp = true,
             telescope = {
                 style = "nvchad",
             },
