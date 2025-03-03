@@ -18,15 +18,15 @@ return {
                 function() widgets.hover(nil, { border = "rounded" }) end,
                 desc = "DAP Hover",
             },
-            { "<F3>", dap.pause, desc = "DAP Pause" },
             { "<F4>", dap.terminate, desc = "DAP Terminate" },
             { "<F5>", dap.continue, desc = "DAP Continue" },
-            { "<F6>", dap.run_to_cursor, desc = "Run to Cursor" },
+            { "<F6>", dap.pause, desc = "DAP Pause" },
             { "<F9>", dap.toggle_breakpoint, desc = "Toggle Breakpoint" },
             { "<F10>", dap.step_over, desc = "Step Over" },
             { "<F11>", dap.step_into, desc = "Step Into" },
             { "<F12>", dap.step_out, desc = "Step Out" },
             { "<F17>", dap.run_last, desc = "Run Last" },
+            { "<F18>", dap.run_to_cursor, desc = "Run to Cursor" },
             {
                 "<F21>",
                 function()
