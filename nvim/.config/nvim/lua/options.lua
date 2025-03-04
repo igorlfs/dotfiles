@@ -30,7 +30,7 @@ o.wildoptions = "pum,tagfile,fuzzy" -- Enable fuzzy finding commands
 o.wrap = false -- Disable softwrap by default
 o.linebreak = true -- Wrap words, not chars
 o.breakindent = true -- Indent softwrapped lines
-o.showbreak = " " -- Wrap indicator
+o.showbreak = "↳ " -- Wrap indicator
 
 -- Statuscolumn
 
