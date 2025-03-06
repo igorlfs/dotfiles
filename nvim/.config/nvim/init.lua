@@ -32,6 +32,9 @@ require("lazy").setup({
     { import = "plugins.common", cond = true },
     { import = "plugins.bare", cond = function() return not vim.g.vscode end },
 }, {
+    dev = {
+        path = "~/code/git/",
+    },
     performance = {
         rtp = {
             disabled_plugins = {
