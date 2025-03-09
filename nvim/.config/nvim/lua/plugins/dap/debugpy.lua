@@ -12,7 +12,8 @@ require("dap").adapters.python = function(cb, config)
     else
         cb({
             type = "executable",
-            command = "debugpy-adapter",
+            command = "python",
+            args = { "-m", "debugpy.adapter" },
         })
     end
 end
