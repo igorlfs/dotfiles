@@ -17,6 +17,7 @@ return {
             { "[r", kulala.jump_prev, ft = "http" },
             { "]r", kulala.jump_next, ft = "http" },
             { "<leader><leader>", kulala.run, ft = "http" },
+            { "<leader>a", kulala.set_selected_env, ft = "http" },
         }
     end,
 }
