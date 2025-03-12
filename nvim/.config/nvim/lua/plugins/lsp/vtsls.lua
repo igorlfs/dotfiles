@@ -2,6 +2,17 @@ require("lspconfig.configs").vtsls = require("vtsls").lspconfig
 
 require("lspconfig").vtsls.setup({
     settings = {
+        vtsls = {
+            tsserver = {
+                globalPlugins = {
+                    {
+                        name = "typescript-svelte-plugin",
+                        location = "/usr/lib/node_modules",
+                        enableForWorkspaceTypeScriptVersions = true,
+                    },
+                },
+            },
+        },
         typescript = {
             inlayHints = {
                 parameterNames = { enabled = "all" },
