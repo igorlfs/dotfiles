@@ -7,7 +7,11 @@ vim.api.nvim_create_autocmd("LspAttach", {
         local lsp = vim.lsp
         local methods = lsp.protocol.Methods
 
-        -- Lenses
+        -- Folds
+        vim.o.foldexpr = "v:lua.vim.lsp.foldexpr()"
+
+        -- Code Lenses
+        keymap("<leader>ll", lsp.codelens.run, { buffer = ev.buf, desc = "LSP Lens" })
         if client and client:supports_method(methods.textDocument_codeLens) then
             vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "InsertLeave" }, {
                 buffer = ev.buf,
@@ -25,7 +29,5 @@ vim.api.nvim_create_autocmd("LspAttach", {
             end,
             { buffer = ev.buf, desc = "Toggle Hints" }
         )
-
-        keymap("<leader>ll", lsp.codelens.run, { buffer = ev.buf, desc = "LSP Lens" })
     end,
 })
