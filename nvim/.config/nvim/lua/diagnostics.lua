@@ -1,14 +1,16 @@
+local severity = vim.diagnostic.severity
+
 vim.diagnostic.config({
     -- Limit length
     open_float = {
         width = 80,
     },
     signs = {
-        text = {
-            [vim.diagnostic.severity.ERROR] = "󰅚 ",
-            [vim.diagnostic.severity.WARN] = "󰀪 ",
-            [vim.diagnostic.severity.INFO] = "󰋽 ",
-            [vim.diagnostic.severity.HINT] = "󰌶 ",
+        numhl = {
+            [severity.WARN] = "WarningMsg",
+            [severity.ERROR] = "ErrorMsg",
+            [severity.INFO] = "DiagnosticInfo",
+            [severity.HINT] = "DiagnosticHint",
         },
     },
     -- Enable border

@@ -5,7 +5,7 @@ return {
         require("statuscol").setup({
             relculright = true,
             segments = {
-                { sign = { name = { "Dap" }, namespace = { "diagnostic" } } },
+                { sign = { name = { "Dap" } } },
                 { text = { builtin.lnumfunc, " " } },
                 { sign = { namespace = { "gitsigns" }, wrap = true } },
             },
