@@ -70,8 +70,3 @@ autocmd("FileType", {
     pattern = { "gitcommit", "tex", "octo", "typst" },
     callback = function() vim.wo[0][0].spell = true end,
 })
-
-autocmd("User", {
-    pattern = "TelescopePreviewerLoaded",
-    callback = function() vim.wo[0][0].wrap = true end,
-})
