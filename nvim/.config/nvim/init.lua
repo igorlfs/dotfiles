@@ -6,7 +6,6 @@ require("diagnostics")
 require("filetype")
 require("watch")
 require("lsp")
-require("snippet")
 
 if vim.g.neovide ~= nil then
     require("neovide")
