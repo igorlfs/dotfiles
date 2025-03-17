@@ -7,6 +7,8 @@ return {
     opts = {
         completion = {
             accept = {
+                -- See https://github.com/Saghen/blink.cmp/issues/1247
+                dot_repeat = false,
                 auto_brackets = {
                     enabled = true,
                 },
