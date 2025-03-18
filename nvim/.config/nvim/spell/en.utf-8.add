@@ -99,3 +99,5 @@ extmarks
 winbar
 keymaps
 linters
+truthy
+deserialization
