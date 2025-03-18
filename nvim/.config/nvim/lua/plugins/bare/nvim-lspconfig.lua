@@ -17,7 +17,6 @@ return {
             require("lspconfig")[lsp].setup({})
         end
 
-        require("plugins.lsp.clangd")
         require("plugins.lsp.jsonls")
         require("plugins.lsp.lua_ls")
         require("plugins.lsp.svelte")
