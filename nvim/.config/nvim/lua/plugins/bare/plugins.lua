@@ -40,6 +40,4 @@ return {
     { "yioneko/nvim-vtsls", lazy = true },
     -- Lua
     { "folke/lazydev.nvim", ft = "lua", config = true },
-    -- JSON
-    { "b0o/schemastore.nvim", lazy = true },
 }

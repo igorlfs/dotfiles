@@ -9,6 +9,7 @@ return {
             "dotls",
             "emmet_language_server",
             "html",
+            "jsonls",
             "ruff",
             "tailwindcss",
             "taplo",
@@ -17,7 +18,6 @@ return {
             require("lspconfig")[lsp].setup({})
         end
 
-        require("plugins.lsp.jsonls")
         require("plugins.lsp.lua_ls")
         require("plugins.lsp.svelte")
         require("plugins.lsp.tinymist")
