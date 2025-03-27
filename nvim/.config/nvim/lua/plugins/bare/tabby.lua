@@ -35,8 +35,6 @@ return {
                             return "DAP REPL"
                         elseif filetype == "dap-float" then
                             return "DAP"
-                        elseif string.match(filetype, "Telescope") then
-                            return "Telescope"
                         elseif string.match(filetype, "Neogit") then
                             return filetype
                         elseif vim.api.nvim_buf_get_name(bufnr) == "kulala://ui" then

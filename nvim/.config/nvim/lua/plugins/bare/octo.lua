@@ -3,10 +3,11 @@ return {
     dependencies = {
         "nvim-lua/plenary.nvim",
         "nvim-tree/nvim-web-devicons",
-        "nvim-telescope/telescope.nvim",
+        "ibhagwan/fzf-lua",
     },
     cmd = "Octo",
     opts = {
+        picker = "fzf-lua",
         reviews = {
             auto_show_threads = false,
         },

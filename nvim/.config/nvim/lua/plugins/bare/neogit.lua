@@ -3,7 +3,7 @@ return {
     dependencies = {
         "sindrets/diffview.nvim",
         "nvim-lua/plenary.nvim",
-        "nvim-telescope/telescope.nvim",
+        "ibhagwan/fzf-lua",
     },
     keys = { { "<leader>n", function() require("neogit").open() end, desc = "Neogit" } },
     cmd = "Neogit",

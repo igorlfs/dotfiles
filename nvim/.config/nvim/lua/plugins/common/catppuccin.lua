@@ -16,9 +16,6 @@ return {
             noice = true,
             octo = true,
             diffview = true,
-            telescope = {
-                style = "nvchad",
-            },
         },
     },
     init = function() vim.cmd.colorscheme("catppuccin") end,
