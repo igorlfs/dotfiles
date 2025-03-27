@@ -15,6 +15,7 @@ o.tabclose = "left" -- When closing a tab, go to the one on the left
 o.guifont = "ZedMono Nerd Font:h12" -- Font for Neovide
 o.title = true -- Title for the Neovim Window
 o.diffopt = "internal,filler,closeoff,indent-heuristic,linematch:60,algorithm:histogram" -- Better diffs
+o.confirm = true -- Ask to save unsaved changes
 
 -- History
 o.undofile = true -- Enable persistent undo

@@ -1,5 +1,4 @@
 local autocmd = vim.api.nvim_create_autocmd
-local keymap = require("util").keymap
 
 autocmd({ "FocusGained", "TermClose", "TermLeave" }, {
     desc = "Reload files if they changed externaly",
@@ -11,27 +10,9 @@ autocmd({ "FocusGained", "TermClose", "TermLeave" }, {
 })
 
 autocmd("FileType", {
-    desc = "Disable newline comments when inserting lines with o/O",
-    callback = function() vim.opt_local.formatoptions:remove("o") end,
-})
-
--- See https://github.com/neovim/neovim/pull/31443#issuecomment-2521958704
-autocmd("Termopen", {
-    desc = "Disable scrolloff for terminal",
-    callback = function() vim.wo[0][0].scrolloff = 0 end,
-})
-
-autocmd("FileType", {
     desc = "Enable Softwrap",
     pattern = { "tex", "octo", "typst", "markdown" },
     callback = function() vim.wo[0][0].wrap = true end,
-})
-
--- This could be built-in (see nvim-dap#1194 for discussion)
-autocmd("FileType", {
-    desc = "Quit DAP-Float",
-    pattern = { "dap-float" },
-    callback = function() keymap("q", "<C-w>q", { buffer = 0 }) end,
 })
 
 -- From https://github.com/neovim/neovim/pull/30164#issuecomment-2315421660
@@ -55,6 +36,7 @@ autocmd("TextYankPost", {
     callback = function() vim.hl.on_yank() end,
 })
 
+-- From https://github.com/neovim/neovim/issues/27489
 autocmd("DirChanged", {
     desc = "Reload .nvim.lua when changing directory",
     callback = function(args)
