@@ -69,8 +69,6 @@ return {
         require("dap").defaults.fallback.switchbuf = "usevisible,usetab,newtab"
 
         -- Adapters
-        -- C, C++, Rust
-        require("plugins.dap.codelldb")
         -- Python
         require("plugins.dap.debugpy")
         -- JS, TS
