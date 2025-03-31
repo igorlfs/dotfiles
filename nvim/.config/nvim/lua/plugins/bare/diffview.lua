@@ -9,6 +9,12 @@ return {
         local actions = require("diffview.actions")
 
         require("diffview").setup({
+            file_panel = {
+                win_config = {
+                    position = "bottom",
+                    height = 10,
+                },
+            },
             keymaps = {
                 view = {
                     { "n", "q", actions.close, { desc = "DiffviewClose" } },
