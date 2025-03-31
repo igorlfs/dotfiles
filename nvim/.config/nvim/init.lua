@@ -28,7 +28,7 @@ end
 vim.opt.runtimepath:prepend(lazypath)
 
 require("lazy").setup({
-    { import = "plugins.common", cond = true },
+    { import = "plugins.common" },
     { import = "plugins.bare", cond = function() return not vim.g.vscode end },
 }, {
     dev = {

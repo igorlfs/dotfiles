@@ -12,7 +12,7 @@ o.jumpoptions = "view" -- Prevents moving cursor when switching files
 o.exrc = true -- Enable per-project config file (.nvim.lua)
 o.showmode = false -- Hide message indicating current mode
 o.tabclose = "left" -- When closing a tab, go to the one on the left
-o.guifont = "ZedMono Nerd Font:h12" -- Font for Neovide
+o.guifont = "ZedMono Nerd Font:h11" -- Font for Neovide
 o.title = true -- Title for the Neovim Window
 o.diffopt = "internal,filler,closeoff,indent-heuristic,linematch:60,algorithm:histogram" -- Better diffs
 o.confirm = true -- Ask to save unsaved changes
@@ -54,6 +54,7 @@ o.spellsuggest = "best,9" -- Limit the number of suggestions for spell
 
 o.foldtext = "" -- Highlight folds
 o.foldlevelstart = 99 -- Don't close any folds at the start
+o.foldmethod = "expr" -- Fold method for treesitter and LSP
 
 -- Splits
 
