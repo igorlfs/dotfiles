@@ -1,5 +1,5 @@
 local o = vim.o
-local config = vim.fn.stdpath("config")
+local data = vim.fn.stdpath("data")
 
 -- Miscellaneous
 
@@ -45,7 +45,7 @@ o.cursorline = true -- Highlight current line
 
 -- Spell
 
-o.spellfile = config .. "/spell/en.utf-8.add," .. config .. "/spell/pt.utf-8.add" -- Custom dictionary files
+o.spellfile = data .. "/spell/en.utf-8.add," .. data .. "/spell/pt.utf-8.add" -- Custom dictionary files
 o.spelllang = "en,pt_br" -- Languages to spell check
 o.spelloptions = "camel" -- Consider camelCase when checking spell
 o.spellsuggest = "best,9" -- Limit the number of suggestions for spell
