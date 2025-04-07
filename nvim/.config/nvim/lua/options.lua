@@ -37,6 +37,7 @@ o.showbreak = "↳ " -- Wrap indicator
 
 o.number = true -- Print the line number in front of the current line
 o.relativenumber = true -- Print the line numbers for motion
+o.numberwidth = 2 -- Minimum width for the number in the status column
 
 -- Cursor
 

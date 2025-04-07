@@ -33,6 +33,7 @@ require("lazy").setup({
     dev = {
         path = "~/code/git/",
     },
+    install = { colorscheme = { "catppuccin" } },
     performance = {
         rtp = {
             disabled_plugins = {
