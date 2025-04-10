@@ -9,5 +9,5 @@ return {
     -- Tags
     { "windwp/nvim-ts-autotag", event = "InsertEnter", config = true },
     -- (f-)Strings
-    { "axelvc/template-string.nvim", event = "InsertEnter", config = true },
+    { "axelvc/template-string.nvim", event = "VeryLazy", config = true },
 }
