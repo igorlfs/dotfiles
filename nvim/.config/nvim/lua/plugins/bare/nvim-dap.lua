@@ -1,8 +1,6 @@
 return {
     "mfussenegger/nvim-dap",
     dependencies = {
-        -- Runs preLaunchTask / postDebugTask if present
-        { "stevearc/overseer.nvim", config = true },
     },
     keys = function()
         local dap = require("dap")
