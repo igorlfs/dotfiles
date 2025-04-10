@@ -19,6 +19,16 @@ return {
             { "<F4>", dap.terminate, desc = "DAP Terminate" },
             { "<F5>", dap.continue, desc = "DAP Continue" },
             { "<F6>", dap.pause, desc = "DAP Pause" },
+            {
+                "<F8>",
+                function()
+                    vim.ui.input(
+                        { prompt = "Log point message: " },
+                        function(input) dap.set_breakpoint(nil, nil, input) end
+                    )
+                end,
+                desc = "Toggle Logpoint",
+            },
             { "<F9>", dap.toggle_breakpoint, desc = "Toggle Breakpoint" },
             { "<F10>", dap.step_over, desc = "Step Over" },
             { "<F11>", dap.step_into, desc = "Step Into" },
