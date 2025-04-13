@@ -19,3 +19,6 @@ keymap("<S-Tab>", function()
         feedkeys("<S-Tab>")
     end
 end, {}, "i")
+
+-- See https://github.com/vim/vim/issues/16903
+keymap("<C-w>", "<C-S-w>", { buffer = true }, "i")

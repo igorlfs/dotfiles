@@ -18,7 +18,6 @@ return {
             },
             { "<F4>", dap.terminate, desc = "DAP Terminate" },
             { "<F5>", dap.continue, desc = "DAP Continue" },
-            { "<F6>", dap.pause, desc = "DAP Pause" },
             {
                 "<F8>",
                 function()

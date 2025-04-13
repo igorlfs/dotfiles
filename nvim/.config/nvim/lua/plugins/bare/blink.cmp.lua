@@ -33,14 +33,7 @@ return {
         },
         cmdline = {
             keymap = {
-                preset = "none",
-                ["<Tab>"] = {
-                    "select_next",
-                },
-                ["<S-Tab>"] = {
-                    "select_prev",
-                },
-                ["<CR>"] = { "accept", "fallback" },
+                preset = "inherit",
             },
             completion = {
                 menu = { auto_show = true },
