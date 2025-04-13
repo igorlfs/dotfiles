@@ -31,10 +31,6 @@ return {
         keys = { { "<A-v>", "<CMD>DapVirtualTextToggle<CR>", desc = "Toggle DAP Virtual Text" } },
     },
 
-    ------ Eye Candy
-    -- Rainbow Brackets
-    { "HiPhish/rainbow-delimiters.nvim", event = "VeryLazy" },
-
     ------ Language Extensions
     -- TypeScript
     { "yioneko/nvim-vtsls" },
