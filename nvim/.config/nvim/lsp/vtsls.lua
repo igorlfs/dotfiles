@@ -1,6 +1,4 @@
-require("lspconfig.configs").vtsls = require("vtsls").lspconfig
-
-require("lspconfig").vtsls.setup({
+vim.lsp.config("vtsls", {
     settings = {
         vtsls = {
             tsserver = {

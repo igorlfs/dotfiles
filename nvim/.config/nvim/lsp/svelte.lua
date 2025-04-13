@@ -1,6 +1,4 @@
-local util = require("lspconfig.util")
-
-require("lspconfig").svelte.setup({
+vim.lsp.config("svelte", {
     on_attach = function(client, _)
         -- Workaround to trigger reloading JS/TS files
         -- See https://github.com/sveltejs/language-tools/issues/2008
@@ -10,10 +8,6 @@ require("lspconfig").svelte.setup({
             callback = function(ctx) client.notify("$/onDidChangeTsOrJsFile", { uri = ctx.match }) end,
         })
     end,
-    -- Respect monorepo's root dir
-    -- Won't be upstreamed
-    -- See https://github.com/neovim/nvim-lspconfig/pull/3491
-    root_dir = util.root_pattern(".git", "package.json"),
     settings = {
         typescript = {
             inlayHints = {

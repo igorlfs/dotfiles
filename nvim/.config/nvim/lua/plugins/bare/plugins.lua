@@ -37,5 +37,5 @@ return {
 
     ------ Language Extensions
     -- TypeScript
-    { "yioneko/nvim-vtsls", lazy = true },
+    { "yioneko/nvim-vtsls" },
 }
