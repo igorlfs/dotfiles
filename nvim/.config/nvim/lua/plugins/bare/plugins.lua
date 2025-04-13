@@ -38,4 +38,6 @@ return {
     ------ Language Extensions
     -- TypeScript
     { "yioneko/nvim-vtsls" },
+    -- Lua
+    { "folke/lazydev.nvim", ft = "lua", config = true },
 }
