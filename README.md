@@ -4,11 +4,11 @@
 <a href="https://dotfyle.com/igorlfs/dotfiles-nvim-config-nvim"><img src="https://dotfyle.com/igorlfs/dotfiles-nvim-config-nvim/badges/leaderkey?style=flat" /></a>
 <a href="https://dotfyle.com/igorlfs/dotfiles-nvim-config-nvim"><img src="https://dotfyle.com/igorlfs/dotfiles-nvim-config-nvim/badges/plugin-manager?style=flat" /></a>
 
-![nvim](https://github.com/igorlfs/dotfiles/assets/84649544/13a75477-f80b-4e90-ae43-bc4b6f88223e)
+![nvim](https://github.com/user-attachments/assets/c8715c0d-7684-47b9-9326-cd3ec8654cf2)
 
 ## Install Instructions
 
- > Install requires Neovim 0.10+. Always review the code before installing a configuration.
+ > Install requires Neovim 0.11+. Always review the code before installing a configuration.
 
 Clone the repository and install the plugins:
 
@@ -29,10 +29,6 @@ NVIM_APPNAME=igorlfs/dotfiles/nvim/.config/nvim nvim
 
 + [luukvbaal/statuscol.nvim](https://dotfyle.com/plugins/luukvbaal/statuscol.nvim)
 
-### code-runner
-
-+ [stevearc/overseer.nvim](https://dotfyle.com/plugins/stevearc/overseer.nvim)
-
 ### color
 
 + [brenoprata10/nvim-highlight-colors](https://dotfyle.com/plugins/brenoprata10/nvim-highlight-colors)
@@ -43,11 +39,11 @@ NVIM_APPNAME=igorlfs/dotfiles/nvim/.config/nvim nvim
 
 ### completion
 
-+ [iguanacucumber/magazine.nvim](https://dotfyle.com/plugins/iguanacucumber/magazine.nvim)
++ [Saghen/blink.cmp](https://dotfyle.com/plugins/Saghen/blink.cmp)
 
 ### csv-files
 
-+ [emmanueltouzery/decisive.nvim](https://dotfyle.com/plugins/emmanueltouzery/decisive.nvim)
++ [hat0uma/csvview.nvim](https://dotfyle.com/plugins/hat0uma/csvview.nvim)
 
 ### cursorline
 
@@ -56,7 +52,6 @@ NVIM_APPNAME=igorlfs/dotfiles/nvim/.config/nvim nvim
 ### debugging
 
 + [theHamsta/nvim-dap-virtual-text](https://dotfyle.com/plugins/theHamsta/nvim-dap-virtual-text)
-+ [rcarriga/nvim-dap-ui](https://dotfyle.com/plugins/rcarriga/nvim-dap-ui)
 + [mfussenegger/nvim-dap](https://dotfyle.com/plugins/mfussenegger/nvim-dap)
 
 ### editing-support
@@ -76,7 +71,7 @@ NVIM_APPNAME=igorlfs/dotfiles/nvim/.config/nvim nvim
 
 ### fuzzy-finder
 
-+ [nvim-telescope/telescope.nvim](https://dotfyle.com/plugins/nvim-telescope/telescope.nvim)
++ [ibhagwan/fzf-lua](https://dotfyle.com/plugins/ibhagwan/fzf-lua)
 
 ### git
 
@@ -92,14 +87,9 @@ NVIM_APPNAME=igorlfs/dotfiles/nvim/.config/nvim nvim
 
 + [nvim-tree/nvim-web-devicons](https://dotfyle.com/plugins/nvim-tree/nvim-web-devicons)
 
-### indent
-
-+ [lukas-reineke/indent-blankline.nvim](https://dotfyle.com/plugins/lukas-reineke/indent-blankline.nvim)
-
 ### lsp
 
 + [neovim/nvim-lspconfig](https://dotfyle.com/plugins/neovim/nvim-lspconfig)
-+ [mrcjkb/rustaceanvim](https://dotfyle.com/plugins/mrcjkb/rustaceanvim)
 
 ### lsp-installer
 
@@ -126,7 +116,6 @@ NVIM_APPNAME=igorlfs/dotfiles/nvim/.config/nvim nvim
 ### snippet
 
 + [rafamadriz/friendly-snippets](https://dotfyle.com/plugins/rafamadriz/friendly-snippets)
-+ [L3MON4D3/LuaSnip](https://dotfyle.com/plugins/L3MON4D3/LuaSnip)
 
 ### statusline
 
@@ -145,7 +134,6 @@ NVIM_APPNAME=igorlfs/dotfiles/nvim/.config/nvim nvim
 ### utility
 
 + [folke/noice.nvim](https://dotfyle.com/plugins/folke/noice.nvim)
-+ [stevearc/dressing.nvim](https://dotfyle.com/plugins/stevearc/dressing.nvim)
 
 ### web-development
 
@@ -153,10 +141,11 @@ NVIM_APPNAME=igorlfs/dotfiles/nvim/.config/nvim nvim
 
 ## Language Servers
 
-+ clangd
 + cssls
-+ dockerls
++ dotls
 + html
++ jsonls
++ lua_ls
 + svelte
 + tailwindcss
 + taplo
