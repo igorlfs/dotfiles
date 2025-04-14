@@ -9,6 +9,7 @@ set statusbar-v-padding 0
 set statusbar-home-tilde true
 set selection-clipboard clipboard
 set show-recent 0
+set database null
 
 # Catppuccin (Darker)
 set default-fg 			    "#d9e0ee"
