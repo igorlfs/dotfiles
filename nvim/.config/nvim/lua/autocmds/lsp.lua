@@ -8,7 +8,9 @@ vim.api.nvim_create_autocmd("LspAttach", {
         local methods = lsp.protocol.Methods
 
         -- Folds
-        vim.o.foldexpr = "v:lua.vim.lsp.foldexpr()"
+        if client and client:supports_method("textDocument/foldingRange") then
+            vim.wo[0][0].foldexpr = "v:lua.vim.lsp.foldexpr()"
+        end
 
         -- Code Lenses
         keymap("<leader>ll", lsp.codelens.run, { buffer = ev.buf, desc = "LSP Lens" })

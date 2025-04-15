@@ -5,7 +5,7 @@ return {
     keys = {
         {
             "<leader><leader>",
-            function() require("csvview").toggle() end,
+            function() require("csvview").toggle(nil, { view = { display_mode = "border" } }) end,
             desc = "Align CSV",
             ft = "csv",
         },
