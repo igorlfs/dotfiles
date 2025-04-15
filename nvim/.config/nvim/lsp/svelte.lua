@@ -1,4 +1,4 @@
-vim.lsp.config("svelte", {
+return {
     on_attach = function(client, _)
         -- Workaround to trigger reloading JS/TS files
         -- See https://github.com/sveltejs/language-tools/issues/2008
@@ -33,4 +33,4 @@ vim.lsp.config("svelte", {
             },
         },
     },
-})
+}

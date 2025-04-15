@@ -1,4 +1,4 @@
-vim.lsp.config("vtsls", {
+return {
     settings = {
         vtsls = {
             tsserver = {
@@ -22,4 +22,4 @@ vim.lsp.config("vtsls", {
             },
         },
     },
-})
+}
