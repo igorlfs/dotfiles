@@ -1,7 +1,6 @@
 return {
     "neovim/nvim-lspconfig",
     config = function()
-        -- Needs to be here, otherwise gets overriden somewhere
         vim.lsp.config("*", {
             capabilities = {
                 workspace = {
@@ -30,15 +29,12 @@ return {
             "lua_ls",
             "ruff",
             "svelte",
+            "tailwindcss",
             "taplo",
             "vtsls",
             "yamlls",
         }) do
             vim.lsp.enable(language_server)
         end
-
-        -- Missing leacy configs
-        -- See https://github.com/neovim/nvim-lspconfig/issues/3705
-        require("lspconfig")["tailwindcss"].setup({})
     end,
 }
