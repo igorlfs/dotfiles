@@ -1,7 +1,6 @@
 local severity = vim.diagnostic.severity
 
 vim.diagnostic.config({
-    -- Limit length
     open_float = {
         width = 80,
     },
@@ -13,7 +12,6 @@ vim.diagnostic.config({
             [severity.HINT] = "DiagnosticHint",
         },
     },
-    -- Enable border
     float = {
         style = "minimal",
         border = "rounded",
