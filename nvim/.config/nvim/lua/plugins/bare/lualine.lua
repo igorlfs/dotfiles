@@ -13,8 +13,13 @@ return {
             },
             sections = {
                 lualine_a = { "branch" },
-                lualine_b = { { "filename", path = 1 } },
-                lualine_c = {},
+                lualine_b = {
+                    function()
+                        local cwd = vim.fn.fnamemodify(vim.fn.getcwd(), ":~:.")
+                        return cwd:sub(1, 1) == "~" and cwd:sub(3) or cwd
+                    end,
+                },
+                lualine_c = { { "filename", path = 1 } },
                 lualine_x = {
                     {
                         function()

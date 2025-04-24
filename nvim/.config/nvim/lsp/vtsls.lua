@@ -12,7 +12,7 @@ return {
             },
             -- Improve completion performance,
             -- see https://github.com/yioneko/vtsls?tab=readme-ov-file#bad-performance-of-completion
-            -- To be fair, I don't think it's that bad, but enabling this setting has no side effects
+            -- To be fair, I don't think it's that bad, but enabling this setting is harmless
             experimental = {
                 completion = {
                     enableServerSideFuzzyMatch = true,
