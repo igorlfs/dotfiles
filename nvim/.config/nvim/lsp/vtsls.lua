@@ -10,6 +10,14 @@ return {
                     },
                 },
             },
+            -- Improve completion performance,
+            -- see https://github.com/yioneko/vtsls?tab=readme-ov-file#bad-performance-of-completion
+            -- To be fair, I don't think it's that bad, but enabling this setting has no side effects
+            experimental = {
+                completion = {
+                    enableServerSideFuzzyMatch = true,
+                },
+            },
         },
         typescript = {
             inlayHints = {

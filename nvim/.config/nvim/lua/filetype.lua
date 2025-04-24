@@ -5,5 +5,6 @@ vim.filetype.add({
         [".*/sway/config.d/.*"] = "swayconfig",
         [".*/waybar/config"] = "jsonc",
         ["%.env%.[%w_.-]+"] = "sh",
+        ["%.dev%.[%w_.-]+"] = "sh",
     },
 })

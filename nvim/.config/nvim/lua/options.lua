@@ -14,7 +14,7 @@ o.showmode = false -- Hide message indicating current mode
 o.tabclose = "left" -- When closing a tab, go to the one on the left
 o.guifont = "ZedMono Nerd Font:h11" -- Font for Neovide
 o.title = true -- Title for the Neovim Window
-o.diffopt = "internal,filler,closeoff,indent-heuristic,linematch:60,algorithm:histogram" -- Better diffs
+o.diffopt = "internal,filler,closeoff,indent-heuristic,inline:word,linematch:60,algorithm:histogram" -- Better diffs
 o.confirm = true -- Ask to save unsaved changes
 
 -- History
