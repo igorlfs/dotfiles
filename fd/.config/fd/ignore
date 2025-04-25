@@ -1,0 +1,8 @@
+# Ignore documents
+*.pdf
+
+# Ignore images
+*.jpg
+*.jpeg
+*.png
+*.webp
