@@ -7,9 +7,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
         local lsp = vim.lsp
         local methods = lsp.protocol.Methods
 
-        if client and client:supports_method("textDocument/documentColor") then
-            vim.lsp.document_color.enable(true, args.buf)
-        end
+        vim.lsp.document_color.enable(true, args.buf)
 
         -- Code Lenses
         keymap("<leader>ll", lsp.codelens.run, { buffer = args.buf, desc = "LSP Lens" })

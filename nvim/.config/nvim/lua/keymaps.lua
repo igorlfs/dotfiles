@@ -31,3 +31,10 @@ keymap("<A-[>", "<CMD>tabprevious<CR>", "Goto prev tab")
 keymap("<A-->", "<CMD>tabm-<CR>", "Move tab to the left")
 keymap("<A-=>", "<CMD>tabm+<CR>", "Move tab to the right")
 keymap("<A-'>", "<CMD>tab split<CR>", "Clone window in new tab")
+
+-- Saner behavior for n/N
+-- Stolen from lazyvim https://github.com/mhinz/vim-galore#saner-behavior-of-n-and-n
+keymap("n", "'Nn'[v:searchforward].'zv'", { expr = true, desc = "Next Search Result" })
+keymap("n", "'Nn'[v:searchforward]", { expr = true, desc = "Next Search Result" }, { "x", "o" })
+keymap("N", "'nN'[v:searchforward].'zv'", { expr = true, desc = "Prev Search Result" })
+keymap("N", "'nN'[v:searchforward]", { expr = true, desc = "Prev Search Result" }, { "x", "o" })

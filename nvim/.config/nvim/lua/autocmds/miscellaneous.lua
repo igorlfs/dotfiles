@@ -37,7 +37,7 @@ autocmd("DirChanged", {
     desc = "Reload .nvim.lua when changing directory",
     callback = function(args)
         local contents = vim.secure.read(string.format("%s/.nvim.lua", args.file))
-        if contents then
+        if type(contents) == "string" then
             assert(loadstring(contents))()
         end
     end,
