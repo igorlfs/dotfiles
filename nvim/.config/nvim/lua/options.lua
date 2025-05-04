@@ -1,6 +1,8 @@
 local o = vim.o
 local data = vim.fn.stdpath("data")
 
+require("vim._extui").enable({})
+
 -- Miscellaneous
 
 o.gdefault = true -- Replace all line matches during substitution
@@ -10,7 +12,6 @@ o.clipboard = "unnamedplus" -- Use system clipboard
 o.fillchars = [[eob: ,fold: ,foldopen:󰅀,foldsep: ,foldclose:󰅂,diff: ]] -- Fancy symbols
 o.jumpoptions = "view" -- Prevents moving cursor when switching files
 o.exrc = true -- Enable per-project config file (.nvim.lua)
-o.showmode = false -- Hide message indicating current mode
 o.tabclose = "left" -- When closing a tab, go to the one on the left
 o.guifont = "ZedMono Nerd Font:h11" -- Font for Neovide
 o.title = true -- Title for the Neovim Window
@@ -38,6 +39,10 @@ o.showbreak = "↳ " -- Wrap indicator
 o.number = true -- Print the line number in front of the current line
 o.relativenumber = true -- Print the line numbers for motion
 o.numberwidth = 2 -- Minimum width for the number in the status column
+
+-- Command line
+o.cmdheight = 0 -- Hide command line window
+o.showmode = false -- Hide message indicating current mode
 
 -- Cursor
 
