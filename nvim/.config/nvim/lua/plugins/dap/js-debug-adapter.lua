@@ -19,6 +19,8 @@ for _, adapter in pairs({ "node", "chrome" }) do
         enrich_config = function(config, on_config)
             -- Under the hood, always use the main adapter
             config.type = pwa_adapter
+            -- May start a session in a buffer of another filetype
+            config.repl_lang = "javascript"
             on_config(config)
         end,
     }

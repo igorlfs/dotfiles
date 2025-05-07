@@ -1,12 +1,16 @@
 return {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
-    dependencies = { "nvim-treesitter/nvim-treesitter-textobjects" },
+    dependencies = {
+        "nvim-treesitter/nvim-treesitter-textobjects",
+        { "igorlfs/nvim-dap-repl-highlights", config = true },
+    },
     config = function()
         ---@diagnostic disable-next-line: missing-fields
         require("nvim-treesitter.configs").setup({
             ensure_installed = {
                 "css",
+                "dap_repl",
                 "diff",
                 "fish",
                 "gitcommit",
