@@ -4,13 +4,7 @@ return {
     { "williamboman/mason.nvim", config = true },
 
     ------ LSP Extensions
-    -- textDocument/documentHighlight
-    {
-        "RRethy/vim-illuminate",
-        event = "LspAttach",
-        config = function() require("illuminate").configure({ providers = { "lsp" } }) end,
-    },
-    -- workspace/willRename
+    -- workspace/fileOperations
     {
         "igorlfs/nvim-lsp-file-operations",
         event = "LspAttach",
