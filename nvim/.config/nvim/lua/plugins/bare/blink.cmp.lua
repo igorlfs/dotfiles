@@ -21,6 +21,7 @@ return {
                 auto_show = true,
             },
             menu = {
+                border = "none",
                 draw = {
                     treesitter = { "lsp" },
                 },

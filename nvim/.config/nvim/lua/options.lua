@@ -16,7 +16,9 @@ o.tabclose = "left" -- When closing a tab, go to the one on the left
 o.guifont = "ZedMono Nerd Font:h11" -- Font for Neovide
 o.title = true -- Title for the Neovim Window
 o.diffopt = "internal,filler,closeoff,indent-heuristic,inline:word,linematch:60,algorithm:histogram" -- Better diffs
+o.shortmess = "ltToOCFIc" -- Reduce vim's verboseness and remove intro message
 o.confirm = true -- Ask to save unsaved changes
+o.winborder = "rounded" -- Default border for floating windows
 
 -- History
 o.undofile = true -- Enable persistent undo
@@ -24,7 +26,7 @@ o.swapfile = false -- A swap file is yet to save me
 o.shadafile = "NONE" -- Don't save history
 
 -- Completion
-o.completeopt = "menuone,noselect,noinsert,fuzzy" -- More intuitive completion options
+o.completeopt = "menuone,popup,noselect,noinsert,fuzzy" -- More intuitive completion options
 o.pumheight = 10 -- Limit completion window up to 10 lines
 o.wildoptions = "pum,tagfile,fuzzy" -- Enable fuzzy finding commands
 
@@ -74,7 +76,3 @@ o.expandtab = true -- Expand tabs to spaces
 o.tabstop = 4 -- Width of a tab
 o.shiftwidth = 4 -- Indent's width
 o.shiftround = true -- Round indent to multiple of 'shiftwidth'
-
--- Options
-
-vim.opt.shortmess:append("Ic") -- Reduce vim's verboseness and remove intro message

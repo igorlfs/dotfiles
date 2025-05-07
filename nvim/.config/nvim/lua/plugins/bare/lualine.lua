@@ -28,6 +28,7 @@ return {
                         end,
                     },
                     "kulala",
+                    "searchcount",
                     "diff",
                     {
                         function() return vim.wo.spell and "󰓆" or "" end,
