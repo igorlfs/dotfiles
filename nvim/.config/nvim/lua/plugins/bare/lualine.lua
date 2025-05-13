@@ -39,6 +39,9 @@ return {
                         color = "DapBreakpointCondition",
                     },
                     {
+                        function() return require("dap").status() end,
+                    },
+                    {
                         function() return require("dap").session() and " " or "" end,
                         color = "DapBreakpoint",
                     },

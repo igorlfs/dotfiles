@@ -23,6 +23,8 @@ return {
                             return "Terminal"
                         elseif filetype == "checkhealth" then
                             return "Checkhealth"
+                        elseif filetype == "qf" then
+                            return "QuickFix"
                         elseif filetype == "NvimTree" then
                             return "NvimTree"
                         elseif filetype == "octo" then

@@ -26,10 +26,6 @@ return {
         },
         lsp = {
             jump1 = true,
-            code_actions = {
-                -- See https://github.com/ibhagwan/fzf-lua/issues/1295
-                previewer = false,
-            },
             includeDeclaration = false,
         },
         grep = {

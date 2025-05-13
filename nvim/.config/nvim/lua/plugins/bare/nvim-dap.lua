@@ -16,7 +16,11 @@ return {
                 function() widgets.hover(nil, { border = "rounded" }) end,
                 desc = "DAP Hover",
             },
-            { "<F4>", dap.terminate, desc = "DAP Terminate" },
+            {
+                "<F4>",
+                function() dap.terminate({ hierarchy = true }) end,
+                desc = "DAP Terminate",
+            },
             { "<F5>", dap.continue, desc = "DAP Continue" },
             {
                 "<F8>",

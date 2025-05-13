@@ -13,7 +13,6 @@ return {
         },
         integrations = {
             mason = true,
-            noice = true,
             octo = true,
             diffview = true,
         },
