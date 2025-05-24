@@ -7,18 +7,18 @@ require("vim._extui").enable({})
 
 o.gdefault = true -- Replace all line matches during substitution
 o.updatetime = 200 -- Time for CursorHold event (e.g., LSP)
-o.scrolloff = 4 -- Context lines when scrolling
+o.scrolloff = 4
 o.clipboard = "unnamedplus" -- Use system clipboard
 o.fillchars = [[eob: ,fold: ,foldopen:󰅀,foldsep: ,foldclose:󰅂,diff: ]] -- Fancy symbols
 o.jumpoptions = "view" -- Prevents moving cursor when switching files
-o.exrc = true -- Enable per-project config file (.nvim.lua)
-o.tabclose = "left" -- When closing a tab, go to the one on the left
-o.guifont = "ZedMono Nerd Font:h11" -- Font for Neovide
-o.title = true -- Title for the Neovim Window
-o.diffopt = "internal,filler,closeoff,indent-heuristic,inline:word,linematch:60,algorithm:histogram" -- Better diffs
+o.exrc = true
+o.tabclose = "left"
+o.guifont = "ZedMono Nerd Font:h11"
+o.title = true
+o.diffopt = "internal,filler,closeoff,indent-heuristic,inline:word,linematch:60,algorithm:histogram"
 o.shortmess = "ltToOCFIc" -- Reduce vim's verboseness and remove intro message
-o.confirm = true -- Ask to save unsaved changes
-o.winborder = "rounded" -- Default border for floating windows
+o.confirm = true
+o.winborder = "rounded"
 
 -- History
 o.undofile = true -- Enable persistent undo
@@ -38,41 +38,40 @@ o.showbreak = "↳ " -- Wrap indicator
 
 -- Statuscolumn
 
-o.number = true -- Print the line number in front of the current line
-o.relativenumber = true -- Print the line numbers for motion
-o.numberwidth = 2 -- Minimum width for the number in the status column
+o.number = true
+o.relativenumber = true
+o.numberwidth = 2
 
 -- Command line
 o.cmdheight = 0 -- Hide command line window
-o.showmode = false -- Hide message indicating current mode
 
 -- Cursor
 
-o.cursorlineopt = "number" -- Highlight only line number
-o.cursorline = true -- Highlight current line
+o.cursorlineopt = "number"
+o.cursorline = true
 
 -- Spell
 
 o.spellfile = data .. "/spell/en.utf-8.add," .. data .. "/spell/pt.utf-8.add" -- Custom dictionary files
-o.spelllang = "en,pt_br" -- Languages to spell check
-o.spelloptions = "camel" -- Consider camelCase when checking spell
+o.spelllang = "en,pt_br"
+o.spelloptions = "camel"
 o.spellsuggest = "best,9" -- Limit the number of suggestions for spell
 
 -- Folds
 
-o.foldtext = "" -- Highlight folds
-o.foldlevelstart = 99 -- Don't close any folds at the start
+o.foldtext = ""
+o.foldlevelstart = 99
 o.foldmethod = "expr" -- Fold method for treesitter and LSP
 
 -- Splits
 
 o.splitbelow = true
 o.splitright = true
-o.splitkeep = "screen" -- Keep the same relative cursor position when splitting
+o.splitkeep = "topline"
 
 -- Indentation
 
-o.expandtab = true -- Expand tabs to spaces
-o.tabstop = 4 -- Width of a tab
-o.shiftwidth = 4 -- Indent's width
-o.shiftround = true -- Round indent to multiple of 'shiftwidth'
+o.expandtab = true
+o.tabstop = 4
+o.shiftwidth = 4
+o.shiftround = true

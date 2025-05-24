@@ -1,5 +1,12 @@
 return {
-    ------ Editing
+    -- Treesitter
+    {
+        "nvim-treesitter/nvim-treesitter",
+        build = ":TSUpdate",
+        branch = "main",
+        lazy = false,
+        dependencies = "nvim-treesitter/nvim-treesitter-textobjects",
+    },
     -- Pairs
     { "windwp/nvim-autopairs", event = "InsertEnter", opts = { ignored_next_char = "" } },
     -- Surround

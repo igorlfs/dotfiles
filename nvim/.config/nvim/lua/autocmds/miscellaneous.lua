@@ -15,6 +15,12 @@ autocmd("FileType", {
     callback = function() vim.wo[0][0].wrap = true end,
 })
 
+-- See https://github.com/neovim/neovim/pull/31443#issuecomment-2521958704
+autocmd("Termopen", {
+    desc = "Disable scrolloff for terminal",
+    callback = function() vim.wo[0][0].scrolloff = 0 end,
+})
+
 -- From https://github.com/neovim/neovim/pull/30164#issuecomment-2315421660
 autocmd("FileType", {
     desc = "Enable Treesitter",
@@ -41,6 +47,11 @@ autocmd("DirChanged", {
             assert(loadstring(contents))()
         end
     end,
+})
+
+autocmd("DirChanged", {
+    desc = "Increase zoxide score when changing directory",
+    callback = function(args) vim.system({ "zoxide", "add", "--", args.file }) end,
 })
 
 autocmd("FileType", {
