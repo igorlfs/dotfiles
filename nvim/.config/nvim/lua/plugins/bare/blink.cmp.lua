@@ -13,6 +13,9 @@ return {
         },
         completion = {
             accept = {
+                -- See https://github.com/Saghen/blink.cmp/issues/1247
+                -- Even outside neovide this can be annoying
+                dot_repeat = false,
                 auto_brackets = {
                     enabled = true,
                 },

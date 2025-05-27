@@ -33,6 +33,8 @@ return {
                             return "Mason"
                         elseif filetype == "lazy" then
                             return "Lazy"
+                        elseif filetype == "dap-view" then
+                            return "DAP View"
                         elseif filetype == "dap-repl" then
                             return "DAP REPL"
                         elseif filetype == "dap-float" then
