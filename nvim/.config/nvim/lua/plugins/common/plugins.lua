@@ -8,7 +8,11 @@ return {
         dependencies = "nvim-treesitter/nvim-treesitter-textobjects",
     },
     -- Pairs
-    { "windwp/nvim-autopairs", event = "InsertEnter", opts = { ignored_next_char = "" } },
+    {
+        "windwp/nvim-autopairs",
+        event = "InsertEnter",
+        opts = { ignored_next_char = "", enable_check_bracket_line = false },
+    },
     -- Surround
     { "kylechui/nvim-surround", event = "VeryLazy", config = true },
     -- Indentation

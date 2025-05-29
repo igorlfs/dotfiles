@@ -7,11 +7,6 @@ return {
         local widgets = require("dap.ui.widgets")
         return {
             {
-                "<leader>ds",
-                function() widgets.centered_float(widgets.scopes, { border = "rounded" }) end,
-                desc = "DAP Scopes",
-            },
-            {
                 "<F1>",
                 function() widgets.hover(nil, { border = "rounded" }) end,
                 desc = "DAP Hover",
@@ -47,11 +42,6 @@ return {
                     )
                 end,
                 desc = "Conditional Breakpoint",
-            },
-            {
-                "<A-r>",
-                function() dap.repl.toggle(nil, "tab split") end,
-                desc = "Toggle DAP REPL",
             },
         }
     end,
