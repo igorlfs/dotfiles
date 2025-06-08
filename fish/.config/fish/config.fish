@@ -17,6 +17,8 @@ set -g fish_history ""
 ### Aliases
 alias v="nvim"
 
+alias bcc="bluetoothctl connect $BLUETOOTH_DEVICE"
+
 alias pacman="pacman --color=auto"
 alias yay="yay --color=auto"
 
