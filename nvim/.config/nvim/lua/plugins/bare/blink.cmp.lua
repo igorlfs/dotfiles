@@ -20,6 +20,10 @@ return {
                     enabled = true,
                 },
             },
+            -- See https://github.com/Saghen/blink.cmp/issues/1770
+            trigger = {
+                show_on_blocked_trigger_characters = { " ", "\n", "\t", "$" },
+            },
             documentation = {
                 auto_show = true,
             },

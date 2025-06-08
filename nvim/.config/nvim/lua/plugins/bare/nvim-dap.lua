@@ -6,6 +6,8 @@ return {
         local dap = require("dap")
         local widgets = require("dap.ui.widgets")
         return {
+            { "[f", dap.up, desc = "DAP Up" },
+            { "]f", dap.down, desc = "DAP Down" },
             {
                 "<F1>",
                 function() widgets.hover(nil, { border = "rounded" }) end,

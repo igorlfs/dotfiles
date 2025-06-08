@@ -4,6 +4,7 @@ return {
     opts = {
         formatters = {
             ["biome-check"] = { require_cwd = true },
+            ["biome-organize-imports"] = { require_cwd = true },
             injected = {
                 options = {
                     lang_to_formatters = {
@@ -22,7 +23,7 @@ return {
             typescript = { "biome-check", "prettier", stop_after_first = true },
             javascript = { "biome-check", "prettier", stop_after_first = true },
             http = { "injected" },
-            svelte = { "biome-check", lsp_format = "first" },
+            svelte = { "biome-organize-imports", lsp_format = "first" },
         },
         format_on_save = function(bufnr)
             if vim.g.disable_autoformat then
