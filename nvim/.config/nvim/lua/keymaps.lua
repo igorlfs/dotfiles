@@ -32,6 +32,15 @@ keymap("<A-->", "<CMD>tabm-<CR>", "Move tab to the left")
 keymap("<A-=>", "<CMD>tabm+<CR>", "Move tab to the right")
 keymap("<A-'>", "<CMD>tab split<CR>", "Clone window in new tab")
 
+-- Kitty-style function keys for Neovide, foot, ...
+for i = 1, 12 do
+    keymap(
+        string.format("<S-F%s>", i),
+        string.format("<F%s>", i + 12),
+        { desc = string.format("Shifted Function Key %s", i), remap = true }
+    )
+end
+
 -- Saner behavior for n/N
 -- Stolen from lazyvim https://github.com/mhinz/vim-galore#saner-behavior-of-n-and-n
 keymap("n", "'Nn'[v:searchforward].'zv'", { expr = true, desc = "Next Search Result" })
