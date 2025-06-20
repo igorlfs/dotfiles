@@ -1,3 +1,5 @@
+local shared = require("shared")
+
 return {
     settings = {
         vtsls = {
@@ -20,14 +22,7 @@ return {
             },
         },
         typescript = {
-            inlayHints = {
-                parameterNames = { enabled = "all" },
-                parameterTypes = { enabled = true },
-                variableTypes = { enabled = true },
-                propertyDeclarationTypes = { enabled = true },
-                functionLikeReturnTypes = { enabled = true },
-                enumMemberValues = { enabled = true },
-            },
+            inlayHints = shared.ts_ls_inlay_hint_setup,
         },
     },
 }

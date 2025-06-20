@@ -1,3 +1,5 @@
+local shared = require("shared")
+
 return {
     on_attach = function(client, _)
         -- Workaround to trigger reloading JS/TS files
@@ -9,19 +11,7 @@ return {
         })
     end,
     settings = {
-        typescript = {
-            inlayHints = {
-                parameterNames = {
-                    enabled = "literals",
-                    suppressWhenArgumentMatchesName = true,
-                },
-                parameterTypes = { enabled = true },
-                variableTypes = { enabled = false },
-                propertyDeclarationTypes = { enabled = true },
-                functionLikeReturnTypes = { enabled = true },
-                enumMemberValues = { enabled = true },
-            },
-        },
+        typescript = shared.ts_ls_inlay_hint_setup,
         svelte = {
             plugin = {
                 svelte = {

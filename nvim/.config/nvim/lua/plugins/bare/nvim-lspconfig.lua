@@ -15,6 +15,7 @@ return {
         })
 
         for _, language_server in ipairs({
+            "basedpyright",
             "biome",
             "cssls",
             "dotls",

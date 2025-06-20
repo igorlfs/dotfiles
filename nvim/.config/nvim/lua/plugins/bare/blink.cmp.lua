@@ -4,9 +4,6 @@ return {
     ---@module 'blink.cmp'
     ---@type blink.cmp.Config
     opts = {
-        fuzzy = {
-            implementation = "lua",
-        },
         sources = {
             -- Leverage builtin dap completion to create a more "automatic" completion
             per_filetype = { ["dap-repl"] = { "omni" } },
