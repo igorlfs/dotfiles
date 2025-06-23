@@ -1,12 +1,11 @@
 local shared = require("shared")
 
 return {
-    on_attach = function(client, _)
+    on_attach = function(client)
         -- Workaround to trigger reloading JS/TS files
         -- See https://github.com/sveltejs/language-tools/issues/2008
         vim.api.nvim_create_autocmd("BufWritePost", {
             pattern = { "*.js", "*.ts" },
-            group = vim.api.nvim_create_augroup("svelte_ondidchangetsorjsfile", { clear = true }),
             callback = function(ctx) client.notify("$/onDidChangeTsOrJsFile", { uri = ctx.match }) end,
         })
     end,

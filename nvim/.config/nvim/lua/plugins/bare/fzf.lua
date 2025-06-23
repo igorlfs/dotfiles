@@ -27,6 +27,10 @@ return {
         lsp = {
             jump1 = true,
             includeDeclaration = false,
+            code_actions = {
+                -- See https://github.com/ibhagwan/fzf-lua/issues/1295
+                previewer = false,
+            },
         },
         grep = {
             hidden = true,
