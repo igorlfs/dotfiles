@@ -5,7 +5,10 @@ return {
         build = ":TSUpdate",
         branch = "main",
         lazy = false,
-        dependencies = "nvim-treesitter/nvim-treesitter-textobjects",
+        dependencies = {
+            "nvim-treesitter/nvim-treesitter-textobjects",
+            { "igorlfs/nvim-dap-repl-highlights", config = true, dev = true },
+        },
     },
     -- Pairs
     {
