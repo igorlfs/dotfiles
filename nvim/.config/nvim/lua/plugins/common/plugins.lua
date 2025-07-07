@@ -7,7 +7,7 @@ return {
         lazy = false,
         dependencies = {
             "nvim-treesitter/nvim-treesitter-textobjects",
-            { "igorlfs/nvim-dap-repl-highlights", config = true, dev = true },
+            { "igorlfs/nvim-dap-repl-highlights", config = true },
         },
     },
     -- Pairs

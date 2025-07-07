@@ -12,5 +12,8 @@ return {
             auto_show_threads = false,
         },
     },
+    keys = {
+        { "<leader>op", "<CMD>Octo pr list<CR>", desc = "GH PR" },
+    },
     init = function() vim.treesitter.language.register("markdown", "octo") end,
 }

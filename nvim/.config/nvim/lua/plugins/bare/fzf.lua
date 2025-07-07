@@ -49,9 +49,9 @@ return {
             { "<leader>fz", fzflua.zoxide, desc = "FZF Zoxide" },
             { "<leader>fr", fzflua.resume, desc = "FZF Resume" },
             { "<leader>fd", fzflua.diagnostics_workspace, desc = "FZF Diagnostics" },
-            { "<leader>ft", fzflua.lsp_typedefs, desc = "FZF Type Definition" },
             { "<leader>db", fzflua.dap_breakpoints, desc = "DAP Breakpoints" },
             { "<leader>df", fzflua.dap_frames, desc = "DAP Frames" },
+            { "grt", fzflua.lsp_typedefs, desc = "FZF Type Definition" },
             { "grr", fzflua.lsp_references, desc = "LSP Find References" },
             { "gO", fzflua.lsp_document_symbols, desc = "Document Symbols" },
         }

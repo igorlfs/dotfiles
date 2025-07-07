@@ -18,6 +18,7 @@ return {
             "basedpyright",
             "biome",
             "cssls",
+            "dockerls",
             "dotls",
             "emmet_language_server",
             "html",

@@ -11,7 +11,7 @@ autocmd({ "FocusGained", "TermClose", "TermLeave" }, {
 
 autocmd("FileType", {
     desc = "Enable Softwrap",
-    pattern = { "tex", "octo", "typst", "markdown" },
+    pattern = { "tex", "octo", "typst", "markdown", "liquid" },
     callback = function() vim.wo[0][0].wrap = true end,
 })
 
