@@ -1,5 +1,6 @@
 local shared = require("shared")
 
+---@type vim.lsp.Config
 return {
     on_attach = function(client)
         -- Workaround to trigger reloading JS/TS files
@@ -10,16 +11,8 @@ return {
         })
     end,
     settings = {
-        typescript = shared.ts_ls_inlay_hint_setup,
-        svelte = {
-            plugin = {
-                svelte = {
-                    compilerWarnings = {
-                        ["a11y-click-events-have-key-events"] = "ignore",
-                        ["a11y-no-static-element-interactions"] = "ignore",
-                    },
-                },
-            },
+        typescript = {
+            inlayHints = shared.ts_ls_inlay_hint_setup,
         },
     },
 }

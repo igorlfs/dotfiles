@@ -19,6 +19,7 @@ o.diffopt = "internal,filler,closeoff,indent-heuristic,inline:word,linematch:60,
 o.shortmess = "ltToOCFIc" -- Reduce vim's verboseness and remove intro message
 o.confirm = true
 o.winborder = "rounded"
+o.nrformats = "bin,hex,blank"
 
 -- History
 o.undofile = true -- Enable persistent undo

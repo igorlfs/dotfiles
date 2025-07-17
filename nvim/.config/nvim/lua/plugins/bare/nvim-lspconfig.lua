@@ -26,6 +26,7 @@ return {
             "lua_ls",
             "ruff",
             "svelte",
+            "tinymist",
             "tailwindcss",
             "taplo",
             "vtsls",
