@@ -2,6 +2,7 @@ return {
     "ibhagwan/fzf-lua",
     dependencies = "nvim-tree/nvim-web-devicons",
     opts = {
+        "hide",
         fzf_opts = {
             ["--cycle"] = true,
         },

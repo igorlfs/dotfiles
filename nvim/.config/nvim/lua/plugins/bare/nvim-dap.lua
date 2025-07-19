@@ -7,16 +7,8 @@ return {
         return {
             { "[f", dap.up, desc = "DAP Up" },
             { "]f", dap.down, desc = "DAP Down" },
-            {
-                "<F1>",
-                function() require("dap.ui.widgets").hover(nil, { border = "rounded" }) end,
-                desc = "DAP Hover",
-            },
-            {
-                "<F4>",
-                function() dap.terminate({ hierarchy = true }) end,
-                desc = "DAP Terminate",
-            },
+            { "<F1>", require("dap.ui.widgets").hover, desc = "DAP Hover" },
+            { "<F4>", function() dap.terminate({ hierarchy = true }) end, desc = "DAP Terminate" },
             { "<F5>", dap.continue, desc = "DAP Continue" },
             {
                 "<F8>",

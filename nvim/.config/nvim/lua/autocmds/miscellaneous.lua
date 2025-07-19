@@ -16,7 +16,7 @@ autocmd("FileType", {
 })
 
 -- See https://github.com/neovim/neovim/pull/31443#issuecomment-2521958704
-autocmd("Termopen", {
+autocmd("TermOpen", {
     desc = "Disable scrolloff for terminal",
     callback = function() vim.wo[0][0].scrolloff = 0 end,
 })

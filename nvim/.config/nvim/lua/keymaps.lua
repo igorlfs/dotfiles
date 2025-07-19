@@ -4,7 +4,10 @@ local str = string.format
 keymap("<C-s>", "<CMD>write<CR>", "Quick Save")
 keymap("<Esc>", [[<C-\><C-n>]], "Exit Terminal", "t")
 keymap("<A-s>", "<CMD>setlocal spell!<CR>", "Toggle Spell")
+
+-- Clipboard
 keymap("x", '"_x', "Delete without overriding clipboard register", { "n", "x" })
+keymap("p", "P", "Paste without overriding clipboard register", { "x" })
 
 -- Move within visual lines
 keymap("k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true }, { "n", "x" })

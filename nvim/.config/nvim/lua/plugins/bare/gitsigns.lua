@@ -4,9 +4,6 @@ return {
     opts = {
         gh = true,
         attach_to_untracked = true,
-        preview_config = {
-            border = "rounded",
-        },
         on_attach = function()
             local gitsigns = require("gitsigns")
             local keymap = require("util").keymap
