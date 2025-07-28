@@ -11,6 +11,8 @@ autocmd("LspAttach", {
 
         lsp.document_color.enable(true, buf)
 
+        lsp.linked_editing_range.enable(true, nil)
+
         if client and client:supports_method(methods.textDocument_documentHighlight) then
             autocmd({ "CursorHold", "InsertLeave" }, {
                 buffer = buf,
