@@ -15,7 +15,6 @@ return {
         })
 
         for _, language_server in ipairs({
-            "basedpyright",
             "biome",
             "cssls",
             "dockerls",
@@ -25,10 +24,12 @@ return {
             "jsonls",
             "lua_ls",
             "ruff",
+            "shopify_theme_ls",
             "svelte",
             "tinymist",
             "tailwindcss",
             "taplo",
+            "ty",
             "vtsls",
             "yamlls",
         }) do

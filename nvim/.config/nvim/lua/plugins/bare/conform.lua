@@ -3,6 +3,7 @@ return {
     event = { "LspAttach", "BufWritePre" },
     opts = {
         formatters = {
+            ["biome"] = { require_cwd = true },
             ["biome-check"] = { require_cwd = true },
             ["biome-organize-imports"] = { require_cwd = true },
             injected = {
@@ -22,6 +23,7 @@ return {
             yaml = { "prettier" },
             typescript = { "biome-check", "prettier", stop_after_first = true },
             javascript = { "biome-check", "prettier", stop_after_first = true },
+            json = { "biome" },
             http = { "injected" },
             svelte = { "biome-organize-imports", lsp_format = "first" },
         },

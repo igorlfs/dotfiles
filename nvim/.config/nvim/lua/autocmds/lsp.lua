@@ -9,8 +9,6 @@ autocmd("LspAttach", {
         local client = lsp.get_client_by_id(args.data.client_id)
         local methods = lsp.protocol.Methods
 
-        lsp.document_color.enable(true, buf)
-
         lsp.linked_editing_range.enable(true, nil)
 
         if client and client:supports_method(methods.textDocument_documentHighlight) then
