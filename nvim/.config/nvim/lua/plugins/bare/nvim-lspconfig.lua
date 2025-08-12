@@ -29,6 +29,7 @@ return {
             "tinymist",
             "tailwindcss",
             "taplo",
+            "ts_query_ls",
             "ty",
             "vtsls",
             "yamlls",
