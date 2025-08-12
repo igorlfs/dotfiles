@@ -43,7 +43,7 @@ return {
     keys = function()
         local fzflua = require("fzf-lua")
         return {
-            { "<leader>ff", fzflua.files, desc = "FZF Files" },
+            { "<leader>ff", fzflua.global, desc = "FZF Files" },
             { "<leader>fg", fzflua.live_grep, desc = "FZF Grep" },
             { "<leader>fb", fzflua.buffers, desc = "FZF Buffers" },
             { "<leader>fw", fzflua.grep_cword, desc = "FZF Word" },
