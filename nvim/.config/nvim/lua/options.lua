@@ -27,6 +27,7 @@ o.swapfile = false -- A swap file is yet to save me
 o.shadafile = "NONE" -- Don't save history
 
 -- Completion
+o.complete = ".,o" -- completion sources: current buffer + omnifunc
 o.completeopt = "menuone,popup,noselect,noinsert,fuzzy" -- More intuitive completion options
 o.pumheight = 10 -- Limit completion window up to 10 lines
 o.wildoptions = "pum,tagfile,fuzzy" -- Enable fuzzy finding commands

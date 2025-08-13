@@ -1,5 +1,10 @@
-local keymap = require("util").keymap
 local str = string.format
+
+local util = require("util")
+
+local keymap = util.keymap
+local feedkeys = util.feedkeys
+local pumvisible = util.pumvisible
 
 keymap("<C-s>", "<CMD>write<CR>", "Quick Save")
 keymap("<Esc>", [[<C-\><C-n>]], "Exit Terminal", "t")
@@ -37,11 +42,7 @@ keymap("<A-'>", "<CMD>tab split<CR>", "Clone window in new tab")
 
 -- Kitty-style function keys for Neovide, foot, ...
 for i = 1, 12 do
-    keymap(
-        string.format("<S-F%s>", i),
-        string.format("<F%s>", i + 12),
-        { desc = string.format("Shifted Function Key %s", i), remap = true }
-    )
+    keymap(str("<S-F%s>", i), str("<F%s>", i + 12), { remap = true })
 end
 
 -- Saner behavior for n/N
@@ -50,3 +51,28 @@ keymap("n", "'Nn'[v:searchforward].'zv'", { expr = true, desc = "Next Search Res
 keymap("n", "'Nn'[v:searchforward]", { expr = true, desc = "Next Search Result" }, { "x", "o" })
 keymap("N", "'nN'[v:searchforward].'zv'", { expr = true, desc = "Prev Search Result" })
 keymap("N", "'nN'[v:searchforward]", { expr = true, desc = "Prev Search Result" }, { "x", "o" })
+
+-- Autocompletion
+keymap("<Tab>", function()
+    if pumvisible() then
+        feedkeys("<C-n>")
+    else
+        feedkeys("<Tab>")
+    end
+end, {}, "i")
+keymap("<S-Tab>", function()
+    if pumvisible() then
+        feedkeys("<C-p>")
+    else
+        feedkeys("<S-Tab>")
+    end
+end, {}, "i")
+-- May not play very well with 'nvim-autopairs'
+-- They have their own "<CR>" mapping
+keymap("<CR>", function()
+    if pumvisible() then
+        feedkeys("<C-y>")
+    else
+        feedkeys("<CR>")
+    end
+end, {}, "i")
