@@ -67,8 +67,6 @@ keymap("<S-Tab>", function()
         feedkeys("<S-Tab>")
     end
 end, {}, "i")
--- May not play very well with 'nvim-autopairs'
--- They have their own "<CR>" mapping
 keymap("<CR>", function()
     if pumvisible() then
         feedkeys("<C-y>")

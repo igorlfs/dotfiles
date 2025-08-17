@@ -6,5 +6,6 @@ vim.filetype.add({
         [".*/waybar/config"] = "jsonc",
         ["%.env%.[%w_.-]+"] = "sh",
         ["%.dev%.[%w_.-]+"] = "sh",
+        [".sqruff"] = "toml",
     },
 })
