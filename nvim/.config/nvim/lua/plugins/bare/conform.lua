@@ -20,7 +20,6 @@ return {
         formatters_by_ft = {
             lua = { "stylua" },
             markdown = { "injected", "markdownlint" },
-            yaml = { "prettier" },
             typescript = { "biome-check", "prettier", stop_after_first = true },
             javascript = { "biome-check", "prettier", stop_after_first = true },
             json = { "biome" },
