@@ -30,7 +30,6 @@ autocmd("FileType", {
         end
 
         vim.wo[0][0].foldexpr = "v:lua.vim.treesitter.foldexpr()"
-        vim.bo[0].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
     end,
 })
 
