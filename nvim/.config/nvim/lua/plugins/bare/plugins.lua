@@ -22,5 +22,5 @@ return {
 
     ------ Language Extensions
     -- TypeScript
-    { "yioneko/nvim-vtsls" },
+    { "igorlfs/nvim-vtsls" },
 }
