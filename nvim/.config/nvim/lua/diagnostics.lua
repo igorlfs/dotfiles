@@ -6,10 +6,16 @@ vim.diagnostic.config({
     },
     signs = {
         numhl = {
-            [severity.WARN] = "WarningMsg",
             [severity.ERROR] = "ErrorMsg",
+            [severity.WARN] = "WarningMsg",
             [severity.INFO] = "DiagnosticInfo",
             [severity.HINT] = "DiagnosticHint",
+        },
+        text = {
+            [severity.ERROR] = "",
+            [severity.WARN] = "",
+            [severity.INFO] = "",
+            [severity.HINT] = "󰌵",
         },
     },
     float = {

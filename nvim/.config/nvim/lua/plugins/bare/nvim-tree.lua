@@ -2,8 +2,8 @@ return {
     "nvim-tree/nvim-tree.lua",
     dependencies = "nvim-tree/nvim-web-devicons",
     keys = {
-        { "<A-e>", "<CMD>NvimTreeToggle<CR>", desc = "Toggle Explorer" },
-        { "<A-E>", "<CMD>NvimTreeFindFileToggle<CR>", desc = "Toggle Find File" },
+        { "<A-e>", "<CMD>NvimTreeFindFileToggle<CR>", desc = "Toggle Find File" },
+        { "<A-E>", "<CMD>NvimTreeToggle<CR>", desc = "Toggle Explorer" },
     },
     opts = {
         -- Might wanna sort considering numbers, see
@@ -34,6 +34,7 @@ return {
         diagnostics = {
             enable = true,
             show_on_dirs = true,
+            diagnostic_opts = true,
         },
         actions = {
             open_file = {
