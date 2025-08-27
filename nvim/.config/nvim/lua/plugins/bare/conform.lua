@@ -6,6 +6,7 @@ return {
             ["biome"] = { require_cwd = true },
             ["biome-check"] = { require_cwd = true },
             ["biome-organize-imports"] = { require_cwd = true },
+            ["prettier"] = { require_cwd = true },
             injected = {
                 options = {
                     lang_to_formatters = {
@@ -20,8 +21,8 @@ return {
         formatters_by_ft = {
             lua = { "stylua" },
             markdown = { "injected", "markdownlint" },
-            typescript = { "biome-check", "prettier", stop_after_first = true },
-            javascript = { "biome-check", "prettier", stop_after_first = true },
+            typescript = { "biome-check", "prettier" },
+            javascript = { "biome-check", "prettier" },
             json = { "biome" },
             http = { "injected" },
             svelte = { "biome-organize-imports", lsp_format = "first" },
