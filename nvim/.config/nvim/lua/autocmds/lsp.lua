@@ -9,10 +9,13 @@ autocmd("LspAttach", {
         local client = lsp.get_client_by_id(args.data.client_id)
         local methods = lsp.protocol.Methods
 
+        -- We are attaching, the client should always exist
+        assert(client ~= nil, "Has LSP client")
+
         lsp.on_type_formatting.enable()
         lsp.linked_editing_range.enable(true, nil)
 
-        if client and client:supports_method(methods.textDocument_documentHighlight) then
+        if client:supports_method(methods.textDocument_documentHighlight) then
             autocmd({ "CursorHold", "InsertLeave" }, {
                 buffer = buf,
                 callback = lsp.buf.document_highlight,
@@ -25,7 +28,7 @@ autocmd("LspAttach", {
 
         -- Code Lenses
         keymap("<leader>ll", lsp.codelens.run, { buffer = buf, desc = "LSP Lens" })
-        if client and client:supports_method(methods.textDocument_codeLens) then
+        if client:supports_method(methods.textDocument_codeLens) then
             autocmd({ "BufEnter", "CursorHold", "InsertLeave" }, {
                 buffer = buf,
                 callback = function() lsp.codelens.refresh({ bufnr = buf }) end,
