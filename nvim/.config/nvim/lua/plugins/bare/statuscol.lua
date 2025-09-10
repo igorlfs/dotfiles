@@ -16,6 +16,7 @@ return {
                 "NeogitCommitMessage",
                 "NeogitCommitView",
                 "dap-repl",
+                "help",
             },
             bt_ignore = {
                 "terminal",
