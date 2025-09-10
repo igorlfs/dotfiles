@@ -19,6 +19,4 @@ return {
     { "kylechui/nvim-surround", event = "VeryLazy", config = true },
     -- Tags
     { "windwp/nvim-ts-autotag", event = "InsertEnter", config = true },
-    -- (f-)Strings
-    { "axelvc/template-string.nvim", event = "VeryLazy", config = true },
 }
