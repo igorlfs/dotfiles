@@ -31,8 +31,21 @@ return {
             if vim.g.disable_autoformat then
                 return
             end
-            local lsp_first = vim.tbl_contains({ "svelte" }, vim.bo[bufnr].filetype)
-            return { timeout_ms = 1000, lsp_format = lsp_first and "first" or "fallback" }
+
+            ---@type table<string,conform.LspFormatOpts>
+            local ft_to_lsp_format = {
+                svelte = "first",
+                -- bqls's formatting sucks
+                -- but to be fair, I'm not really happy with any SQL formatter
+                sql = "never",
+            }
+
+            local ft = vim.bo[bufnr].filetype
+
+            return {
+                timeout_ms = 1000,
+                lsp_format = ft_to_lsp_format[ft] or "fallback",
+            }
         end,
     },
     keys = {

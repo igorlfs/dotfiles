@@ -23,4 +23,6 @@ return {
     ------ Language Extensions
     -- TypeScript
     { "igorlfs/nvim-vtsls" },
+    -- BigQuery
+    { "kitagry/bqls.nvim" },
 }
