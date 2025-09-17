@@ -12,7 +12,6 @@ autocmd("LspAttach", {
         -- We are attaching, the client should always exist
         assert(client ~= nil, "Has LSP client")
 
-        lsp.on_type_formatting.enable()
         lsp.linked_editing_range.enable(true, nil)
 
         if client:supports_method(methods.textDocument_documentHighlight) then
