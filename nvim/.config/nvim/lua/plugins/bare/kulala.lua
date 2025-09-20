@@ -10,6 +10,13 @@ return {
             },
             textHighlight = "Comment",
         },
+        ui = {
+            syntax_hl = {
+                ["@operator.kulala_http"] = "Operator",
+                ["@punctuation.bracket.kulala_http"] = "@punctuation.bracket",
+                ["@variable.kulala_http"] = "@variable",
+            },
+        },
     },
     keys = function()
         local kulala = require("kulala")
