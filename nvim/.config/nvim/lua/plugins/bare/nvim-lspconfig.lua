@@ -27,6 +27,7 @@ return {
             "ruff",
             "shopify_theme_ls",
             "svelte",
+            "postgres_lsp",
             "tinymist",
             "tailwindcss",
             "taplo",
