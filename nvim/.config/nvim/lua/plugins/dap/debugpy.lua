@@ -1,8 +1,6 @@
-require("dap").adapters.python = function(cb, config)
+require("dap").adapters.debugpy = function(cb, config)
     if config.request == "attach" then
-        ---@diagnostic disable-next-line: undefined-field
         local port = (config.connect or config).port
-        ---@diagnostic disable-next-line: undefined-field
         local host = (config.connect or config).host or "localhost"
         cb({
             type = "server",
@@ -17,6 +15,3 @@ require("dap").adapters.python = function(cb, config)
         })
     end
 end
-
--- The python adapter is deprecated, see nvim-dap-python#129
-require("dap").adapters.debugpy = require("dap").adapters.python

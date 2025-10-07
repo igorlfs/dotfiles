@@ -1,6 +1,5 @@
 return {
     "lewis6991/gitsigns.nvim",
-    event = "VeryLazy",
     opts = {
         gh = true,
         attach_to_untracked = true,
