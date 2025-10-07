@@ -1,5 +1,4 @@
 local o = vim.o
-local data = vim.fn.stdpath("data")
 
 require("vim._extui").enable({})
 
@@ -22,17 +21,20 @@ o.winborder = "rounded"
 o.nrformats = "bin,hex,blank"
 
 -- History
+
 o.undofile = true -- Enable persistent undo
 o.swapfile = false -- A swap file is yet to save me
 o.shadafile = "NONE" -- Don't save history
 
 -- Completion
+
 o.complete = ".,o" -- completion sources: current buffer + omnifunc
 o.completeopt = "menuone,popup,noselect,noinsert,fuzzy" -- More intuitive completion options
 o.pumheight = 10 -- Limit completion window up to 10 lines
 o.wildoptions = "pum,tagfile,fuzzy" -- Enable fuzzy finding commands
 
 -- Softwrap
+
 o.wrap = false -- Disable softwrap by default
 o.linebreak = true -- Wrap words, not chars
 o.breakindent = true -- Indent softwrapped lines
@@ -45,6 +47,7 @@ o.relativenumber = true
 o.numberwidth = 2
 
 -- Command line
+
 o.cmdheight = 0 -- Hide command line window
 
 -- Cursor
@@ -54,7 +57,9 @@ o.cursorline = true
 
 -- Spell
 
-o.spellfile = data .. "/spell/en.utf-8.add," .. data .. "/spell/pt.utf-8.add" -- Custom dictionary files
+local spell = vim.fn.stdpath("data") .. "/spell/"
+
+o.spellfile = spell .. "en.utf-8.add," .. spell .. "pt.utf-8.add" -- Custom dictionary files
 o.spelllang = "en,pt_br"
 o.spelloptions = "camel"
 o.spellsuggest = "best,9" -- Limit the number of suggestions for spell

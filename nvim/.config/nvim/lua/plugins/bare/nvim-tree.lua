@@ -6,11 +6,6 @@ return {
         { "<A-E>", "<CMD>NvimTreeToggle<CR>", desc = "Toggle Explorer" },
     },
     opts = {
-        -- Might wanna sort considering numbers, see
-        -- https://github.com/nvim-tree/nvim-tree.lua/wiki/Recipes#sorting-files-naturally-respecting-numbers-within-files-names
-        -- Reference implementation does not take into account float numbers, though
-        -- Also, it mixes both files and directories
-        -- Both of these issues are fixable, for sure, but currently there's no strong need for this feature
         renderer = {
             icons = {
                 show = {
@@ -21,6 +16,7 @@ return {
         on_attach = function(bufnr)
             local api = require("nvim-tree.api")
 
+            ---@param desc string
             local function opts(desc)
                 return { desc = "nvim-tree: " .. desc, buffer = bufnr, silent = true, nowait = true }
             end
