@@ -48,6 +48,9 @@ return {
 
             -- Text object
             keymap("ih", gitsigns.select_hunk, { silent = true }, { "o", "x" })
+
+            -- Refresh statusline to fetch the branch right after attaching
+            vim.cmd.redrawstatus()
         end,
     },
 }

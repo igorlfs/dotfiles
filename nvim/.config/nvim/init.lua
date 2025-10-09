@@ -5,6 +5,7 @@ require("autocmds")
 require("diagnostics")
 require("filetype")
 require("watch")
+require("statusline")
 
 if vim.g.neovide ~= nil then
     require("neovide")

@@ -51,7 +51,12 @@ return {
     keys = {
         {
             "<A-f>",
-            function() vim.g.disable_autoformat = not vim.g.disable_autoformat end,
+            function()
+                vim.g.disable_autoformat = not vim.g.disable_autoformat
+
+                -- Refresh statusline right after toggling autoformat, so it reflects instantly
+                vim.cmd.redrawstatus()
+            end,
             desc = "Toggle Format-on-Save",
         },
     },

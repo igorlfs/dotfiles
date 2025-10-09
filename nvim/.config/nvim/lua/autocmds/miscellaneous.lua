@@ -33,6 +33,12 @@ autocmd("FileType", {
     end,
 })
 
+autocmd("User", {
+    desc = "Refresh statusline on DAP Status",
+    pattern = "DapProgressUpdate",
+    callback = function() vim.cmd.redrawstatus() end,
+})
+
 autocmd("TextYankPost", {
     desc = "Highlight on yank",
     callback = function() vim.hl.on_yank() end,
