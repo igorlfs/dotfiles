@@ -12,9 +12,9 @@ vim.diagnostic.config({
             [severity.HINT] = "DiagnosticHint",
         },
         text = {
-            [severity.ERROR] = "",
-            [severity.WARN] = "",
-            [severity.INFO] = "",
+            [severity.ERROR] = " ",
+            [severity.WARN] = " ",
+            [severity.INFO] = " ",
             [severity.HINT] = "󰌵",
         },
     },

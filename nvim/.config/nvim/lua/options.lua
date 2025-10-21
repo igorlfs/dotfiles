@@ -1,7 +1,5 @@
 local o = vim.o
 
-require("vim._extui").enable({})
-
 -- Miscellaneous
 
 o.gdefault = true -- Replace all line matches during substitution
@@ -14,7 +12,6 @@ o.exrc = true
 o.tabclose = "left"
 o.guifont = "ZedMono Nerd Font:h11"
 o.title = true
-o.diffopt = "internal,filler,closeoff,indent-heuristic,inline:word,linematch:60,algorithm:histogram"
 o.shortmess = "ltToOCFIc" -- Reduce vim's verboseness and remove intro message
 o.confirm = true
 o.winborder = "rounded"

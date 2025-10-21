@@ -1,3 +1,5 @@
+require("vim._extui").enable({})
+
 require("globals")
 require("options")
 require("keymaps")
