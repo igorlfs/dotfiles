@@ -32,11 +32,6 @@ return {
             show_on_dirs = true,
             diagnostic_opts = true,
         },
-        actions = {
-            open_file = {
-                quit_on_open = true,
-            },
-        },
         view = {
             adaptive_size = true,
             preserve_window_proportions = true,
