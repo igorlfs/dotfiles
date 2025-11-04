@@ -25,7 +25,6 @@ return {
             "jsonls",
             "lua_ls",
             "ruff",
-            "shopify_theme_ls",
             "svelte",
             "postgres_lsp",
             "tinymist",

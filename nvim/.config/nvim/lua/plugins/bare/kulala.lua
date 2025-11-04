@@ -2,7 +2,6 @@ return {
     "mistweaverco/kulala.nvim",
     opts = {
         icons = {
-            lualine = "󰖟",
             inlay = {
                 loading = "󰔛",
                 done = "",
