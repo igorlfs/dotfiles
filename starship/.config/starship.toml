@@ -6,3 +6,6 @@ add_newline = false
 
 [time]
 disabled = false
+
+[lua]
+disabled = true
