@@ -20,7 +20,6 @@ return {
                 f = ai.gen_spec.treesitter({ a = "@function.outer", i = "@function.inner" }),
                 u = ai.gen_spec.function_call(),
                 c = ai.gen_spec.treesitter({ a = "@class.outer", i = "@class.inner" }),
-                t = { "<([%p%w]-)%f[^<%w][^<>]->.-</%1>", "^<.->().*()</[^/]->$" },
             },
         })
     end,

@@ -28,6 +28,8 @@ return {
             },
             bt_ignore = {
                 "terminal",
+                -- Handless kulala's filetypes (and likely other I also wanna ignore)
+                "nofile",
             },
         })
     end,

@@ -224,7 +224,7 @@ end
 M.plugin_kulala = function()
     local env = require("kulala").get_selected_env()
     local ft = vim.bo[0].ft
-    local result = (ft ~= "http" or not env) and "" or env
+    local result = (ft == "http" or ft:find("kulala")) and env or ""
 
     if result == "" then
         return ""
@@ -240,12 +240,14 @@ M.vim_search = function()
         return ""
     end
 
-    ---@type {current: number, maxcount:number, total:number}
-    local result = vim.fn.searchcount()
+    -- In some scenarios, `searchcount` may throw an error
+    local ok, result = pcall(vim.fn.searchcount)
 
-    if next(result) == nil then
+    if not ok or next(result) == nil then
         return ""
     end
+
+    ---@cast result {current: number, maxcount:number, total:number}
 
     local denominator = math.min(result.total, result.maxcount)
     return string.format(" [%d/%d] ", result.current, denominator)

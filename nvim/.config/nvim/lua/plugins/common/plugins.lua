@@ -4,7 +4,6 @@ return {
         "nvim-treesitter/nvim-treesitter",
         build = ":TSUpdate",
         branch = "main",
-        lazy = false,
         dependencies = {
             "nvim-treesitter/nvim-treesitter-textobjects",
             { "igorlfs/nvim-dap-repl-highlights", config = true },
@@ -18,5 +17,5 @@ return {
     -- Surround
     { "kylechui/nvim-surround", event = "VeryLazy", config = true },
     -- Tags
-    { "windwp/nvim-ts-autotag", event = "InsertEnter", config = true },
+    { "windwp/nvim-ts-autotag", config = true },
 }
