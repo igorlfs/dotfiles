@@ -11,8 +11,6 @@ autocmd("LspAttach", {
         -- We are attaching, the client should always exist
         assert(client ~= nil, "Has LSP client")
 
-        lsp.linked_editing_range.enable(true, nil)
-
         if client:supports_method("textDocument/documentHighlight") then
             autocmd({ "CursorHold", "InsertLeave" }, {
                 buffer = buf,
