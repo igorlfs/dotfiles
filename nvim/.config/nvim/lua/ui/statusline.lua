@@ -15,59 +15,14 @@ api.nvim_set_hl(0, "StatusLineDapIcon", { link = "Title" })
 api.nvim_set_hl(0, "StatusLineAutoFormat", { link = "DiagnosticWarn" })
 api.nvim_set_hl(0, "StatusLinePluginKulala", { link = "TermCursor" })
 
-local vim_diagnostic_config = vim.diagnostic.config() or {}
-local signs = vim_diagnostic_config.signs or {}
-if type(signs) == "function" then
-    signs = signs(0, 0)
-end
-
-local vim_diagnostic_icons = (type(signs) == "table" and signs.text) or {}
-
-local severity_to_string = { "Error", "Warn", "Info", "Hint" }
-
 M.vim_diagnostics = function()
-    if vim.bo.filetype == "lazy" then
+    local status = vim.diagnostic.status()
+
+    if status == "" then
         return ""
     end
 
-    local counts = vim.iter(vim.diagnostic.get(0)):fold(
-        { 0, 0, 0, 0 },
-        ---@param acc integer[]
-        ---@param diagnostic vim.Diagnostic
-        function(acc, diagnostic)
-            acc[diagnostic.severity] = acc[diagnostic.severity] + 1
-            return acc
-        end
-    )
-
-    local severity = 0
-    local parts = vim.iter(counts)
-        :map(
-            ---@param count integer
-            function(count)
-                -- This works because the severity is implicitly mapped as E:1,W:2,I:3,H:4
-                severity = severity + 1
-
-                if count == 0 then
-                    return nil
-                end
-
-                local icon = vim_diagnostic_icons[severity]
-
-                local hl = "Diagnostic" .. severity_to_string[severity]
-
-                return string.format("%%#%s#%s%%* %d ", hl, icon, count)
-            end
-        )
-        :totable()
-
-    local result = table.concat(parts)
-
-    if result == "" then
-        return ""
-    end
-
-    return string.format(" %s", result)
+    return string.format(" %s ", status:gsub(":", " "))
 end
 
 M.git_branch = function()
