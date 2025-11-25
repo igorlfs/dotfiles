@@ -8,7 +8,7 @@ require("diagnostics")
 require("filetype")
 require("watch")
 require("lsp-features")
-require("statusline")
+require("ui.statusline")
 
 if vim.g.neovide ~= nil then
     require("neovide")

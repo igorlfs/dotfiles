@@ -15,27 +15,6 @@ api.nvim_set_hl(0, "StatusLineDapIcon", { link = "Title" })
 api.nvim_set_hl(0, "StatusLineAutoFormat", { link = "DiagnosticWarn" })
 api.nvim_set_hl(0, "StatusLinePluginKulala", { link = "TermCursor" })
 
-local get_mode_hl = function()
-    local mode = api.nvim_get_mode().mode
-    local mini_mode = "MiniStatuslineMode"
-
-    -- These groups are enabled because catppuccin detects mini.ai and enables all of mini's hl groups
-
-    if vim.startswith(mode, "i") or mode == "t" then
-        return mini_mode .. "Insert"
-    elseif vim.startswith(mode, "n") then
-        return mini_mode .. "Normal"
-    elseif vim.startswith(mode, "R") then
-        return mini_mode .. "Replace"
-    elseif vim.startswith(mode:lower(), "v") then
-        return mini_mode .. "Visual"
-    elseif mode == "c" then
-        return mini_mode .. "Command"
-    else
-        return mini_mode .. "Other"
-    end
-end
-
 local vim_diagnostic_config = vim.diagnostic.config() or {}
 local signs = vim_diagnostic_config.signs or {}
 if type(signs) == "function" then
@@ -99,7 +78,7 @@ M.git_branch = function()
         return ""
     end
 
-    local hl = get_mode_hl()
+    local hl = require("ui.shared").get_mode_hl()
 
     return string.format("%%#%s#  %s %%*", hl, result)
 end
@@ -165,7 +144,7 @@ M.vim_session = function()
         return ""
     end
 
-    local hl = get_mode_hl()
+    local hl = require("ui.shared").get_mode_hl()
 
     return string.format("%%#%s# %s %%*", hl, result)
 end
@@ -305,6 +284,6 @@ M.render = function()
     })
 end
 
-vim.o.statusline = "%!v:lua.require'statusline'.render()"
+vim.o.statusline = "%!v:lua.require'ui.statusline'.render()"
 
 return M
