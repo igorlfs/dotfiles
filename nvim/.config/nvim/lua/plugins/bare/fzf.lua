@@ -31,6 +31,9 @@ return {
             code_actions = {
                 -- See https://github.com/ibhagwan/fzf-lua/issues/1295
                 previewer = false,
+                -- Exlucude code actions from resume state
+                -- See https://github.com/ibhagwan/fzf-lua/discussions/2425
+                no_resume = true,
             },
         },
         grep = {
@@ -59,5 +62,5 @@ return {
         }
     end,
     cmd = { "FzfLua" },
-    init = function() require("fzf-lua").register_ui_select() end,
+    init = function() require("fzf-lua").register_ui_select({ no_resume = true }) end,
 }
