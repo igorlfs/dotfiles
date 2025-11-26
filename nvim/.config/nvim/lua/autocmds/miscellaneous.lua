@@ -34,8 +34,8 @@ autocmd("FileType", {
 })
 
 autocmd("User", {
-    desc = "Refresh statusline on DAP Status",
-    pattern = "DapProgressUpdate",
+    desc = "Refresh statusline",
+    pattern = { "DapProgressUpdate", "GitSignsUpdate" },
     callback = function() vim.cmd.redrawstatus() end,
 })
 
