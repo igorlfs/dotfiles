@@ -33,6 +33,11 @@ autocmd("FileType", {
     end,
 })
 
+autocmd({ "TermRequest", "ModeChanged" }, {
+    desc = "Refresh tabline",
+    callback = function() vim.cmd.redrawtabline() end,
+})
+
 autocmd("User", {
     desc = "Refresh statusline",
     pattern = { "DapProgressUpdate", "GitSignsUpdate" },
