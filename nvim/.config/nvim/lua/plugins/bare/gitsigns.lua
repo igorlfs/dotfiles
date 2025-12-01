@@ -5,7 +5,7 @@ return {
         attach_to_untracked = true,
         on_attach = function()
             local gitsigns = require("gitsigns")
-            local keymap = require("util").keymap
+            local keymap = require("igorlfs.util").keymap
 
             -- Navigation
             keymap("]c", function()

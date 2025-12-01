@@ -9,7 +9,7 @@ g.neovide_scale_factor = 1.0
 local change_scale_factor = function(delta) g.neovide_scale_factor = g.neovide_scale_factor * delta end
 
 ------ Keymaps
-local keymap = require("util").keymap
+local keymap = require("igorlfs.util").keymap
 local SCALE_FACTOR = 1.1
 -- Zoom
 keymap("<C-=>", function() change_scale_factor(SCALE_FACTOR) end, "Zoom-in Neovide")

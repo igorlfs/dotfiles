@@ -31,7 +31,7 @@ return {
             code_actions = {
                 -- See https://github.com/ibhagwan/fzf-lua/issues/1295
                 previewer = false,
-                -- Exlucude code actions from resume state
+                -- Exclude code actions from resume state
                 -- See https://github.com/ibhagwan/fzf-lua/discussions/2425
                 no_resume = true,
             },

@@ -1,6 +1,6 @@
 local str = string.format
 
-local util = require("util")
+local util = require("igorlfs.util")
 
 local keymap = util.keymap
 local feedkeys = util.feedkeys

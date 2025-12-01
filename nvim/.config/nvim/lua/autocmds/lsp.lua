@@ -1,4 +1,4 @@
-local keymap = require("util").keymap
+local keymap = require("igorlfs.util").keymap
 local autocmd = vim.api.nvim_create_autocmd
 
 autocmd("LspAttach", {
@@ -33,12 +33,7 @@ autocmd("LspAttach", {
 
         keymap(
             "<A-h>",
-            function()
-                lsp.inlay_hint.enable(
-                    not lsp.inlay_hint.is_enabled({ bufnr = buf }),
-                    { bufnr = buf }
-                )
-            end,
+            function() lsp.inlay_hint.enable(not lsp.inlay_hint.is_enabled({ bufnr = buf }), { bufnr = buf }) end,
             { buffer = buf, desc = "Toggle Hints" }
         )
     end,
