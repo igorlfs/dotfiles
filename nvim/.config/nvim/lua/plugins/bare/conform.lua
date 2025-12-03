@@ -21,6 +21,7 @@ return {
             typescript = { "biome-check", "prettier" },
             javascript = { "biome-check", "prettier" },
             json = { "biome" },
+            jsonc = { "biome" },
             http = { "injected" },
             svelte = { "biome-organize-imports", lsp_format = "first" },
         },
