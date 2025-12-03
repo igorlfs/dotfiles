@@ -5,6 +5,53 @@ local api = vim.api
 ---@param str string
 local len = function(str) return vim.fn.strdisplaywidth(str) end
 
+---@param str string
+---@param max_width integer
+---@param from_end? boolean
+---There's no UTF-8 string manipulation in neovim smh
+---https://github.com/neovim/neovim/issues/14281
+local function truncate_by_display_width(str, max_width, from_end)
+    assert(max_width > 0)
+
+    if vim.fn.strdisplaywidth(str) <= max_width then
+        return str
+    end
+
+    ---@type string[]
+    local full_chars = {}
+
+    -- This ungodly regex catches UTF-8 characters
+    for char in string.gmatch(str, "([%z\1-\127\194-\244][\128-\191]*)") do
+        table.insert(full_chars, char)
+    end
+
+    local loop_start = from_end and #full_chars or 1
+    local loop_end = from_end and 1 or #full_chars
+    local loop_step = from_end and -1 or 1
+
+    local current_width = 0
+
+    ---@type string[]
+    local result_chars = {}
+
+    for i = loop_start, loop_end, loop_step do
+        local char = full_chars[i]
+        local char_width = vim.fn.strdisplaywidth(char)
+        if current_width + char_width <= max_width then
+            if from_end then
+                table.insert(result_chars, 1, char)
+            else
+                table.insert(result_chars, char)
+            end
+            current_width = current_width + char_width
+        else
+            break
+        end
+    end
+
+    return table.concat(result_chars)
+end
+
 local hl_groups = {
     BASE = "Tabline",
     FILL = "TabLineFill",
@@ -263,7 +310,7 @@ M.render = function()
         local CUT = "…  "
         local LEN_CUT = len(CUT)
 
-        local trunc = cur_tab_data.name:sub(0, cols - padding - LEN_CUT)
+        local trunc = truncate_by_display_width(cur_tab_data.name, cols - padding - LEN_CUT)
 
         local line = ""
 
@@ -329,9 +376,9 @@ M.render = function()
 
                     if truncate_to_len > 0 then
                         if cur_is_start then
-                            buf_alias = buf_alias:sub(1, truncate_to_len)
+                            buf_alias = truncate_by_display_width(buf_alias, truncate_to_len, false)
                         else
-                            buf_alias = buf_alias:sub(-truncate_to_len)
+                            buf_alias = truncate_by_display_width(buf_alias, truncate_to_len, true)
                         end
 
                         local hl = (buf.page == cur_idx and mode_hl or hl_groups.BASE)
@@ -382,7 +429,7 @@ M.render = function()
                     local truncate_to_len = r_space - r_content_len
 
                     if truncate_to_len > 0 then
-                        buf_alias = buf_alias:sub(1, truncate_to_len)
+                        buf_alias = truncate_by_display_width(buf_alias, truncate_to_len, false)
 
                         r_line = r_line .. "%#" .. hl_groups.BASE .. "#%" .. buf.page .. "T" .. buf_alias .. "%T"
                     end
@@ -405,7 +452,7 @@ M.render = function()
                     local truncate_to_len = l_space - l_content_len
 
                     if truncate_to_len > 0 then
-                        buf_alias = buf_alias:sub(-truncate_to_len)
+                        buf_alias = truncate_by_display_width(buf_alias, truncate_to_len, true)
 
                         l_line = "%#" .. hl_groups.BASE .. "#%" .. buf.page .. "T" .. buf_alias .. "%T" .. l_line
                     end
