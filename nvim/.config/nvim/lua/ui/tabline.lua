@@ -10,7 +10,7 @@ local len = function(str) return vim.fn.strdisplaywidth(str) end
 ---@param from_end? boolean
 ---There's no UTF-8 string manipulation in neovim smh
 ---https://github.com/neovim/neovim/issues/14281
-local function truncate_by_display_width(str, max_width, from_end)
+local truncate_by_display_width = function(str, max_width, from_end)
     assert(max_width > 0)
 
     if vim.fn.strdisplaywidth(str) <= max_width then
@@ -102,6 +102,8 @@ local fetch_buf_name = function(bufnr)
         return "Mason"
     elseif filetype == "lazy" then
         return "Lazy"
+    elseif filetype == "help" then
+        return "  " .. vim.fn.fnamemodify(buf_name, ":t")
     elseif filetype == "dap-view" then
         return "DAP View"
     elseif filetype == "dap-repl" then
@@ -122,7 +124,7 @@ local fetch_buf_name = function(bufnr)
         return filetype
     elseif buf_name == "kulala://ui" then
         return "Kulala"
-    elseif string.match(buf_name, "diffview:/") then
+    elseif string.match(buf_name, "^diffview://") then
         -- Diff buffers are handled especially
         return vim.fn.fnamemodify(buf_name, ":t")
     elseif buf_name == "" then
