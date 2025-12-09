@@ -22,6 +22,7 @@ return {
             "dotls",
             "emmet_language_server",
             "html",
+            "hyprls",
             "jsonls",
             "lua_ls",
             "ruff",
