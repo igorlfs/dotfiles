@@ -81,8 +81,10 @@ end
 ---@param bufnr integer
 ---@return string
 local fetch_buf_name = function(bufnr)
-    local buftype = vim.bo[bufnr].buftype
-    local filetype = vim.bo[bufnr].filetype
+    local buf = vim.bo[bufnr]
+
+    local buftype = buf.buftype
+    local filetype = buf.filetype
 
     local buf_name = api.nvim_buf_get_name(bufnr)
 
@@ -102,7 +104,7 @@ local fetch_buf_name = function(bufnr)
         return "Mason"
     elseif filetype == "lazy" then
         return "Lazy"
-    elseif filetype == "help" then
+    elseif filetype == "help" and not buf.modifiable then
         return "  " .. vim.fn.fnamemodify(buf_name, ":t")
     elseif filetype == "dap-view" then
         return "DAP View"
