@@ -3,18 +3,18 @@ return {
     config = function()
         local builtin = require("statuscol.builtin")
 
-        local not_help = function(args) return vim.bo[args.buf].ft ~= "help" end
+        local modifiable = function(args) return vim.bo[args.buf].modifiable end
 
         require("statuscol").setup({
             relculright = true,
             segments = {
                 {
                     sign = { name = { "Dap" } },
-                    condition = { not_help },
+                    condition = { modifiable },
                 },
                 {
                     text = { builtin.lnumfunc, " " },
-                    condition = { not_help, not_help },
+                    condition = { modifiable, modifiable },
                 },
                 { sign = { namespace = { "gitsigns" }, wrap = true } },
             },
@@ -28,7 +28,7 @@ return {
             },
             bt_ignore = {
                 "terminal",
-                -- Handless kulala's filetypes (and likely other I also wanna ignore)
+                -- Handles kulala's filetypes (and likely others I also wanna ignore)
                 "nofile",
             },
         })
