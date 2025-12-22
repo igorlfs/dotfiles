@@ -47,6 +47,7 @@ return {
         local fzflua = require("fzf-lua")
         return {
             { "<leader>ff", fzflua.global, desc = "FZF Files" },
+            { "<leader>fu", fzflua.undotree, desc = "FZF Undotree" },
             { "<leader>ft", fzflua.tabs, desc = "FZF Tabs" },
             { "<leader>fg", fzflua.live_grep, desc = "FZF Grep" },
             { "<leader>fb", fzflua.buffers, desc = "FZF Buffers" },

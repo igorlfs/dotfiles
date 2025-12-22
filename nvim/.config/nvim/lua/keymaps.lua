@@ -45,6 +45,7 @@ keymap("<A-]>", "<CMD>tabnext<CR>", "Goto next tab")
 keymap("<A-[>", "<CMD>tabprevious<CR>", "Goto prev tab")
 keymap("<A-->", "<CMD>tabm-<CR>", "Move tab to the left")
 keymap("<A-=>", "<CMD>tabm+<CR>", "Move tab to the right")
+keymap("<A-Tab>", "<CMD>tabnew<CR>", "New tab")
 keymap("<A-'>", "<CMD>tab split<CR>", "Clone window in new tab")
 
 ---- Miscellaneous
