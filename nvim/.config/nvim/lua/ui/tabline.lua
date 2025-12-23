@@ -98,6 +98,8 @@ local fetch_buf_name = function(bufnr)
         return "Checkhealth"
     elseif filetype == "qf" then
         return "QuickFix"
+    elseif filetype == "pager" then
+        return "Pager"
     elseif filetype == "NvimTree" then
         return "NvimTree"
     elseif filetype == "mason" then
