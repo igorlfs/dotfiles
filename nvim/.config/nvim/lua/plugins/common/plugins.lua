@@ -3,7 +3,6 @@ return {
     {
         "nvim-treesitter/nvim-treesitter",
         build = ":TSUpdate",
-        branch = "main",
         dependencies = {
             "nvim-treesitter/nvim-treesitter-textobjects",
             { "igorlfs/nvim-dap-repl-highlights", config = true },
