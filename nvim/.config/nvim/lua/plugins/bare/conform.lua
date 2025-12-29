@@ -33,9 +33,6 @@ return {
             ---@type table<string,conform.LspFormatOpts>
             local ft_to_lsp_format = {
                 svelte = "first",
-                -- bqls's formatting sucks
-                -- but to be fair, I'm not really happy with any SQL formatter
-                sql = "never",
             }
 
             local ft = vim.bo[bufnr].filetype
