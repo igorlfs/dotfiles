@@ -3,18 +3,23 @@ return {
     config = function()
         local builtin = require("statuscol.builtin")
 
-        local modifiable = function(args) return vim.bo[args.buf].modifiable end
+        local eligible = function(args)
+            local buf = vim.bo[args.buf]
+            local win = vim.wo[args.win]
+
+            return buf.modifiable or win.diff
+        end
 
         require("statuscol").setup({
             relculright = true,
             segments = {
                 {
                     sign = { name = { "Dap" } },
-                    condition = { modifiable },
+                    condition = { eligible },
                 },
                 {
                     text = { builtin.lnumfunc, " " },
-                    condition = { modifiable, modifiable },
+                    condition = { eligible, eligible },
                 },
                 { sign = { namespace = { "gitsigns" }, wrap = true } },
             },
