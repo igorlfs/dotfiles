@@ -1,4 +1,4 @@
-local shared = require("shared")
+local shared = require("igorlfs.shared")
 
 ---@type vim.lsp.Config
 return {
