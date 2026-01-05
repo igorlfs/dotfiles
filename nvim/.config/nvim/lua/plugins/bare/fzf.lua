@@ -42,6 +42,9 @@ return {
             -- Used to ignore searching inside the .git folder
             RIPGREP_CONFIG_PATH = vim.env.RIPGREP_CONFIG_PATH,
         },
+        ui_select = {
+            no_resume = true,
+        },
     },
     keys = function()
         local fzflua = require("fzf-lua")
@@ -63,5 +66,4 @@ return {
         }
     end,
     cmd = { "FzfLua" },
-    init = function() require("fzf-lua").register_ui_select({ no_resume = true }) end,
 }
