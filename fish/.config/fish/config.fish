@@ -62,5 +62,7 @@ set -x FZF_DEFAULT_OPTS "--color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38b
 fish_add_path -P "$XDG_DATA_HOME/npm/bin"
 fish_add_path -P "$PNPM_HOME"
 
+fish_config theme choose "Catppuccin Mocha"
+
 zoxide init --cmd cd fish |  source
 starship init fish | source
