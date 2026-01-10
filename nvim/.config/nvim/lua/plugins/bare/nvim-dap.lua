@@ -48,7 +48,7 @@ return {
         }) do
             vim.fn.sign_define(group, { text = "●", texthl = group })
         end
-        vim.fn.sign_define("DapStopped", { text = "", texthl = "DapStopped", numhl = "debugPC" })
+        vim.fn.sign_define("DapStopped", { text = "", texthl = "DapStopped", linehl = "debugPC", numhl = "debugPC" })
 
         -- Setup
 
