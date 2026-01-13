@@ -16,6 +16,9 @@ o.shortmess = "ltToOCFIc" -- Reduce vim's verboseness and remove intro message
 o.confirm = true
 o.winborder = "rounded"
 o.nrformats = "bin,hex,blank"
+-- Allows using `gf` when file contains square brackets
+-- See https://github.com/vim/vim/issues/19147
+o.isfname = "@,48-57,/,.,-,_,+,,,#,$,%,~,=,[,]"
 
 -- History
 
