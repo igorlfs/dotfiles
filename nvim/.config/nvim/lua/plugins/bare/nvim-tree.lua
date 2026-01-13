@@ -6,6 +6,9 @@ return {
         { "<A-E>", "<CMD>NvimTreeToggle<CR>", desc = "Toggle Explorer" },
     },
     opts = {
+        git = {
+            enable = false,
+        },
         renderer = {
             icons = {
                 show = {
