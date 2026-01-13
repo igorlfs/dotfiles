@@ -16,6 +16,7 @@ return {
                 },
             },
         },
+        sync_root_with_cwd = true,
         on_attach = function(bufnr)
             local api = require("nvim-tree.api")
 
