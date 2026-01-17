@@ -42,6 +42,9 @@ return {
             -- Used to ignore searching inside the .git folder
             RIPGREP_CONFIG_PATH = vim.env.RIPGREP_CONFIG_PATH,
         },
+        tabs = {
+            locate = false,
+        },
         ui_select = {
             no_resume = true,
         },
