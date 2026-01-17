@@ -1,16 +1,31 @@
 top's Config File (Linux processes with windows)
-Id:j, Mode_altscr=0, Mode_irixps=1, Delay_time=1.0, Curwin=1
-Def	fieldscur=¥¨³´»½ÀÄ·º¹Å&')*+,-./012568<>?ABCFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz
-	winflags=196148, sortindx=18, maxtasks=0, graph_cpus=0, graph_mems=0, double_up=0, combine_cpus=0
-	summclr=5, msgsclr=6, headclr=5, taskclr=1
-Job	fieldscur=¥&9·º(34Ä;½@<'Å)*+,-./012568>?ABCFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz
-	winflags=818620, sortindx=21, maxtasks=0, graph_cpus=2, graph_mems=2, double_up=1, combine_cpus=1
-	summclr=6, msgsclr=1, headclr=7, taskclr=0
-Mem	fieldscur=¥º»<½¾¿ÀÁMBNÃD34·Å&'()*+,-./0125689FGHIJKLOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz
-	winflags=195892, sortindx=21, maxtasks=0, graph_cpus=0, graph_mems=0, double_up=0, combine_cpus=0
-	summclr=5, msgsclr=5, headclr=4, taskclr=5
-Usr	fieldscur=¥¦§¨ª°¹·ºÄÅ)+,-./1234568;<=>?@ABCFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz
-	winflags=195892, sortindx=3, maxtasks=0, graph_cpus=0, graph_mems=0, double_up=0, combine_cpus=0
-	summclr=3, msgsclr=3, headclr=2, taskclr=3
-Fixed_widest=-1, Summ_mscale=1, Task_mscale=1, Zero_suppress=1
-
+Id:m, Mode_altscr=0, Mode_irixps=1, Delay_time=1.0, Curwin=3
+Def	fieldscur=  75   81  103  105  119  123  129  137  111  117  115  139   76   78   82   84   86   88   90   92 
+		    94   96   98  100  106  108  112  120  124  126  130  132  134  140  142  144  146  148  150  152 
+		   154  156  158  160  162  164  166  168  170  172  174  176  178  180  182  184  186  188  190  192 
+		   194  196  198  200  202  204  206  208  210  212  214  216  218  220  222  224  226  228  230  232 
+		   234  236  238  240  242  244  246  248  250  252  254  256  258  260  262  264  266  268  270  272 
+	winflags=196148, sortindx=18, maxtasks=0, graph_cpus=0, graph_mems=0, double_up=0, combine_cpus=0, core_types=0
+	summclr=5, msgsclr=6, headclr=5, taskclr=1, task_xy=1
+Job	fieldscur=  75   76  114  111  117   80  102  104  137  118  123  128  120   78  139   82   84   86   88   90 
+		    92   94   96   98  100  106  108  112  124  126  130  132  134  140  142  144  146  148  150  152 
+		   154  156  158  160  162  164  166  168  170  172  174  176  178  180  182  184  186  188  190  192 
+		   194  196  198  200  202  204  206  208  210  212  214  216  218  220  222  224  226  228  230  232 
+		   234  236  238  240  242  244  246  248  250  252  254  256  258  260  262  264  266  268  270  272 
+	winflags=818620, sortindx=21, maxtasks=0, graph_cpus=2, graph_mems=2, double_up=1, combine_cpus=1, core_types=0
+	summclr=6, msgsclr=1, headclr=7, taskclr=0, task_xy=0
+Mem	fieldscur=  75  117  119  120  123  125  127  129  131  154  132  156  135  136  102  104  111  139   76   78 
+		    80   82   84   86   88   90   92   94   96   98  100  106  108  112  114  140  142  144  146  148 
+		   150  152  158  160  162  164  166  168  170  172  174  176  178  180  182  184  186  188  190  192 
+		   194  196  198  200  202  204  206  208  210  212  214  216  218  220  222  224  226  228  230  232 
+		   234  236  238  240  242  244  246  248  250  252  254  256  258  260  262  264  266  268  270  272 
+	winflags=195892, sortindx=21, maxtasks=0, graph_cpus=0, graph_mems=0, double_up=0, combine_cpus=0, core_types=0
+	summclr=5, msgsclr=5, headclr=4, taskclr=5, task_xy=5
+Usr	fieldscur=  75   76   78   81   84   96  114  111  117  137  139   82   86   88   90   92   94   98  100  102 
+		   104  106  108  112  118  120  122  124  126  128  130  132  134  140  142  144  146  148  150  152 
+		   154  156  158  160  162  164  166  168  170  172  174  176  178  180  182  184  186  188  190  192 
+		   194  196  198  200  202  204  206  208  210  212  214  216  218  220  222  224  226  228  230  232 
+		   234  236  238  240  242  244  246  248  250  252  254  256  258  260  262  264  266  268  270  272 
+	winflags=195892, sortindx=21, maxtasks=0, graph_cpus=0, graph_mems=0, double_up=0, combine_cpus=0, core_types=0
+	summclr=3, msgsclr=3, headclr=2, taskclr=3, task_xy=3
+Fixed_widest=-1, Summ_mscale=1, Task_mscale=1, Zero_suppress=1, Tics_scaled=0
