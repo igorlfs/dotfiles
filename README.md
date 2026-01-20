@@ -37,10 +37,6 @@ NVIM_APPNAME=igorlfs/dotfiles/nvim/.config/nvim nvim
 
 + [Saghen/blink.cmp](https://dotfyle.com/plugins/Saghen/blink.cmp)
 
-### csv-files
-
-+ [hat0uma/csvview.nvim](https://dotfyle.com/plugins/hat0uma/csvview.nvim)
-
 ### debugging
 
 + [theHamsta/nvim-dap-virtual-text](https://dotfyle.com/plugins/theHamsta/nvim-dap-virtual-text)
@@ -49,7 +45,6 @@ NVIM_APPNAME=igorlfs/dotfiles/nvim/.config/nvim nvim
 ### editing-support
 
 + [windwp/nvim-autopairs](https://dotfyle.com/plugins/windwp/nvim-autopairs)
-+ [axelvc/template-string.nvim](https://dotfyle.com/plugins/axelvc/template-string.nvim)
 + [windwp/nvim-ts-autotag](https://dotfyle.com/plugins/windwp/nvim-ts-autotag)
 + [echasnovski/mini.ai](https://dotfyle.com/plugins/echasnovski/mini.ai)
 
@@ -87,10 +82,6 @@ NVIM_APPNAME=igorlfs/dotfiles/nvim/.config/nvim nvim
 
 + [williamboman/mason.nvim](https://dotfyle.com/plugins/williamboman/mason.nvim)
 
-### motion
-
-+ [folke/flash.nvim](https://dotfyle.com/plugins/folke/flash.nvim)
-
 ### nvim-dev
 
 + [nvim-lua/plenary.nvim](https://dotfyle.com/plugins/nvim-lua/plenary.nvim)
@@ -103,19 +94,11 @@ NVIM_APPNAME=igorlfs/dotfiles/nvim/.config/nvim nvim
 
 + [jedrzejboczar/possession.nvim](https://dotfyle.com/plugins/jedrzejboczar/possession.nvim)
 
-### statusline
-
-+ [nvim-lualine/lualine.nvim](https://dotfyle.com/plugins/nvim-lualine/lualine.nvim)
-
 ### syntax
 
 + [nvim-treesitter/nvim-treesitter](https://dotfyle.com/plugins/nvim-treesitter/nvim-treesitter)
 + [kylechui/nvim-surround](https://dotfyle.com/plugins/kylechui/nvim-surround)
 + [nvim-treesitter/nvim-treesitter-textobjects](https://dotfyle.com/plugins/nvim-treesitter/nvim-treesitter-textobjects)
-
-### tabline
-
-+ [nanozuki/tabby.nvim](https://dotfyle.com/plugins/nanozuki/tabby.nvim)
 
 ### utility
 
