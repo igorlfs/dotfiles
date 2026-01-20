@@ -19,7 +19,6 @@ return {
             "cssls",
             "dockerls",
             "dotls",
-            "emmet_language_server",
             "html",
             "hyprls",
             "jsonls",
