@@ -65,4 +65,5 @@ fish_add_path -P "$PNPM_HOME"
 fish_config theme choose "Catppuccin Mocha"
 
 zoxide init --cmd cd fish |  source
+mise activate fish | source
 starship init fish | source
