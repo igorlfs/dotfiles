@@ -12,10 +12,6 @@ require("igorlfs.watch")
 require("ui.statusline")
 require("ui.tabline")
 
-if vim.g.neovide ~= nil then
-    require("neovide")
-end
-
 -- Bootstrap Lazy
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 
