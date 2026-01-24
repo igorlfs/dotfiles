@@ -1,0 +1,6 @@
+[tools]
+"github:EmmyLua/EmmyLuaDebugger" = "latest"
+"github:EmmyLuaLs/emmylua_dap" = "latest"
+"github:hyprland-community/hyprls" = "latest"
+"github:ribru17/ts_query_ls" = "latest"
+"github:supabase-community/postgres-language-server" = "latest"
