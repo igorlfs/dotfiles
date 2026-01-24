@@ -17,7 +17,6 @@ return {
         for _, language_server in ipairs({
             "biome",
             "cssls",
-            "dockerls",
             "dotls",
             "html",
             "hyprls",
