@@ -33,6 +33,7 @@ return {
             },
             bt_ignore = {
                 "terminal",
+                "quickfix",
                 -- Handles kulala's filetypes (and likely others I also wanna ignore)
                 "nofile",
             },
