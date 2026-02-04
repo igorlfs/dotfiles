@@ -22,14 +22,7 @@ autocmd("LspAttach", {
             })
         end
 
-        -- Code Lenses
         keymap("<leader>ll", lsp.codelens.run, { buffer = buf, desc = "LSP Lens" })
-        if client:supports_method("textDocument/codeLens") then
-            autocmd({ "BufEnter", "CursorHold", "InsertLeave" }, {
-                buffer = buf,
-                callback = function() lsp.codelens.refresh({ bufnr = buf }) end,
-            })
-        end
 
         keymap(
             "<A-h>",
