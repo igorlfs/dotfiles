@@ -9,3 +9,6 @@ disabled = false
 
 [lua]
 disabled = true
+
+[gcloud]
+disabled = true
