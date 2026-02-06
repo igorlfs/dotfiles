@@ -35,7 +35,8 @@ autocmd("FileType", {
 
 autocmd({ "TermRequest", "ModeChanged" }, {
     desc = "Refresh tabline",
-    callback = function() vim.cmd.redrawtabline() end,
+    -- Wrap in `vim.schedule` as a workaround for https://github.com/ibhagwan/fzf-lua/issues/2545
+    callback = function() vim.schedule(vim.cmd.redrawtabline) end,
 })
 
 autocmd("User", {
