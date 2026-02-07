@@ -66,6 +66,27 @@ autocmd("DirChanged", {
     callback = function(args) vim.system({ "zoxide", "add", "--", args.file }) end,
 })
 
+autocmd("TermRequest", {
+    desc = "Manipulates 'path' option on dir change",
+    callback = function(ev)
+        local val, n = string.gsub(ev.data.sequence, "\027]7;file://[^/]*", "")
+        if n > 0 then
+            local dir = val
+            if vim.fn.isdirectory(dir) == 0 then
+                vim.notify("Invalid dir: " .. dir)
+                return
+            end
+            if vim.api.nvim_get_current_buf() == ev.buf then
+                if vim.b[ev.buf].osc7_dir then
+                    vim.cmd("setlocal path-=" .. vim.b[ev.buf].osc7_dir)
+                end
+                vim.cmd("setlocal path+=" .. dir)
+                vim.b[ev.buf].osc7_dir = dir
+            end
+        end
+    end,
+})
+
 autocmd("FileType", {
     desc = "Enable Spellchecker",
     pattern = { "gitcommit", "tex", "octo", "typst" },
