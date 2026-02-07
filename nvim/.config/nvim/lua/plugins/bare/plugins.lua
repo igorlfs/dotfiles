@@ -1,8 +1,4 @@
 return {
-    ------ Miscellaneous
-    -- Package Manager for language servers, debug adapters, linters and formatters
-    { "williamboman/mason.nvim", config = true },
-
     ------ LSP Extensions
     -- workspace/fileOperations
     {
