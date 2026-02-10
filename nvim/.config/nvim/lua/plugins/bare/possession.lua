@@ -4,6 +4,8 @@ return {
     opts = {
         autosave = {
             current = true,
+            tmp = true,
+            tmp_name = "__",
         },
     },
     keys = {
