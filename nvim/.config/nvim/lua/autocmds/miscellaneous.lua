@@ -1,10 +1,14 @@
-local autocmd = vim.api.nvim_create_autocmd
+local cmd = vim.cmd
+local api = vim.api
+local fn = vim.fn
+
+local autocmd = api.nvim_create_autocmd
 
 autocmd({ "FocusGained", "TermClose", "TermLeave" }, {
     desc = "Reload files if they changed externaly",
     callback = function()
         if vim.o.buftype ~= "nofile" then
-            vim.cmd.checktime()
+            cmd.checktime()
         end
     end,
 })
@@ -36,13 +40,13 @@ autocmd("FileType", {
 autocmd({ "TermRequest", "ModeChanged" }, {
     desc = "Refresh tabline",
     -- Wrap in `vim.schedule` as a workaround for https://github.com/ibhagwan/fzf-lua/issues/2545
-    callback = function() vim.schedule(vim.cmd.redrawtabline) end,
+    callback = function() vim.schedule(cmd.redrawtabline) end,
 })
 
 autocmd("User", {
     desc = "Refresh statusline",
     pattern = { "DapProgressUpdate", "GitSignsUpdate" },
-    callback = function() vim.cmd.redrawstatus() end,
+    callback = function() cmd.redrawstatus() end,
 })
 
 autocmd("TextYankPost", {
@@ -69,20 +73,13 @@ autocmd("DirChanged", {
 autocmd("TermRequest", {
     desc = "Manipulates 'path' option on dir change",
     callback = function(ev)
-        local val, n = string.gsub(ev.data.sequence, "\027]7;file://[^/]*", "")
-        if n > 0 then
-            local dir = val
-            if vim.fn.isdirectory(dir) == 0 then
-                vim.notify("Invalid dir: " .. dir)
-                return
+        local dir, n = string.gsub(ev.data.sequence, "\027]7;file://[^/]*", "")
+        if n > 0 and fn.isdirectory(dir) ~= 0 and api.nvim_get_current_buf() == ev.buf then
+            if vim.b[ev.buf].osc7_dir then
+                cmd("setlocal path-=" .. vim.b[ev.buf].osc7_dir)
             end
-            if vim.api.nvim_get_current_buf() == ev.buf then
-                if vim.b[ev.buf].osc7_dir then
-                    vim.cmd("setlocal path-=" .. vim.b[ev.buf].osc7_dir)
-                end
-                vim.cmd("setlocal path+=" .. dir)
-                vim.b[ev.buf].osc7_dir = dir
-            end
+            cmd("setlocal path+=" .. dir)
+            vim.b[ev.buf].osc7_dir = dir
         end
     end,
 })
