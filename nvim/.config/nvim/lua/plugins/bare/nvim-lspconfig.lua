@@ -16,6 +16,7 @@ return {
             "taplo",
             "tinymist",
             "ts_query_ls",
+            "tsgo",
             "ty",
             "yamlls",
         }) do
