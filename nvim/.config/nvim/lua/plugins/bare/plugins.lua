@@ -15,8 +15,4 @@ return {
         opts = { enabled = false },
         keys = { { "<A-v>", "<CMD>DapVirtualTextToggle<CR>", desc = "Toggle DAP Virtual Text" } },
     },
-
-    ------ Language Extensions
-    -- TypeScript
-    { "igorlfs/nvim-vtsls" },
 }

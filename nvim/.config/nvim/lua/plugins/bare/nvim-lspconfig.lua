@@ -17,7 +17,6 @@ return {
             "tinymist",
             "ts_query_ls",
             "ty",
-            "vtsls",
             "yamlls",
         }) do
             vim.lsp.enable(language_server)
