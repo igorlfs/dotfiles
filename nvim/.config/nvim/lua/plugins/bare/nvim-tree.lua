@@ -26,7 +26,7 @@ return {
             end
 
             -- default mappings
-            api.config.mappings.default_on_attach(bufnr)
+            api.map.on_attach.default(bufnr)
 
             -- custom mappings
             vim.keymap.set("n", "<C-s>", api.node.open.horizontal, opts("Horizontal split"))
