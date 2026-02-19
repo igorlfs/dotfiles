@@ -10,6 +10,11 @@ return {
             textHighlight = "Comment",
         },
         ui = {
+            win_opts = {
+                bo = {
+                    buflisted = true,
+                },
+            },
             syntax_hl = {
                 ["@operator.kulala_http"] = "Operator",
                 ["@punctuation.bracket.kulala_http"] = "@punctuation.bracket",
