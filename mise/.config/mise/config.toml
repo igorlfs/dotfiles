@@ -3,4 +3,6 @@
 "github:EmmyLuaLs/emmylua_dap" = "latest"
 "github:hyprland-community/hyprls" = "latest"
 "github:ribru17/ts_query_ls" = "latest"
-"github:supabase-community/postgres-language-server" = "latest"
+"github:supabase-community/postgres-language-server" = { version = "latest", bin = "postgres-language-server" }
+"github:microsoft/vscode-js-debug" = { version = "latest", asset_pattern = "js-debug-dap-v*.tar.gz" }
+"npm:@typescript/native-preview" = "latest"
