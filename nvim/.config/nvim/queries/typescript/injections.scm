@@ -1,14 +1,7 @@
 ; extends
 
-((comment) @mark
-  (#eq? @mark "/*sql*/")
+((comment) @injection.language
   (template_string
     (string_fragment) @injection.content
-    (#set! injection.language "sql")
-    (#set! injection.combined)))
-
-((comment) @mark
-  (#eq? @mark "/*liquid*/")
-  (template_string
-    (string_fragment) @injection.content
-    (#set! injection.language "liquid")))
+    (#set! injection.combined))
+  (#gsub! @injection.language "/%*%s*([%w%p]+)%s*%*/" "%1"))
