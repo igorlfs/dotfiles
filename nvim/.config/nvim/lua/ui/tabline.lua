@@ -124,11 +124,13 @@ local fetch_buf_name = function(bufnr)
         else
             return "  " .. buf_name:gsub("octo:/.*/", "")
         end
-    elseif string.match(filetype, "^Neogit") or string.match(filetype, "^Diffview") then
+    elseif string.match(filetype, "^Neogit") then
         return filetype
+    elseif string.match(filetype, "^codediff") then
+        return vim.fn.fnamemodify(buf_name, ":t")
     elseif buf_name == "kulala://ui" then
         return "Kulala"
-    elseif string.match(buf_name, "^diffview://") then
+    elseif string.match(buf_name, "^codediff://") then
         -- Diff buffers are handled especially
         return vim.fn.fnamemodify(buf_name, ":t")
     elseif buf_name == "" then
@@ -267,7 +269,7 @@ local cleanup_bufs = function(base_bufs)
             base.name = path_aliases[base.name]
         end
 
-        if vim.wo[base.winnr].diff then
+        if vim.wo[base.winnr].diff or api.nvim_buf_get_name(base.bufnr):match("^codediff") then
             base.name = " " .. base.name
         end
 
