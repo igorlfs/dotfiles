@@ -58,8 +58,7 @@ M.git_hunks = function()
         result = string.format("%%#%s# +%d%%*", "GitSignsAdd", file_changes["add"])
     end
     if file_changes["change"] > 0 then
-        result = result
-            .. string.format("%%#%s# ~%d%%*", "GitSignsChange", file_changes["change"] / 2)
+        result = result .. string.format("%%#%s# ~%d%%*", "GitSignsChange", file_changes["change"] / 2)
     end
     if file_changes["delete"] > 0 then
         result = result .. string.format("%%#%s# -%d%%*", "GitSignsDelete", file_changes["delete"])
@@ -195,11 +194,7 @@ M.vim_selection = function()
         local line_start, col_start = vim.fn.line("v"), vim.fn.col("v")
         local line_end, col_end = vim.fn.line("."), vim.fn.col(".")
         if mode:match("") then
-            return string.format(
-                "%dx%d",
-                math.abs(line_start - line_end) + 1,
-                math.abs(col_start - col_end) + 1
-            )
+            return string.format("%dx%d", math.abs(line_start - line_end) + 1, math.abs(col_start - col_end) + 1)
         elseif mode:match("V") or line_start ~= line_end then
             return tostring(math.abs(line_start - line_end) + 1)
         elseif mode:match("v") then
