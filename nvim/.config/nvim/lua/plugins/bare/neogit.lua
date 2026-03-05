@@ -1,6 +1,7 @@
 return {
     "NeogitOrg/neogit",
     dependencies = {
+        "esmuellert/codediff.nvim",
         "nvim-lua/plenary.nvim",
         "ibhagwan/fzf-lua",
     },
