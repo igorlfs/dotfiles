@@ -1,12 +1,5 @@
 local severity = vim.diagnostic.severity
 
-local icons = {
-    [severity.ERROR] = " ",
-    [severity.WARN] = " ",
-    [severity.INFO] = " ",
-    [severity.HINT] = "󰌵",
-}
-
 vim.diagnostic.config({
     open_float = {
         width = 80,
@@ -18,10 +11,14 @@ vim.diagnostic.config({
             [severity.INFO] = "DiagnosticInfo",
             [severity.HINT] = "DiagnosticHint",
         },
-        text = icons,
     },
     status = {
-        text = icons,
+        text = {
+            [severity.ERROR] = " ",
+            [severity.WARN] = " ",
+            [severity.INFO] = " ",
+            [severity.HINT] = "󰌵",
+        },
     },
     float = {
         style = "minimal",
