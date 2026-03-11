@@ -18,10 +18,8 @@ vim.diagnostic.config({
         },
     },
     float = {
-        style = "minimal",
         source = true,
         header = "",
-        prefix = "",
     },
     severity_sort = true,
 })
