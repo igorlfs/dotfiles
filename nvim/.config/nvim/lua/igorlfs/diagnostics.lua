@@ -1,9 +1,6 @@
 local severity = vim.diagnostic.severity
 
 vim.diagnostic.config({
-    open_float = {
-        width = 80,
-    },
     signs = {
         numhl = {
             [severity.ERROR] = "ErrorMsg",
