@@ -11,6 +11,9 @@ return {
         },
         ui = {
             win_opts = {
+                wo = {
+                    signcolumn = "no",
+                },
                 bo = {
                     buflisted = true,
                 },

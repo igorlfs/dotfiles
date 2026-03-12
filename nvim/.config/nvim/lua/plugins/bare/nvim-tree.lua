@@ -38,6 +38,7 @@ return {
         },
         view = {
             adaptive_size = true,
+            signcolumn = "auto",
             preserve_window_proportions = true,
         },
     },
