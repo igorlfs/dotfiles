@@ -39,29 +39,27 @@ M.git_branch = function()
 end
 
 M.git_hunks = function()
-    local hunks = require("gitsigns").get_hunks()
+    local gitsigns_status = vim.b.gitsigns_status_dict
 
-    ---@type table<Gitsigns.Hunk.Type, number>
-    local file_changes = vim.iter(hunks or {}):fold(
-        { add = 0, change = 0, delete = 0 },
-        ---@param acc table<Gitsigns.Hunk.Type, number>
-        ---@param hunk Gitsigns.Hunk.Hunk_Public
-        function(acc, hunk)
-            acc[hunk.type] = acc[hunk.type] + hunk.added.count + hunk.removed.count
-            return acc
-        end
-    )
+    if not gitsigns_status then
+        return ""
+    end
 
     local result = ""
 
-    if file_changes["add"] > 0 then
-        result = string.format("%%#%s# +%d%%*", "GitSignsAdd", file_changes["add"])
+    local gitsigns_added = gitsigns_status["added"]
+    if gitsigns_added and gitsigns_added > 0 then
+        result = string.format("%%#%s# +%d%%*", "GitSignsAdd", gitsigns_added)
     end
-    if file_changes["change"] > 0 then
-        result = result .. string.format("%%#%s# ~%d%%*", "GitSignsChange", file_changes["change"] / 2)
+
+    local gitsigns_changed = gitsigns_status["changed"]
+    if gitsigns_changed and gitsigns_changed > 0 then
+        result = result .. string.format("%%#%s# ~%d%%*", "GitSignsChange", gitsigns_changed)
     end
-    if file_changes["delete"] > 0 then
-        result = result .. string.format("%%#%s# -%d%%*", "GitSignsDelete", file_changes["delete"])
+
+    local gitsigns_removed = gitsigns_status["removed"]
+    if gitsigns_removed and gitsigns_removed > 0 then
+        result = result .. string.format("%%#%s# -%d%%*", "GitSignsDelete", gitsigns_removed)
     end
 
     if result == "" then
