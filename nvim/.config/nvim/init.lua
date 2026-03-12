@@ -10,6 +10,7 @@ require("igorlfs.env")
 require("igorlfs.lsp")
 require("igorlfs.watch")
 require("ui.statusline")
+require("ui.statuscolumn")
 require("ui.tabline")
 
 -- Bootstrap Lazy

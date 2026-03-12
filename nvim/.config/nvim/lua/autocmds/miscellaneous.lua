@@ -83,6 +83,25 @@ autocmd("TermRequest", {
     end,
 })
 
+autocmd("OptionSet", {
+    desc = "Reset statuscolumn for terminal + Neogit buffers",
+    pattern = "buftype",
+    callback = function()
+        if vim.tbl_contains({ "terminal", "nofile" }, vim.v.option_new) then
+            vim.wo[0][0].statuscolumn = ""
+        end
+    end,
+})
+
+autocmd("BufWinEnter", {
+    desc = "Reset statuscolumn for miscellaneous buffers",
+    callback = function()
+        if vim.tbl_contains({ "nofile", "help", "prompt" }, vim.bo[0].buftype) then
+            vim.wo[0][0].statuscolumn = ""
+        end
+    end,
+})
+
 autocmd("FileType", {
     desc = "Enable Spellchecker",
     pattern = { "gitcommit", "tex", "octo", "typst" },
