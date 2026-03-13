@@ -8,6 +8,9 @@ return {
     cmd = "Octo",
     opts = {
         picker = "fzf-lua",
+        poll = {
+            enabled = true,
+        },
         reviews = {
             auto_show_threads = false,
         },
@@ -15,5 +18,7 @@ return {
     keys = {
         { "<leader>op", "<CMD>Octo pr list<CR>", desc = "GH PR" },
     },
-    init = function() vim.treesitter.language.register("markdown", "octo") end,
+    init = function()
+        vim.treesitter.language.register("markdown", "octo")
+    end,
 }
