@@ -24,10 +24,8 @@ autocmd("LspAttach", {
 
         keymap("<leader>ll", lsp.codelens.run, { buffer = buf, desc = "LSP Lens" })
 
-        keymap(
-            "<A-h>",
-            function() lsp.inlay_hint.enable(not lsp.inlay_hint.is_enabled({ bufnr = buf }), { bufnr = buf }) end,
-            { buffer = buf, desc = "Toggle Hints" }
-        )
+        keymap("<A-h>", function()
+            lsp.inlay_hint.enable(not lsp.inlay_hint.is_enabled({ bufnr = buf }), { bufnr = buf })
+        end, { buffer = buf, desc = "Toggle Hints" })
     end,
 })

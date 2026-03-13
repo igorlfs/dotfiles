@@ -6,5 +6,7 @@ return {
         term_colors = true,
         auto_integrations = true,
     },
-    init = function() vim.cmd.colorscheme("catppuccin-mocha") end,
+    init = function()
+        vim.cmd.colorscheme("catppuccin-mocha")
+    end,
 }

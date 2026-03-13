@@ -3,7 +3,9 @@ local M = {}
 local api = vim.api
 
 ---@param str string
-local len = function(str) return vim.fn.strdisplaywidth(str) end
+local len = function(str)
+    return vim.fn.strdisplaywidth(str)
+end
 
 ---@param str string
 ---@param max_width integer

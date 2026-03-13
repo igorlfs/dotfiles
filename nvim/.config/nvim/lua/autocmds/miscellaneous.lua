@@ -16,13 +16,17 @@ autocmd({ "FocusGained", "TermClose", "TermLeave" }, {
 autocmd("FileType", {
     desc = "Enable Softwrap",
     pattern = { "tex", "octo", "typst", "markdown", "liquid" },
-    callback = function() vim.wo[0][0].wrap = true end,
+    callback = function()
+        vim.wo[0][0].wrap = true
+    end,
 })
 
 -- See https://github.com/neovim/neovim/pull/31443#issuecomment-2521958704
 autocmd("TermOpen", {
     desc = "Disable scrolloff for terminal",
-    callback = function() vim.wo[0][0].scrolloff = 0 end,
+    callback = function()
+        vim.wo[0][0].scrolloff = 0
+    end,
 })
 
 -- From https://github.com/neovim/neovim/pull/30164#issuecomment-2315421660
@@ -39,18 +43,24 @@ autocmd("FileType", {
 
 autocmd({ "TermRequest", "ModeChanged" }, {
     desc = "Refresh tabline",
-    callback = function() cmd.redrawtabline() end,
+    callback = function()
+        cmd.redrawtabline()
+    end,
 })
 
 autocmd("User", {
     desc = "Refresh statusline",
     pattern = { "DapProgressUpdate", "GitSignsUpdate" },
-    callback = function() cmd.redrawstatus() end,
+    callback = function()
+        cmd.redrawstatus()
+    end,
 })
 
 autocmd("TextYankPost", {
     desc = "Highlight on yank",
-    callback = function() vim.hl.on_yank() end,
+    callback = function()
+        vim.hl.on_yank()
+    end,
 })
 
 -- From https://github.com/neovim/neovim/issues/27489
@@ -66,7 +76,9 @@ autocmd("DirChanged", {
 
 autocmd("DirChanged", {
     desc = "Increase zoxide score when changing directory",
-    callback = function(args) vim.system({ "zoxide", "add", "--", args.file }) end,
+    callback = function(args)
+        vim.system({ "zoxide", "add", "--", args.file })
+    end,
 })
 
 autocmd("TermRequest", {
@@ -105,5 +117,7 @@ autocmd("BufWinEnter", {
 autocmd("FileType", {
     desc = "Enable Spellchecker",
     pattern = { "gitcommit", "tex", "octo", "typst" },
-    callback = function() vim.wo[0][0].spell = true end,
+    callback = function()
+        vim.wo[0][0].spell = true
+    end,
 })

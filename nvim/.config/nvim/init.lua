@@ -31,7 +31,12 @@ vim.opt.runtimepath:prepend(lazypath)
 
 require("lazy").setup({
     { import = "plugins.common" },
-    { import = "plugins.bare", cond = function() return not vim.g.vscode end },
+    {
+        import = "plugins.bare",
+        cond = function()
+            return not vim.g.vscode
+        end,
+    },
 }, {
     dev = {
         path = "~/code/git/",

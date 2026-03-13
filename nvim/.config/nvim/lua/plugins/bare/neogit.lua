@@ -5,7 +5,7 @@ return {
         "nvim-lua/plenary.nvim",
         "ibhagwan/fzf-lua",
     },
-    keys = { { "<leader>n", function() require("neogit").open() end, desc = "Neogit" } },
+    keys = { { "<leader>n", "<CMD>Neogit<CR>" } },
     cmd = "Neogit",
     opts = {
         commit_editor = {

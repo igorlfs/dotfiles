@@ -29,19 +29,15 @@ return {
             keymap("<leader>hr", gitsigns.reset_hunk, "Hunk Reset")
             keymap("<leader>hp", gitsigns.preview_hunk, "Hunk Preview")
             keymap("<leader>hi", gitsigns.preview_hunk_inline, "Hunk Inline Preview")
-            keymap("<leader>hb", function() gitsigns.blame_line({ full = true }) end, "Hunk Blame")
-            keymap(
-                "<leader>hs",
-                function() gitsigns.stage_hunk({ vim.fn.line("."), vim.fn.line("v") }) end,
-                "Stage selection",
-                "v"
-            )
-            keymap(
-                "<leader>hr",
-                function() gitsigns.reset_hunk({ vim.fn.line("."), vim.fn.line("v") }) end,
-                "Reset selection",
-                "v"
-            )
+            keymap("<leader>hb", function()
+                gitsigns.blame_line({ full = true })
+            end, "Hunk Blame")
+            keymap("<leader>hs", function()
+                gitsigns.stage_hunk({ vim.fn.line("."), vim.fn.line("v") })
+            end, "Stage selection", "v")
+            keymap("<leader>hr", function()
+                gitsigns.reset_hunk({ vim.fn.line("."), vim.fn.line("v") })
+            end, "Reset selection", "v")
             keymap("<leader>bs", gitsigns.stage_buffer, "Buffer Stage")
             keymap("<leader>br", gitsigns.reset_buffer, "Buffer Reset")
             keymap("<A-b>", gitsigns.toggle_current_line_blame, "Toggle Blame")

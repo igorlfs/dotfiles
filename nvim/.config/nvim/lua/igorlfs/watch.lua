@@ -54,7 +54,9 @@ local function watchman(path, _, callback)
         text = true,
     })
 
-    return function() sub:kill("sigint") end
+    return function()
+        sub:kill("sigint")
+    end
 end
 
 if vim.fn.executable("watchman") == 1 then

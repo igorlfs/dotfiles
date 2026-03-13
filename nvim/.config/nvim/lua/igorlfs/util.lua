@@ -13,9 +13,13 @@ end
 
 ---For replacing certain <C-x>... keymaps
 ---@param keys string
-function M.feedkeys(keys) vim.api.nvim_feedkeys(vim.keycode(keys), "n", true) end
+function M.feedkeys(keys)
+    vim.api.nvim_feedkeys(vim.keycode(keys), "n", true)
+end
 
 ---Is the completion menu open?
-function M.pumvisible() return tonumber(vim.fn.pumvisible()) ~= 0 end
+function M.pumvisible()
+    return tonumber(vim.fn.pumvisible()) ~= 0
+end
 
 return M
