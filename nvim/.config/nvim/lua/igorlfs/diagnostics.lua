@@ -10,7 +10,7 @@ vim.diagnostic.config({
         },
     },
     status = {
-        text = {
+        format = {
             [severity.ERROR] = " ",
             [severity.WARN] = " ",
             [severity.INFO] = " ",
