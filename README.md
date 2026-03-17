@@ -25,10 +25,6 @@ NVIM_APPNAME=igorlfs/dotfiles/nvim/.config/nvim nvim
 
 ## Plugins
 
-### bars-and-lines
-
-+ [luukvbaal/statuscol.nvim](https://dotfyle.com/plugins/luukvbaal/statuscol.nvim)
-
 ### colorscheme
 
 + [catppuccin/nvim](https://dotfyle.com/plugins/catppuccin/nvim)
@@ -62,7 +58,6 @@ NVIM_APPNAME=igorlfs/dotfiles/nvim/.config/nvim nvim
 
 ### git
 
-+ [sindrets/diffview.nvim](https://dotfyle.com/plugins/sindrets/diffview.nvim)
 + [lewis6991/gitsigns.nvim](https://dotfyle.com/plugins/lewis6991/gitsigns.nvim)
 + [NeogitOrg/neogit](https://dotfyle.com/plugins/NeogitOrg/neogit)
 
@@ -77,10 +72,6 @@ NVIM_APPNAME=igorlfs/dotfiles/nvim/.config/nvim nvim
 ### lsp
 
 + [neovim/nvim-lspconfig](https://dotfyle.com/plugins/neovim/nvim-lspconfig)
-
-### lsp-installer
-
-+ [williamboman/mason.nvim](https://dotfyle.com/plugins/williamboman/mason.nvim)
 
 ### nvim-dev
 
@@ -99,10 +90,6 @@ NVIM_APPNAME=igorlfs/dotfiles/nvim/.config/nvim nvim
 + [nvim-treesitter/nvim-treesitter](https://dotfyle.com/plugins/nvim-treesitter/nvim-treesitter)
 + [kylechui/nvim-surround](https://dotfyle.com/plugins/kylechui/nvim-surround)
 + [nvim-treesitter/nvim-treesitter-textobjects](https://dotfyle.com/plugins/nvim-treesitter/nvim-treesitter-textobjects)
-
-### utility
-
-+ [echasnovski/mini.nvim](https://dotfyle.com/plugins/echasnovski/mini.nvim)
 
 ### web-development
 
