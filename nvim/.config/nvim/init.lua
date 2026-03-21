@@ -1,7 +1,7 @@
 require("vim._core.ui2").enable({})
 
-require("globals")
-require("options")
+require("igorlfs.globals")
+require("igorlfs.options")
 require("keymaps")
 require("autocmds")
 require("filetype")
