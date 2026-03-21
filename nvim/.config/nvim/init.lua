@@ -57,3 +57,5 @@ require("lazy").setup({
         },
     },
 })
+
+require("igorlfs.lsp-file-operations")
