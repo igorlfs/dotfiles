@@ -1,13 +1,4 @@
 return {
-    ------ LSP Extensions
-    -- workspace/fileOperations
-    {
-        "igorlfs/nvim-lsp-file-operations",
-        event = "LspAttach",
-        dependencies = { "nvim-tree/nvim-tree.lua", "nvim-lua/plenary.nvim" },
-        config = true,
-    },
-
     ------ DAP Extensions
     -- Virtual Text Variables
     {
