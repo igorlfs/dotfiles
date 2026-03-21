@@ -12,13 +12,8 @@ o.exrc = true
 o.tabclose = "left"
 o.guifont = "ZedMono Nerd Font:h11"
 o.title = true
-o.shortmess = "ltToOCFIc" -- Reduce vim's verboseness and remove intro message
 o.confirm = true
 o.winborder = "rounded"
-o.nrformats = "bin,hex,blank"
--- Allows using `gf` when file contains square brackets
--- See https://github.com/vim/vim/issues/19147
-o.isfname = "@,48-57,/,.,-,_,+,,,#,$,%,~,=,[,]"
 
 -- History
 
@@ -30,7 +25,6 @@ o.shadafile = "NONE" -- Don't save history
 
 o.completeopt = "menuone,popup,noselect,noinsert,fuzzy" -- More intuitive completion options
 o.pumheight = 10 -- Limit completion window up to 10 lines
-o.wildoptions = "pum,tagfile,fuzzy" -- Enable fuzzy finding commands
 
 -- Softwrap
 
@@ -59,9 +53,7 @@ o.cursorline = true
 local spell = vim.fn.stdpath("data") .. "/spell/"
 
 o.spellfile = spell .. "en.utf-8.add," .. spell .. "pt.utf-8.add" -- Custom dictionary files
-o.spelllang = "en,pt_br"
 o.spelloptions = "camel"
-o.spellsuggest = "best,9" -- Limit the number of suggestions for spell
 
 -- Folds
 
@@ -81,3 +73,18 @@ o.expandtab = true
 o.tabstop = 4
 o.shiftwidth = 4
 o.shiftround = true
+
+-- Array Options
+-- (we don't talk about these)
+
+vim.cmd("set nrformats+=blank")
+vim.cmd("set spelllang+=pt_br")
+-- Limit the number of suggestions for spell
+vim.cmd("set spellsuggest+=9")
+-- Enable fuzzy finding commands
+vim.cmd("set wildoptions+=fuzzy")
+-- Reduce vim's verboseness
+vim.cmd("set shortmess+=c")
+-- Allows using `gf` when file contains square brackets
+-- See https://github.com/vim/vim/issues/19147
+vim.cmd("set isfname+=[,]")
