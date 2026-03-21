@@ -11,6 +11,7 @@ return {
             "lua_ls",
             "postgres_lsp",
             "ruff",
+            "stylua",
             "svelte",
             "tailwindcss",
             "taplo",

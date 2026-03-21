@@ -16,7 +16,6 @@ return {
             },
         },
         formatters_by_ft = {
-            lua = { "stylua" },
             markdown = { "injected", "markdownlint" },
             typescript = { "biome-check", "prettier" },
             javascript = { "biome-check", "prettier" },
