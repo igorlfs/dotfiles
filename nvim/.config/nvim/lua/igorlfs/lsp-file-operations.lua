@@ -93,7 +93,7 @@ api.events.subscribe(
                 local newUri = vim.uri_from_fname(payload.new_name)
 
                 client:notify("workspace/didRenameFiles", {
-                    files = { oldUri = oldUri, newUri = newUri },
+                    files = { { oldUri = oldUri, newUri = newUri } },
                 })
             end
         end
