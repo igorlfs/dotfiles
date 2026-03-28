@@ -3,7 +3,7 @@ M = {}
 ---Utility for keymap creation
 ---@param lhs string
 ---@param rhs string|function
----@param opts string|vim.keymap.set.Opts
+---@param opts? string|vim.keymap.set.Opts
 ---@param mode? string|string[]
 function M.keymap(lhs, rhs, opts, mode)
     opts = type(opts) == "string" and { desc = opts } or opts --[[@as vim.keymap.set.Opts]]
