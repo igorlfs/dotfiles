@@ -90,6 +90,10 @@ M.dap_session = function()
 end
 
 M.vim_session = function()
+    if not package.loaded["possession"] then
+        return ""
+    end
+
     local result = require("possession.session").get_session_name() or ""
 
     if result == "" then
@@ -153,6 +157,10 @@ M.auto_format = function()
 end
 
 M.plugin_kulala = function()
+    if not package.loaded["kulala"] then
+        return ""
+    end
+
     local env = require("kulala").get_selected_env()
     local ft = vim.bo[0].ft
     local result = (ft == "http" or ft:find("kulala")) and env or ""
