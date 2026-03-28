@@ -1,6 +1,0 @@
-{
-  "lazy.nvim": { "branch": "main", "commit": "306a05526ada86a7b30af95c5cc81ffba93fef97" },
-  "nvim-dap-repl-highlights": { "branch": "master", "commit": "de0bdf54ac8db799e0a6442c22fc683cfd34e19b" },
-  "nvim-dap-virtual-text": { "branch": "master", "commit": "fbdb48c2ed45f4a8293d0d483f7730d24467ccb6" },
-  "nvim-treesitter": { "branch": "main", "commit": "da8bf82a534506989c7bc9189552b5fba958f0c6" }
-}

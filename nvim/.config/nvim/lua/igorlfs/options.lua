@@ -88,3 +88,5 @@ vim.cmd("set shortmess+=c")
 -- Allows using `gf` when file contains square brackets
 -- See https://github.com/vim/vim/issues/19147
 vim.cmd("set isfname+=[,]")
+-- Local plugins
+vim.cmd("set packpath+=~/code/nvim-plugins/")
