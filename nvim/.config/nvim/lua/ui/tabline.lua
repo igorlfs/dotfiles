@@ -108,8 +108,10 @@ local fetch_buf_name = function(bufnr)
         return "Mason"
     elseif filetype == "lazy" then
         return "Lazy"
-    elseif filetype == "help" and not buf.modifiable then
+    elseif buftype == "help" then
         return " " .. vim.fn.fnamemodify(buf_name, ":t")
+    elseif filetype == "nvim-pack" then
+        return "Pack"
     elseif filetype == "dap-view" then
         return "DAP View"
     elseif filetype == "dap-repl" then
