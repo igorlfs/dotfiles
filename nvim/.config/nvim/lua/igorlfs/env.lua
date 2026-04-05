@@ -1,4 +1,2 @@
-local e = vim.env
-
 -- Prepend mise shims to PATH
-e.PATH = e.HOME .. "/.local/share/mise/shims:" .. e.PATH
+vim.env.PATH = vim.env.HOME .. "/.local/share/mise/shims:" .. vim.env.PATH
