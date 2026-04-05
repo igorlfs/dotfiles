@@ -38,7 +38,7 @@ require("nvim-tree").setup({
     },
     view = {
         adaptive_size = true,
-        signcolumn = "auto",
+        signcolumn = "no",
         preserve_window_proportions = true,
     },
 })
