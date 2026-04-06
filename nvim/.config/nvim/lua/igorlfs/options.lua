@@ -15,6 +15,9 @@ o.title = true
 o.confirm = true
 o.winborder = "rounded"
 
+-- Terminal
+o.scrollback = 100000
+
 -- History
 
 o.undofile = true -- Enable persistent undo
