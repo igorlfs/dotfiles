@@ -145,6 +145,6 @@ autocmd("LspAttach", {
 
         vim.keymap.set("n", "<A-h>", function()
             lsp.inlay_hint.enable(not lsp.inlay_hint.is_enabled({ bufnr = buf }), { bufnr = buf })
-        end, { buffer = buf, desc = "Toggle Hints" })
+        end, { buf = buf, desc = "Toggle Hints" })
     end,
 })
