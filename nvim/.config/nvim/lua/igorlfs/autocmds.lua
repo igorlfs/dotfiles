@@ -96,10 +96,10 @@ autocmd("TermRequest", {
 })
 
 autocmd("OptionSet", {
-    desc = "Reset statuscolumn for terminal + Neogit buffers",
+    desc = "Reset statuscolumn for terminal buffers",
     pattern = "buftype",
     callback = function()
-        if vim.tbl_contains({ "terminal", "nofile" }, vim.v.option_new) then
+        if vim.v.option_new == "terminal" then
             vim.wo[0][0].statuscolumn = ""
         end
     end,
@@ -119,6 +119,14 @@ autocmd("FileType", {
     pattern = { "gitcommit", "tex", "octo", "typst" },
     callback = function()
         vim.wo[0][0].spell = true
+    end,
+})
+
+autocmd("FileType", {
+    desc = "Reset statuscolumn for Neogit buffers",
+    pattern = { "Neogit*" },
+    callback = function()
+        vim.wo[0][0].statuscolumn = ""
     end,
 })
 
