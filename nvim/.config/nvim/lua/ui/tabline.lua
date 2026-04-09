@@ -112,6 +112,9 @@ local fetch_buf_name = function(bufnr)
         return " " .. vim.fn.fnamemodify(buf_name, ":t")
     elseif filetype == "nvim-pack" then
         return "Pack"
+    elseif filetype == "query" and buftype == "nofile" then
+        -- Probably a treesitter buffer or whatever
+        return vim.fn.expand("%:p:.")
     elseif filetype == "dap-view" then
         return "DAP View"
     elseif filetype == "dap-repl" then
