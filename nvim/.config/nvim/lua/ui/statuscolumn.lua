@@ -70,9 +70,15 @@ M.render = function()
 
     local signs = get_signs(vim.v.lnum)
 
-    local result = vim.v.virtnum == 0 and render_dap(signs[1]) or "  "
+    local dap = vim.v.virtnum == 0 and render_dap(signs[1]) or "  "
 
-    return result .. number_line() .. render_git(signs[2])
+    local bare = number_line() .. render_git(signs[2])
+
+    if vim.bo[0].modifiable then
+        return dap .. bare
+    else
+        return bare
+    end
 end
 
 vim.o.statuscolumn = "%{%v:lua.require('ui.statuscolumn').render()%}"
