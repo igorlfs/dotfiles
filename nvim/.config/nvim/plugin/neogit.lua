@@ -2,7 +2,7 @@ local util = require("igorlfs.util")
 
 vim.pack.add({
     { src = util.gh("nvim-lua/plenary.nvim") },
-    { src = util.gh("esmuellert/codediff.nvim") },
+    { src = util.gh("dlyongemallo/diffview.nvim") },
     { src = util.gh("ibhagwan/fzf-lua") },
     { src = util.gh("NeogitOrg/neogit") },
 })
