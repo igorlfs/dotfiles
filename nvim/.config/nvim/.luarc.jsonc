@@ -1,0 +1,23 @@
+{
+    "$schema": "https://raw.githubusercontent.com/LuaLS/vscode-lua/master/setting/schema.json",
+    "runtime": {
+        "version": "LuaJIT",
+        "pathStrict": true
+    },
+    "workspace": {
+        "library": [
+            "$VIMRUNTIME/lua",
+            "$XDG_DATA_HOME/nvim/site/pack/core/opt/blink.cmp/lua",
+            "$XDG_DATA_HOME/nvim/site/pack/core/opt/conform.nvim/lua",
+            "$XDG_DATA_HOME/nvim/site/pack/core/opt/diffview.nvim/lua",
+            "$XDG_DATA_HOME/nvim/site/pack/core/opt/fzf-lua/lua",
+            "$XDG_DATA_HOME/nvim/site/pack/core/opt/gitsigns.nvim/lua",
+            "$XDG_DATA_HOME/nvim/site/pack/core/opt/kulala.nvim/lua",
+            "$XDG_DATA_HOME/nvim/site/pack/core/opt/neogit/lua",
+            "$XDG_DATA_HOME/nvim/site/pack/core/opt/nvim-lspconfig/lua",
+            "$XDG_DATA_HOME/nvim/site/pack/core/opt/nvim-tree.lua/lua",
+            "$XDG_DATA_HOME/nvim/site/pack/core/opt/possession.nvim/lua",
+            "$HOME/code/nvim-plugins/start/nvim-dap-view/lua"
+        ]
+    }
+}
