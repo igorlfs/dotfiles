@@ -119,8 +119,8 @@ local fetch_buf_name = function(bufnr)
         return "DAP View"
     elseif filetype == "dap-repl" then
         return "DAP REPL"
-    elseif filetype == "dap-float" then
-        return "DAP"
+    elseif filetype == "dap-view-hover" then
+        return "DAP Hover"
     elseif filetype == "octo_panel" then
         return "Octo Panel"
     elseif string.match(buf_name, "^octo://") then
