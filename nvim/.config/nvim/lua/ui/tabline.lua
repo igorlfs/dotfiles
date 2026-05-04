@@ -115,7 +115,7 @@ local fetch_buf_name = function(bufnr)
     elseif filetype == "query" and buftype == "nofile" then
         -- Probably a treesitter buffer or whatever
         return vim.fn.expand("%:p:.")
-    elseif filetype == "dap-view" then
+    elseif filetype == "dap-view" or filetype == "dap-view-help" then
         return "DAP View"
     elseif filetype == "dap-repl" then
         return "DAP REPL"
