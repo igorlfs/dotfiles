@@ -8,9 +8,7 @@ vim.diagnostic.config({
             [severity.INFO] = "DiagnosticInfo",
             [severity.HINT] = "DiagnosticHint",
         },
-    },
-    status = {
-        format = {
+        text = {
             [severity.ERROR] = " ",
             [severity.WARN] = " ",
             [severity.INFO] = " ",
