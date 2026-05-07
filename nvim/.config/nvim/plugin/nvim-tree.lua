@@ -14,6 +14,7 @@ require("nvim-tree").setup({
             show = {
                 git = false,
             },
+            diagnostics_placement = "right_align",
         },
     },
     sync_root_with_cwd = true,
