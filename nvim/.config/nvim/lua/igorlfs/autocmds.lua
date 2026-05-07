@@ -108,7 +108,11 @@ autocmd("OptionSet", {
 autocmd("BufWinEnter", {
     desc = "Reset statuscolumn for miscellaneous buffers",
     callback = function()
-        if vim.tbl_contains({ "nofile", "help", "prompt" }, vim.bo[0].buftype) then
+        local disabled_buftype = vim.tbl_contains({ "nofile", "help", "prompt" }, vim.bo[0].buftype)
+        -- See https://github.com/NeogitOrg/neogit/commit/e74dfb42c04b493031f323aec8fa5f28b0427b9e
+        local disabled_filetype = vim.bo[0].filetype == "gitcommit"
+
+        if disabled_buftype or disabled_filetype then
             vim.wo[0][0].statuscolumn = ""
         end
     end,
