@@ -160,3 +160,19 @@ autocmd("LspAttach", {
         end, { buf = buf, desc = "Toggle Hints" })
     end,
 })
+
+autocmd("LspProgress", {
+    callback = function(ev)
+        local value = ev.data.params.value or {}
+        local msg = value.message or "done"
+
+        api.nvim_echo({ { msg } }, false, {
+            id = "lsp",
+            kind = "progress",
+            source = "vim.lsp",
+            title = value.title,
+            status = value.kind ~= "end" and "running" or "success",
+            percent = value.percentage,
+        })
+    end,
+})
