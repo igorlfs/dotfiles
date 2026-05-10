@@ -14,11 +14,11 @@
       "src": "https://github.com/stevearc/conform.nvim"
     },
     "diffview.nvim": {
-      "rev": "6dcf5968fe24d00c5b26eb089e807061af2254ae",
+      "rev": "fe01c7c3f11575c8d732fc0c1d52890d33ce41c0",
       "src": "https://github.com/dlyongemallo/diffview.nvim"
     },
     "fzf-lua": {
-      "rev": "64590411e6cf3d603d1e1bdad3a3d051f2f5a91a",
+      "rev": "44816af2465bb0a17ae0f1f2d8a4f9c3df524fcd",
       "src": "https://github.com/ibhagwan/fzf-lua"
     },
     "gitsigns.nvim": {
@@ -30,15 +30,15 @@
       "src": "https://github.com/mistweaverco/kulala.nvim"
     },
     "neogit": {
-      "rev": "f8bcc625fe1b9bd55f7853820fddac9b0996f697",
+      "rev": "395ac481e197784e410b59b987fadaf9e7481df1",
       "src": "https://github.com/NeogitOrg/neogit"
     },
     "nvim-autopairs": {
-      "rev": "59bce2eef357189c3305e25bc6dd2d138c1683f5",
+      "rev": "7b9923abad60b903ece7c52940e1321d39eccc79",
       "src": "https://github.com/windwp/nvim-autopairs"
     },
     "nvim-lspconfig": {
-      "rev": "31026a13eefb20681124706a79fc1df6bf11ab27",
+      "rev": "451d4ef9abd4f0f08e379ef0d55d1c391b6125a7",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-surround": {
@@ -62,11 +62,11 @@
       "src": "https://github.com/windwp/nvim-ts-autotag"
     },
     "nvim-web-devicons": {
-      "rev": "4fc505ac7bd7692824a142e96e5f529c133862f8",
+      "rev": "2795c26c916bb3c57dde308b82be51971fa92747",
       "src": "https://github.com/nvim-tree/nvim-web-devicons"
     },
     "octo.nvim": {
-      "rev": "34e67cc2d247e9b9271e2b54baeb6d4f6d1035bb",
+      "rev": "bbd903ce905c301ac516d64c33b2511a05f6b59b",
       "src": "https://github.com/pwntester/octo.nvim"
     },
     "plenary.nvim": {
