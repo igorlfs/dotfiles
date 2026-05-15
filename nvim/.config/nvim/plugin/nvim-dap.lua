@@ -36,6 +36,6 @@ for _, group in pairs({
     "DapBreakpointRejected",
     "DapLogPoint",
 }) do
-    vim.fn.sign_define(group, { text = "●", texthl = group })
+    vim.fn.sign_define(group, { text = "●" })
 end
-vim.fn.sign_define("DapStopped", { text = "", texthl = "DapStopped", linehl = "debugPC", numhl = "debugPC" })
+vim.fn.sign_define("DapStopped", { text = "", numhl = "debugPC" })
