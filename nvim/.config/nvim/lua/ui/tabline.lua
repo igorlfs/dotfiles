@@ -1,34 +1,28 @@
 local M = {}
 
 local api = vim.api
+local fn = vim.fn
 
 ---@param str string
 local len = function(str)
-    return vim.fn.strdisplaywidth(str)
+    return fn.strdisplaywidth(str)
 end
 
 ---@param str string
 ---@param max_width integer
 ---@param from_end? boolean
----There's no UTF-8 string manipulation in neovim smh
----https://github.com/neovim/neovim/issues/14281
 local truncate_by_display_width = function(str, max_width, from_end)
     assert(max_width > 0)
 
-    if vim.fn.strdisplaywidth(str) <= max_width then
+    if fn.strdisplaywidth(str) <= max_width then
         return str
     end
 
-    ---@type string[]
-    local full_chars = {}
+    local positions = vim.str_utf_pos(str)
+    local n = #positions
 
-    -- This ungodly regex catches UTF-8 characters
-    for char in string.gmatch(str, "([%z\1-\127\194-\244][\128-\191]*)") do
-        table.insert(full_chars, char)
-    end
-
-    local loop_start = from_end and #full_chars or 1
-    local loop_end = from_end and 1 or #full_chars
+    local loop_start = from_end and n or 1
+    local loop_end = from_end and 1 or n
     local loop_step = from_end and -1 or 1
 
     local current_width = 0
@@ -37,13 +31,13 @@ local truncate_by_display_width = function(str, max_width, from_end)
     local result_chars = {}
 
     for i = loop_start, loop_end, loop_step do
-        local char = full_chars[i]
-        local char_width = vim.fn.strdisplaywidth(char)
+        local char = string.sub(str, positions[i], positions[i + 1] and positions[i + 1] - 1 or #str)
+        local char_width = fn.strdisplaywidth(char)
         if current_width + char_width <= max_width then
             if from_end then
                 table.insert(result_chars, 1, char)
             else
-                table.insert(result_chars, char)
+                result_chars[#result_chars + 1] = char
             end
             current_width = current_width + char_width
         else
@@ -109,12 +103,12 @@ local fetch_buf_name = function(bufnr)
     elseif filetype == "lazy" then
         return "Lazy"
     elseif buftype == "help" then
-        return " " .. vim.fn.fnamemodify(buf_name, ":t")
+        return " " .. fn.fnamemodify(buf_name, ":t")
     elseif filetype == "nvim-pack" then
         return "Pack"
     elseif filetype == "query" and buftype == "nofile" then
         -- Probably a treesitter buffer or whatever
-        return vim.fn.expand("%:p:.")
+        return fn.expand("%:p:.")
     elseif filetype == "dap-view" or filetype == "dap-view-help" then
         return "DAP View"
     elseif filetype == "dap-repl" then
@@ -137,12 +131,12 @@ local fetch_buf_name = function(bufnr)
         return "Kulala"
     elseif string.match(buf_name, "^diffview://") then
         -- Diff buffers are handled especially
-        return vim.fn.fnamemodify(buf_name, ":t")
+        return fn.fnamemodify(buf_name, ":t")
     elseif buf_name == "" then
         -- Avoid empty bufs
         return "[No Name]"
     elseif buftype == "" then
-        local relative_path = vim.fn.fnamemodify(buf_name, ":.")
+        local relative_path = fn.fnamemodify(buf_name, ":.")
 
         return relative_path
     else
@@ -257,7 +251,7 @@ local cleanup_bufs = function(base_bufs)
             local buf_name = api.nvim_buf_get_name(buf)
 
             if string.match(buf_name, "^/") and vim.bo[buf].buftype == "" then
-                local relative_buf_name = vim.fn.fnamemodify(buf_name, ":.")
+                local relative_buf_name = fn.fnamemodify(buf_name, ":.")
 
                 base_file_names[#base_file_names + 1] = relative_buf_name
             end
