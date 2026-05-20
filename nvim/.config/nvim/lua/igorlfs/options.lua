@@ -40,7 +40,7 @@ o.showbreak = "↳ " -- Wrap indicator
 
 o.number = true
 o.relativenumber = true
-o.numberwidth = 2
+o.numberwidth = 3
 
 -- Command line
 
