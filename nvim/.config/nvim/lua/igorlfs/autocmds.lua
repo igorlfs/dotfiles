@@ -56,10 +56,10 @@ autocmd("User", {
     end,
 })
 
-autocmd("TextYankPost", {
-    desc = "Highlight on yank",
-    callback = function()
-        vim.hl.on_yank()
+autocmd({ "TextYankPost", "TextPutPost" }, {
+    desc = "Highlight after operation",
+    callback = function(args)
+        vim.hl.hl_op({ higroup = args.event == "TextPutPost" and "Visual" })
     end,
 })
 
