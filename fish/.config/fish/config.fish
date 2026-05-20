@@ -56,6 +56,8 @@ set -x RUFF_CACHE_DIR "$XDG_CACHE_HOME/ruff"
 set -x PYTHONSTARTUP "$XDG_CONFIG_HOME/python/startup.py"
 # VS Code
 set -x VSCODE_PORTABLE "$XDG_DATA_HOME/vscode"
+set -x VSCODE_CLI_DATA_DIR "$XDG_DATA_HOME/vscode"
+set -x VSCODE_EXTENSIONS "$XDG_DATA_HOME/vscode"
 # Claude
 set -x CLAUDE_CONFIG_DIR "$XDG_CONFIG_HOME/claude"
 # Fzf
