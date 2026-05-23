@@ -21,6 +21,9 @@ local panel_keys = {
 local view_keys = vim.iter(panel_keys):take(#panel_keys - 1):totable()
 
 require("diffview").setup({
+    view = {
+        one_sided_layout = "raw",
+    },
     keymaps = {
         disable_defaults = true,
         view = view_keys,
