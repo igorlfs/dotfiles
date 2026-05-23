@@ -43,6 +43,8 @@ set -x XDG_STATE_HOME "$HOME/.local/state"
 set -x SDL_VIDEODRIVER wayland
 # ripgrep
 set -x RIPGREP_CONFIG_PATH "$XDG_CONFIG_HOME/ripgrep/config"
+# Gradle
+set -x GRADLE_USER_HOME "$XDG_DATA_HOME/gradle"
 # Javascript
 set -x NPM_CONFIG_USERCONFIG "$XDG_CONFIG_HOME/npm/npmrc"
 set -x NODE_REPL_HISTORY "$XDG_DATA_HOME/node_repl_history"
