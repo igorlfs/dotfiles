@@ -1,5 +1,9 @@
 local util = require("igorlfs.util")
 
+if not pcall(require, "dap-view") then
+    return
+end
+
 local api = vim.api
 
 local adapter_to_filetypes = {

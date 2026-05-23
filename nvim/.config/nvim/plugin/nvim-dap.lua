@@ -1,6 +1,10 @@
 local util = require("igorlfs.util")
 
-local dap = require("dap")
+local ok, dap = pcall(require, "dap")
+
+if not ok then
+    return
+end
 
 dap.defaults.fallback.switchbuf = "usevisible,usetab,newtab"
 
