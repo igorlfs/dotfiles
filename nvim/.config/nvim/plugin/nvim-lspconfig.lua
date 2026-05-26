@@ -6,10 +6,6 @@ vim.pack.add({
 
 for _, language_server in ipairs({
     "biome",
-    "cssls",
-    "dotls",
-    "html",
-    "hyprls",
     "jsonls",
     "lua_ls",
     "postgres_lsp",
