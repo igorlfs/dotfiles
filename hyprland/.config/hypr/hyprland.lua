@@ -5,6 +5,7 @@ hl.monitor({
 	position = "auto",
 	scale = 1,
 })
+
 -- See https://wiki.hypr.land/Configuring/Basics/Autostart/
 hl.on("hyprland.start", function()
 	hl.exec_cmd("gammastep -l -19.5:-43.6 -t 6500K:3500K")
