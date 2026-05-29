@@ -23,3 +23,9 @@ hl.window_rule({
 	center = true,
 	size = { 900, 550 },
 })
+
+hl.window_rule({
+	name = "no-screen-share-whatsapp",
+	match = { class = "firefox", title = [[\(\d+\) WhatsApp — Mozilla Firefox]] },
+	no_screen_share = true,
+})
