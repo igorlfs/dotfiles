@@ -24,12 +24,11 @@ vim.lsp.enable("jdtls")
 
 ```lua
 ---@type lspconfig.settings.jdtls
-local bundles = {
-    "/usr/share/java-debug/com.microsoft.java.debug.plugin.jar",
-}
 return {
     init_options = {
-        bundles = bundles,
+        bundles = {
+            "/usr/share/java-debug/com.microsoft.java.debug.plugin.jar",
+        },
     },
 }
 ```
