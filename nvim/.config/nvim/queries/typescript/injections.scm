@@ -16,3 +16,13 @@
   (#eq? @injection.language "sql")
   (#offset! @injection.content 0 1 0 -1)
   (#set! injection.include-children))
+
+; foo.querySelector<type>(`...`)
+((call_expression
+  (member_expression
+    (property_identifier) @prop)
+  (arguments
+    (string
+      (string_fragment) @injection.content)))
+  (#any-of? @prop "querySelector" "locator")
+  (#set! injection.language "css"))
