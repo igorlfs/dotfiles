@@ -6,7 +6,7 @@
       "version": "1.0.0 - 2.0.0"
     },
     "catppuccin": {
-      "rev": "8edd468af4d63212b84d69b2ddb5ffc9023ef5eb",
+      "rev": "0303a7208dba448c459767486a38a6ec05c4216b",
       "src": "https://github.com/catppuccin/nvim"
     },
     "conform.nvim": {
@@ -14,19 +14,19 @@
       "src": "https://github.com/stevearc/conform.nvim"
     },
     "diffview.nvim": {
-      "rev": "e4871fdf697057e036690d6ad9ebba334711cfb6",
+      "rev": "318a75a8899cdb0894ca432bf471b466adf785d2",
       "src": "https://github.com/dlyongemallo/diffview.nvim"
     },
     "fzf-lua": {
-      "rev": "fea9eedc6894c44d44cbb772a5cd11c93b82d7a1",
+      "rev": "988416cc782dfe28bff3f0da9b8c943b236cd86a",
       "src": "https://github.com/ibhagwan/fzf-lua"
     },
     "gitsigns.nvim": {
-      "rev": "dd3f588bacbeb041be6facf1742e42097f62165d",
+      "rev": "25050e4ed39e628282831d4cbecb1850454ce915",
       "src": "https://github.com/lewis6991/gitsigns.nvim"
     },
     "kulala.nvim": {
-      "rev": "b92e6e962fc84a0e6b82d4c8e25c1f460f08289f",
+      "rev": "69250f64e60f75c010feac413576acbd9ffa4ec8",
       "src": "https://github.com/mistweaverco/kulala.nvim"
     },
     "neogit": {
@@ -38,15 +38,15 @@
       "src": "https://github.com/windwp/nvim-autopairs"
     },
     "nvim-lspconfig": {
-      "rev": "a4ed4e761c400849e8c9f8bda33e5083f890268c",
+      "rev": "ed19590a3a9792901553c388d1aadafce012f80d",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-surround": {
-      "rev": "2e93e154de9ff326def6480a4358bfc149d5da2c",
+      "rev": "8b47db616ef658b8fc27e61db2896aa2f40134de",
       "src": "https://github.com/kylechui/nvim-surround"
     },
     "nvim-tree.lua": {
-      "rev": "07f541fcaa4a5ae019598240362449ab7e9812b3",
+      "rev": "82f58063d67defc620e1ef8be606fc62a7b5dc1e",
       "src": "https://github.com/nvim-tree/nvim-tree.lua"
     },
     "nvim-treesitter": {
@@ -62,11 +62,11 @@
       "src": "https://github.com/windwp/nvim-ts-autotag"
     },
     "nvim-web-devicons": {
-      "rev": "0d7d35fa946837b8738b17c18d1faa1ac351e7f9",
+      "rev": "dfbfaa967a6f7ec50789bead7ef87e336c1fa63c",
       "src": "https://github.com/nvim-tree/nvim-web-devicons"
     },
     "octo.nvim": {
-      "rev": "b495047f0b9d35de3d8c6b84fad9de296d353b41",
+      "rev": "7fed87415c401954f73401bbed0fd736b9611e7c",
       "src": "https://github.com/pwntester/octo.nvim"
     },
     "plenary.nvim": {
