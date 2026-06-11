@@ -10,6 +10,7 @@ hl.monitor({
 hl.on("hyprland.start", function()
 	hl.exec_cmd("gammastep -l -19.5:-43.6 -t 6500K:3500K")
 	hl.exec_cmd("hypridle")
+	hl.exec_cmd("foot --server")
 end)
 
 -- See https://wiki.hypr.land/Configuring/Advanced-and-Cool/Environment-variables/

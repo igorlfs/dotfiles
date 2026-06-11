@@ -10,8 +10,8 @@ end
 local dsp = hl.dsp
 local win = dsp.window
 
-bind(" + F", dsp.exec_cmd("foot"))
-bind(" + S", dsp.exec_cmd("foot -- nvim"))
+bind(" + F", dsp.exec_cmd("footclient"))
+bind(" + S", dsp.exec_cmd("footclient -- nvim"))
 bind(" + W", dsp.exec_cmd("firefox"))
 
 bind(" + SHIFT + L", dsp.exec_cmd("hyprlock"))
