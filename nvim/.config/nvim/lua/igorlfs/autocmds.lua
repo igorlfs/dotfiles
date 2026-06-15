@@ -4,15 +4,6 @@ local fn = vim.fn
 
 local autocmd = api.nvim_create_autocmd
 
-autocmd({ "FocusGained", "TermClose", "TermLeave" }, {
-    desc = "Reload files if they changed externaly",
-    callback = function()
-        if vim.o.buftype ~= "nofile" then
-            cmd.checktime()
-        end
-    end,
-})
-
 autocmd("FileType", {
     desc = "Enable Softwrap",
     pattern = { "tex", "octo", "typst", "markdown", "liquid" },
