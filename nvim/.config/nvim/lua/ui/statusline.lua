@@ -14,6 +14,7 @@ api.nvim_set_hl(0, "StatusLineVimSpell", { link = "Function" })
 api.nvim_set_hl(0, "StatusLineDapIcon", { link = "Title" })
 api.nvim_set_hl(0, "StatusLineAutoFormat", { link = "DiagnosticWarn" })
 api.nvim_set_hl(0, "StatusLinePluginKulala", { link = "TermCursor" })
+api.nvim_set_hl(0, "StatusLineBusy", { link = "Boolean" })
 
 M.vim_diagnostics = function()
     local status = vim.diagnostic.status()
@@ -113,6 +114,16 @@ M.vim_macro = function()
     end
 
     return string.format(" @%s ", register)
+end
+
+M.vim_busy = function()
+    local busy = vim.bo.busy
+
+    if busy == 0 then
+        return ""
+    end
+
+    return string.format("%%#%s#  %%*", "StatusLineBusy")
 end
 
 M.path_dir = function()
@@ -231,6 +242,7 @@ M.render = function()
         M.plugin_kulala(),
         M.vim_search(),
         M.git_hunks(),
+        M.vim_busy(),
         M.vim_spell(),
         M.auto_format(),
         M.dap_session(),
