@@ -15,6 +15,10 @@ kulala.setup({
         },
         textHighlight = "Comment",
     },
+    --- See https://github.com/mistweaverco/kulala.nvim/pull/940
+    response_format = {
+        indent = 4,
+    },
     ui = {
         win_opts = {
             wo = {
