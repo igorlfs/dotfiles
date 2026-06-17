@@ -9,4 +9,11 @@ return {
 
         on_dir(vim.fs.dirname(vim.fs.find(root_files, { path = fname, upward = true })[1]))
     end,
+    ---See https://github.com/tailwindlabs/tailwindcss-intellisense#extension-settings
+    ---@type lspconfig.settings.tailwindcss
+    settings = {
+        tailwindCSS = {
+            emmetCompletions = true,
+        },
+    },
 }
