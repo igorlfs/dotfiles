@@ -1,3 +1,7 @@
+if not pcall(require, "nvim-tree") then
+    return
+end
+
 local api = require("nvim-tree.api")
 
 local event = api.events.Event
