@@ -9,6 +9,11 @@
   (array_pattern
     (identifier) @local.definition.var))
 
+(variable_declarator
+  (array_pattern
+    (array_pattern
+      (identifier) @local.definition.var)))
+
 ; (reference) Svelte injections
 ; These are not really useful, the mostly contain gibberish when inspecting with virtual text
 ; ($inspect is the prefered way of debugging)
