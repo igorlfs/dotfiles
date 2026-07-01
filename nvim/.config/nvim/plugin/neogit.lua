@@ -14,6 +14,7 @@ require("neogit").setup({
     console_timeout = 5000,
     treesitter_diff_highlight = true,
     auto_show_console = false,
+    graph_style = "unicode",
 })
 
 util.keymap("<leader>n", "<CMD>Neogit<CR>")
