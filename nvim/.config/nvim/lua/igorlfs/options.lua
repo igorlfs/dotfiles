@@ -6,7 +6,7 @@ o.gdefault = true -- Replace all line matches during substitution
 o.updatetime = 200 -- Time for CursorHold event (e.g., LSP)
 o.scrolloff = 4
 o.clipboard = "unnamedplus" -- Use system clipboard
-o.fillchars = [[eob: ,fold: ,foldopen:󰅀,foldsep: ,foldclose:󰅂,diff: ]] -- Fancy symbols
+o.fillchars = { eob = " ", diff = " ", fold = " ", foldopen = "󰅀", foldclose = "󰅂" }
 o.jumpoptions = "view" -- Prevents moving cursor when switching files
 o.exrc = true
 o.tabclose = "left"
@@ -53,9 +53,7 @@ o.cursorline = true
 
 -- Spell
 
-local spell = vim.fn.stdpath("data") .. "/spell/"
-
-o.spellfile = spell .. "en.utf-8.add," .. spell .. "pt.utf-8.add" -- Custom dictionary files
+o.spellfile = "~/.local/share/nvim/en.utf-8.add,~/.local/share/nvim/pt.utf-8.add" -- Custom dictionary files
 o.spelloptions = "camel"
 
 -- Folds
