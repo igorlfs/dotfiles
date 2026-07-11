@@ -1,6 +1,7 @@
 ; extends
 
 ((comment) @injection.language
+  . ; force nodes to be adjacent, to prevent injections on multiple siblings (aka foo(/*bar*/`fizz`,`buzz`))
   (template_string
     (string_fragment) @injection.content
     (#set! injection.combined))

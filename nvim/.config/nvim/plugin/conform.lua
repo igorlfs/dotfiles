@@ -21,9 +21,6 @@ require("conform").setup({
     formatters_by_ft = {
         markdown = { "injected", "markdownlint" },
         typescript = { "biome-check", "prettier" },
-        javascript = { "biome-check", "prettier" },
-        json = { "biome" },
-        jsonc = { "biome" },
         http = { "injected" },
         svelte = { "biome-organize-imports", lsp_format = "first" },
     },
