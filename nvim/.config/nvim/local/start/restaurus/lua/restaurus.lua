@@ -12,7 +12,6 @@ if uv.fs_stat(SHARED_SESSIONS_PATH) == nil then
     fs.mkdir(SHARED_SESSIONS_PATH, { parents = true })
 end
 
-
 ---@param name string?
 ---@param force boolean?
 M.save = function(name, force)
@@ -21,9 +20,8 @@ M.save = function(name, force)
     local root = git_root and git_root or uv.cwd()
 
     vim._with({ cwd = root }, function()
-        local session_file_name = name and string.format("%s/%s.vim", LOCAL_SESSIONS_PATH, name) or
-            string.format("%s/__.vim", SHARED_SESSIONS_PATH)
-
+        local session_file_name = name and string.format("%s/%s.vim", LOCAL_SESSIONS_PATH, name)
+            or string.format("%s/__.vim", SHARED_SESSIONS_PATH)
 
         if name then
             local session_dir_stat = uv.fs_stat(LOCAL_SESSIONS_PATH)
@@ -47,10 +45,11 @@ M.save = function(name, force)
             local link_path = string.format("%s/%s+%s.vim", SHARED_SESSIONS_PATH, root_base_name, name)
 
             uv.fs_symlink(abs_path_session, link_path)
+
+            vim.v.this_session = link_path
         end
     end)
 end
-
 
 M.list = function()
     ---@type string[]
@@ -70,7 +69,7 @@ M.list = function()
         if stat == nil then
             return 0
         end
-        local t = stat['mtime']
+        local t = stat["mtime"]
         -- use millis to fit in Lua's max float "integer precision" of 53 bits
         return math.floor(t.sec * 1000 + t.nsec / 1000000)
     end
@@ -126,7 +125,7 @@ M.remove = function(name, force)
             fs.rm(session_file_name)
         end
 
-        vim.v.this_session = nil
+        vim.v.this_session = ""
     end)
 end
 
@@ -197,7 +196,7 @@ end
 M.session_name = function()
     local this_session = vim.v.this_session
 
-    if this_session == nil then
+    if this_session == "" then
         return
     end
 
@@ -218,6 +217,34 @@ M.session_name = function()
     local session_name = full_session_name:gsub(".*+", "")
 
     return session_name
+end
+
+---@param arg_lead string
+---@param cmdline string
+M.complete_session_names = function(arg_lead, cmdline)
+    if cmdline:match("%w %w") then
+        return
+    end
+
+    local git_root = fs.root(0, ".git")
+
+    local root = git_root and git_root or uv.cwd()
+
+    local sessions_dir = string.format("%s/%s", root, LOCAL_SESSIONS_PATH)
+
+    ---@type string[]
+    local files = {}
+    for file_name in fs.dir(sessions_dir) do
+        if vim.endswith(file_name, ".vim") then
+            files[#files + 1] = file_name:gsub("%.vim$", "")
+        end
+    end
+
+    return vim.iter(files)
+        :filter(function(file)
+            return file:find(arg_lead or "") == 1
+        end)
+        :totable()
 end
 
 return M
