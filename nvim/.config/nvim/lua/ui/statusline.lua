@@ -91,13 +91,10 @@ M.dap_session = function()
 end
 
 M.vim_session = function()
-    if not package.loaded["possession"] then
-        return ""
-    end
+    local result = require("restaurus").session_name()
 
-    local result = require("possession.session").get_session_name() or ""
-
-    if result == "" then
+    -- Handle special "temporary" session
+    if result == nil or result == "__" then
         return ""
     end
 

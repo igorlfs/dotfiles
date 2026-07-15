@@ -94,4 +94,4 @@ vim.cmd("set sessionoptions+=globals")
 -- Some additional characters to allow using `gx` with URLs
 vim.cmd("set isfname+=[,],?,:")
 -- Local plugins
-vim.cmd("set packpath+=~/code/nvim-plugins/")
+vim.cmd("set packpath+=~/code/nvim-plugins,~/.config/nvim/local")
