@@ -2,7 +2,7 @@
 ---@param dispatcher HL.Dispatcher
 ---@param opts HL.BindOptions?
 local bind = function(keys, dispatcher, opts)
-	hl.bind("SUPER" .. keys, dispatcher, opts)
+    hl.bind("SUPER" .. keys, dispatcher, opts)
 end
 
 -- See https://wiki.hypr.land/Configuring/Basics/Binds/
@@ -24,9 +24,9 @@ bind("+ ALT_L", dsp.exec_cmd("killall -SIGUSR1 waybar || waybar"))
 bind("+ Tab", dsp.focus({ workspace = "prev" }))
 
 for i = 1, 10 do
-	local key = i % 10
-	bind(" + " .. key, dsp.focus({ workspace = i }))
-	bind(" + SHIFT + " .. key, win.move({ workspace = i }))
+    local key = i % 10
+    bind(" + " .. key, dsp.focus({ workspace = i }))
+    bind(" + SHIFT + " .. key, win.move({ workspace = i }))
 end
 
 bind(" + mouse:272", win.drag(), { mouse = true })
@@ -35,14 +35,14 @@ bind(" + mouse:273", win.resize(), { mouse = true })
 hl.bind("XF86AudioRaiseVolume", dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"), { repeating = true })
 hl.bind("XF86AudioLowerVolume", dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"), { repeating = true })
 hl.bind(
-	"SHIFT + XF86AudioRaiseVolume",
-	dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 1%+"),
-	{ repeating = true }
+    "SHIFT + XF86AudioRaiseVolume",
+    dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 1%+"),
+    { repeating = true }
 )
 hl.bind(
-	"SHIFT + XF86AudioLowerVolume",
-	dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 1%-"),
-	{ repeating = true }
+    "SHIFT + XF86AudioLowerVolume",
+    dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SOURCE@ 1%-"),
+    { repeating = true }
 )
 hl.bind("XF86AudioMute", dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"))
 hl.bind("XF86AudioMicMute", dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"))
