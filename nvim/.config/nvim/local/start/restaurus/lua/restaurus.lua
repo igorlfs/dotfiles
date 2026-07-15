@@ -125,7 +125,9 @@ M.remove = function(name, force)
             fs.rm(session_file_name)
         end
 
-        vim.v.this_session = ""
+        if vim.v.this_session == link_path then
+            vim.v.this_session = ""
+        end
     end)
 end
 
@@ -173,6 +175,8 @@ M.rename = function(name, new_name)
     vim._with({ cwd = SHARED_SESSIONS_PATH }, function()
         local original_link_path = string.format("%s+%s.vim", base_name, name)
 
+        local original_link_abs_path = fs.abspath(original_link_path)
+
         uv.fs_unlink(original_link_path)
 
         local new_link_path = string.format("%s+%s.vim", base_name, new_name)
@@ -181,7 +185,9 @@ M.rename = function(name, new_name)
 
         local abs_path_link = fs.abspath(new_link_path)
 
-        vim.v.this_session = abs_path_link
+        if vim.v.this_session == original_link_abs_path then
+            vim.v.this_session = abs_path_link
+        end
     end)
 end
 
