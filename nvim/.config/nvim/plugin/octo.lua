@@ -9,6 +9,7 @@ vim.pack.add({
 
 require("octo").setup({
     picker = "fzf-lua",
+    ui = { conceallevel = 0 },
     poll = {
         enabled = true,
     },
