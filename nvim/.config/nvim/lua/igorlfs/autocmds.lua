@@ -1,6 +1,6 @@
 local cmd = vim.cmd
 local api = vim.api
-local fn = vim.fn
+local uv = vim.uv
 
 local autocmd = api.nvim_create_autocmd
 
@@ -76,7 +76,8 @@ autocmd("TermRequest", {
     desc = "Manipulates 'path' option on dir change",
     callback = function(ev)
         local dir, n = string.gsub(ev.data.sequence, "\027]7;file://[^/]*", "")
-        if n > 0 and fn.isdirectory(dir) ~= 0 and api.nvim_get_current_buf() == ev.buf then
+        local stat = uv.fs_stat(dir)
+        if n > 0 and stat and stat.type == "directory" and api.nvim_get_current_buf() == ev.buf then
             if vim.b[ev.buf].osc7_dir then
                 cmd("setlocal path-=" .. vim.b[ev.buf].osc7_dir)
             end
@@ -114,14 +115,6 @@ autocmd("FileType", {
     pattern = { "gitcommit", "tex", "octo", "typst" },
     callback = function()
         vim.wo[0][0].spell = true
-    end,
-})
-
-autocmd("FileType", {
-    desc = "Reset statuscolumn for Neogit buffers",
-    pattern = { "Neogit*" },
-    callback = function()
-        vim.wo[0][0].statuscolumn = ""
     end,
 })
 
