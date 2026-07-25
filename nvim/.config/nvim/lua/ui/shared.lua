@@ -4,7 +4,7 @@ local api = vim.api
 
 M.get_mode_hl = function()
     local mode = api.nvim_get_mode().mode
-    local mini_mode = "MiniStatuslineMode"
+    local mini_mode = "Mode"
 
     -- These groups are enabled because catppuccin detects mini.ai and enables all of mini's hl groups
 
