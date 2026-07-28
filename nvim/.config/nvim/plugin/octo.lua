@@ -13,6 +13,23 @@ require("octo").setup({
     poll = {
         enabled = true,
     },
+    -- See https://github.com/pwntester/octo.nvim/issues/1162
+    mappings_disable_default = true,
+    mappings = {
+        review_diff = {
+            add_review_comment = { lhs = "<localleader>ca", desc = "add review comment", mode = { "n", "x" } },
+            add_review_suggestion = { lhs = "<localleader>sa", desc = "add suggestion", mode = { "n", "x" } },
+            select_next_entry = { lhs = "]q", desc = "move to next changed file" },
+            select_prev_entry = { lhs = "[q", desc = "move to previous changed file" },
+            toggle_viewed = { lhs = "<localleader><space>", desc = "toggle viewer viewed state" },
+        },
+        file_panel = {
+            select_entry = { lhs = "<cr>", desc = "show selected changed file diffs" },
+            select_next_entry = { lhs = "]q", desc = "move to next changed file" },
+            select_prev_entry = { lhs = "[q", desc = "move to previous changed file" },
+            toggle_viewed = { lhs = "<localleader><space>", desc = "toggle viewer viewed state" },
+        },
+    },
     reviews = {
         auto_show_threads = false,
     },
