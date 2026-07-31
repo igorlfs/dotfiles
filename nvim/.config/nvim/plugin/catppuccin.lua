@@ -5,8 +5,10 @@ vim.pack.add({
 })
 
 require("catppuccin").setup({
+    integrations = {
+        dap = true,
+    },
     term_colors = true,
-    auto_integrations = true,
     custom_highlights = function(C)
         return {
             ModeCommand = { fg = C.base, bg = C.peach, style = { "bold" } },
