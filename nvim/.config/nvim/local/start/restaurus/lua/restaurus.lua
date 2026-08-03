@@ -100,8 +100,17 @@ M.list = function()
     end)
 end
 
----@param name string
+---@param name? string
 M.remove = function(name, force)
+    if name == nil then
+        name = M.session_name()
+
+        if name == nil then
+            vim.notify("Missing session name", lvl.ERROR)
+            return
+        end
+    end
+
     if not force then
         local choice = fn.confirm(string.format("Remove session %s?", name), "&Yes\n&No")
         if choice == 2 then
@@ -131,9 +140,18 @@ M.remove = function(name, force)
     end)
 end
 
----@param name string
+---@param name? string
 ---@param new_name? string
 M.rename = function(name, new_name)
+    if name == nil then
+        name = M.session_name()
+
+        if name == nil then
+            vim.notify("Missing session name", lvl.ERROR)
+            return
+        end
+    end
+
     if new_name == nil then
         vim.ui.input({ prompt = "New name: ", default = name }, function(input)
             if input then

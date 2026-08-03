@@ -9,7 +9,7 @@ end, { nargs = 1, bang = true })
 api.nvim_create_user_command("ReMove", function(args)
     require("restaurus").remove(args.fargs[1], args.bang)
 end, {
-    nargs = 1,
+    nargs = "?",
     bang = true,
     complete = function(arg_lead, cmdline)
         return require("restaurus").complete_session_names(arg_lead, cmdline)
@@ -19,7 +19,7 @@ end, {
 api.nvim_create_user_command("ReName", function(args)
     require("restaurus").rename(args.fargs[1], args.fargs[2])
 end, {
-    nargs = "+",
+    nargs = "*",
     complete = function(arg_lead, cmdline)
         return require("restaurus").complete_session_names(arg_lead, cmdline)
     end,
