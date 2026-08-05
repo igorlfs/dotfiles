@@ -59,10 +59,6 @@ NVIM_APPNAME=igorlfs/dotfiles/nvim/.config/nvim nvim
 + [lewis6991/gitsigns.nvim](https://dotfyle.com/plugins/lewis6991/gitsigns.nvim)
 + [NeogitOrg/neogit](https://dotfyle.com/plugins/NeogitOrg/neogit)
 
-### github
-
-+ [pwntester/octo.nvim](https://dotfyle.com/plugins/pwntester/octo.nvim)
-
 ### icon
 
 + [nvim-tree/nvim-web-devicons](https://dotfyle.com/plugins/nvim-tree/nvim-web-devicons)
@@ -70,14 +66,6 @@ NVIM_APPNAME=igorlfs/dotfiles/nvim/.config/nvim nvim
 ### lsp
 
 + [neovim/nvim-lspconfig](https://dotfyle.com/plugins/neovim/nvim-lspconfig)
-
-### nvim-dev
-
-+ [nvim-lua/plenary.nvim](https://dotfyle.com/plugins/nvim-lua/plenary.nvim)
-
-### session
-
-+ [jedrzejboczar/possession.nvim](https://dotfyle.com/plugins/jedrzejboczar/possession.nvim)
 
 ### syntax
 
