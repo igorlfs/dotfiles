@@ -22,6 +22,7 @@ bind(" + Print", dsp.exec_cmd("grim - | swappy -f -"))
 bind("+ ALT_L", dsp.exec_cmd("killall -SIGUSR1 waybar || waybar"))
 
 bind("+ Tab", dsp.focus({ workspace = "prev" }))
+bind("+ Return", win.fullscreen({ mode = 1 }))
 
 for i = 1, 10 do
     local key = i % 10
