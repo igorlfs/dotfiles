@@ -16,7 +16,7 @@ for _, language_server in ipairs({
     "tinymist",
     "tombi",
     "ts_query_ls",
-    "tsgo",
+    "tsc",
     "ty",
     "yamlls",
 }) do
