@@ -6,10 +6,6 @@ vim.pack.add({
 
 require("conform").setup({
     formatters = {
-        prettier = { require_cwd = true },
-        biome = { require_cwd = true },
-        ["biome-check"] = { require_cwd = true },
-        ["biome-organize-imports"] = { require_cwd = true },
         injected = {
             options = {
                 lang_to_formatters = {
@@ -20,9 +16,7 @@ require("conform").setup({
     },
     formatters_by_ft = {
         markdown = { "injected", "markdownlint" },
-        typescript = { "biome-check", "prettier" },
         http = { "injected" },
-        svelte = { "biome-organize-imports", lsp_format = "first" },
     },
     format_on_save = function(bufnr)
         if vim.g.disable_autoformat then
