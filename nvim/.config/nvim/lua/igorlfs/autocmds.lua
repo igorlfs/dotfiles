@@ -2,9 +2,7 @@ local cmd = vim.cmd
 local api = vim.api
 local uv = vim.uv
 
-local autocmd = api.nvim_create_autocmd
-
-autocmd("FileType", {
+api.nvim_create_autocmd("FileType", {
     desc = "Enable Softwrap",
     pattern = { "tex", "octo", "typst", "markdown", "liquid" },
     callback = function()
@@ -13,7 +11,7 @@ autocmd("FileType", {
 })
 
 -- See https://github.com/neovim/neovim/pull/31443#issuecomment-2521958704
-autocmd("TermOpen", {
+api.nvim_create_autocmd("TermOpen", {
     desc = "Disable scrolloff for terminal",
     callback = function()
         vim.wo[0][0].scrolloff = 0
@@ -21,7 +19,7 @@ autocmd("TermOpen", {
 })
 
 -- From https://github.com/neovim/neovim/pull/30164#issuecomment-2315421660
-autocmd("FileType", {
+api.nvim_create_autocmd("FileType", {
     desc = "Enable Treesitter",
     callback = function(args)
         if not pcall(vim.treesitter.start, args.buf) then
@@ -32,14 +30,14 @@ autocmd("FileType", {
     end,
 })
 
-autocmd({ "TermRequest", "ModeChanged" }, {
+api.nvim_create_autocmd({ "TermRequest", "ModeChanged" }, {
     desc = "Refresh tabline",
     callback = function()
         cmd.redrawtabline()
     end,
 })
 
-autocmd("User", {
+api.nvim_create_autocmd("User", {
     desc = "Refresh statusline",
     pattern = { "DapProgressUpdate", "GitSignsUpdate" },
     callback = function()
@@ -47,7 +45,7 @@ autocmd("User", {
     end,
 })
 
-autocmd({ "TextYankPost", "TextPutPost" }, {
+api.nvim_create_autocmd({ "TextYankPost", "TextPutPost" }, {
     desc = "Highlight after operation",
     callback = function(args)
         vim.hl.hl_op({ higroup = args.event == "TextPutPost" and "Visual" })
@@ -55,7 +53,7 @@ autocmd({ "TextYankPost", "TextPutPost" }, {
 })
 
 -- From https://github.com/neovim/neovim/issues/27489
-autocmd("DirChanged", {
+api.nvim_create_autocmd("DirChanged", {
     desc = "Reload .nvim.lua when changing directory",
     callback = function(args)
         local contents = vim.secure.read(string.format("%s/.nvim.lua", args.file))
@@ -65,14 +63,14 @@ autocmd("DirChanged", {
     end,
 })
 
-autocmd("DirChanged", {
+api.nvim_create_autocmd("DirChanged", {
     desc = "Increase zoxide score when changing directory",
     callback = function(args)
         vim.system({ "zoxide", "add", "--", args.file })
     end,
 })
 
-autocmd("TermRequest", {
+api.nvim_create_autocmd("TermRequest", {
     desc = "Manipulates 'path' option on dir change",
     callback = function(ev)
         local dir, n = string.gsub(ev.data.sequence, "\027]7;file://[^/]*", "")
@@ -87,7 +85,7 @@ autocmd("TermRequest", {
     end,
 })
 
-autocmd("OptionSet", {
+api.nvim_create_autocmd("OptionSet", {
     desc = "Reset statuscolumn for terminal buffers",
     pattern = "buftype",
     callback = function()
@@ -97,7 +95,7 @@ autocmd("OptionSet", {
     end,
 })
 
-autocmd("BufWinEnter", {
+api.nvim_create_autocmd("BufWinEnter", {
     desc = "Reset statuscolumn for miscellaneous buffers",
     callback = function()
         local disabled_buftype = vim.tbl_contains({ "nofile", "help", "prompt" }, vim.bo[0].buftype)
@@ -110,7 +108,7 @@ autocmd("BufWinEnter", {
     end,
 })
 
-autocmd("FileType", {
+api.nvim_create_autocmd("FileType", {
     desc = "Enable Spellchecker",
     pattern = { "gitcommit", "tex", "octo", "typst" },
     callback = function()
@@ -118,7 +116,7 @@ autocmd("FileType", {
     end,
 })
 
-autocmd("LspAttach", {
+api.nvim_create_autocmd("LspAttach", {
     desc = "LSP",
     callback = function(args)
         local lsp = vim.lsp
@@ -129,11 +127,11 @@ autocmd("LspAttach", {
         assert(client ~= nil, "Has LSP client")
 
         if client:supports_method("textDocument/documentHighlight") then
-            autocmd({ "CursorHold", "InsertLeave" }, {
+            api.nvim_create_autocmd({ "CursorHold", "InsertLeave" }, {
                 buffer = buf,
                 callback = lsp.buf.document_highlight,
             })
-            autocmd({ "CursorMoved", "InsertEnter", "BufLeave" }, {
+            api.nvim_create_autocmd({ "CursorMoved", "InsertEnter", "BufLeave" }, {
                 buffer = buf,
                 callback = lsp.buf.clear_references,
             })
@@ -145,7 +143,7 @@ autocmd("LspAttach", {
     end,
 })
 
-autocmd("LspProgress", {
+api.nvim_create_autocmd("LspProgress", {
     callback = function(ev)
         local value = ev.data.params.value or {}
         local msg = value.message or "done"
