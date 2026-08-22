@@ -5,7 +5,7 @@ local fn = vim.fn
 
 ---@param str string
 local len = function(str)
-    return fn.strdisplaywidth(str)
+    return api.nvim_strwidth(str)
 end
 
 ---@param str string
