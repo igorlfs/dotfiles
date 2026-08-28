@@ -137,6 +137,8 @@ api.nvim_create_autocmd("LspAttach", {
             })
         end
 
+        require("igorlfs.util").lsp_auto_format(client, buf)
+
         vim.keymap.set("n", "<A-h>", function()
             lsp.inlay_hint.enable(not lsp.inlay_hint.is_enabled({ bufnr = buf }), { bufnr = buf })
         end, { buf = buf, desc = "Toggle Hints" })

@@ -1,5 +1,7 @@
 M = {}
 
+local api = vim.api
+
 ---Utility for keymap creation
 ---@param lhs string
 ---@param rhs string|function
@@ -25,6 +27,40 @@ end
 ---@param x string
 function M.gh(x)
     return "https://github.com/" .. x
+end
+
+---@param client vim.lsp.Client
+---@param buf integer
+function M.lsp_auto_format(client, buf)
+    if client:supports_method("textDocument/formatting", buf) then
+        api.nvim_create_autocmd("BufWritePre", {
+            buffer = buf,
+            callback = function()
+                if vim.g.disable_autoformat then
+                    return
+                end
+
+                local clients = vim.iter(vim.lsp.get_clients({ bufnr = buf }))
+                    :map(
+                        ---@param cli vim.lsp.Client
+                        function(cli)
+                            return cli.name
+                        end
+                    )
+                    :totable()
+
+                if vim.tbl_contains(clients, "stylua") and client.name == "lua_ls" then
+                    return
+                end
+
+                if vim.tbl_contains(clients, "oxfmt") and client.name == "tsc" then
+                    return
+                end
+
+                vim.lsp.buf.format({ bufnr = buf, id = client.id })
+            end,
+        })
+    end
 end
 
 return M

@@ -50,6 +50,13 @@ keymap("<A-'>", "<CMD>tab split<CR>", "Clone window in new tab")
 
 ---- Miscellaneous
 
+keymap("<A-f>", function()
+    vim.g.disable_autoformat = not vim.g.disable_autoformat
+
+    -- Refresh statusline right after toggling autoformat, so it reflects instantly
+    vim.cmd.redrawstatus()
+end, "Toggle Format-on-Save")
+
 -- Kitty-style function keys for Neovide, foot, ...
 for i = 1, 12 do
     keymap(str("<S-F%s>", i), str("<F%s>", i + 12), { remap = true })
