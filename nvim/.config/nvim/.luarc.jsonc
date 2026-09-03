@@ -8,7 +8,6 @@
         "library": [
             "$VIMRUNTIME/lua",
             "$XDG_DATA_HOME/nvim/site/pack/core/opt/blink.cmp/lua",
-            "$XDG_DATA_HOME/nvim/site/pack/core/opt/conform.nvim/lua",
             "$XDG_DATA_HOME/nvim/site/pack/core/opt/diffview.nvim/lua",
             "$XDG_DATA_HOME/nvim/site/pack/core/opt/fzf-lua/lua",
             "$XDG_DATA_HOME/nvim/site/pack/core/opt/gitsigns.nvim/lua",

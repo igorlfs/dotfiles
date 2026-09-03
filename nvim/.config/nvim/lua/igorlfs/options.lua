@@ -16,6 +16,7 @@ o.confirm = true
 o.winborder = "rounded"
 
 -- Terminal
+
 o.scrollback = 100000
 
 -- History
@@ -34,7 +35,6 @@ o.pumheight = 10 -- Limit completion window up to 10 lines
 o.wrap = false -- Disable softwrap by default
 o.linebreak = true -- Wrap words, not chars
 o.breakindent = true -- Indent softwrapped lines
-o.showbreak = "↳ " -- Wrap indicator
 
 -- Statuscolumn
 
@@ -47,7 +47,7 @@ o.signcolumn = "no"
 
 o.cmdheight = 0 -- Hide command line window
 
--- Cursor
+-- Cursor line
 
 o.cursorlineopt = "number"
 o.cursorline = true
