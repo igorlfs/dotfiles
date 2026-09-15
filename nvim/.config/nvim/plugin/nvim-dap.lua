@@ -6,7 +6,9 @@ if not ok then
     return
 end
 
-dap.defaults.fallback.switchbuf = "usevisible,usetab,newtab"
+local switchbuf = "usevisible,usetab,newtab"
+
+dap.defaults.fallback.switchbuf = switchbuf
 
 -- Adapters
 dap.adapters.emmylua = { type = "executable", command = "emmylua_dap" }
@@ -18,6 +20,11 @@ util.keymap("[f", dap.up, "DAP Up")
 util.keymap("]f", dap.down, "DAP Down")
 util.keymap("<F5>", dap.continue, "DAP Continue")
 util.keymap("<F7>", dap.focus_frame, "DAP Focus Frame")
+util.keymap("<F19>", function()
+    dap.defaults.fallback.switchbuf = "uselast"
+    dap.focus_frame()
+    dap.defaults.fallback.switchbuf = switchbuf
+end, "DAP Force Focus Frame")
 util.keymap("<F8>", function()
     vim.ui.input({ prompt = "Log point message: " }, function(input)
         dap.set_breakpoint(nil, nil, input)
