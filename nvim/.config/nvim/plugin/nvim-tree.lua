@@ -33,9 +33,6 @@ require("nvim-tree").setup({
         -- custom mappings
         util.keymap("<C-s>", api.node.open.horizontal, opts("Horizontal split"))
     end,
-    experimental = {
-        session_restore_nvim = true,
-    },
     diagnostics = {
         enable = true,
         show_on_dirs = true,
