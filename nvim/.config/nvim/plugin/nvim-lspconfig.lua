@@ -14,7 +14,6 @@ for _, language_server in ipairs({
     "svelte",
     "tailwindcss",
     "tinymist",
-    "tombi",
     "ts_query_ls",
     "tsc",
     "ty",
