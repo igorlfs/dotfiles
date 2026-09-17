@@ -11,7 +11,6 @@
             "$XDG_DATA_HOME/nvim/site/pack/core/opt/diffview.nvim/lua",
             "$XDG_DATA_HOME/nvim/site/pack/core/opt/fzf-lua/lua",
             "$XDG_DATA_HOME/nvim/site/pack/core/opt/gitsigns.nvim/lua",
-            "$XDG_DATA_HOME/nvim/site/pack/core/opt/kulala.nvim/lua",
             "$XDG_DATA_HOME/nvim/site/pack/core/opt/neogit/lua",
             "$XDG_DATA_HOME/nvim/site/pack/core/opt/nvim-lspconfig/lua",
             "$XDG_DATA_HOME/nvim/site/pack/core/opt/nvim-tree.lua/lua",
