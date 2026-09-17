@@ -88,7 +88,7 @@ vim.cmd("set wildoptions+=fuzzy")
 -- Reduce vim's verboseness
 vim.cmd("set shortmess+=c")
 -- Restore additional data for sessions
--- Used by some plugins (nvim-dap-view, kulala, etc)
+-- Used by some plugins (nvim-dap-view, etc)
 vim.cmd("set sessionoptions+=globals")
 -- Allows using `gf` when file contains square brackets
 -- See https://github.com/vim/vim/issues/19147

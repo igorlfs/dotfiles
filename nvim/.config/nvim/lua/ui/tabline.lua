@@ -127,8 +127,6 @@ local fetch_buf_name = function(bufnr)
         end
     elseif string.match(filetype, "^Neogit") or string.match(filetype, "^Diffview") then
         return filetype
-    elseif buf_name == "kulala://ui" then
-        return "Kulala"
     elseif string.match(buf_name, "^diffview://") then
         -- Diff buffers are handled especially
         return fn.fnamemodify(buf_name, ":t")

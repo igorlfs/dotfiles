@@ -13,7 +13,6 @@ api.nvim_set_hl(0, "StatusLineVimSpell", { link = "Function" })
 -- not using DapBreakpoint to make it more distinguishable when there are errors in diagnostics
 api.nvim_set_hl(0, "StatusLineDapIcon", { link = "Title" })
 api.nvim_set_hl(0, "StatusLineAutoFormat", { link = "DiagnosticWarn" })
-api.nvim_set_hl(0, "StatusLinePluginKulala", { link = "TermCursor" })
 api.nvim_set_hl(0, "StatusLineBusy", { link = "Boolean" })
 
 M.vim_diagnostics = function()
@@ -164,22 +163,6 @@ M.auto_format = function()
     return string.format("%%#%s# %s %%*", "StatusLineAutoFormat", result)
 end
 
-M.plugin_kulala = function()
-    if not package.loaded["kulala"] then
-        return ""
-    end
-
-    local env = require("kulala").get_selected_env()
-    local ft = vim.bo[0].ft
-    local result = (ft == "http" or ft:find("kulala")) and env or ""
-
-    if result == "" then
-        return ""
-    end
-
-    return string.format("%%#%s# %s %%*", "StatusLinePluginKulala", result)
-end
-
 -- Copied from Lualine
 -- https://github.com/nvim-lualine/lualine.nvim/blob/master/lua/lualine/components/searchcount.lua
 M.vim_search = function()
@@ -236,7 +219,6 @@ M.render = function()
         M.path_file(),
         "%#StatusLine#%=",
         M.vim_macro(),
-        M.plugin_kulala(),
         M.vim_search(),
         M.git_hunks(),
         M.vim_busy(),
