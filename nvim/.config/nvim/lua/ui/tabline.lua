@@ -98,10 +98,6 @@ local fetch_buf_name = function(bufnr)
         return "Pager"
     elseif filetype == "NvimTree" then
         return "NvimTree"
-    elseif filetype == "mason" then
-        return "Mason"
-    elseif filetype == "lazy" then
-        return "Lazy"
     elseif buftype == "help" then
         return " " .. fn.fnamemodify(buf_name, ":t")
     elseif filetype == "nvim-pack" then
@@ -115,16 +111,6 @@ local fetch_buf_name = function(bufnr)
         return "DAP REPL"
     elseif filetype == "dap-view-hover" then
         return "DAP Hover"
-    elseif filetype == "octo_panel" then
-        return "Octo Panel"
-    elseif string.match(buf_name, "^octo://") then
-        ---@type string?
-        local is_pr = string.match(buf_name, "pull/%d+")
-        if is_pr then
-            return "  PR " .. is_pr:sub(6)
-        else
-            return "  " .. buf_name:gsub("octo:/.*/", "")
-        end
     elseif string.match(filetype, "^Neogit") or string.match(filetype, "^Diffview") then
         return filetype
     elseif string.match(buf_name, "^diffview://") then
