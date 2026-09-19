@@ -6,6 +6,7 @@ local M = {}
 vim.g.qf_disable_statusline = 1
 
 local api = vim.api
+local fn = vim.fn
 
 api.nvim_set_hl(0, "StatusLinePathDir", { link = "Visual" })
 api.nvim_set_hl(0, "StatusLineVimSelection", { link = "TermCursor" })
@@ -104,7 +105,7 @@ end
 
 M.vim_macro = function()
     ---@type string
-    local register = vim.fn.reg_recording()
+    local register = fn.reg_recording()
     if register == "" then
         return ""
     end
@@ -123,7 +124,7 @@ M.vim_busy = function()
 end
 
 M.path_dir = function()
-    local cwd = vim.fn.fnamemodify(vim.fn.getcwd(), ":~:.")
+    local cwd = fn.fnamemodify(fn.getcwd(), ":~:.")
     local result = cwd:sub(1, 1) == "~" and cwd:sub(3) or cwd
 
     if result == "" then
@@ -134,7 +135,7 @@ M.path_dir = function()
 end
 
 M.path_file = function()
-    local result = vim.fn.expand("%:p:.")
+    local result = fn.expand("%:p:.")
 
     if result == "" then
         return ""
@@ -171,7 +172,7 @@ M.vim_search = function()
     end
 
     -- In some scenarios, `searchcount` may throw an error
-    local ok, result = pcall(vim.fn.searchcount)
+    local ok, result = pcall(fn.searchcount)
 
     if not ok or next(result) == nil then
         return ""
@@ -187,9 +188,9 @@ end
 -- https://github.com/nvim-lualine/lualine.nvim/blob/master/lua/lualine/components/selectioncount.lua
 M.vim_selection = function()
     local get_selection = function()
-        local mode = vim.fn.mode(true)
-        local line_start, col_start = vim.fn.line("v"), vim.fn.col("v")
-        local line_end, col_end = vim.fn.line("."), vim.fn.col(".")
+        local mode = fn.mode(true)
+        local line_start, col_start = fn.line("v"), fn.col("v")
+        local line_end, col_end = fn.line("."), fn.col(".")
         if mode:match("") then
             return string.format("%dx%d", math.abs(line_start - line_end) + 1, math.abs(col_start - col_end) + 1)
         elseif mode:match("V") or line_start ~= line_end then
