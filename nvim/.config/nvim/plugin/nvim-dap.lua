@@ -27,7 +27,9 @@ util.keymap("<F19>", function()
 end, "DAP Force Focus Frame")
 util.keymap("<F8>", function()
     vim.ui.input({ prompt = "Log point message: " }, function(input)
-        dap.set_breakpoint(nil, nil, input)
+        if input then
+            dap.set_breakpoint(nil, nil, input)
+        end
     end)
 end, "Toggle Logpoint")
 util.keymap("<F9>", dap.toggle_breakpoint, "Toggle Breakpoint")
@@ -39,7 +41,9 @@ end, "DAP Terminate")
 util.keymap("<F18>", dap.run_to_cursor, "Run to Cursor")
 util.keymap("<F21>", function()
     vim.ui.input({ prompt = "Breakpoint condition: " }, function(input)
-        dap.set_breakpoint(input)
+        if input then
+            dap.set_breakpoint(input)
+        end
     end)
 end, "Conditional Breakpoint")
 util.keymap("<F23>", dap.step_out, "Step Out")
