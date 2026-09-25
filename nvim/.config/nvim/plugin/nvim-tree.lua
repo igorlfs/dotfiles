@@ -23,6 +23,7 @@ require("nvim-tree").setup({
         local api = require("nvim-tree.api")
 
         ---@param desc string
+        ---@return vim.keymap.set.Opts
         local function opts(desc)
             return { desc = "nvim-tree: " .. desc, buffer = bufnr, silent = true, nowait = true }
         end

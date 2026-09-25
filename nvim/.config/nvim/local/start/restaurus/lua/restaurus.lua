@@ -101,6 +101,7 @@ M.list = function()
 end
 
 ---@param name? string
+---@param force? boolean
 M.remove = function(name, force)
     if name == nil then
         name = M.session_name()
@@ -245,6 +246,7 @@ end
 
 ---@param arg_lead string
 ---@param cmdline string
+---@return string[]?
 M.complete_session_names = function(arg_lead, cmdline)
     if cmdline:match("%w %w") then
         return

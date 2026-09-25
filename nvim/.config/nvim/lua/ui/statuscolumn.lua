@@ -3,6 +3,7 @@ local api = vim.api
 local M = {}
 
 ---@param lnum integer
+---@return vim.api.keyset.extmark_details?
 local function get_signs(lnum)
     local signs = api.nvim_buf_get_extmarks(0, -1, { lnum - 1, 0 }, { lnum - 1, -1 }, { details = true, type = "sign" })
 
@@ -23,6 +24,7 @@ local function get_signs(lnum)
 end
 
 ---@param sign vim.api.keyset.extmark_details?
+---@return string
 local function render_dap(sign)
     return sign and "%#" .. sign.sign_name .. "#" .. sign.sign_text .. "%*" or "  "
 end

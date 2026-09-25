@@ -4,6 +4,7 @@ local api = vim.api
 local fn = vim.fn
 
 ---@param str string
+---@return integer
 local len = function(str)
     return api.nvim_strwidth(str)
 end
@@ -11,6 +12,7 @@ end
 ---@param str string
 ---@param max_width integer
 ---@param from_end? boolean
+---@return string
 local truncate_by_display_width = function(str, max_width, from_end)
     assert(max_width > 0)
 
@@ -67,6 +69,7 @@ local hl_more = "%#" .. hl_groups.MORE .. "#" .. MORE
 ---@field winnr integer
 
 ---@param tabpage integer
+---@return integer, integer
 local fetch_winnr_bufnr = function(tabpage)
     local winnr = api.nvim_tabpage_get_win(tabpage)
     local bufnr = api.nvim_win_get_buf(winnr)
@@ -224,6 +227,7 @@ local calculate_unambiguous_paths = function(paths)
 end
 
 ---@param base_bufs igorlfs.TabData[]
+---@return igorlfs.TabData[]
 local cleanup_bufs = function(base_bufs)
     ---@type string[]
     local base_file_names = {}
@@ -283,7 +287,7 @@ M.render = function()
 
     local processed_bufs = cleanup_bufs(base_bufs)
 
-    local cur_tab_data = processed_bufs[cur_idx]
+    local cur_tab_data = assert(processed_bufs[cur_idx])
 
     local num_tabs = #processed_bufs
 
@@ -358,7 +362,7 @@ M.render = function()
             local space = cols - LEN_PAD
 
             for i = loop_start, loop_end, loop_step do
-                local buf = processed_bufs[i]
+                local buf = assert(processed_bufs[i])
 
                 local buf_alias = buf.name
 
@@ -413,7 +417,7 @@ M.render = function()
             local r_line = ""
             local r_content_len = 0
             for i = cur_idx + 1, num_tabs do
-                local buf = processed_bufs[i]
+                local buf = assert(processed_bufs[i])
                 local buf_alias = buf.name
 
                 if r_content_len + len(buf_alias) > r_space then
@@ -436,7 +440,7 @@ M.render = function()
             local l_line = ""
             local l_content_len = 0
             for i = cur_idx - 1, 1, -1 do
-                local buf = processed_bufs[i]
+                local buf = assert(processed_bufs[i])
                 local buf_alias = buf.name
 
                 if l_content_len + len(buf_alias) > l_space then

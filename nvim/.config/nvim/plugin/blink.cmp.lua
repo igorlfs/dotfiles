@@ -28,11 +28,7 @@ require("blink.cmp").setup({
                 treesitter = { "lsp" },
             },
         },
-        list = {
-            selection = {
-                preselect = false,
-            },
-        },
+        list = { selection = { preselect = false } },
     },
     cmdline = {
         keymap = {

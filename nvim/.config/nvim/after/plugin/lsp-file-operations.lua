@@ -57,6 +57,7 @@ end
 
 ---@param fname string
 ---@param filters lsp.FileOperationFilter[]?
+---@return boolean
 local has_match = function(fname, filters)
     local stat = vim.uv.fs_stat(fname)
 

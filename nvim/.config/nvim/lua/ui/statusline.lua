@@ -155,17 +155,16 @@ M.vim_spell = function()
 end
 
 M.auto_format = function()
-    local result = vim.g.disable_autoformat and "󰉪 " or ""
-
-    if result == "" then
+    if not vim.g.disable_autoformat then
         return ""
     end
 
-    return string.format("%%#%s# %s %%*", "StatusLineAutoFormat", result)
+    return string.format("%%#%s# 󰉪  %%*", "StatusLineAutoFormat")
 end
 
 -- Copied from Lualine
 -- https://github.com/nvim-lualine/lualine.nvim/blob/master/lua/lualine/components/searchcount.lua
+---@return string
 M.vim_search = function()
     if vim.v.hlsearch == 0 then
         return ""
@@ -186,6 +185,7 @@ end
 
 -- Copied from Lualine
 -- https://github.com/nvim-lualine/lualine.nvim/blob/master/lua/lualine/components/selectioncount.lua
+---@return string
 M.vim_selection = function()
     local get_selection = function()
         local mode = fn.mode(true)
