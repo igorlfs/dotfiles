@@ -1,0 +1,34 @@
+{
+    "$schema": "https://raw.githubusercontent.com/EmmyLuaLs/emmylua-analyzer-rust/refs/heads/main/crates/emmylua_code_analysis/resources/schema.json",
+    "runtime": {
+        "version": "LuaJIT"
+    },
+    "diagnostics": {
+        "enables": [
+            "iter-variable-reassign",
+            "non-literal-expressions-in-assert",
+            "incomplete-signature-doc",
+            "missing-global-doc"
+        ]
+    },
+    "strict": {
+        "typeCall": true,
+        "arrayIndex": true
+    },
+    "workspace": {
+        "library": [
+            "$VIMRUNTIME/lua",
+            "$XDG_DATA_HOME/nvim/site/pack/core/opt/blink.cmp/lua",
+            "$XDG_DATA_HOME/nvim/site/pack/core/opt/diffview.nvim/lua",
+            "$XDG_DATA_HOME/nvim/site/pack/core/opt/gitsigns.nvim/lua",
+            "$XDG_DATA_HOME/nvim/site/pack/core/opt/neogit/lua",
+            "$XDG_DATA_HOME/nvim/site/pack/core/opt/nvim-lspconfig/lua",
+            "$XDG_DATA_HOME/nvim/site/pack/core/opt/nvim-treesitter/lua",
+            "$XDG_DATA_HOME/nvim/site/pack/core/opt/nvim-treesitter-textobjects/lua",
+            "$XDG_DATA_HOME/nvim/site/pack/core/opt/nvim-tree.lua/lua",
+            "$XDG_DATA_HOME/nvim/site/pack/core/opt/fzf-lua/lua",
+            "$HOME/code/nvim-plugins/start/nvim-dap-view/lua",
+            "$HOME/code/nvim-plugins/start/nvim-dap/lua"
+        ]
+    }
+}
