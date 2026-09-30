@@ -50,7 +50,9 @@ fzflua.setup({
 })
 
 util.keymap("<leader>ff", fzflua.global, "FZF Files")
-util.keymap("<leader>fu", fzflua.undotree, "FZF Undotree")
+util.keymap("<leader>fu", function()
+    fzflua.undotree({ tree_style = "graph" })
+end, "FZF Undotree")
 util.keymap("<leader>ft", fzflua.tabs, "FZF Tabs")
 util.keymap("<leader>fg", fzflua.live_grep, "FZF Grep")
 util.keymap("<leader>fb", fzflua.buffers, "FZF Buffers")
