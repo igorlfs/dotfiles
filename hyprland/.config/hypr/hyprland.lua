@@ -52,5 +52,5 @@ hl.config({
     },
 })
 
-require(".window-rules")
-require(".keybindings")
+require("window-rules")
+require("keybindings")
