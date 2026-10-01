@@ -51,7 +51,10 @@ function M.lsp_auto_format(client, buf)
                     )
                     :totable()
 
-                if vim.tbl_contains(clients, "stylua") and client.name == "lua_ls" then
+                if
+                    vim.tbl_contains(clients, "stylua")
+                    and vim.tbl_contains({ "lua_ls", "emmylua_ls" }, client.name)
+                then
                     return
                 end
 
