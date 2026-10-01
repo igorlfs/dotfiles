@@ -19,6 +19,7 @@ vim.pack.add({
 api.nvim_create_autocmd("User", {
     pattern = "TSUpdate",
     callback = function()
+        ---@diagnostic disable-next-line: inject-field
         require("nvim-treesitter.parsers").kulala_http = {
             install_info = {
                 url = "https://github.com/mistweaverco/tree-sitter-kulala-http",

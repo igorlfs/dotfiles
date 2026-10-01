@@ -5,9 +5,11 @@
     },
     "diagnostics": {
         "enables": [
+            "code-style-check",
             "iter-variable-reassign",
             "non-literal-expressions-in-assert",
             "incomplete-signature-doc",
+            "unknown-doc-tag",
             "missing-global-doc"
         ]
     },

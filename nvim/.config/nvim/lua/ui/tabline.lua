@@ -33,7 +33,7 @@ local truncate_by_display_width = function(str, max_width, from_end)
     local result_chars = {}
 
     for i = loop_start, loop_end, loop_step do
-        local char = string.sub(str, positions[i], positions[i + 1] and positions[i + 1] - 1 or #str)
+        local char = string.sub(str, assert(positions[i]), positions[i + 1] and positions[i + 1] - 1 or #str)
         local char_width = fn.strdisplaywidth(char)
         if current_width + char_width <= max_width then
             if from_end then

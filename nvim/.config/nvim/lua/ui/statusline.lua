@@ -173,6 +173,7 @@ M.vim_search = function()
     -- In some scenarios, `searchcount` may throw an error
     local ok, result = pcall(fn.searchcount)
 
+    ---@diagnostic disable-next-line: param-type-mismatch
     if not ok or next(result) == nil then
         return ""
     end
