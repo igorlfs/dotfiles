@@ -5,10 +5,6 @@ vim.pack.add({
 })
 
 require("blink.cmp").setup({
-    sources = {
-        -- Leverage builtin dap completion to create a more "automatic" completion
-        per_filetype = { ["dap-repl"] = { "omni" } },
-    },
     completion = {
         accept = {
             -- See https://github.com/Saghen/blink.cmp/issues/1247
