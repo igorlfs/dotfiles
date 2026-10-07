@@ -16,5 +16,4 @@ Besides the pretty [standard stuff](https://github.com/igorlfs/dotfiles/tree/mai
     - [Thin Session Wrapper](https://github.com/igorlfs/dotfiles/blob/main/nvim/.config/nvim/local/start/restaurus/lua/restaurus.lua)
     - [LSP Support for nvim-tree](https://github.com/igorlfs/dotfiles/blob/main/nvim/.config/nvim/after/plugin/lsp-file-operations.lua)
 - Custom treesitter [queries](https://github.com/igorlfs/dotfiles/tree/main/nvim/.config/nvim/queries)
-- Custom [file watcher backend](https://github.com/igorlfs/dotfiles/blob/main/nvim/.config/nvim/lua/igorlfs/watch.lua)
 - QoL [autocmds](https://github.com/igorlfs/dotfiles/blob/main/nvim/.config/nvim/lua/igorlfs/autocmds.lua), [keymaps](https://github.com/igorlfs/dotfiles/blob/main/nvim/.config/nvim/lua/igorlfs/keymaps.lua) and [options](https://github.com/igorlfs/dotfiles/blob/main/nvim/.config/nvim/lua/igorlfs/options.lua)
