@@ -6,11 +6,6 @@ vim.pack.add({
 
 require("blink.cmp").setup({
     completion = {
-        accept = {
-            -- See https://github.com/Saghen/blink.cmp/issues/1247
-            -- Even outside neovide this can be annoying
-            dot_repeat = false,
-        },
         -- See https://github.com/Saghen/blink.cmp/issues/1770
         trigger = {
             show_on_blocked_trigger_characters = { " ", "\n", "\t", "$" },
