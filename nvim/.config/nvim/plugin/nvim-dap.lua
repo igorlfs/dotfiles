@@ -6,6 +6,9 @@ if not ok then
     return
 end
 
+local api = vim.api
+local fn = vim.fn
+
 local switchbuf = "usevisible,usetab,newtab"
 
 dap.defaults.fallback.switchbuf = switchbuf
@@ -55,6 +58,65 @@ for _, group in pairs({
     "DapBreakpointRejected",
     "DapLogPoint",
 }) do
-    vim.fn.sign_define(group, { text = "●" })
+    fn.sign_define(group, { text = "●" })
 end
-vim.fn.sign_define("DapStopped", { text = "", numhl = "debugPC" })
+fn.sign_define("DapStopped", { text = "", numhl = "debugPC" })
+
+api.nvim_create_autocmd("SessionWritePre", {
+    callback = function()
+        local breakpoints = {}
+
+        for buf, buf_breakpoints in pairs(require("dap.breakpoints").get()) do
+            local fname = api.nvim_buf_get_name(buf)
+
+            for _, breakpoint in ipairs(buf_breakpoints) do
+                breakpoints[#breakpoints + 1] = {
+                    filename = fname,
+                    line = breakpoint.line,
+                    condition = breakpoint.condition,
+                    log_message = breakpoint.logMessage,
+                    hit_condition = breakpoint.hitCondition,
+                }
+            end
+        end
+
+        vim.g.DAP_breakpoints = vim.json.encode(breakpoints)
+    end,
+})
+
+api.nvim_create_autocmd("SessionLoadPost", {
+    callback = function()
+        if vim.g.DAP_breakpoints == nil then
+            return
+        end
+
+        ---@type table<string,integer>
+        local bufs_by_name = {}
+
+        for _, buf in ipairs(api.nvim_list_bufs()) do
+            local buf_name = api.nvim_buf_get_name(buf)
+            bufs_by_name[buf_name] = buf
+        end
+
+        ---@type integer[]
+        local new_bufs = {}
+
+        for _, breakpoint in ipairs(vim.json.decode(vim.g.DAP_breakpoints) or {}) do
+            local buf = bufs_by_name[breakpoint.filename]
+
+            if buf == nil then
+                buf = fn.bufadd(breakpoint.filename)
+                new_bufs[#new_bufs + 1] = buf
+                bufs_by_name[breakpoint.filename] = buf
+            end
+
+            if buf and api.nvim_buf_is_valid(buf) then
+                require("dap.breakpoints").set(breakpoint, buf, breakpoint.line)
+            end
+        end
+
+        for _, buf in ipairs(new_bufs) do
+            api.nvim_buf_delete(buf)
+        end
+    end,
+})
