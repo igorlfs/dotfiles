@@ -7,7 +7,6 @@ vim.pack.add({
 for _, language_server in ipairs({
     "jsonls",
     "oxfmt",
-    "postgres_lsp",
     "ruff",
     "stylua",
     "svelte",
