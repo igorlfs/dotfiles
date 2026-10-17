@@ -29,9 +29,9 @@ keymap("<C-w>e", "<CMD>term<CR>", "Terminal")
 keymap("<C-w>m", "<CMD>vnew<CR>", "New File Vertical Split")
 keymap("<A-w>", function()
     if vim.wo.diff then
-        vim.cmd.windo("diffoff")
+        vim.cmd("windo diffoff")
     else
-        vim.cmd.windo("diffthis")
+        vim.cmd("windo diffthis")
     end
 end, "Toggle Window Diff")
 

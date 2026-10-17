@@ -1,4 +1,3 @@
-local cmd = vim.cmd
 local api = vim.api
 local uv = vim.uv
 
@@ -32,17 +31,13 @@ api.nvim_create_autocmd("FileType", {
 
 api.nvim_create_autocmd({ "TermRequest", "ModeChanged" }, {
     desc = "Refresh tabline",
-    callback = function()
-        cmd.redrawtabline()
-    end,
+    command = "redrawtabline",
 })
 
 api.nvim_create_autocmd("User", {
     desc = "Refresh statusline",
     pattern = { "DapProgressUpdate", "GitSignsUpdate" },
-    callback = function()
-        cmd.redrawstatus()
-    end,
+    command = "redrawstatus",
 })
 
 api.nvim_create_autocmd({ "TextYankPost", "TextPutPost" }, {
@@ -76,10 +71,11 @@ api.nvim_create_autocmd("TermRequest", {
         local dir, n = string.gsub(ev.data.sequence, "\027]7;file://[^/]*", "")
         local stat = uv.fs_stat(dir)
         if n > 0 and stat and stat.type == "directory" and api.nvim_get_current_buf() == ev.buf then
-            if vim.b[ev.buf].osc7_dir then
-                cmd("setlocal path-=" .. vim.b[ev.buf].osc7_dir)
+            local dir_ = vim.b[ev.buf].osc7_dir
+            if dir_ then
+                api.nvim_set_option_value("path", dir_, { operation = "remove", buf = ev.buf })
             end
-            cmd("setlocal path+=" .. dir)
+            api.nvim_set_option_value("path", dir, { operation = "append", buf = ev.buf })
             vim.b[ev.buf].osc7_dir = dir
         end
     end,
