@@ -58,7 +58,9 @@ function M.lsp_auto_format(client, buf)
                     return
                 end
 
-                if vim.tbl_contains(clients, "oxfmt") and client.name == "tsc" then
+                if
+                    vim.tbl_contains(clients, "oxfmt") and vim.tbl_contains({ "tsc", "svelte", "jsonls" }, client.name)
+                then
                     return
                 end
 
