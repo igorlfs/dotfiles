@@ -1,10 +1,12 @@
 local util = require("igorlfs.util")
 
-local ok, dap = pcall(require, "dap")
+local ok, _ = pcall(require, "dap")
 
 if not ok then
     return
 end
+
+local dap = require("dap")
 
 local api = vim.api
 local fn = vim.fn
@@ -12,6 +14,19 @@ local fn = vim.fn
 local switchbuf = "usevisible,usetab,newtab"
 
 dap.defaults.fallback.switchbuf = switchbuf
+
+---@param line integer?
+---@return dap.bp?
+local function get_breakpoint_by_line(line)
+    local line_ = line or api.nvim_win_get_cursor(0)[1]
+    local buf = api.nvim_get_current_buf()
+    local breakpoints = require("dap.breakpoints").get({ bufexpr = buf })
+    local breakpoint = vim.iter(breakpoints[buf] or {}):find(function(bp)
+        return bp.line == line_
+    end)
+
+    return breakpoint
+end
 
 -- Adapters
 dap.adapters.emmylua = { type = "executable", command = "emmylua_dap" }
@@ -29,7 +44,13 @@ util.keymap("<F19>", function()
     dap.defaults.fallback.switchbuf = switchbuf
 end, "DAP Force Focus Frame")
 util.keymap("<F8>", function()
-    vim.ui.input({ prompt = "Log point message: " }, function(input)
+    local default = get_breakpoint_by_line()
+
+    vim.ui.input({
+        prompt = "Log point message: ",
+        completion = "customlist,v:lua.require'dap-view'.complete",
+        default = default and default.logMessage,
+    }, function(input)
         if input then
             dap.set_breakpoint(nil, nil, input)
         end
@@ -43,7 +64,13 @@ util.keymap("<F16>", function()
 end, "DAP Terminate")
 util.keymap("<F18>", dap.run_to_cursor, "Run to Cursor")
 util.keymap("<F21>", function()
-    vim.ui.input({ prompt = "Breakpoint condition: " }, function(input)
+    local default = get_breakpoint_by_line()
+
+    vim.ui.input({
+        prompt = "Breakpoint condition: ",
+        completion = "customlist,v:lua.require'dap-view'.complete",
+        default = default and default.condition,
+    }, function(input)
         if input then
             dap.set_breakpoint(input)
         end
