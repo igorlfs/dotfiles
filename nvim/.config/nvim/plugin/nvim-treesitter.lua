@@ -31,7 +31,4 @@ api.nvim_create_autocmd("User", {
     end,
 })
 
-api.nvim_set_hl(0, "@query_param.name.kulala_http", { link = "@parameter" })
-api.nvim_set_hl(0, "@query_param.value.kulala_http", { link = "String" })
-
 vim.treesitter.language.register("kulala_http", "http")

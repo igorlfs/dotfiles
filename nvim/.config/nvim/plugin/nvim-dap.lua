@@ -79,7 +79,7 @@ end, "Conditional Breakpoint")
 util.keymap("<F23>", dap.step_out, "Step Out")
 
 -- Signs
-for _, group in pairs({
+for _, group in ipairs({
     "DapBreakpoint",
     "DapBreakpointCondition",
     "DapBreakpointRejected",

@@ -5,16 +5,7 @@ local M = {}
 -- Don't show the command that produced the quickfix list.
 vim.g.qf_disable_statusline = 1
 
-local api = vim.api
 local fn = vim.fn
-
-api.nvim_set_hl(0, "StatusLinePathDir", { link = "Visual" })
-api.nvim_set_hl(0, "StatusLineVimSelection", { link = "TermCursor" })
-api.nvim_set_hl(0, "StatusLineVimSpell", { link = "Function" })
--- not using DapBreakpoint to make it more distinguishable when there are errors in diagnostics
-api.nvim_set_hl(0, "StatusLineDapIcon", { link = "Title" })
-api.nvim_set_hl(0, "StatusLineAutoFormat", { link = "DiagnosticWarn" })
-api.nvim_set_hl(0, "StatusLineBusy", { link = "Boolean" })
 
 M.vim_diagnostics = function()
     local status = vim.diagnostic.status()

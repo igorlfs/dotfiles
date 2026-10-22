@@ -1,10 +1,11 @@
-local rest = require("restaurus")
-
 local api = vim.api
 
 api.nvim_create_user_command("ReCord", function(args)
-    require("restaurus").save(args.fargs[1], args.bang)
-end, { nargs = 1, bang = true })
+    local this_session = require("restaurus").session_name()
+    local name_ = args.fargs[1] or (this_session ~= "__" and this_session) or nil
+
+    require("restaurus").save(name_, args.bang)
+end, { nargs = "?", bang = true })
 
 api.nvim_create_user_command("ReMove", function(args)
     require("restaurus").remove(args.fargs[1], args.bang)
@@ -35,7 +36,7 @@ end, {})
 
 api.nvim_create_autocmd("VimLeavePre", {
     callback = function()
-        local session_name = rest.session_name()
+        local session_name = require("restaurus").session_name()
 
         if session_name and session_name ~= "__" then
             require("restaurus").save(session_name, true)
