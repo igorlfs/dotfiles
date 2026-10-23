@@ -1,3 +1,5 @@
+local util = require("igorlfs.util")
+
 local api = vim.api
 local uv = vim.uv
 
@@ -23,6 +25,12 @@ api.nvim_create_autocmd("FileType", {
     callback = function(args)
         if not pcall(vim.treesitter.start, args.buf) then
             return
+        end
+
+        if vim.bo[args.buf].buftype == "" then
+            util.keymap("<CR>", "van", { remap = true, buf = args.buf })
+            util.keymap("<CR>", "an", { remap = true, buf = args.buf }, { "x", "o" })
+            util.keymap("<BS>", "in", { remap = true, buf = args.buf }, { "x", "o" })
         end
 
         vim.wo[0][0].foldexpr = vim.treesitter.foldexpr
