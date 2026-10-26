@@ -4,7 +4,6 @@ vim.pack.add({
     { src = util.gh("dlyongemallo/diffview.nvim") },
 })
 
-util.keymap("<leader>vo", "<CMD>DiffviewOpen<CR>", "Diff Head")
 util.keymap("<leader>vc", "<CMD>DiffviewFileHistory %<CR>", "Diff Current File")
 
 local actions = require("diffview.actions")
