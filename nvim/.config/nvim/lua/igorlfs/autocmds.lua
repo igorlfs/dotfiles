@@ -99,6 +99,12 @@ api.nvim_create_autocmd("OptionSet", {
     end,
 })
 
+api.nvim_create_autocmd("OptionSet", {
+    desc = "Refresh statusline when enableing follow",
+    pattern = "follow",
+    command = "redrawstatus",
+})
+
 api.nvim_create_autocmd("BufWinEnter", {
     desc = "Reset statuscolumn for miscellaneous buffers",
     callback = function()

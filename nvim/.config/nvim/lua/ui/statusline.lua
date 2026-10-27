@@ -155,6 +155,14 @@ M.vim_spell = function()
     return string.format("%%#%s# %s %%*", "StatusLineVimSpell", result)
 end
 
+M.vim_mcursor_follow = function()
+    if not vim.bo.follow then
+        return ""
+    end
+
+    return string.format("%%#%s# 󰣉  %%*", "StatusLineCursorFollow")
+end
+
 M.auto_format = function()
     if not vim.g.disable_autoformat then
         return ""
@@ -224,6 +232,7 @@ M.render = function()
         M.vim_macro(),
         M.vim_search(),
         M.git_hunks(),
+        M.vim_mcursor_follow(),
         M.vim_busy(),
         M.vim_spell(),
         M.auto_format(),
