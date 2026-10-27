@@ -5,7 +5,7 @@ local p = require("igorlfs.cafeline").palette
 
 return function()
     hl("Constant", { fg = p.peach })
-    hl("Comment", { fg = p.overlay2, italic = true })
+    hl("Comment", { fg = p.overlay, italic = true })
     hl("String", { fg = p.green })
     hl("Character", { fg = p.green })
     hl("Number", { fg = p.peach })
@@ -38,7 +38,7 @@ return function()
     hl("Special", { fg = p.pink })
     hl("SpecialChar", { link = "Special" })
     hl("Tag", { link = "Special" })
-    hl("Delimiter", { fg = p.overlay2 })
+    hl("Delimiter", { fg = p.overlay })
     hl("SpecialComment", { link = "Special" })
     hl("Debug", { link = "Special" })
 

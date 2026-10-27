@@ -8,7 +8,7 @@ local p = require("igorlfs.cafeline").palette
 return function()
     hl("ColorColumn", { bg = p.surface })
 
-    hl("Conceal", { bg = p.overlay0 })
+    hl("Conceal", { bg = p.overlay })
 
     hl("CurSearch", { bg = p.red, fg = p.mantle })
 
@@ -35,7 +35,7 @@ return function()
     hl("LineNr", { fg = p.surface })
     hl("CursorLineNr", { fg = p.lavender, bold = true })
 
-    hl("MatchParen", { fg = p.peach, bg = p.crust, bold = true })
+    hl("MatchParen", { reverse = true })
 
     hl("MCursor", { reverse = true, dim = true })
 
@@ -43,24 +43,24 @@ return function()
 
     hl("MoreMsg", { fg = p.blue })
 
-    hl("NonText", { fg = p.overlay0 })
+    hl("NonText", { fg = p.overlay })
 
     hl("Normal", { fg = p.text, bg = p.base })
     hl("NormalFloat", { fg = p.text, bg = p.mantle })
     hl("FloatBorder", { fg = p.blue, bg = p.mantle })
 
-    hl("Pmenu", { bg = p.mantle, fg = p.overlay2 })
+    hl("Pmenu", { bg = p.mantle, fg = p.overlay })
     hl("PmenuSel", { bg = p.surface, bold = true })
     hl("PmenuMatch", { fg = p.text, bold = true })
     hl("PmenuSbar", { bg = p.surface })
-    hl("PmenuThumb", { bg = p.overlay0 })
-    hl("ComplMatchIns", { bg = p.overlay2 })
+    hl("PmenuThumb", { bg = p.overlay })
+    hl("ComplMatchIns", { bg = p.overlay })
 
     hl("Question", { fg = p.blue })
 
     hl("QuickFixLine", { bg = colors.darken(p.surface, 0.70, p.base), bold = true })
 
-    hl("Search", { fg = p.crust, bg = p.mauve })
+    hl("Search", { fg = p.mantle, bg = p.mauve })
 
     hl("SpellBad", { sp = p.red, update = true })
     hl("SpellCap", { sp = p.yellow, update = true })
@@ -69,7 +69,7 @@ return function()
 
     hl("StatusLine", { fg = p.text, bg = p.mantle })
 
-    hl("TabLine", { fg = p.overlay0, bg = p.crust })
+    hl("TabLine", { fg = p.overlay, bg = p.crust, dim = true })
     hl("TabLineFill", { bg = p.mantle, fg = p.text })
     hl("TabLineSel", { link = "Normal" })
 

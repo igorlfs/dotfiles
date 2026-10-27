@@ -31,7 +31,7 @@ return function()
     hl("@property", { fg = p.lavender })
 
     hl("@function", { link = "Function" })
-    hl("@function.builtin", { fg = p.blue })
+    hl("@function.builtin", { link = "Function" })
     hl("@function.call", { link = "Function" })
     hl("@function.macro", { link = "Macro" })
 
@@ -75,7 +75,7 @@ return function()
 
     hl("@markup.list", { link = "Operator" })
     hl("@markup.list.checked", { fg = p.green })
-    hl("@markup.list.unchecked", { fg = p.overlay2 })
+    hl("@markup.list.unchecked", { fg = p.overlay })
 
     hl("@tag", { fg = p.mauve })
     hl("@tag.builtin", { fg = p.mauve, bold = true })

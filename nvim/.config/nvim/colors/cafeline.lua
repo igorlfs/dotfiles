@@ -6,8 +6,8 @@ vim.g.colors_name = "cafeline"
 local hl = require("igorlfs.util").hl
 local p = require("igorlfs.cafeline").palette
 
-vim.g.terminal_color_0 = p.overlay0
-vim.g.terminal_color_8 = p.overlay2
+vim.g.terminal_color_0 = p.overlay
+vim.g.terminal_color_8 = p.overlay
 vim.g.terminal_color_1 = p.red
 vim.g.terminal_color_9 = p.red
 vim.g.terminal_color_2 = p.green
