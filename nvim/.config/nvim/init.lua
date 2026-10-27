@@ -12,3 +12,5 @@ require("igorlfs.lsp")
 require("ui.statusline")
 require("ui.statuscolumn")
 require("ui.tabline")
+
+vim.cmd("colorscheme cafeline")

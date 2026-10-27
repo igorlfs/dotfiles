@@ -13,6 +13,12 @@ function M.keymap(lhs, rhs, opts, mode)
     vim.keymap.set(mode, lhs, rhs, opts)
 end
 
+---@param name string
+---@param attr vim.api.keyset.highlight
+M.hl = function(name, attr)
+    api.nvim_set_hl(0, name, attr)
+end
+
 ---For replacing certain <C-x>... keymaps
 ---@param keys string
 function M.feedkeys(keys)

@@ -5,7 +5,17 @@ local M = {}
 -- Don't show the command that produced the quickfix list.
 vim.g.qf_disable_statusline = 1
 
+local hl = require("igorlfs.util").hl
+
 local fn = vim.fn
+
+hl("StatusLinePathDir", { link = "Visual" })
+hl("StatusLineVimSelection", { link = "TermCursor" })
+hl("StatusLineVimSpell", { link = "Function" })
+hl("StatusLineDapIcon", { link = "Title" })
+hl("StatusLineAutoFormat", { link = "DiagnosticWarn" })
+hl("StatusLineCursorFollow", { link = "Boolean" })
+hl("StatusLineBusy", { link = "Boolean" })
 
 M.vim_diagnostics = function()
     local status = vim.diagnostic.status()
@@ -25,9 +35,9 @@ M.git_branch = function()
         return ""
     end
 
-    local hl = require("ui.shared").get_mode_hl()
+    local mode_hl = require("ui.shared").get_mode_hl()
 
-    return string.format("%%#%s#  %s %%*", hl, result)
+    return string.format("%%#%s#  %s %%*", mode_hl, result)
 end
 
 M.git_hunks = function()
@@ -89,9 +99,9 @@ M.vim_session = function()
         return ""
     end
 
-    local hl = require("ui.shared").get_mode_hl()
+    local mode_hl = require("ui.shared").get_mode_hl()
 
-    return string.format("%%#%s# %s %%*", hl, result)
+    return string.format("%%#%s# %s %%*", mode_hl, result)
 end
 
 M.vim_macro = function()
