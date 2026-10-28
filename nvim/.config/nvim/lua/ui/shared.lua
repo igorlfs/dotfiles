@@ -2,24 +2,23 @@ local M = {}
 
 local api = vim.api
 
-M.get_mode_hl = function()
-    local mode = api.nvim_get_mode().mode
-    local mini_mode = "Mode"
+---@param mode string
+---@return string
+M.get_mode_hl = function(mode)
+    local mode_ = mode or api.nvim_get_mode().mode
 
-    -- These groups are enabled because catppuccin detects mini.ai and enables all of mini's hl groups
-
-    if vim.startswith(mode, "i") or mode == "t" then
-        return mini_mode .. "Insert"
-    elseif vim.startswith(mode, "n") then
-        return mini_mode .. "Normal"
-    elseif vim.startswith(mode, "R") then
-        return mini_mode .. "Replace"
-    elseif vim.startswith(mode:lower(), "v") then
-        return mini_mode .. "Visual"
-    elseif mode == "c" then
-        return mini_mode .. "Command"
+    if vim.startswith(mode_, "i") or mode_ == "t" then
+        return "ModeInsert"
+    elseif vim.startswith(mode_, "n") then
+        return "ModeNormal"
+    elseif vim.startswith(mode_, "R") then
+        return "ModeReplace"
+    elseif vim.startswith(mode_:lower(), "v") then
+        return "ModeVisual"
+    elseif mode_ == "c" then
+        return "ModeCommand"
     else
-        return mini_mode .. "Other"
+        return "ModeOther"
     end
 end
 
