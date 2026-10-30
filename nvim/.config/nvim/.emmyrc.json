@@ -26,7 +26,6 @@
             "$XDG_DATA_HOME/nvim/site/pack/core/opt/neogit/lua",
             "$XDG_DATA_HOME/nvim/site/pack/core/opt/nvim-lspconfig/lua",
             "$XDG_DATA_HOME/nvim/site/pack/core/opt/nvim-treesitter/lua",
-            "$XDG_DATA_HOME/nvim/site/pack/core/opt/nvim-treesitter-textobjects/lua",
             "$XDG_DATA_HOME/nvim/site/pack/core/opt/nvim-tree.lua/lua",
             "$XDG_DATA_HOME/nvim/site/pack/core/opt/fzf-lua/lua",
             "$HOME/code/nvim-plugins/start/nvim-dap-view/lua",

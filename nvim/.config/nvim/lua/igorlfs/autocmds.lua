@@ -100,7 +100,7 @@ api.nvim_create_autocmd("OptionSet", {
 })
 
 api.nvim_create_autocmd("OptionSet", {
-    desc = "Refresh statusline when enableing follow",
+    desc = "Refresh statusline when enabling follow",
     pattern = "follow",
     command = "redrawstatus",
 })
