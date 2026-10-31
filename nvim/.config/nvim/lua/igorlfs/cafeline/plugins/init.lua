@@ -1,7 +1,7 @@
 local hl = require("igorlfs.util").hl
-local p = require("igorlfs.cafeline").palette
 
-return function()
+---@param p table<string,string>
+return function(p)
     hl("DapBreakpoint", { fg = p.red })
     hl("DapBreakpointCondition", { fg = p.yellow })
     hl("DapBreakpointRejected", { fg = p.mauve })

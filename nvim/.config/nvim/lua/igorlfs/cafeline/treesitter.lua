@@ -1,9 +1,9 @@
 local hl = require("igorlfs.util").hl
-local p = require("igorlfs.cafeline").palette
 
 -- from :h treesitter-highlight-groups
 
-return function()
+---@param p table<string,string>
+return function(p)
     hl("@variable", { fg = p.text })
     hl("@variable.builtin", { fg = p.red })
     hl("@variable.parameter", { fg = p.maroon })

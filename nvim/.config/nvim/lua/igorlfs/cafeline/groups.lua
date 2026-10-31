@@ -1,11 +1,11 @@
 local colors = require("colors")
 
 local hl = require("igorlfs.util").hl
-local p = require("igorlfs.cafeline").palette
 
 -- from :h highlight-groups
 
-return function()
+---@param p table<string,string>
+return function(p)
     hl("ColorColumn", { bg = p.surface })
 
     hl("Conceal", { bg = p.overlay })

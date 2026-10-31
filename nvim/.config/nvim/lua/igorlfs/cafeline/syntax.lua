@@ -1,9 +1,9 @@
 local hl = require("igorlfs.util").hl
-local p = require("igorlfs.cafeline").palette
 
 -- from :h group-name
 
-return function()
+---@param p table<string,string>
+return function(p)
     hl("Constant", { fg = p.peach })
     hl("Comment", { fg = p.overlay, italic = true })
     hl("String", { fg = p.green })
