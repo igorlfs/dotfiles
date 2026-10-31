@@ -22,3 +22,4 @@ g.loaded_tarPlugin = 1
 g.loaded_netrwPlugin = 1
 g.loaded_gzip = 1
 g.loaded_nvim_dir_plugin = 1
+g.loaded_matchparen = 1
