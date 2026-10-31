@@ -6,17 +6,13 @@ local uv = vim.uv
 api.nvim_create_autocmd("FileType", {
     desc = "Enable Softwrap",
     pattern = { "tex", "octo", "typst", "markdown", "liquid" },
-    callback = function()
-        vim.wo[0][0].wrap = true
-    end,
+    command = "setlocal wrap",
 })
 
 -- See https://github.com/neovim/neovim/pull/31443#issuecomment-2521958704
 api.nvim_create_autocmd("TermOpen", {
     desc = "Disable scrolloff for terminal",
-    callback = function()
-        vim.wo[0][0].scrolloff = 0
-    end,
+    command = "setlocal scrolloff=0",
 })
 
 -- From https://github.com/neovim/neovim/pull/30164#issuecomment-2315421660
@@ -121,9 +117,7 @@ api.nvim_create_autocmd("BufWinEnter", {
 api.nvim_create_autocmd("FileType", {
     desc = "Enable Spellchecker",
     pattern = { "gitcommit", "tex", "octo", "typst" },
-    callback = function()
-        vim.wo[0][0].spell = true
-    end,
+    command = "setlocal spell",
 })
 
 api.nvim_create_autocmd("LspAttach", {
