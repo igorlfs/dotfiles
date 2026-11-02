@@ -102,7 +102,7 @@ require("dap-view").setup({
             end,
         },
     },
-})
+} --[[@as dapview.Config]])
 
 util.keymap("<A-m>", "<CMD>DapViewToggle<CR>", "Toggle DAP UI")
 util.keymap("<A-v>", "<CMD>DapViewVirtualTextToggle<CR>", "Toggle DAP Virtual Text")

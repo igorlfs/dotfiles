@@ -20,7 +20,7 @@ dap.defaults.fallback.switchbuf = switchbuf
 local function get_breakpoint_by_line(line)
     local line_ = line or api.nvim_win_get_cursor(0)[1]
     local buf = api.nvim_get_current_buf()
-    local breakpoints = require("dap.breakpoints").get({ bufexpr = buf })
+    local breakpoints = require("dap.breakpoints").get(buf)
     local breakpoint = vim.iter(breakpoints[buf] or {}):find(function(bp)
         return bp.line == line_
     end)
@@ -125,25 +125,17 @@ api.nvim_create_autocmd("SessionLoadPost", {
             bufs_by_name[buf_name] = buf
         end
 
-        ---@type integer[]
-        local new_bufs = {}
-
         for _, breakpoint in ipairs(vim.json.decode(vim.g.DAP_breakpoints) or {}) do
             local buf = bufs_by_name[breakpoint.filename]
 
             if buf == nil then
                 buf = fn.bufadd(breakpoint.filename)
-                new_bufs[#new_bufs + 1] = buf
                 bufs_by_name[breakpoint.filename] = buf
             end
 
             if buf and api.nvim_buf_is_valid(buf) then
                 require("dap.breakpoints").set(breakpoint, buf, breakpoint.line)
             end
-        end
-
-        for _, buf in ipairs(new_bufs) do
-            api.nvim_buf_delete(buf)
         end
     end,
 })
