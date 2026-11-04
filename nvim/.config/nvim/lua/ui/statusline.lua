@@ -9,13 +9,13 @@ local hl = require("igorlfs.util").hl
 
 local fn = vim.fn
 
-hl("StatusLinePathDir", { link = "Visual" })
-hl("StatusLineVimSelection", { link = "TermCursor" })
-hl("StatusLineVimSpell", { link = "Function" })
-hl("StatusLineDapIcon", { link = "Title" })
-hl("StatusLineAutoFormat", { link = "DiagnosticWarn" })
-hl("StatusLineCursorFollow", { link = "Boolean" })
-hl("StatusLineBusy", { link = "Boolean" })
+hl("StatusLinePathDir", { link = "Visual", default = true })
+hl("StatusLineVimSelection", { link = "TermCursor", default = true })
+hl("StatusLineVimSpell", { link = "Function", default = true })
+hl("StatusLineDapIcon", { link = "Title", default = true })
+hl("StatusLineAutoFormat", { link = "DiagnosticWarn", default = true })
+hl("StatusLineCursorFollow", { link = "Boolean", default = true })
+hl("StatusLineBusy", { link = "Boolean", default = true })
 
 M.vim_diagnostics = function()
     local status = vim.diagnostic.status()

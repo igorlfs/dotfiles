@@ -2,7 +2,7 @@ local M = {}
 
 local api = vim.api
 
----@param mode string
+---@param mode string?
 ---@return string
 M.get_mode_hl = function(mode)
     local mode_ = mode or api.nvim_get_mode().mode
