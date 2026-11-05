@@ -1,7 +1,5 @@
 local api = vim.api
 
-local util = require("igorlfs.util")
-
 api.nvim_create_autocmd("PackChanged", {
     callback = function(ev)
         local name, kind = ev.data.spec.name, ev.data.kind
@@ -13,7 +11,7 @@ api.nvim_create_autocmd("PackChanged", {
 })
 
 vim.pack.add({
-    { src = util.gh("nvim-treesitter/nvim-treesitter") },
+    { src = require("igorlfs.util").gh("nvim-treesitter/nvim-treesitter") },
 })
 
 api.nvim_create_autocmd("User", {

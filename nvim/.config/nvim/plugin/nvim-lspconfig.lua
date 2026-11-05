@@ -1,7 +1,5 @@
-local util = require("igorlfs.util")
-
 vim.pack.add({
-    { src = util.gh("neovim/nvim-lspconfig") },
+    { src = require("igorlfs.util").gh("neovim/nvim-lspconfig") },
 })
 
 for _, language_server in ipairs({

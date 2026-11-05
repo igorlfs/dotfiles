@@ -1,7 +1,5 @@
-local util = require("igorlfs.util")
-
 vim.pack.add({
-    { src = util.gh("saghen/blink.cmp"), version = vim.version.range("1.*") },
+    { src = require("igorlfs.util").gh("saghen/blink.cmp"), version = vim.version.range("1.*") },
 })
 
 require("blink.cmp").setup({
