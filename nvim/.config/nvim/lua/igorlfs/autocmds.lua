@@ -91,6 +91,7 @@ api.nvim_create_autocmd("OptionSet", {
     callback = function()
         if vim.v.option_new == "terminal" then
             vim.wo[0][0].statuscolumn = ""
+            vim.wo[0][0].cursorlineopt = "line"
         end
     end,
 })
