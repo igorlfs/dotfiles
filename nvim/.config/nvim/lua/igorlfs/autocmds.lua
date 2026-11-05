@@ -24,7 +24,9 @@ api.nvim_create_autocmd("FileType", {
         end
 
         if vim.bo[args.buf].buftype == "" then
-            util.keymap("<CR>", "van", { remap = true, buf = args.buf })
+            util.keymap("<CR>", function()
+                vim.cmd.normal("v" .. vim.v.count1 .. "an")
+            end, { buf = args.buf })
             util.keymap("<CR>", "an", { remap = true, buf = args.buf }, { "x", "o" })
             util.keymap("<BS>", "in", { remap = true, buf = args.buf }, { "x", "o" })
         end
