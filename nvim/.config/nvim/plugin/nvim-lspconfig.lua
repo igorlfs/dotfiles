@@ -9,7 +9,6 @@ for _, language_server in ipairs({
     "oxfmt",
     "stylua",
     "svelte",
-    "tinymist",
     "ts_query_ls",
     "tsc",
 }) do
