@@ -2,13 +2,16 @@ if not pcall(require, "nvim-tree") then
     return
 end
 
+local uri = vim.uri
+local lsp = vim.lsp
+
 local api = require("nvim-tree.api")
 
 local event = api.events.Event
 
 local TIMEOUT_MS = 1000
 
-vim.lsp.config("*", {
+lsp.config("*", {
     capabilities = {
         workspace = {
             fileOperations = {
@@ -39,13 +42,13 @@ local apply_workspace_edit = function(response, offset_encoding)
         local bufs = {}
         local document_changes = vim.tbl_get(response.result, "documentChanges")
         for _, doc in ipairs(document_changes or {}) do
-            local uri = vim.tbl_get(doc, "textDocument", "uri")
-            if uri then
-                bufs[#bufs + 1] = vim.uri_to_bufnr(uri)
+            local uri_ = vim.tbl_get(doc, "textDocument", "uri")
+            if uri_ then
+                bufs[#bufs + 1] = uri.to_buf(uri_)
             end
         end
 
-        vim.lsp.util.apply_workspace_edit(response.result, offset_encoding)
+        lsp.util.apply_workspace_edit(response.result, offset_encoding)
 
         for _, bufnr in ipairs(bufs) do
             vim.api.nvim_buf_call(bufnr, function()
@@ -89,13 +92,13 @@ api.events.subscribe(
     event.NodeRenamed,
     ---@param payload {old_name: string, new_name: string}
     function(payload)
-        for _, client in ipairs(vim.lsp.get_clients()) do
+        for _, client in ipairs(lsp.get_clients()) do
             ---@type lsp.FileOperationRegistrationOptions?
             local did_rename = vim.tbl_get(client, "server_capabilities", "workspace", "fileOperations", "didRename")
 
             if has_match(payload.new_name, (did_rename or {}).filters) then
-                local oldUri = vim.uri_from_fname(payload.old_name)
-                local newUri = vim.uri_from_fname(payload.new_name)
+                local oldUri = uri.from_fname(payload.old_name)
+                local newUri = uri.from_fname(payload.new_name)
 
                 client:notify("workspace/didRenameFiles", {
                     files = { { oldUri = oldUri, newUri = newUri } },
@@ -112,15 +115,15 @@ for _, event_removed in ipairs({ event.FileRemoved, event.FolderRemoved }) do
         function(payload)
             local node = payload.fname or payload.folder_name
 
-            for _, client in ipairs(vim.lsp.get_clients()) do
+            for _, client in ipairs(lsp.get_clients()) do
                 ---@type lsp.FileOperationRegistrationOptions?
                 local did_delete =
                     vim.tbl_get(client, { "server_capabilities", "workspace", "fileOperations", "didDelete" })
 
                 if has_match(node, (did_delete or {}).filters) then
-                    local uri = vim.uri_from_fname(node)
+                    local uri_ = uri.from_fname(node)
 
-                    client:notify("workspace/didDeleteFiles", { files = { { uri = uri } } })
+                    client:notify("workspace/didDeleteFiles", { files = { { uri = uri_ } } })
                 end
             end
         end
@@ -134,15 +137,15 @@ for _, event_created in ipairs({ event.FileCreated, event.FolderCreated }) do
         function(payload)
             local node = payload.fname or payload.folder_name
 
-            for _, client in ipairs(vim.lsp.get_clients()) do
+            for _, client in ipairs(lsp.get_clients()) do
                 ---@type lsp.FileOperationRegistrationOptions?
                 local did_create =
                     vim.tbl_get(client, { "server_capabilities", "workspace", "fileOperations", "didCreate" })
 
                 if has_match(node, (did_create or {}).filters) then
-                    local uri = vim.uri_from_fname(node)
+                    local uri_ = uri.from_fname(node)
 
-                    client:notify("workspace/didCreateFiles", { files = { { uri = uri } } })
+                    client:notify("workspace/didCreateFiles", { files = { { uri = uri_ } } })
                 end
             end
         end
@@ -153,13 +156,13 @@ api.events.subscribe(
     event.WillRenameNode,
     ---@param payload {old_name: string, new_name: string}
     function(payload)
-        for _, client in ipairs(vim.lsp.get_clients()) do
+        for _, client in ipairs(lsp.get_clients()) do
             ---@type lsp.FileOperationRegistrationOptions?
             local will_rename = vim.tbl_get(client, "server_capabilities", "workspace", "fileOperations", "willRename")
 
             if has_match(payload.old_name, (will_rename or {}).filters) then
-                local oldUri = vim.uri_from_fname(payload.old_name)
-                local newUri = vim.uri_from_fname(payload.new_name)
+                local oldUri = uri.from_fname(payload.old_name)
+                local newUri = uri.from_fname(payload.new_name)
 
                 local response = client:request_sync("workspace/willRenameFiles", {
                     files = { { oldUri = oldUri, newUri = newUri } },
@@ -175,15 +178,15 @@ api.events.subscribe(
     event.WillRemoveFile,
     ---@param payload {fname: string}
     function(payload)
-        for _, client in ipairs(vim.lsp.get_clients()) do
+        for _, client in ipairs(lsp.get_clients()) do
             ---@type lsp.FileOperationRegistrationOptions?
             local will_delete = vim.tbl_get(client, "server_capabilities", "workspace", "fileOperations", "willDelete")
 
             if has_match(payload.fname, (will_delete or {}).filters) then
-                local uri = vim.uri_from_fname(payload.fname)
+                local uri_ = uri.from_fname(payload.fname)
 
                 local response = client:request_sync("workspace/willDeleteFiles", {
-                    files = { { uri = uri } },
+                    files = { { uri = uri_ } },
                 }, TIMEOUT_MS)
 
                 apply_workspace_edit(response, client.offset_encoding)
@@ -196,15 +199,15 @@ api.events.subscribe(
     event.WillCreateFile,
     ---@param payload {fname: string}
     function(payload)
-        for _, client in ipairs(vim.lsp.get_clients()) do
+        for _, client in ipairs(lsp.get_clients()) do
             ---@type lsp.FileOperationRegistrationOptions?
             local will_create = vim.tbl_get(client, "server_capabilities", "workspace", "fileOperations", "willCreate")
 
             if has_match(payload.fname, (will_create or {}).filters) then
-                local uri = vim.uri_from_fname(payload.fname)
+                local uri_ = uri.from_fname(payload.fname)
 
                 local response = client:request_sync("workspace/willCreateFiles", {
-                    files = { { uri = uri } },
+                    files = { { uri = uri_ } },
                 }, TIMEOUT_MS)
 
                 apply_workspace_edit(response, client.offset_encoding)
