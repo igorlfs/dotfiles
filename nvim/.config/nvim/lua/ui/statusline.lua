@@ -72,7 +72,7 @@ M.git_hunks = function()
 end
 
 M.dap_session = function()
-    if not package.loaded["dap"] then
+    if not package.loaded["dap"] or require("dap").session() == nil then
         return ""
     end
 
@@ -82,16 +82,14 @@ M.dap_session = function()
         status = string.format(" %s ", status)
     end
 
-    local result = require("dap").session() and " " or ""
-
-    if result == "" then
-        return ""
-    end
-
-    return string.format("%s%%#%s#%s %%*", status, "StatusLineDapIcon", result)
+    return string.format("%s%%#%s#  %%*", status, "StatusLineDapIcon")
 end
 
 M.vim_session = function()
+    if not package.loaded["restaurus"] then
+        return ""
+    end
+
     local result = require("restaurus").session_name()
 
     -- Handle special "temporary" session
@@ -115,9 +113,7 @@ M.vim_macro = function()
 end
 
 M.vim_busy = function()
-    local busy = vim.bo.busy
-
-    if busy == 0 then
+    if vim.bo.busy == 0 then
         return ""
     end
 
@@ -146,13 +142,11 @@ M.path_file = function()
 end
 
 M.vim_spell = function()
-    local result = vim.wo.spell and "󰓆 " or ""
-
-    if result == "" then
+    if vim.wo.spell == false then
         return ""
     end
 
-    return string.format("%%#%s# %s %%*", "StatusLineVimSpell", result)
+    return string.format("%%#%s# 󰓆  %%*", "StatusLineVimSpell")
 end
 
 M.vim_mcursor_follow = function()
