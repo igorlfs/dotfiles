@@ -3,6 +3,8 @@ if vim.g.colors_name then
 end
 vim.g.colors_name = "cafeline"
 
+local dark = vim.o.background == "dark"
+
 local hl = require("igorlfs.util").hl
 local p = require("igorlfs.cafeline").palette()
 
@@ -26,6 +28,7 @@ vim.g.terminal_color_15 = p.text
 require("igorlfs.cafeline.groups")(p)
 require("igorlfs.cafeline.syntax")(p)
 require("igorlfs.cafeline.treesitter")(p)
+require("igorlfs.cafeline.mine")(p)
 require("igorlfs.cafeline.tokens")()
 require("igorlfs.cafeline.plugins")(p)
 
@@ -43,4 +46,5 @@ hl("DiagnosticUnnecessary", { dim = true })
 
 hl("debugPC", { bg = p.crust })
 
+hl("LspReferenceText", { bg = dark and p.surface or p.crust })
 

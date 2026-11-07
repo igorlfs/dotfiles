@@ -6,6 +6,8 @@ local hl = require("igorlfs.util").hl
 
 ---@param p table<string,string>
 return function(p)
+    local dark = vim.o.background == "dark"
+
     hl("ColorColumn", { bg = p.surface })
 
     hl("Conceal", { bg = p.overlay })
@@ -13,7 +15,7 @@ return function(p)
     hl("CurSearch", { bg = p.red, fg = p.mantle })
 
     hl("CursorColumn", { link = "CursorLine" })
-    hl("CursorLine", { bg = colors.darken(p.surface, 0.45, p.base) })
+    hl("CursorLine", { bg = dark and colors.darken(p.surface, 0.45, p.base) or p.crust })
 
     hl("Directory", { fg = p.blue })
 
@@ -28,7 +30,7 @@ return function(p)
 
     hl("WinSeparator", { fg = p.crust })
 
-    hl("Folded", { fg = p.blue, bg = p.surface })
+    hl("Folded", { fg = p.blue, bg = dark and p.surface or p.crust })
 
     hl("IncSearch", { bg = p.sky, fg = p.mantle })
     hl("Substitute", { bg = p.surface, fg = p.pink })
@@ -69,13 +71,14 @@ return function(p)
 
     hl("StatusLine", { fg = p.text, bg = p.mantle })
 
-    hl("TabLine", { fg = p.overlay, bg = p.crust, dim = true })
-    hl("TabLineFill", { bg = p.mantle, fg = p.text })
+    hl("TabLine", { fg = dark and p.overlay or p.text, bg = p.crust, dim = dark })
+
+    hl("TabLineFill", { fg = p.text, bg = p.mantle })
     hl("TabLineSel", { link = "Normal" })
 
     hl("Title", { fg = p.blue, bold = true })
 
-    hl("Visual", { bg = p.surface })
+    hl("Visual", { bg = dark and p.surface or p.crust, bold = dark })
 
     hl("WinBar", {})
     hl("WinBarNC", { link = "WinBar" })

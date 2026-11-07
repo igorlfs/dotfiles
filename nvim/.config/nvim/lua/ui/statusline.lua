@@ -5,17 +5,7 @@ local M = {}
 -- Don't show the command that produced the quickfix list.
 vim.g.qf_disable_statusline = 1
 
-local hl = require("igorlfs.util").hl
-
 local fn = vim.fn
-
-hl("StatusLinePathDir", { link = "Visual", default = true })
-hl("StatusLineVimSelection", { link = "TermCursor", default = true })
-hl("StatusLineVimSpell", { link = "Function", default = true })
-hl("StatusLineDapIcon", { link = "Title", default = true })
-hl("StatusLineAutoFormat", { link = "DiagnosticWarn", default = true })
-hl("StatusLineCursorFollow", { link = "Boolean", default = true })
-hl("StatusLineBusy", { link = "Boolean", default = true })
 
 M.vim_diagnostics = function()
     local status = vim.diagnostic.status()
