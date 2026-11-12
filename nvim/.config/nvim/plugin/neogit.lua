@@ -3,7 +3,6 @@ local util = require("igorlfs.util")
 local api = vim.api
 
 vim.pack.add({
-    { src = util.gh("dlyongemallo/diffview.nvim") },
     { src = util.gh("ibhagwan/fzf-lua") },
     { src = util.gh("NeogitOrg/neogit") },
 })

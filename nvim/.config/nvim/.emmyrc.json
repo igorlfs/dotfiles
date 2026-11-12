@@ -21,7 +21,6 @@
         "library": [
             "$VIMRUNTIME/lua",
             "$XDG_DATA_HOME/nvim/site/pack/core/opt/blink.cmp/lua",
-            "$XDG_DATA_HOME/nvim/site/pack/core/opt/diffview.nvim/lua",
             "$XDG_DATA_HOME/nvim/site/pack/core/opt/gitsigns.nvim/lua",
             "$XDG_DATA_HOME/nvim/site/pack/core/opt/neogit/lua",
             "$XDG_DATA_HOME/nvim/site/pack/core/opt/nvim-lspconfig/lua",
