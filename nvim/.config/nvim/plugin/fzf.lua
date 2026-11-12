@@ -9,6 +9,7 @@ local fzflua = require("fzf-lua")
 
 fzflua.setup({
     "hide",
+    fzf_colors = true,
     fzf_opts = {
         ["--cycle"] = true,
     },
