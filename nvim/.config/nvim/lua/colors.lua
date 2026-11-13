@@ -37,20 +37,4 @@ function M.blend(fg, bg, alpha)
     return string.format("#%02X%02X%02X", blendChannel(1), blendChannel(2), blendChannel(3))
 end
 
----@param hex string
----@param amount number
----@param bg string
----@return string
-function M.darken(hex, amount, bg)
-    return M.blend(hex, bg, math.abs(amount))
-end
-
----@param hex string
----@param amount number
----@param fg string
----@return string
-function M.lighten(hex, amount, fg)
-    return M.blend(hex, fg, math.abs(amount))
-end
-
 return M

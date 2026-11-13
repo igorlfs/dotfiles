@@ -19,10 +19,10 @@ return function(p)
 
     hl("Directory", { fg = p.blue })
 
-    hl("DiffAdd", { bg = colors.darken(p.green, 0.18, p.base) })
-    hl("DiffChange", { bg = colors.darken(p.blue, 0.07, p.base) })
-    hl("DiffDelete", { bg = colors.darken(p.red, 0.18, p.base) })
-    hl("DiffText", { bg = colors.darken(p.blue, 0.30, p.base) })
+    hl("DiffAdd", { bg = colors.blend(p.green, p.base, 0.18) })
+    hl("DiffChange", { bg = colors.blend(p.blue, p.base, 0.07) })
+    hl("DiffDelete", { bg = colors.blend(p.red, p.base, 0.18) })
+    hl("DiffText", { bg = colors.blend(p.blue, p.base, 0.30) })
 
     hl("OkMsg", { fg = p.green })
     hl("ErrorMsg", { fg = p.red, bold = true })
@@ -60,7 +60,7 @@ return function(p)
 
     hl("Question", { fg = p.blue })
 
-    hl("QuickFixLine", { bg = colors.darken(p.surface, 0.70, p.base), bold = true })
+    hl("QuickFixLine", { bg = colors.blend(p.surface, p.base, 0.70), bold = true })
 
     hl("Search", { fg = p.mantle, bg = p.mauve })
 
