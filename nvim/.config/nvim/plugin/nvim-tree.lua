@@ -6,9 +6,6 @@ vim.pack.add({
 })
 
 require("nvim-tree").setup({
-    git = {
-        enable = false,
-    },
     renderer = {
         icons = {
             show = {
