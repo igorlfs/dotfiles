@@ -5,14 +5,14 @@ local uv = vim.uv
 
 api.nvim_create_autocmd("FileType", {
     desc = "Enable Softwrap",
-    pattern = { "tex", "octo", "typst", "markdown", "liquid" },
+    pattern = { "typst", "markdown", "liquid" },
     command = "setlocal wrap",
 })
 
 -- See https://github.com/neovim/neovim/pull/31443#issuecomment-2521958704
 api.nvim_create_autocmd("TermOpen", {
-    desc = "Disable scrolloff for terminal",
-    command = "setlocal scrolloff=0",
+    desc = "Terminal settings",
+    command = "setlocal scrolloff=0 cursorlineopt=line",
 })
 
 -- From https://github.com/neovim/neovim/pull/30164#issuecomment-2315421660
@@ -76,24 +76,18 @@ api.nvim_create_autocmd("TermRequest", {
     callback = function(ev)
         local dir, n = string.gsub(ev.data.sequence, "\027]7;file://[^/]*", "")
         local stat = uv.fs_stat(dir)
-        if n > 0 and stat and stat.type == "directory" and api.nvim_get_current_buf() == ev.buf then
-            local dir_ = vim.b[ev.buf].osc7_dir
-            if dir_ then
-                api.nvim_set_option_value("path", dir_, { operation = "remove", buf = ev.buf })
-            end
-            api.nvim_set_option_value("path", dir, { operation = "append", buf = ev.buf })
-            vim.b[ev.buf].osc7_dir = dir
-        end
-    end,
-})
+        local buf = ev.buf
 
-api.nvim_create_autocmd("OptionSet", {
-    desc = "Reset statuscolumn for terminal buffers",
-    pattern = "buftype",
-    callback = function()
-        if vim.v.option_new == "terminal" then
-            vim.wo[0][0].statuscolumn = ""
-            vim.wo[0][0].cursorlineopt = "line"
+        if n > 0 and stat and stat.type == "directory" and api.nvim_get_current_buf() == buf then
+            local dir_ = vim.b[buf].osc7_dir
+
+            if dir_ then
+                api.nvim_set_option_value("path", dir_, { operation = "remove", buf = buf })
+            end
+
+            api.nvim_set_option_value("path", dir, { operation = "append", buf = buf })
+
+            vim.b[buf].osc7_dir = dir
         end
     end,
 })
@@ -119,7 +113,7 @@ api.nvim_create_autocmd("BufWinEnter", {
 
 api.nvim_create_autocmd("FileType", {
     desc = "Enable Spellchecker",
-    pattern = { "gitcommit", "tex", "octo", "typst" },
+    pattern = { "gitcommit", "typst" },
     command = "setlocal spell",
 })
 

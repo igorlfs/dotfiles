@@ -114,11 +114,8 @@ local fetch_buf_name = function(bufnr)
         return "DAP REPL"
     elseif filetype == "dap-view-hover" then
         return "DAP Hover"
-    elseif string.match(filetype, "^Neogit") or string.match(filetype, "^Diffview") then
+    elseif string.match(filetype, "^Neogit") then
         return filetype
-    elseif string.match(buf_name, "^diffview://") then
-        -- Diff buffers are handled especially
-        return fn.fnamemodify(buf_name, ":t")
     elseif buf_name == "" then
         -- Avoid empty bufs
         return "[No Name]"
