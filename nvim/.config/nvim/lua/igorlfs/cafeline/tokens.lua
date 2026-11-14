@@ -2,6 +2,7 @@ local hl = require("igorlfs.util").hl
 
 return function()
     hl("@lsp.typemod.variable.defaultLibrary", { link = "@variable.builtin" })
+    hl("@lsp.typemod.function.defaultLibrary", { link = "@function.builtin" })
 
     -- Language specific stuff
 

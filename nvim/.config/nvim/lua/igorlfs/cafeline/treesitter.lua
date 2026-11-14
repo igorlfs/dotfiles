@@ -31,7 +31,7 @@ return function(p)
     hl("@property", { fg = p.lavender })
 
     hl("@function", { link = "Function" })
-    hl("@function.builtin", { link = "Function" })
+    hl("@function.builtin", { fg = p.peach })
     hl("@function.call", { link = "Function" })
     hl("@function.macro", { link = "Macro" })
 
