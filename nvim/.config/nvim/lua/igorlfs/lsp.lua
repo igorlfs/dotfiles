@@ -1,7 +1,6 @@
 local lsp = vim.lsp
 
 lsp.linked_editing_range.enable()
-lsp.on_type_formatting.enable()
 
 lsp.config("*", {
     capabilities = {

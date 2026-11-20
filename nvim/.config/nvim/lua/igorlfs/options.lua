@@ -27,7 +27,7 @@ o.shadafile = "NONE" -- Don't save history
 
 -- Completion
 
-o.completeopt = "menuone,popup,noselect,fuzzy" -- More intuitive completion options
+o.completeopt = { "menuone", "popup", "noselect", "fuzzy" } -- More intuitive completion options
 o.pumheight = 10 -- Limit completion window up to 10 lines
 
 -- Softwrap
@@ -54,7 +54,7 @@ o.cursorline = true
 
 -- Spell
 
-o.spellfile = "~/.local/share/nvim/en.utf-8.add,~/.local/share/nvim/pt.utf-8.add" -- Custom dictionary files
+o.spellfile = { "~/.local/share/nvim/en.utf-8.add", "~/.local/share/nvim/pt.utf-8.add" } -- Custom dictionary files
 o.spelloptions = "camel"
 
 -- Folds
