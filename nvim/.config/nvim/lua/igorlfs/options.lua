@@ -35,6 +35,7 @@ o.pumheight = 10 -- Limit completion window up to 10 lines
 o.wrap = false -- Disable softwrap by default
 o.linebreak = true -- Wrap words, not chars
 o.breakindent = true -- Indent softwrapped lines
+o.showbreak = "↳ " -- Wrap indicator
 
 -- Statuscolumn
 
