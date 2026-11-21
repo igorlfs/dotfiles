@@ -37,12 +37,12 @@ M.save = function(name, force)
 
         local abs_path_session = fs.abspath(session_file_name)
 
-        vim.cmd("mksession! " .. abs_path_session)
+        vim.cmd("mksession! " .. fn.fnameescape(abs_path_session))
 
         if name then
             local root_base_name = fs.basename(root)
 
-            local link_path = string.format("%s/%s+%s.vim", SHARED_SESSIONS_PATH, root_base_name, name)
+            local link_path = string.format("%s/%s%%%s.vim", SHARED_SESSIONS_PATH, root_base_name, name)
 
             uv.fs_symlink(abs_path_session, link_path)
 
@@ -88,13 +88,13 @@ M.list = function()
         prompt = "Pick session: ",
         ---@param item string
         format_item = function(item)
-            return (item:gsub("+", "/", 1):gsub(".vim$", ""))
+            return (item:gsub("%%", "/", 1):gsub(".vim$", ""))
         end,
     }, function(item)
         if item then
             -- Vim(normal):Can't re-enter normal mode from terminal mode
             vim.defer_fn(function()
-                vim.cmd("source " .. SHARED_SESSIONS_PATH .. "/" .. item)
+                vim.cmd("source " .. SHARED_SESSIONS_PATH .. "/" .. fn.fnameescape(item))
             end, 10)
         end
     end)
@@ -124,7 +124,7 @@ M.remove = function(name, force)
     local root = git_root and git_root or uv.cwd()
 
     local base_name = fs.basename(root)
-    local link_path = string.format("%s/%s+%s.vim", SHARED_SESSIONS_PATH, base_name, name)
+    local link_path = string.format("%s/%s%%%s.vim", SHARED_SESSIONS_PATH, base_name, name)
 
     uv.fs_unlink(link_path)
 
@@ -192,13 +192,13 @@ M.rename = function(name, new_name)
     end)
 
     vim._with({ cwd = SHARED_SESSIONS_PATH }, function()
-        local original_link_path = string.format("%s+%s.vim", base_name, name)
+        local original_link_path = string.format("%s%%%s.vim", base_name, name)
 
         local original_link_abs_path = fs.abspath(original_link_path)
 
         uv.fs_unlink(original_link_path)
 
-        local new_link_path = string.format("%s+%s.vim", base_name, new_name)
+        local new_link_path = string.format("%s%%%s.vim", base_name, new_name)
 
         uv.fs_symlink(abs_path_new_session, new_link_path)
 
@@ -239,7 +239,7 @@ M.session_name = function()
 
     local full_session_name = fn.fnamemodify(this_session, ":t:r")
 
-    local session_name = full_session_name:gsub(".*+", "")
+    local session_name = full_session_name:gsub(".*%%", "")
 
     return session_name
 end
