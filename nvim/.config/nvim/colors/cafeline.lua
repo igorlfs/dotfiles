@@ -5,6 +5,7 @@ vim.g.colors_name = "cafeline"
 
 local dark = vim.o.background == "dark"
 
+local colors = require("colors")
 local hl = require("igorlfs.util").hl
 local p = require("igorlfs.cafeline").palette()
 
@@ -46,5 +47,4 @@ hl("DiagnosticUnnecessary", { dim = true })
 
 hl("debugPC", { bg = p.crust })
 
-hl("LspReferenceText", { bg = dark and p.surface or p.crust })
-
+hl("LspReferenceText", { bg = dark and p.surface or colors.blend(p.mantle, p.text, 0.9) })

@@ -15,7 +15,7 @@ return function(p)
     hl("CurSearch", { bg = p.red, fg = p.mantle })
 
     hl("CursorColumn", { link = "CursorLine" })
-    hl("CursorLine", { bg = dark and colors.darken(p.surface, 0.45, p.base) or p.crust })
+    hl("CursorLine", { bg = dark and colors.blend(p.surface, p.base, 0.33) or colors.blend(p.mantle, p.text, 0.9) })
 
     hl("Directory", { fg = p.blue })
 
@@ -30,7 +30,7 @@ return function(p)
 
     hl("WinSeparator", { fg = p.crust })
 
-    hl("Folded", { fg = p.blue, bg = dark and p.surface or p.crust })
+    hl("Folded", { fg = p.blue, bg = dark and p.surface or colors.blend(p.mantle, p.text, 0.95) })
 
     hl("IncSearch", { bg = p.sky, fg = p.mantle })
     hl("Substitute", { bg = p.surface, fg = p.pink })
@@ -42,6 +42,8 @@ return function(p)
     hl("MCursor", { reverse = true, dim = true })
 
     hl("ModeMsg", { fg = p.text, bold = true })
+
+    hl("MsgSeparator", { bg = dark and p.mantle or p.crust })
 
     hl("MoreMsg", { fg = p.blue })
 
