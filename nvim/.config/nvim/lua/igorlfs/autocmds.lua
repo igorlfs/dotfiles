@@ -9,10 +9,23 @@ api.nvim_create_autocmd("FileType", {
     command = "setlocal wrap",
 })
 
+api.nvim_create_autocmd("BufWinEnter", {
+    desc = "Reset miscellaneous options for miscellaneous buffers",
+    callback = function()
+        local buftype = vim.bo[0].buftype
+        -- It's more efficient to disable the statuscolumn here than to add a condition to the general case
+        -- (not that this matters anyway)
+        if buftype == "help" or buftype == "terminal" then
+            -- rnu and nu don't matter for help buffers, but also don't hurt
+            vim.cmd("setlocal statuscolumn= nornu nonu")
+        end
+    end,
+})
+
 -- See https://github.com/neovim/neovim/pull/31443#issuecomment-2521958704
 api.nvim_create_autocmd("TermOpen", {
     desc = "Terminal settings",
-    command = "setlocal scrolloff=0 cursorlineopt=line",
+    command = "setlocal scrolloff=0 cursorlineopt=line statuscolumn= nornu nonu",
 })
 
 -- From https://github.com/neovim/neovim/pull/30164#issuecomment-2315421660

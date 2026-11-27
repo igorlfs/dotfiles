@@ -44,10 +44,6 @@ end
 M.render = function()
     local buftype = vim.bo[0].buftype
 
-    if buftype == "help" or buftype == "terminal" then
-        return ""
-    end
-
     if buftype == "acwrite" or buftype == "quickfix" then
         return number_line()
     end
